@@ -1,32 +1,52 @@
-From: Jari Ruusu <jariruusu@users.sourceforge.net>
-Subject: Announce loop-AES-v3.0b file/swap crypto package
-Date: Sun, 16 Jan 2005 23:58:07 +0200
-Message-ID: <41EAE36F.35354DDF@users.sourceforge.net>
+From: "Sebastian V." <seba@webspiration.net>
+Subject: Linux kernel 3.0.0 released
+Date: Sat, 26 Feb 2005 20:40:44 +0100
+Message-ID: <4220D0BC.3080903@webspiration.net>
+References: <WLDB57EINAX3.GKWU25XAB7-AE79GUP40.F0841ADU56-NXC830SYJ8.J5594NDKAC9@zinc.org>	<4220582A.40802@slackcon.org> <1469516192.20050226173826@public.lt>	<4220B65B.2040000@slackcon.org> <4220B701.8020709@webspiration.net> <4220C810.7030608@toehold.com>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+In-Reply-To: <4220C810.7030608@toehold.com>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-To: linux-crypto@nl.linux.org
-Cc: linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"; format="flowed"
+To: linux-kernel-announce@vger.kernel.org
 
-loop-AES changes since previous release:
-- Fixed externally compiled module version multi-key-v3 ioctl
-  incompatibility with boxes running 64 bit kernel and 32 bit userland.
-  Kernel patch versions were not affected (2.4 and 2.6 kernels).
-- Fixed bug that made v3 on-disk format always use file backed code path on
-  some 2.6 kernels that did not have LO_FLAGS_DO_BMAP defined. No data loss,
-  but file backed code path is not journaled file system safe. Same bug also
-  had cosmetic side effect of "losetup -a" status query always displaying
-  file backed v2 on-disk format as v3 on-disk format.
+Kyle Hasselbacher wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> My new maildrop mail filter:
+> 
+> if ( /^X-Mailing-List: linux-kernel-announce@vger\.kernel\.org/ )
+> {
+>         if ( /^Subject: Linux kernel .* released/ )
+>         {
+>                 # It's a linux kernel announcement.
+>                 to $HOME/.mail/list/
+>         }
+>         else
+>         {
+>                 # It's a spammer or the subsequent discussion.
+>                 exit
+>         }
+> }
+> 
+> 
+> - --
+> Kyle Hasselbacher
+> kyle@toehold.com
+> -----BEGIN PGP SIGNATURE-----
+> Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+> 
+> iD8DBQFCIMgPzS7R/flctWYRAlOoAJ9pXwmhZSW9PVdpMjh88aZEjblgfwCggew8
+> V5MNEtBTzJOQ1OSxL60NUzY=
+> =Q7tp
+> -----END PGP SIGNATURE-----
+> -
+> To unsubscribe from this list: send the line "unsubscribe linux-kernel-announce" in
+> the body of a message to majordomo@vger.kernel.org
+> More majordomo info at  http://vger.kernel.org/majordomo-info.html
 
-bzip2 compressed tarball is here:
-
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.0b.tar.bz2
-    md5sum b295ff982cd4503603b38fdc54e604cc
-
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.0b.tar.bz2.sign
-
--- 
-Jari Ruusu  1024R/3A220F51 5B 4B F9 BB D3 3F 52 E9  DB 1D EB E3 24 0E A9 DD
+MAUHAUHAUHAUAHUAHUAHAUHAUHA
+s.
+(sorry, it was stronger than me (blame god (or canada)))
