@@ -1,38 +1,31 @@
-From: Wez Furlong <kingwez@gmail.com>
-Subject: Re: Linux kernel 2.0.1 released
-Date: Sat, 23 Oct 2004 15:21:39 +0100
+From: Jari Ruusu <jariruusu@users.sourceforge.net>
+Subject: Announce loop-AES-v2.2c file/swap crypto package
+Date: Sun, 24 Oct 2004 20:18:14 +0300
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <4e89b426041023072149f1de5d@mail.gmail.com>
-References: <1870.192.168.171.80.1098461278.squirrel@192.168.171.80>
-	 <200410230225.55756.separator@e-mail.ru>
-	 <Pine.LNX.4.58.0410231526550.29704@edc>
-	 <4e89b426041023071576990e46@mail.gmail.com>
-	 <417A6900.2030608@webpagina.nu>
-Reply-To: Wez Furlong <kingwez@gmail.com>
+Message-ID: <417BE3D6.BB54FE7D@users.sourceforge.net>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-In-Reply-To: <417A6900.2030608@webpagina.nu>
 List-Id: <linux-kernel-announce.vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
-To: Patrick Donker <list-account@webpagina.nu>
-Cc: linux-kernel-announce@vger.kernel.org
+To: linux-crypto@nl.linux.org
+Cc: linux-kernel@vger.kernel.org
 
-Maybe you should too, instead of further spamming *us* with comments about it?
-I'm unsubscribing now and will use other means to stay up to date.
+loop-AES changes since previous release:
+- Added compile time autodetection and workaround for per-thread vs.
+  per-process rlimits (2.6 kernels).
+- Added Gentoo compatible binary key setup option to mount and losetup
+  'mount -p 0 -o phash=unhashed3' or 'losetup -p 0 -H unhashed3'.
+- Added random key setup option to mount and losetup. This can be used to
+  encrypt /tmp with random keys.
+- Added workaround for module_param_array() breakage in 2.6.10-rc
 
---Wez.
+bzip2 compressed tarball is here:
 
-On Sat, 23 Oct 2004 16:21:52 +0200, Patrick Donker
-<list-account@webpagina.nu> wrote:
-> Wez Furlong wrote:
-> 
-> > Stop spamming the list.
-> >
-> > On Sat, 23 Oct 2004 15:30:25 +0200 (CEST), Ladislav Dobias
-> > <lada@dobias.info> wrote:
-> 
-> Maybe you didnt notice it yet, but for the moment it is *us* being
-> spammed with incorrect and outdated info. Maybe you should mail your
-> wisdom to the listowner
->
+    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.2c.tar.bz2
+    md5sum 439a25bd1e85e8053bf0cf3c504279ed
+
+    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.2c.tar.bz2.sign
+
+-- 
+Jari Ruusu  1024R/3A220F51 5B 4B F9 BB D3 3F 52 E9  DB 1D EB E3 24 0E A9 DD
