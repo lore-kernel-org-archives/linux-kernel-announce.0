@@ -1,7 +1,7 @@
 From: Andrew Morton <akpm@osdl.org>
-Subject: 2.6.12-rc1-mm4
-Date: Thu, 31 Mar 2005 02:25:54 -0800
-Message-ID: <20050331022554.735a1118.akpm@osdl.org>
+Subject: 2.6.12-rc2-mm1
+Date: Tue, 5 Apr 2005 00:05:24 -0700
+Message-ID: <20050405000524.592fc125.akpm__37930.0506356687$1112685384$gmane$org@osdl.org>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
@@ -11,683 +11,522 @@ Content-Type: text/plain; charset="us-ascii"
 To: linux-kernel@vger.kernel.org
 
 
-ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.12-rc1/2.6.12-rc1-mm4/
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.12-rc2/2.6.12-rc2-mm1/
+
+- x86 NMI handling seems to be bust in 2.6.12-rc2.  Try using
+  `nmi_watchdog=0' if you experience weird crashes.
+
+- The possible kernel-timer related hangs might possibly be fixed.  We
+  haven't heard yet.
+
+- Nobody said anything about the PM resume and DRI behaviour in
+  2.6.12-rc1-mm4.  So it's all perfect now?
+
+- Various fixes and updates.  Nothing earth-shattering.
 
 
-- New reiserfs4 code drop
 
-- Various new fixes and cleanups.  Am still interested in hearing how people
-  are going with the DRI problems and the PM resume problems.
+Changes since 2.6.12-rc1-mm4:
 
 
-
-Changes since 2.6.12-rc1-mm3:
-
-
- linus.patch
  bk-acpi.patch
  bk-agpgart.patch
- bk-audit.patch
+ bk-cifs.patch
  bk-cpufreq.patch
+ bk-cryptodev.patch
  bk-driver-core.patch
  bk-drm.patch
  bk-drm-via.patch
- bk-i2c.patch
  bk-ia64.patch
- bk-ide-dev.patch
+ bk-audit.patch
  bk-input.patch
+ bk-jfs.patch
  bk-kbuild.patch
  bk-mtd.patch
- bk-net.patch
  bk-netdev.patch
  bk-nfs.patch
  bk-ntfs.patch
- bk-pci.patch
  bk-scsi.patch
- bk-serial.patch
  bk-watchdog.patch
 
  Latest versions of subsystem trees
 
--pcmcia-properly-bail-out-on-mtd-related-ioctl-invocation.patch
--pcmcia-dont-lock-up-in-rsrc_nonstatic-pcmcia_validate_mem.patch
--pcmcia-dont-send-eject-request-events-to-userspace.patch
--ppc64-preliminary-changes-to-of-fixup-functions.patch
--ppc64-make-of-node-fixup-code-usable-at-runtime.patch
--ppc64-introduce-pseries_reconfig.patch
--ppc64-promc-use-pseries-reconfig-notifier.patch
--ppc64-fix-aio-panic-caused-by-is_hugepage_only_range.patch
--handle-multiple-video-cards-on-the-same-bus.patch
--tty-overrun-time-fix.patch
--bk-driver-core-hang-fix.patch
--3dfx-drm-depends-on-pci.patch
--sata_sil-corruption--lockup-fix.patch
--bk-nfs-gcc4-fix.patch
--nfs4-empty-array-fix.patch
--drivers-pci-hotplug-cpqphp_corec-fix-a-check-after-use.patch
--ub-atomicity-fix.patch
--drivers-usb-misc-usbtestc-fix-a-null-dereference.patch
--slab-kmalloc-cleanups.patch
--slab-64bit-fix.patch
--vmscan-move-code-to-isolate-lru-pages-into-separate-function.patch
--mm-counter-operations-through-macros.patch
--mm-counter-operations-through-macros-tidy.patch
--slab-shrinkers-use-vfs_cache_pressure.patch
--include-cleanup-in-pgalloch.patch
--fix-mmap-of-dev-kmem.patch
--unused-size-assignment-in-filemap_nopage.patch
--remove-last_rx-update-from-loopback-device.patch
--a-new-10gb-ethernet-driver-by-chelsio-communications-update.patch
--pcnet32-bug-79c975-fiber-fix.patch
--null-pointer-bug-in-netpollc.patch
--restore-ports-module-parameter-for-ip_nat_ftp-and-ip_nat_irc.patch
--ipt-leak-fix.patch
--ipv6-fix-address-interface-handling-according-to-the-scoping-architecture.patch
--drivers-net-wireless-airoc-correct-a-wrong-check.patch
--selinux-make-code-static-and-remove-unused-code.patch
--selinux-allow-mounting-of-filesystems-with-invalid-root-inode-context.patch
--selinux-audit-unrecognized-netlink-messages.patch
--selinux-add-name_connect-permission-check.patch
--ppc32-fix-mv64x60-internal-sram-size.patch
--ppc32-move-83xx-85xx-device-and-system-description-files.patch
--ppc32-fix-config_serial_text_debug-support-on-83xx.patch
--ppc32-typo-fix-in-load-store-string-emulation.patch
--ppc32-report-chipset-version-in-common-proc-cpuinfo-handling.patch
--ppc32-report-chipset-version-in-common-proc-cpuinfo-handling-fix.patch
--ppc32-dmasound-compilation-fix.patch
--ppc32-fix-sandpoint-soft-reboot.patch
--ppc32-64-map-prefetchable-pci-without-guarded-bit.patch
--ppc32-fix-broken-compile-on-sky-computers-hdpu-platform.patch
--ppc32-8xx-typo-fix.patch
--ppc64-pci_dnc-use-pseries-reconfig-notifier.patch
--ppc64-pseries_iommuc-use-pseries-reconfig-notifier.patch
--ppc64-fix-gcc4-compile-error-in-pacah.patch
--ppc64-fix-compile-error-in-promc.patch
--ppc64-fix-linkage-error-on-g5.patch
--ppc64-fix-semtimedop-compat-syscall.patch
--ppc64-fix-pseries-hcall-stubs.patch
--ppc64-make-numa=off-command-line-argument-work-again.patch
--ppc64-fix-ethernet-phy-reset-on-imac-g5.patch
--ppc64-fix-lpar-iommu-setup-code-for-p630.patch
--mips-linkage-fix.patch
--mips-update-vr41xx-rtc-support.patch
--x86-cmos-time-update-optimisation.patch
--x86-cmos-time-update-optimisation-tidy.patch
--x86-cmos-time-update-optimisation-locking-fix.patch
--x86-cmos-time-update-optimisation-locking-fix-check.patch
--apm-fix-interrupts-enabled-in-device_power_up.patch
--rtc_lock-is-irq-safe.patch
--fix-put_user-for-80386.patch
--es7000-legacy-mappings-update.patch
--x86-fix-esp-corruption-cpu-bug-take-2-fix.patch
--es7000-dmi-cleanup.patch
--i386-add-kstack=n-option-from-x86_64.patch
--rename-fpu_verify_area-to-fpu_access_ok.patch
--x86_64-update-defconfig.patch
--x86_64-add-new-amd-cpuid-flags-to-cpuinfo.patch
--x86_64-add-an-64bit-entry-path-for-exec.patch
--x86_64-busses-array-is-only-indexed-with-a-8bit-value.patch
--x86_64-fix-compilation-with-config_proc_fs=n.patch
--x86_64-move-hpet-selection-into-processor-specific.patch
--x86_64-remove-never-used-obsolete-file.patch
--x86_64-fix-indentation-in-vsyscallc-no-functional.patch
--x86_64-nop-out-system-call-instruction-in-vsyscall-page.patch
--x86_64-nop-out-system-call-instruction-in-vsyscall-page-fix.patch
--x86_64-remove-obsolete-comments-in-vsyscallc-and-fix.patch
--x86_64-remove-noisy-printk-in-k8-bus-detection-code.patch
--x86_64-remove-unused-and-broken-code-in-ioh.patch
--x86_64-remove-stale-unused-file.patch
--x86_64-move-put_user-out-of-line.patch
--x86_64-give-out-of-line-get_user-better-calling.patch
--x86_64-work-around-tyan-bios-mtrr-initialization-bug.patch
--x86_64-include-pci-express-configuration.patch
--x86_64-cleanups-in-new-backtrace-code-in-oprofile.patch
--x86_64-fix-special-isa-case-in-iounmap.patch
--x86_64-fix-formatting-and-white-space-in-signal-code.patch
--x86_64-mem=xxx-will-now-limit-kernel-memory-to-xxx.patch
--x86_64-resume-pit-for-x86_64.patch
--x86_64-fix-nmi-rtc-access-race.patch
--x86_64-minor-fix-to-tlb-flush-ipi.patch
--x86_64-always-reload-cr3-completely-when-a-lazy-mm.patch
--x86_64-fix-ldt-descriptor.patch
--x86_64-change-the-y2069-bug-in-the-rtc-timer-code-to-be.patch
--x86_64-only-free-pmds-and-puds-after-other-cpus-have.patch
--x86_64-dont-enable-interrupts-in-oopses.patch
--x86_64-fix-smp-fallback-to-up.patch
--x86_64-fix-config_preempt.patch
--x86_64-fix-exception-stack-detection-during-backtraces.patch
--x86_64-fix-gcc-34-warning-in-bitopsc.patch
--x86_64-fix-missing-delay-when-the-tsc-counter-just.patch
--x86_64-clean-up-the-iommu-initialisation-a-bit.patch
--x86-64-kconfig-typo-trivial.patch
--x86_64-remove-old-decl-trivial.patch
--x86_64-hugetlb-fix.patch
--x86-64-forgot-asmlinkage-on-sys_mmap.patch
--x86_64-reduce-cacheline-bouncing-in-cpu_idle_wait-warning-fix.patch
--kernel-parameters-ia-32-x86-64-cleanups.patch
--x86_64-dump-stack-in-early-exception.patch
--alpha-spinlockh-update.patch
--ia64-reduce-cacheline-bouncing-in-cpu_idle_wait-fix.patch
--swsusp-add-missing-refrigerator-calls.patch
--suspend-to-ram-update-videotxt-with-more-systems.patch
--pm-remove-obsolete-pm_-from-vtc.patch
--swsusp-small-updates.patch
--swsusp-1-1-kill-swsusp_restore.patch
--m32r-update-mmu-less-support-1.patch
--m32r-update-mmu-less-support-2.patch
--m32r-update-mmu-less-support-3.patch
--m32r-fix-m32102-i-cache-invalidation.patch
--m32r_sio-driver-update.patch
--m68k-update-signal-delivery-handling.patch
--m68k-stdma-replace-sleep_on-with-wait_event.patch
--zorro-replace-printk-with-pr_info-in-drivers-zorro-zorroc.patch
--mac-ncr5380-scsi-fix-bus-error.patch
--m68k-ip-checksum-updates.patch
--sun-3-3x-enable-sun-partition-tables-support-by-default.patch
--m68k-add-missing-pieces-of-thread-info-tif_memdie-support.patch
--tpm-depends-on-pci.patch
--uml-cope-with-uml_net-security-fix-2.patch
--uml-fix-compile.patch
--uml-cpu_relax-fix.patch
--uml-extend-cmd-line-limits.patch
--uml-disable-more-hardware-kconfig-opt-and-rename-usermode-to-uml.patch
--uml-little-build-fixes.patch
--uml-factor-out-common-code-in-user-obj-handling.patch
--uml-kbuild-link-cmd.patch
--uml-add-kconfig-debug-deps.patch
--uml-real-fix-for-__gcov_init-symbols.patch
--uml-fix-cond-expr-as-lvalues-warning.patch
--s390-swapped-memset-arguments.patch
--s390-kernel-faults.patch
--s390-signal-stack-bug.patch
--s390-dasd-preferred-path-support.patch
--s390-qeth-layer2-fixes.patch
--s390-qeth-1920-device-support.patch
--s390-qeth-blkt-tuning.patch
--s390-qeth-tcp-segmentation-offload.patch
--s390-claw-network-device-driver.patch
--cant-unmount-bad-inode.patch
--stallion-driver-module-clean-up.patch
--use-__init-and-__exit-in-pktcdvd.patch
--dvd-ram-support-for-pktcdvd.patch
--break_lock-fix-2.patch
--cdrom-cdu31a-cleanups.patch
--cdrom-cdu31a-locking-fixes.patch
--cdrom-cdu31a-use-wait_event.patch
--revert-gconfig-changes.patch
--revert-gconfig-changes-build-fix.patch
--enable-gcc-warnings-for-vsprintf-vsnprintf-with-format-attribute.patch
--w6692-eliminate-bad-section-references.patch
--teles3-eliminate-bad-section-references.patch
--elsa-eliminate-bad-section-references.patch
--hfc_sx-eliminate-bad-section-references.patch
--sedlbauer-eliminate-bad-section-references.patch
--fix-mprotect-with-len=size_t-1-to-return-enomem.patch
--checkstack-fix-sort-misbehavior-for-long-function-names.patch
--fix-irq_affinity-write-from-proc-for-ia64.patch
--fix-mmap-return-value-to-conform-posix.patch
--fix-mmap-return-value-to-conform-to-posix.patch
--exports-to-enable-clock-driver-modules.patch
--per-cpu-irq-stat.patch
--kill-drivers-cdrom-mcdc.patch
--drivers-char-isicomc-gcc4-fix.patch
--infiniband-remove-unsafe-use-of-in_atomic.patch
--new-console-flag-con_boot.patch
--new-console-flag-con_boot-comment.patch
--pipe-save-one-pipe-page.patch
--kprobes-incorrect-spin_unlock_irqrestore-call-in-register_kprobe.patch
--ext2_make_empty-information-leak.patch
--missing-set_fs-calls-around-kernel-syscall.patch
--cpusets-mems-generation-deadlock-fix.patch
--cpusets-alloc-gfp_wait-sleep-fix.patch
--mtrr-uaccess-range-checking-fix.patch
--cciss-range-checking-fix.patch
--fix-posix-timers-expiring-before-their-scheduled-time.patch
--fix-oops-when-inserting-ipmi_si-module.patch
--posix-cpu-timers-and-cputime_t-divisons.patch
--ext2-3-file-limits-to-avoid-overflowing-i_blocks.patch
--load_elf_library-kfree-fix.patch
--futex-queue_me-get_user-ordering-fix.patch
--io_remap_pfn_range-add-for-all-arch-es.patch
--io_remap_pfn_range-add-for-all-arch-es-fix.patch
--io_remap_pfn_range-convert-sparc-callers.patch
--io_remap_pfn_range-fix-some-callers-for-xen.patch
--io_remap_pfn_range-convert-last-callers.patch
--alpha-build-fixes.patch
--fix-pcmcia-resume-with-card-inserted.patch
--pcmcia-clean-up-suspend.patch
--small-warning-fix-for-gcc4.patch
--alpha-elimitate-two-warnings-from-gcc4.patch
--fat-set-ms_noatime-to-msdos.patch
--fat-fix-msdos-datetime.patch
--fix-compile-warning-in-drivers-pnp-resourcec-with-config_pci.patch
--nlm-fix-f_count-leak.patch
--module-parameter-fixes.patch
--fs-hpfs-fix-hpfs-support-under-64-bit-kernel.patch
--arch-hook-for-notifying-changes-in-pte-protections-bits.patch
--serial-digi-neo-driver.patch
--netmos-parallel-serial-combo-support.patch
--bt819-array-indexing-fix.patch
--unified-spinlock-initialization.patch
--drivers-block-dac960c-fix-a-use-after-free.patch
--drivers-telephony-ixj-fix-a-use-after-free.patch
--fs-attrc-fix-check-after-use.patch
--fs-smbfs-requestc-fix-null-dereference.patch
--hfs-free-page-buffers-in-releasepage.patch
--hfs-fix-umask-behaviour.patch
--hfs-more-bnode-error-checks.patch
--hfs-fix-sign-problem-in-hfs_ext_keycmp.patch
--hfs-use-parse-library-for-mount-options.patch
--hfs-add-nls-support.patch
--hfs-unicode-decompose-support.patch
--dvb-clarify-firmware-upload-messages.patch
--dvb-dibcom-frontend-fixes.patch
--dvb-dibusb-misc-fixes.patch
--dvb-skystar2-remove-duplicate-pci_release_region.patch
--dvb-mt352-pinnacle-300i-comments.patch
--dvb-support-activy-budget-card.patch
--dvb-skystar2-update-email-address.patch
--dvb-ves1x93-invert_pwm-fix.patch
--dvb-dibusb-readme-update.patch
--dvb-dibusb-support-hauppauge-wintv-nova-t-usb2.patch
--dvb-nxt2002-qam64-256-support.patch
--dvb-get_dvb_firmware-new-unshield-version.patch
--dvb-dib3000-corrected-device-naming.patch
--dvb-dibusb-debug-changes.patch
--dvb-dibusb-increased-the-number-of-urbs-for-usb11-devices.patch
--dvb-ttusb_dec-use-alternative-interface-to-save-bandwidth.patch
--dvb-l64781-email-address-fix.patch
--dvb-skystar2-fix-mac-address-reading.patch
--dvb-support-kworld-adstech-instant-dvb-t-usb20.patch
--dvb-cleanups-make-stuff-static.patch
--dvb-refactor-sw-pid-filter-to-drop-redundant-code.patch
--dvb-nxt2002-fix-max-frequency.patch
--dvb-ttusb-budget-s-usb_unlink_urb-usb_kill_urb.patch
--dvb-av7110-fix-oops-when-av7110_ir_init-failed.patch
--dvb-saa7146-static-initialization.patch
--dvb-av7110-error-handling-during-attach.patch
--dvb-corrected-links-to-firmware-files.patch
--dvb-support-pchdtv-hd2000.patch
--dvb-dibusb-support-nova-t-usb-ir.patch
--dvb-oren-or51211-or51132_qam-and-or51132_vsb-firmware-download-info.patch
--dvb-ttusb_dec-ir-support.patch
--dvb-dibusb-pll-fix.patch
--dvb-tda10021-fix-continuity-errors.patch
--dvb-saa7146-remove-duplicate-setgpio.patch
--dvb-fix-cams-on-typhoon-dvb-s.patch
--dvb-frontends-kfree-cleanup.patch
--dvb-clear-up-confusion-between-ids-and-adapters.patch
--dvb-dibusb-remove-useless-ifdef.patch
--dvb-support-for-technotrend-pci-dvb-t.patch
--dvb-dibusb-hanftek-umt-010-fixes.patch
--dvb-vfree-checking-cleanups.patch
--dvb-convert-from-pci_module_init-to-pci_register_driver.patch
--dvb-dibusb-support-dtt200u-yakumo-typhoon-hama-usb20-device.patch
--dvb-sparse-warnings-on-one-bit-bitfields.patch
--dvb-support-nova-s-rev-22.patch
--dvb-ttusb_dec-cleanup.patch
--dvb-gcc-295-compile-fixes.patch
--dvb-mt352-cleanups.patch
--ext3-jbd-race-releasing-in-use-journal_heads.patch
--ext3-writepages-support-for-writeback-mode.patch
--ext3-writeback-nobh-option.patch
--ext3-fix-journal_unmap_buffer-race.patch
--generic-serial-cli-conversion.patch
--specialix-io8-cli-conversion.patch
+-arm-atomic_sub_and_test.patch
+-nfs-fix-typo-in-access-caching-code.patch
+-ia64-msi-warning-fixes.patch
+-ia64-config_apci_numa-fix.patch
+-acpi-ec-warning-fix.patch
+-acpi-create_polling_proc-fix.patch
+-uml-make-deb-pkg-build-target-build-a-debian-style-user-mode-linux-package.patch
+-uml-restore-proper-descriptions-in-make-deb-pkg-target.patch
+-doc-describe-kbuild-pitfall.patch
+-complete-cpufreq-kconfig-cleanup.patch
+-pcnet32-79c975-fiber-fix.patch
+-drivers-net-smc-mcac-cleanups.patch
+-debug-for-pci-io-mem-allocation.patch
+-drivers-scsi-dptih-remove-kernel-22-ifs.patch
+-fix-help-for-acpi_container.patch
+-bdi-provide-backing-device-capability-information.patch
+-cpusets-big-numa-cpu-and-memory-placement-backing_dev-fix.patch
+-read_kmem-fixes.patch
+-cpusets-special-case-gfp_atomic-allocs.patch
+-cpusets-gfp_atomic-fix-tonedown-panic-comment.patch
+-cpuset-make-function-decl-ansi.patch
+-e1000-flush-work-queues-on-remove.patch
+-drivers-net-amd8111ec-fix-napi-interrupt-in-poll.patch
+-orinoco-merge-updates-part-the-fourth-wireless-stats-updates.patch
+-orinoco-merge-updates-part-the-fourth-ignore_disconnect-flag.patch
+-orinoco-merge-updates-part-the-fourth-kill-dump_recs.patch
+-orinoco-merge-updates-part-the-fourth-dont-set-channel-in-managed-mode.patch
+-orinoco-merge-updates-part-the-fourth-consolidate-allocation-code.patch
+-ppp-multilink-fragmentation-improvements.patch
+-e100-use-eeprom-config-for-auto-mdi-mdi-x.patch
+-ppc32-remove-unnecessary-test-in-mpc52xx-reset-code.patch
+-ppc32-remove-the-ocp-system-from-the-freescale-mpc52xx.patch
+-ppc32-change-constants-style-in-freescale-mpc52xx.patch
+-ppc32-use-platform-bus--ppc_sys-model-for-freescale.patch
+-serial-update-mpc52xx_uartc-to-use-platform-bus.patch
+-ppc32-adds-necessary-cpu-init-to-use-usb-on-lite5200.patch
+-ppc32-cleanup-of-book-e-exception-handling.patch
+-ppc32-cpm2-pic-cleanup.patch
+-ppc32-cpm2-pic-cleanup-irq_to_siubit-array-updated.patch
+-ppc32-fix-mpc8555-mpc8555e-device-lists-updated.patch
+-ppc32-mpc8555-cpm2-size-pointers-for-fccs-aka-all-ones-problem.patch
+-seccomp-for-ppc64.patch
+-ppc64-fix-zilog-link-error.patch
+-ppc64-add-mem=x-boot-command-line-option.patch
+-x86-reduce-cacheline-bouncing-in-cpu_idle_wait.patch
+-x86-via-workaround.patch
+-x86-fix-esp-corruption-cpu-bug-take-2.patch
+-arch-i386-kernel-smpc-remove-a-pointless-inline.patch
+-x86_64-avoid-panic-lockup.patch
+-x86_64-reduce-cacheline-bouncing-in-cpu_idle_wait.patch
+-x86-64-kprobes-handle-%rip-relative-addressing-mode.patch
+-x86-x86_64-reading-deterministic-cache-parameters-and-exporting-it-in-sysfs.patch
+-m32r-fix-spinlockh-for-config_debug_spinlock.patch
+-m32r-build-fix-for-config_discontigmem.patch
+-uml-fix-sigio-spinlock.patch
+-uml-gprof-depends-on-tt.patch
+-uml-quick-fix-syscall-table.patch
+-uml-fixes-a-build-failure-with-config_mode_skas-disabled.patch
+-uml-fix-hostfs-special-perm-handling.patch
+-uml-correct-error-message.patch
+-uml-fix-the-console-stuttering.patch
+-make-sysrq-f-call-oom_kill.patch
+-cx24110-conexant-frontend-update.patch
+-consolidate-asm-ipch.patch
 -sx-cli-conversion.patch
--au1x00_uart-deadlock-fix.patch
--pm2fb-x-and-vt-switching-crash-fix.patch
+-make-documentation-oops-tracingtxt-relevant-to-26.patch
+-kill-stupid-warning-when-compiling-riocmdc.patch
+-kernel-rcupdatec-make-the-exports-export_symbol_gpl.patch
+-nommuc-build-error-fix.patch
+-parport-oops-fix.patch
+-kprobe_handler-should-check-pre_handler-function.patch
+-iput-can-sleep.patch
+-zr36050-typo-fix.patch
+-ext3-dynamic-allocating-block-reservation-info.patch
+-ext3-reservation-info-cleanup-remove-rsv_seqlock.patch
+-ext3-reservation-info-cleanup-remove-rsv_seqlock-fix.patch
+-ext3-move-goal-logical-block-into-block-allocation-info.patch
+-kfree-null-pointer-cleanups-no-need-to-check-fs-ext3.patch
+-svcrpc-auth_domain-documentation.patch
+-nfsd4-fix-share-conflict-tests.patch
+-nfsd4-remove-unneeded-stateowner-arguments.patch
+-nfsd4-fix-use-after-put-in-cb_recall.patch
+-nfsd4-allow-read-on-open-for-write.patch
+-nfsd4-factor-out-common-open_truncate-code.patch
+-nfsd4-fix-failure-to-truncate-on-some-opens.patch
+-nfsd4_remove_unused_acl_function.patch
+-nfsd4-dont-set-write_owner-in-either-allow-or-deny-bits.patch
+-nfsd4-acl-dont-set-named-attrs.patch
+-nfsd4-acl-error-fix.patch
+-nfsd4-rename-release_delegation.patch
+-nfsd4-remove-trailing-whitespace-from-nfs4procc.patch
+-nfsd4-fix-open-returns-for-other-claim-types.patch
+-nfsd4-fix-indentation-in-nfsd4_open.patch
+-sched2-fix-schedstats-warning.patch
+-vt-dont-call-unblank-at-irq-time.patch
+-ppc32-move-powermac-backlight-stuff-to-a-workqueue.patch
+-radeonfb-implement-proper-workarounds-for-pll-accesses.patch
+-radeonfb-ddc-i2c-fix.patch
+-fbdev-nvidia-licensing-clarification.patch
+-fbcon-stop-framebuffer-operations-before-hardware-is-properly-initialized.patch
+-nvidiafb-maximize-blit-buffer-capacity.patch
+-nvidiafb-fix-section-references.patch
 -nvidiafb-process-boot-options-earlier.patch
+-nvidiafb-kconfig-help-text-update-for-config-fb_nvidia.patch
 -nvidiafb-delete-i2c-bus-on-driver-unload.patch
--fix-pm_message_t-in-generic-code.patch
--fix-u32-vs-pm_message_t-in-usb.patch
--more-pm_message_t-fixes.patch
--fix-u32-vs-pm_message_t-confusion-in-oss.patch
--fix-u32-vs-pm_message_t-confusion-in-pcmcia.patch
--fix-u32-vs-pm_message_t-confusion-in-framebuffers.patch
--fix-u32-vs-pm_message_t-confusion-in-mmc.patch
--fix-u32-vs-pm_message_t-confusion-in-serials.patch
--fix-u32-vs-pm_message_t-in-macintosh.patch
--fix-u32-vs-pm_message_t-confusion-in-agp.patch
+-pm2fb-x-and-vt-switching-crash-fix.patch
+-fbdev-cleanups-in-drivers-video-part-2.patch
+-fbdev-cleanups-in-drivers-video-part-2-fix.patch
+-excessive-atyfb-debug-messages.patch
+-atyfb-add-boot-module-option-to-override-composite-sync.patch
+-fbdev-kconfig-fix-for-macmodes-and-ppc.patch
+-fbdev-convert-drivers-to-pci_register_driver.patch
+-sisfb-trivial-cleanups.patch
+-tridentfb-clean-up-printks.patch
+-s1d13xxxfb-add-support-for-epson-s1d13806-fb.patch
+-fbcon-save-var-rotate-field-in-struct-display.patch
+-fbcon-call-set_par-per-fb_info-once-during-init.patch
+-fbcon-do-not-set-palette-if-console-is-not-visible.patch
+-neofb-mmio-fixes.patch
+-neofb-set-hwaccel-flags-properly.patch
+-remove-redundant-null-checks-before-kfree-in-drivers-video.patch
+-remove-redundant-null-checks-before-kfree-in-drivers-video-fix.patch
+-fix-matroxfb-on-big-endian-hardware.patch
+-radeonfb-fix-mode-setting-on-crt-monitors.patch
+-radeonfb-preserve-tmds-setting.patch
+-fix-atyfb-build-on-ppc.patch
+-doc-where-to-find-ldd3.patch
 
  Merged
 
-+nfs-fix-typo-in-access-caching-code.patch
+-linus.patch
 
- nfs client fix
+ There's nothing there.
 
-+bk-driver-core-noisiness.patch
++bk-acpi-alpha-build-fix.patch
 
- Avoid bk-driver-core logspamming
+ Fix bk-acpi for non-ACPI machines.
 
-+fix-typo-in-scdrv_init.patch
++fix-agp-code-to-work-again-with-non-pci-agp-bridges.patch
 
- Fix a typo
+ agp fix
 
-+fix-ver_linux-script-for-no-udev-utils.patch
++add-suspend-method-to-cpufreq-core.patch
++add-suspend-method-to-cpufreq-core-warning-fix.patch
 
- ver_linux fix
+ cpufreq suspend support
 
-+use-cross_compileinstallkernel-in-arch-boot-installsh.patch
+-bk-driver-core-noisiness.patch
 
- kbuild update
+ Dropped (although it's still needed)
 
-+kconfig-i18n-support.patch
++bk-driver-core-fix.patch
 
- Permit internationalisation of Kconfig text.
+ Revert dud patch in bk-driver-core.patch
 
-+libata-flush-comreset-set-and-clear.patch
+-bk-ide-dev.patch
 
- Sata fix
+ Too many bk conflicts for me.
 
-+pcnet32-79c975-fiber-fix.patch
-+drivers-net-smc-mcac-cleanups.patch
++bk-driver-core-sn2-build-fix.patch
 
- net driver updates
+ Fix bk-driver-core for sn2.
 
-+drivers-scsi-dptih-remove-kernel-22-ifs.patch
++quiet-ide-cd-warning.patch
 
- scsi cleanup
+ Kill compile warning.
 
--open-iscsi-scsi.patch
--open-iscsi-headers.patch
--open-iscsi-kconfig.patch
--open-iscsi-makefile.patch
--open-iscsi-netlink.patch
--open-iscsi-doc.patch
++serio-resume-fix.patch
++alps-resume-fix.patch
++serport-oops-fix.patch
++serio-id-attributes.patch
 
- There seemed little point in retaining these in -mm.
+ input driver resume fixes
 
--usb-wacom-driver-update.patch
-+usb-wacom-tablet-driver.patch
-+add-new-wacom-device-to-usb-hid-core-list.patch
++tulip-fix-for-64-bit-mips.patch
++pcnet_csc-irq-handler-optimization.patch
 
- Wacom tablet driver updates
+ net driver fixes
 
-+pm-support-for-zd1201.patch
-+bug-fix-in-usbdevfs.patch
++pci_module_init-pci_register_driver.patch
 
- usb fixes
+ pci_module_init() conversions.
 
-+remove-non-discontig-use-of-pgdat-node_mem_map.patch
++usb-turn-a-user-mode-driver-error-into-a-hard-error.patch
 
- discontigmem cleanup
+ USB fix
 
-+resubmit-sparsemem-base-early_pfn_to_nid-works-before-sparse-is-initialized.patch
-+resubmit-sparsemem-base-simple-numa-remap-space-allocator.patch
-+resubmit-sparsemem-base-reorganize-page-flags-bit-operations.patch
-+resubmit-sparsemem-base-teach-discontig-about-sparse-ranges.patch
++create-mm-kconfig-for-arch-independent-memory-options.patch
++make-each-arch-use-mm-kconfig.patch
++update-all-defconfigs-for-arch_discontigmem_enable.patch
++introduce-new-kconfig-option-for-numa-or-discontig.patch
 
- Preparatory support for `sparesemem' - a way of permitting gaps in the
- per-node mem_map[] pageframe array.
+ More sparsemem preparatory work.
 
-+read_kmem-fixes.patch
++oom-killer-disable-for-iscsi-lvm2-multipath-userland-critical-sections.patch
 
- /dev/kmem fix
+ per-process oom-killer override
 
-+cpusets-special-case-gfp_atomic-allocs.patch
-+cpusets-gfp_atomic-fix-tonedown-panic-comment.patch
-+cpuset-make-function-decl-ansi.patch
++vmscan-pageout-remove-unneeded-test.patch
++end_buffer_write_sync-avoid-pointless-assignments.patch
 
- cpusets fixes
+ Little cleanups
 
-+filemap_getpage-can-block-when-map_nonblock-specified.patch
++meminfo-add-cached-underflow-check.patch
 
- Make filemap_getpage() honour MAP_NONBLOCK correctly.
+ /proc/meminfo fix
 
-+add-kmalloc_node-inline-cleanup.patch
++ppc32-fix-bogosity-in-process-freezing-code.patch
++ppc32-ppc4xx_pic-add-acknowledge-when-enabling-level-sensitive-irq.patch
++ppc32-improve-timebase-sync-for-smp.patch
++ppc32-oops-on-kernel-altivec-assist-exceptions.patch
++ppc32-fix-single-stepping-of-emulated-instructions.patch
++ppc32-fix-errata-for-some-g3-cpus.patch
++ppc32-fix-cpufreq-problems.patch
++ppc64-fix-semantics-of-__ioremap.patch
 
- slab feature work for NUMA.
+ ppc32, ppc64 updates
 
-+orinoco-merge-updates-part-the-fourth-wireless-stats-updates.patch
-+orinoco-merge-updates-part-the-fourth-ignore_disconnect-flag.patch
-+orinoco-merge-updates-part-the-fourth-kill-dump_recs.patch
-+orinoco-merge-updates-part-the-fourth-dont-set-channel-in-managed-mode.patch
-+orinoco-merge-updates-part-the-fourth-consolidate-allocation-code.patch
++mips-remove-obsolete-vr41xx-rtc-function.patch
++mips-update-vr41xx-cpu-pci-bridge.patch
 
- net driver update
+ MIPS fixes
 
-+ppp-multilink-fragmentation-improvements.patch
++sched-x86-sched_clock-to-use-tsc-on-config_hpet-or-config_numa-systems.patch
 
- ppp multilink fixes and improvements.
+ scheduler clock accuracy fix
 
-+e100-use-eeprom-config-for-auto-mdi-mdi-x.patch
++x86_64-use-a-vma-for-the-32bit-vsyscall.patch
 
- e100 fix.
+ x86_64 fix
 
-+ppc32-remove-unnecessary-test-in-mpc52xx-reset-code.patch
-+ppc32-remove-the-ocp-system-from-the-freescale-mpc52xx.patch
-+ppc32-change-constants-style-in-freescale-mpc52xx.patch
-+ppc32-use-platform-bus--ppc_sys-model-for-freescale.patch
-+serial-update-mpc52xx_uartc-to-use-platform-bus.patch
-+ppc32-adds-necessary-cpu-init-to-use-usb-on-lite5200.patch
-+ppc32-cleanup-of-book-e-exception-handling.patch
-+ppc32-cpm2-pic-cleanup.patch
-+ppc32-cpm2-pic-cleanup-irq_to_siubit-array-updated.patch
-+ppc32-fix-mpc8555-mpc8555e-device-lists-updated.patch
-+ppc32-mpc8555-cpm2-size-pointers-for-fccs-aka-all-ones-problem.patch
+-x86_64-remove-duplicated-sys_time64.patch
+-x86_64-remove-dup-syscall.patch
 
- ppc32 updates
+ Andi spat these out.
 
-+seccomp-for-ppc64.patch
-+ppc64-fix-zilog-link-error.patch
-+ppc64-add-mem=x-boot-command-line-option.patch
++x86_64-genapic-update.patch
 
- ppc64 updates
+ x86_64 APIC handling fixes
 
--reduce-inlined-x86-memcpy-by-2-bytes.patch
-+fix-i386-memcpy.patch
++pm_message_t-more-fixes-in-common-and-i386.patch
++fix-u32-vs-pm_message_t-in-drivers-char.patch
++u32-vs-pm_message_t-fixes-for-drivers-net.patch
++fix-u32-vs-pm_message_t-in-pcmcia.patch
++fix-u32-vs-pm_message_t-in-drivers-media.patch
++fix-u32-vs-pm_message_t-in-drivers-message.patch
++fix-u32-vs-pm_message_t-in-drivers-mmcmtdscsi.patch
++fix-pm_message_t-vs-u32-in-alsa.patch
++fix-u32-vs-pm_message_t-in-x86-64.patch
++fix-u32-vs-pm_message_t-in-drivers-macintosh.patch
++fix-u32-vs-pm_message_t-in-pci-pcie.patch
++u32-vs-pm_message_t-in-ppc-and-radeon.patch
 
- More x86 memcpy() improvements.
+ More u32->pm_message_t fixes
 
-+arch-i386-kernel-smpc-remove-a-pointless-inline.patch
++uml-fix-compilation-for-__choose_mode-addition.patch
 
- Little cleanup.
+ UML fix
 
-+i386-x86_64-segment-register-access-update.patch
++keys-make-request-key-create-an-authorisation-key-fix.patch
 
- Make the kernel play better with current binutils (still being discussed)
+ Fix keys-make-request-key-create-an-authorisation-key.patch
 
-+rfc-check-nmi-watchdog-is-broken.patch
+-timers-prepare-for-del_timer_sync-changes.patch
+-timers-rework-del_timer_sync.patch
+-timers-serialize-timers.patch
+-timers-remove-memory-barriers.patch
+-timers-cleanup-kill-__get_base.patch
+-timers-enable-irqs-in-__mod_timer.patch
+-timers-enable-irqs-in-__mod_timer-tidy.patch
++timers-fixes-improvements.patch
++timers-fixes-improvements-smp_processor_id-fix.patch
++timers-fixes-improvements-fix.patch
 
- nmi watchdog fix
+ New kernel timer speedup patchset
 
-+x86_64-remove-duplicated-sys_time64.patch
-+x86_64-remove-dup-syscall.patch
++quota-fix-possible-oops-on-quotaoff.patch
++quota-possible-bug-in-quota-format-v2-support.patch
 
- x86_64 fixlets
+ Quota fixes
 
-+m32r-fix-spinlockh-for-config_debug_spinlock.patch
-+m32r-build-fix-for-config_discontigmem.patch
++kill-ifndef-have_arch_get_signal_to_deliver-in-signalc.patch
 
- m32r fixes
+ cleanup
 
-+uml-fix-sigio-spinlock.patch
-+uml-gprof-depends-on-tt.patch
-+uml-quick-fix-syscall-table.patch
-+uml-fixes-a-build-failure-with-config_mode_skas-disabled.patch
-+uml-fix-hostfs-special-perm-handling.patch
-+uml-correct-error-message.patch
-+uml-fix-the-console-stuttering.patch
++officially-deprecate-register_ioctl32_conversion.patch
 
- UML updates
+ deprecate a compat function (mainly affects DRI)
 
-+async-io-using-rt-signals.patch
++undo-do_readv_writev-behavior-change.patch
 
- signal fix
+ Fix readv/writev return value
 
-+make-documentation-oops-tracingtxt-relevant-to-26.patch
++kprobes-incorrect-handling-of-probes-on-ret-lret-instruction.patch
 
- documentation fix
+ kprobes fix
 
-+kernel-paramc-dont-use-max-when-num-is-null-in.patch
++sysfs-for-ipmi-for-new-mm-kernels.patch
 
- kernel parameter handling fix
+ IPMI fix
 
-+fix-module_param_string-calls.patch
++remove-all-kernel-bugs.patch
 
- module_param fix
+ Permit BUG() and BUG_ON() to generate no code.
 
-+kill-stupid-warning-when-compiling-riocmdc.patch
++exterminate-page_bug.patch
 
- warning fix
+ Remove PAGE_BUG()
+
++clean-up-kernel-messages.patch
+
+ Permit all printk's and their associated code and data to be absent fro the
+ kernel image.
+
++move-sa_xxx-defines-to-linux-signalh.patch
+
+ signal header cleanup
+
++procfs-fix-hardlink-counts.patch
++procfs-fix-hardlink-counts-for-proc-pid-task.patch
+
+ profs fixes
+
++show-thread_info-flags-in-proc-pid-status.patch
+
+ Additional process into in /proc (I meant to drop this - it'll break m68k)
+
++direct-io-async-short-read-fix.patch
+
+ Fix AIO/DIO read return values.
+
++set-ms_active-bit-before-calling-fill_super.patch
+
+ Fix weird oopses in isofs mount versus inode reclaim.
+
++some-changes-and-extensions-to-the-kernel-documentation.patch
+
+ kerneldoc fixes
 
 +kernel-rcupdatec-make-the-exports-export_symbol_gpl.patch
++add-deprecated_for_modules.patch
++add-deprecated_for_modules-fix.patch
++deprecate-synchronize_kernel-gpl-replacement.patch
++deprecate-synchronize_kernel-gpl-replacement-fix.patch
++change-synchronize_kernel-to-_rcu-and-_sched.patch
++update-rcu-documentation.patch
 
- RCU is GPL-only.
+ Various changes to the RCU interfaces
 
-+nommuc-build-error-fix.patch
++fix-comment-in-listh-that-refers-to-nonexistent-api.patch
 
- nommu build fix
+ Fix buggy comment
 
-+parport-oops-fix.patch
++pnpbios-eliminate-bad-section-references.patch
++hd-eliminate-bad-section-references.patch
++efi-eliminate-bad-section-references.patch
 
- parport fix
+ Some section fixes
 
-+use-cheaper-elv_queue_empty-when-unplug-a-device.patch
++create-a-kstrdup-library-function.patch
++create-a-kstrdup-library-function-fixes.patch
 
- elevator microoptimisation
+ kstrdup().
 
-+kprobe_handler-should-check-pre_handler-function.patch
++add-big-endian-variants-of-ioread-iowrite.patch
 
- kprobe fix
+ big-endian I/O funtions.
 
-+iput-can-sleep.patch
+-inotify-43.patch
++inotify-022-for-2612-rc1-mm4.patch
 
- Update a comment.
+ Another inotify release.
 
-+zr36050-typo-fix.patch
++ipoib-set-skb-macraw-on-receive.patch
++ipoib-fix-static-rate-calculation.patch
++ipoib-convert-to-debugfs.patch
++ipoib-document-conversion-to.patch
++ib-keep-mad-work-completion-valid.patch
++ib-remove-unneeded-includes.patch
++ib-fix-fmr-pool-crash.patch
++ib-trivial-fmr-printk-cleanup.patch
++ib-fix-user-mad-registrations-with-class-0.patch
++ib-remove-incorrect-comments.patch
++ib-mthca-map-mpt-mtt-context-in-mem-free-mode.patch
++ib-mthca-fill-in-more-device-query-fields.patch
++ib-mthca-fix-calculation-of-rdb-shift.patch
++ib-mthca-fix-posting-sends-with-immediate-data.patch
++ib-mthca-allow-unaligned-memory-regions.patch
++ib-mthca-allocate-correct-number-of-doorbell-pages.patch
++ib-mthca-clean-up-mthca_dereg_mr.patch
++ib-mthca-fix-mr-allocation-error-path.patch
++ib-mthca-release-mutex-on-doorbell-alloc-error-path.patch
++ib-mthca-print-assigned-irq-when-interrupt-test-fails.patch
++ib-mthca-only-free-doorbell-records-in-mem-free-mode.patch
++ib-mthca-fix-format-of-cq-number-for-cq-events.patch
++ib-mthca-implement-rdma-atomic-operations-for-mem-free-mode.patch
++ib-mthca-fix-mtt-allocation-in-mem-free-mode.patch
++ib-mthca-fill-in-opcode-field-for-send-completions.patch
++ib-mthca-allow-address-handle-creation-in-interrupt-context.patch
++ib-mthca-encapsulate-mtt-buddy-allocator.patch
++ib-mthca-add-sync_tpt-firmware-command.patch
++ib-mthca-add-mthca_write64_raw-for-writing-to-mtt-table-directly.patch
++ib-mthca-add-mthca_table_find-function.patch
++ib-mthca-split-mr-key-munging-routines.patch
++ib-mthca-add-fast-memory-region-implementation.patch
++ib-mthca-tweaks-to-mthca_cmdc.patch
++ib-mthca-encapsulate-mem-free-check-into-mthca_is_memfree.patch
++ib-mthca-map-context-for-rdma-responder-in-mem-free-mode.patch
++ib-mthca-update-receive-queue-initialization-for-new-hcas.patch
++ib-mthca-add-support-for-new-mt25204-hca.patch
 
- Fix this driver
+ Infiniband update
 
-+fixup-newly-added-jsm-driver.patch
++jbd-dirty-buffer-leak-fix.patch
 
- Tidy up this driver
+ Fix ext3 memleak
 
-+ext2-corruption-regression-between-269-and-2610.patch
++pcmcia-resource-handling-fixes.patch
 
- ext2 fix
+ pcmcia fix
 
--inotify-42.patch
-+inotify-43.patch
++nfs-client-latencies.patch
 
- inotify update
+ Reduce scheduling latencies in NFS
 
-+kfree-null-pointer-cleanups-no-need-to-check-fs-ext3.patch
+-figure-out-who-is-inserting-bogus-modules.patch
 
- ext3 kfree tweaks
+ Dropped - old debuggig stuff.
 
-+rock-handle-directory-overflows-fix.patch
++perfctr-ppc64-arch-hooks.patch
++perfctr-common-updates-for-ppc64.patch
++perfctr-ppc64-driver-core.patch
 
- Fix the isofs code in -mm.
+ perfctr updates
 
--figure-out-who-is-inserting-bogus-modules-warning-fix.patch
++sched-remove-unnecessary-sched-domains.patch
++sched-improve-pinned-task-handling-again.patch
++sched-cleanup-context-switch-locking.patch
 
- Folded into figure-out-who-is-inserting-bogus-modules.patch
+ CPU scheduler updates
 
-+perfctr-mapped-state-cleanup-x86.patch
-+perfctr-mapped-state-cleanup-ppc32.patch
-+perfctr-mapped-state-cleanup-common.patch
++make-page-becoming-writable-notification-a-vma-op-only.patch
++make-page-becoming-writable-notification-a-vma-op-only-kafs-fix.patch
 
- perfctr cleanups
+ Rework the page_becoming_writable() implementation.
 
--crashdump-documentation.patch
--crashdump-memory-preserving-reboot-using-kexec.patch
--crashdump-routines-for-copying-dump-pages.patch
--crashdump-routines-for-copying-dump-pages-fixes.patch
--crashdump-elf-format-dump-file-access.patch
--crashdump-linear-raw-format-dump-file-access.patch
--crashdump-linear-raw-format-dump-file-access-coding-style.patch
--kdump-export-crash-notes-section-address-through-build-fix.patch
-+kdump-nmi-handler-segment-selector-stack.patch
-+kdump-documentation-for-kdump.patch
-+kdump-retrieve-saved-max-pfn.patch
-+kdump-kconfig-for-kdump.patch
-+kdump-routines-for-copying-dump-pages.patch
-+kdump-retrieve-elfcorehdr-address-from-command.patch
-+kdump-access-dump-file-in-elf-format.patch
-+kdump-parse-elf32-headers-and-export-through.patch
-+kdump-accessing-dump-file-in-linear-raw-format.patch
-+kdump-cleanups-for-dump-file-access-in-linear.patch
++kdump-sysrq-trigger-mechanism-for-kexec-based-crashdumps.patch
 
- Updated crashdump code
+ Add a sysrq key to force a kdump
 
--reiser4-export-inode_lock-unexport-__iget.patch
--reiser4-perthread-pages.patch
--reiser4-perthread_pages_alloc-cleanup.patch
--fs-reiser4-possible-cleanups.patch
--reiser4-cleanup-pg_arch_1.patch
--reiser4-build-fix.patch
--reiser4-update.patch
--reiser4-only-memory_backed-fix.patch
++fuse-device-functions-abi-version-change.patch
++fuse-read-only-operations-add-offset-to-fuse_dirent.patch
++fuse-read-only-operations-readdir-fixes.patch
++fuse-add-padding.patch
++fuse-direct-i-o-fix-warning-on-x86_64.patch
++fuse-add-fsync-operation-for-directories.patch
 
- New reiser4 code drop
-
-+nvidiafb-fix-section-references.patch
-+nvidiafb-process-boot-options-earlier.patch
-+nvidiafb-delete-i2c-bus-on-driver-unload.patch
-+pm2fb-x-and-vt-switching-crash-fix.patch
-+fix-matroxfb-on-big-endian-hardware.patch
-+radeonfb-fix-mode-setting-on-crt-monitors.patch
-+radeonfb-preserve-tmds-setting.patch
-+fix-atyfb-build-on-ppc.patch
-
- fbdev updates
-
-+md-optimised-resync-using-bitmap-based-intent-logging-mempool-fix.patch
-
- Fix md-optimised-resync-using-bitmap-based-intent-logging.patch for some
- Linus changes.
-
-+i386-x86_64-early_printkc-make-early_serial_base-static.patch
-+kernel-exitc-make-exit_mm-static.patch
-
- Make some thing static
-
-+net-atm-resourcesc-remove-__free_atm_dev.patch
-+fix-ncr53c9xc-compile-warning.patch
-
- Little fixes
-
--net-atm-resourcesc-remove-__free_atm_dev.patch
-
- Dropped, for some reason.
-
-+unexport-idle_cpu.patch
-
- unexport idle_cpu.
+ FUSE updates
 
 
 
-
-number of patches in -mm: 636
-number of changesets in external trees: 746
-number of patches in -mm only: 614
-total patches: 1360
-
+number of patches in -mm: 634
+number of changesets in external trees: 698
+number of patches in -mm only: 612
+total patches: 1310
 
 
-All 636 patches:
+
+All 634 patches:
 
 
-linus.patch
-
-arm-atomic_sub_and_test.patch
-  arm atomic_sub_and_test()
-
-nfs-fix-typo-in-access-caching-code.patch
-  NFS: Fix typo in access caching code
-
-ia64-msi-warning-fixes.patch
-  ia64 msi warning fixes
-
-ia64-config_apci_numa-fix.patch
-  ia64 CONFIG_APCI_NUMA fix
 
 bk-acpi.patch
 
-acpi-ec-warning-fix.patch
-  acpi ec.c warning fix
+bk-acpi-alpha-build-fix.patch
+  bk-acpi alpha build fix
 
 acpi-toshiba-failure-handling.patch
   acpi: Toshiba failure handling
@@ -695,20 +534,26 @@ acpi-toshiba-failure-handling.patch
 acpi-video-pointer-size-fix.patch
   acpi video pointer size fix
 
-acpi-create_polling_proc-fix.patch
-  acpi: create_polling_proc() fix
-
 bk-agpgart.patch
 
 agp-fix-for-xen-vmm.patch
   AGP fix for Xen VMM
 
+fix-agp-code-to-work-again-with-non-pci-agp-bridges.patch
+  fix AGP code to work again with non-PCI AGP bridges
+
 include-linux-soundcardh-endianness-fix.patch
   include/linux/soundcard.h: endianness fix
 
-bk-audit.patch
+bk-cifs.patch
 
 bk-cpufreq.patch
+
+add-suspend-method-to-cpufreq-core.patch
+  Add suspend method to cpufreq core
+
+add-suspend-method-to-cpufreq-core-warning-fix.patch
+  add-suspend-method-to-cpufreq-core-warning-fix
 
 powernow-k7recalibrate-cpu_khz.patch
   powernowk7: recalibrate cpu_khz
@@ -716,10 +561,12 @@ powernow-k7recalibrate-cpu_khz.patch
 cpufreq-timers-recalibrate_cpu_khz.patch
   cpufreq timers: recalibrate cpu_khz
 
+bk-cryptodev.patch
+
 bk-driver-core.patch
 
-bk-driver-core-noisiness.patch
-  bk-driver-core-noisiness
+bk-driver-core-fix.patch
+  bk-driver-core fix
 
 fix-typo-in-scdrv_init.patch
   Fix typo in scdrv_init()
@@ -734,27 +581,36 @@ bk-drm.patch
 
 bk-drm-via.patch
 
-bk-i2c.patch
-
 bk-ia64.patch
 
-bk-ide-dev.patch
+bk-driver-core-sn2-build-fix.patch
+  bk-driver-core sn build fix
+
+bk-audit.patch
+
+quiet-ide-cd-warning.patch
+  quiet ide-cd warning
 
 bk-input.patch
 
 alps-printk-tidy.patch
   alps-printk-tidy
 
+serio-resume-fix.patch
+  serio resume fix
+
+alps-resume-fix.patch
+  ALPS resume fix
+
+serport-oops-fix.patch
+  serport oops fix
+
+serio-id-attributes.patch
+  serio 'id' attributes
+
+bk-jfs.patch
+
 bk-kbuild.patch
-
-uml-make-deb-pkg-build-target-build-a-debian-style-user-mode-linux-package.patch
-  uml: make deb-pkg build target build a Debian-style user-mode-linux package
-
-uml-restore-proper-descriptions-in-make-deb-pkg-target.patch
-  UML - Restore proper descriptions in make deb-pkg target
-
-doc-describe-kbuild-pitfall.patch
-  doc: describe Kbuild pitfall
 
 use-cross_compileinstallkernel-in-arch-boot-installsh.patch
   use ${CROSS_COMPILE}installkernel in arch/*/boot/install.sh
@@ -762,32 +618,25 @@ use-cross_compileinstallkernel-in-arch-boot-installsh.patch
 kconfig-i18n-support.patch
   Kconfig i18n support
 
-complete-cpufreq-kconfig-cleanup.patch
-  complete cpufreq Kconfig cleanup
-
 libata-flush-comreset-set-and-clear.patch
   libata: flush COMRESET set and clear
 
 bk-mtd.patch
 
-bk-net.patch
-
 bk-netdev.patch
 
-pcnet32-79c975-fiber-fix.patch
-  pcnet32: 79C975 fiber fix
+tulip-fix-for-64-bit-mips.patch
+  tulip: fix for 64-bit mips
 
-drivers-net-smc-mcac-cleanups.patch
-  drivers/net/smc-mca.c: cleanups
+pcnet_csc-irq-handler-optimization.patch
+  pcnet_cs.c: IRQ handler optimization
 
 bk-nfs.patch
 
 bk-ntfs.patch
 
-bk-pci.patch
-
-debug-for-pci-io-mem-allocation.patch
-  DEBUG for PCI IO & MEM allocation
+pci_module_init-pci_register_driver.patch
+  pci_module_init -> pci_register_driver
 
 pci-pci-transparent-bridge-handling-improvements-pci-core.patch
   PCI-PCI transparent bridge handling improvements (pci core)
@@ -830,9 +679,6 @@ acpi-bridge-hotadd-export-the-interface-to-get-pci-id-for-an-acpi-handle.patch
 
 bk-scsi.patch
 
-drivers-scsi-dptih-remove-kernel-22-ifs.patch
-  drivers/scsi/dpti.h: remove kernel 2.2 #if's
-
 megaraid_sas-announcing-new-module-for.patch
   megaraid_sas: new module for LSI Logic's SAS based MegaRAID controllers
 
@@ -841,8 +687,6 @@ add-scsi-changer-driver.patch
 
 scsi-ch-build-fix.patch
   scsi ch.c build fix
-
-bk-serial.patch
 
 usb-wacom-tablet-driver.patch
   usb wacom tablet driver
@@ -874,23 +718,17 @@ pm-support-for-zd1201.patch
 bug-fix-in-usbdevfs.patch
   bug fix in usbdevfs
 
+usb-turn-a-user-mode-driver-error-into-a-hard-error.patch
+  usb: turn a user mode driver error into a hard error
+
 bk-watchdog.patch
 
 mm.patch
   add -mmN to EXTRAVERSION
 
-fix-help-for-acpi_container.patch
-  Fix help for ACPI_CONTAINER
-
 swapspace-layout-improvements.patch
   swapspace-layout-improvements
   /proc/swaps negative Used
-
-bdi-provide-backing-device-capability-information.patch
-  BDI: Provide backing device capability information [try #3]
-
-cpusets-big-numa-cpu-and-memory-placement-backing_dev-fix.patch
-  cpusets-big-numa-cpu-and-memory-placement-backing_dev-fix
 
 add-a-clear_pages-function-to-clear-pages-of-higher.patch
   add a clear_pages function to clear pages of higher order
@@ -940,23 +778,35 @@ resubmit-sparsemem-base-reorganize-page-flags-bit-operations.patch
 resubmit-sparsemem-base-teach-discontig-about-sparse-ranges.patch
   sparsemem base: teach discontig about sparse ranges
 
-read_kmem-fixes.patch
-  read_kmem() fixes
+create-mm-kconfig-for-arch-independent-memory-options.patch
+  create mm/Kconfig for arch-independent memory options
 
-cpusets-special-case-gfp_atomic-allocs.patch
-  cpusets: special-case GFP_ATOMIC allocs
+make-each-arch-use-mm-kconfig.patch
+  make each arch use mm/Kconfig
 
-cpusets-gfp_atomic-fix-tonedown-panic-comment.patch
-  cpusets GFP_ATOMIC fix: tonedown panic comment
+update-all-defconfigs-for-arch_discontigmem_enable.patch
+  update all defconfigs for ARCH_DISCONTIGMEM_ENABLE
 
-cpuset-make-function-decl-ansi.patch
-  cpuset: make function decl. ANSI
+introduce-new-kconfig-option-for-numa-or-discontig.patch
+  Introduce new Kconfig option for NUMA or DISCONTIG
 
 filemap_getpage-can-block-when-map_nonblock-specified.patch
   filemap_getpage can block when MAP_NONBLOCK specified
 
 add-kmalloc_node-inline-cleanup.patch
   add kmalloc_node, inline cleanup
+
+oom-killer-disable-for-iscsi-lvm2-multipath-userland-critical-sections.patch
+  oom-killer disable for iscsi/lvm2/multipath userland critical sections
+
+vmscan-pageout-remove-unneeded-test.patch
+  vmscan: pageout(): remove unneeded test
+
+end_buffer_write_sync-avoid-pointless-assignments.patch
+  end_buffer_write_sync() avoid pointless assignments
+
+meminfo-add-cached-underflow-check.patch
+  meminfo: add Cached underflow check
 
 eni155p-error-handling-fix.patch
   ENI155P error handling fix
@@ -967,89 +817,38 @@ a-new-10gb-ethernet-driver-by-chelsio-communications.patch
 dm9000-network-driver.patch
   DM9000 network driver
 
-e1000-flush-work-queues-on-remove.patch
-  e1000: flush work queues on remove
+ppc32-fix-bogosity-in-process-freezing-code.patch
+  ppc32: fix bogosity in process-freezing code
 
-drivers-net-amd8111ec-fix-napi-interrupt-in-poll.patch
-  drivers/net/amd8111e.c: fix NAPI interrupt in poll
+ppc32-ppc4xx_pic-add-acknowledge-when-enabling-level-sensitive-irq.patch
+  ppc32: ppc4xx_pic - add acknowledge when enabling level-sensitive IRQ
 
-orinoco-merge-updates-part-the-fourth-wireless-stats-updates.patch
-  Orinoco merge updates: wireless stats updates
+ppc32-improve-timebase-sync-for-smp.patch
+  ppc32: improve timebase sync for SMP
 
-orinoco-merge-updates-part-the-fourth-ignore_disconnect-flag.patch
-  Orinoco merge updates: ignore_disconnect flag
+ppc32-oops-on-kernel-altivec-assist-exceptions.patch
+  ppc32: oops on kernel altivec assist exceptions
 
-orinoco-merge-updates-part-the-fourth-kill-dump_recs.patch
-  Orinoco merge updates: kill dump_recs
+ppc32-fix-single-stepping-of-emulated-instructions.patch
+  ppc32: fix single-stepping of emulated instructions
 
-orinoco-merge-updates-part-the-fourth-dont-set-channel-in-managed-mode.patch
-  Orinoco merge updates: don't set channel in managed mode
+ppc32-fix-errata-for-some-g3-cpus.patch
+  ppc32: Fix errata for some G3 CPUs
 
-orinoco-merge-updates-part-the-fourth-consolidate-allocation-code.patch
-  Orinoco merge updates: consolidate allocation code
+ppc32-fix-cpufreq-problems.patch
+  ppc32: Fix cpufreq problems
 
-ppp-multilink-fragmentation-improvements.patch
-  PPP multilink fragmentation improvements
+ppc64-fix-semantics-of-__ioremap.patch
+  ppc64: Fix semantics of __ioremap
 
-e100-use-eeprom-config-for-auto-mdi-mdi-x.patch
-  e100: Use EEPROM config for Auto MDI/MDI-X
+mips-remove-obsolete-vr41xx-rtc-function.patch
+  mips: remove obsolete VR41xx RTC function  from vr41xx.h
 
-ppc32-remove-unnecessary-test-in-mpc52xx-reset-code.patch
-  ppc32: Remove unnecessary test in MPC52xx reset code
-
-ppc32-remove-the-ocp-system-from-the-freescale-mpc52xx.patch
-  ppc32: Remove the OCP system from the Freescale MPC52xx support
-
-ppc32-change-constants-style-in-freescale-mpc52xx.patch
-  ppc32: Change constants style in Freescale MPC52xx related code
-
-ppc32-use-platform-bus--ppc_sys-model-for-freescale.patch
-  ppc32: Use platform bus / ppc_sys model for Freescale MPC52xx
-
-serial-update-mpc52xx_uartc-to-use-platform-bus.patch
-  serial: Update mpc52xx_uart.c to use platform bus
-
-ppc32-adds-necessary-cpu-init-to-use-usb-on-lite5200.patch
-  ppc32: Adds necessary cpu init to use USB on LITE5200 Platform
-
-ppc32-cleanup-of-book-e-exception-handling.patch
-  ppc32: cleanup of Book-E exception handling
-
-ppc32-cpm2-pic-cleanup.patch
-  ppc32: CPM2 PIC cleanup
-
-ppc32-cpm2-pic-cleanup-irq_to_siubit-array-updated.patch
-  ppc32: CPM2 PIC cleanup irq_to_siubit array
-
-ppc32-fix-mpc8555-mpc8555e-device-lists-updated.patch
-  ppc32: Fix MPC8555 & MPC8555E device lists (updated)
-
-ppc32-mpc8555-cpm2-size-pointers-for-fccs-aka-all-ones-problem.patch
-  ppc32: MPC8555 CPM2 size/pointers for FCCs aka "All-ones problem"
-
-seccomp-for-ppc64.patch
-  seccomp for ppc64
-
-ppc64-fix-zilog-link-error.patch
-  ppc64: fix zilog link error
-
-ppc64-add-mem=x-boot-command-line-option.patch
-  ppc64: Add mem=X boot command line option
-
-x86-reduce-cacheline-bouncing-in-cpu_idle_wait.patch
-  x86: reduce cacheline bouncing in cpu_idle_wait
-
-x86-via-workaround.patch
-  x86: via workaround
-
-x86-fix-esp-corruption-cpu-bug-take-2.patch
-  x86: fix ESP corruption CPU bug (take 2)
+mips-update-vr41xx-cpu-pci-bridge.patch
+  mips: update VR41xx CPU-PCI bridge  support
 
 fix-i386-memcpy.patch
   fix i386 memcpy
-
-arch-i386-kernel-smpc-remove-a-pointless-inline.patch
-  arch/i386/kernel/smp.c: remove a pointless "inline"
 
 i386-x86_64-segment-register-access-update.patch
   i386/x86_64 segment register access update
@@ -1057,17 +856,14 @@ i386-x86_64-segment-register-access-update.patch
 rfc-check-nmi-watchdog-is-broken.patch
   check nmi watchdog is broken
 
-x86_64-avoid-panic-lockup.patch
-  x86_64: avoid panic lockup
+sched-x86-sched_clock-to-use-tsc-on-config_hpet-or-config_numa-systems.patch
+  sched: x86 sched_clock() to use TSC on CONFIG_HPET or CONFIG_NUMA systems
 
-x86_64-reduce-cacheline-bouncing-in-cpu_idle_wait.patch
-  x86_64: reduce cacheline bouncing in cpu_idle_wait
+x86_64-show_stack-touch_nmi_watchdog.patch
+  x86_64 show_stack(): call touch_nmi_watchdog
 
-x86-64-kprobes-handle-%rip-relative-addressing-mode.patch
-  x86-64 kprobes: handle %RIP-relative addressing mode
-
-x86-x86_64-reading-deterministic-cache-parameters-and-exporting-it-in-sysfs.patch
-  x86, x86_64: reading deterministic cache parameters and exporting it in /sysfs
+x86_64-use-a-vma-for-the-32bit-vsyscall.patch
+  x86_64: Use a VMA for the 32bit vsyscall
 
 x86-x86_64-intel-dual-core-detection.patch
   x86, x86_64: Intel dual-core detection
@@ -1075,47 +871,50 @@ x86-x86_64-intel-dual-core-detection.patch
 x86-cacheline-alignment-for-cpu-maps.patch
   x86: cacheline alignment for cpu maps
 
-x86_64-show_stack-touch_nmi_watchdog.patch
-  x86_64 show_stack(): call touch_nmi_watchdog
-
-x86_64-remove-duplicated-sys_time64.patch
-  x86_64: remove duplicated sys_time64
-
-x86_64-remove-dup-syscall.patch
-  x86_64: remove dup syscall
+x86_64-genapic-update.patch
+  x86_64 genapic update
 
 ia64-reduce-cacheline-bouncing-in-cpu_idle_wait.patch
   ia64: reduce cacheline bouncing in cpu_idle_wait
 
-m32r-fix-spinlockh-for-config_debug_spinlock.patch
-  m32r: Fix spinlock.h for CONFIG_DEBUG_SPINLOCK
+pm_message_t-more-fixes-in-common-and-i386.patch
+  pm_message_t: more fixes in common and i386
 
-m32r-build-fix-for-config_discontigmem.patch
-  m32r: build fix for CONFIG_DISCONTIGMEM
+fix-u32-vs-pm_message_t-in-drivers-char.patch
+  Fix u32 vs. pm_message_t in drivers/char
 
-uml-fix-sigio-spinlock.patch
-  uml: fix sigio spinlock
+u32-vs-pm_message_t-fixes-for-drivers-net.patch
+  u32 vs. pm_message_t fixes for drivers/net
 
-uml-gprof-depends-on-tt.patch
-  uml: gprof depends on !TT
+fix-u32-vs-pm_message_t-in-pcmcia.patch
+  fix u32 vs. pm_message_t in pcmcia
 
-uml-quick-fix-syscall-table.patch
-  uml: quick fix syscall table
+fix-u32-vs-pm_message_t-in-drivers-media.patch
+  fix u32 vs. pm_message_t in drivers/media
 
-uml-fixes-a-build-failure-with-config_mode_skas-disabled.patch
-  uml: fixes a build failure with CONFIG_MODE_SKAS disabled
+fix-u32-vs-pm_message_t-in-drivers-message.patch
+  fix u32 vs. pm_message_t in drivers/message
 
-uml-fix-hostfs-special-perm-handling.patch
-  uml: fix hostfs special perm handling
+fix-u32-vs-pm_message_t-in-drivers-mmcmtdscsi.patch
+  fix u32 vs. pm_message_t in drivers/mmc,mtd,scsi
 
-uml-correct-error-message.patch
-  uml: correct error message
+fix-pm_message_t-vs-u32-in-alsa.patch
+  fix pm_message_t vs. u32 in alsa
 
-uml-fix-the-console-stuttering.patch
-  uml: Fix the console stuttering
+fix-u32-vs-pm_message_t-in-x86-64.patch
+  Fix u32 vs. pm_message_t in x86-64
 
-make-sysrq-f-call-oom_kill.patch
-  make sysrq-F call oom_kill()
+fix-u32-vs-pm_message_t-in-drivers-macintosh.patch
+  fix u32 vs. pm_message_t in drivers/macintosh
+
+fix-u32-vs-pm_message_t-in-pci-pcie.patch
+  fix u32 vs. pm_message_t in PCI, PCIE
+
+u32-vs-pm_message_t-in-ppc-and-radeon.patch
+  u32 vs. pm_message_t in ppc and radeon
+
+uml-fix-compilation-for-__choose_mode-addition.patch
+  uml: fix compilation for __CHOOSE_MODE addition
 
 mtrr-size-and-base-debug.patch
   mtrr size-and-base debugging
@@ -1137,9 +936,6 @@ rt-lsm.patch
 
 tty-output-lossage-fix.patch
   tty output lossage fix
-
-cx24110-conexant-frontend-update.patch
-  cx24110 Conexant Frontend update
 
 nice-and-rt-prio-rlimits.patch
   nice and rt-prio rlimits
@@ -1189,44 +985,26 @@ keys-use-rcu-to-manage-session-keyring-pointer.patch
 keys-make-request-key-create-an-authorisation-key.patch
   Keys: Make request-key create an authorisation key
 
+keys-make-request-key-create-an-authorisation-key-fix.patch
+  Keys: Make request-key create an authorisation key (fix)
+
 binfmt_elf-bss-padding-fix.patch
   binfmt_elf bss padding fix
 
-timers-prepare-for-del_timer_sync-changes.patch
-  timers: prepare for del_timer_sync() changes
+timers-fixes-improvements.patch
+  timers fixes/improvements
 
-timers-rework-del_timer_sync.patch
-  timers: rework del_timer_sync()
+timers-fixes-improvements-smp_processor_id-fix.patch
+  timers-fixes-improvements-smp_processor_id-fix
 
-timers-serialize-timers.patch
-  timers: serialize timers
-
-timers-remove-memory-barriers.patch
-  timers: remove memory barriers
-
-timers-cleanup-kill-__get_base.patch
-  timers: cleanup, kill __get_base()
-
-timers-enable-irqs-in-__mod_timer.patch
-  timers: enable irqs in __mod_timer()
-
-timers-enable-irqs-in-__mod_timer-tidy.patch
-  timers-enable-irqs-in-__mod_timer-tidy
+timers-fixes-improvements-fix.patch
+  timers fixes/improvements fix
 
 enable-sig_ign-on-blocked-signals.patch
   Enable SIG_IGN on blocked signals
 
-consolidate-asm-ipch.patch
-  consolidate asm/ipc.h
-
-sx-cli-conversion.patch
-  SX cli() conversion
-
 async-io-using-rt-signals.patch
   AYSNC IO using singals other than SIGIO
-
-make-documentation-oops-tracingtxt-relevant-to-26.patch
-  make Documentation/oops-tracing.txt relevant to 2.6
 
 kernel-paramc-dont-use-max-when-num-is-null-in.patch
   kernel/param.c: don't use .max when .num is NULL in param_array_set()
@@ -1234,29 +1012,8 @@ kernel-paramc-dont-use-max-when-num-is-null-in.patch
 fix-module_param_string-calls.patch
   fix module_param_string() calls
 
-kill-stupid-warning-when-compiling-riocmdc.patch
-  Kill stupid warning when compiling riocmd.c
-
-kernel-rcupdatec-make-the-exports-export_symbol_gpl.patch
-  kernel/rcupdate.c: make the exports EXPORT_SYMBOL_GPL
-
-nommuc-build-error-fix.patch
-  nommu.c build error fix
-
-parport-oops-fix.patch
-  paport oops fix
-
 use-cheaper-elv_queue_empty-when-unplug-a-device.patch
   use cheaper elv_queue_empty when unplug a device
-
-kprobe_handler-should-check-pre_handler-function.patch
-  kprobe_handler should  check pre_handler function
-
-iput-can-sleep.patch
-  iput() can sleep
-
-zr36050-typo-fix.patch
-  zr36050 typo fix
 
 fixup-newly-added-jsm-driver.patch
   fix up newly added jsm driver
@@ -1264,23 +1021,215 @@ fixup-newly-added-jsm-driver.patch
 ext2-corruption-regression-between-269-and-2610.patch
   ext2 corruption - regression between 2.6.9 and 2.6.10
 
-inotify-43.patch
-  inotify update.
+quota-fix-possible-oops-on-quotaoff.patch
+  quota: fix possible oops on quotaoff
 
-ext3-dynamic-allocating-block-reservation-info.patch
-  ext3: dynamic allocation of block reservation info
+quota-possible-bug-in-quota-format-v2-support.patch
+  quota: possible bug in quota format v2 support
 
-ext3-reservation-info-cleanup-remove-rsv_seqlock.patch
-  ext3: reservation info cleanup: remove rsv_seqlock
+kill-ifndef-have_arch_get_signal_to_deliver-in-signalc.patch
+  kill #ifndef HAVE_ARCH_GET_SIGNAL_TO_DELIVER in signal.c
 
-ext3-reservation-info-cleanup-remove-rsv_seqlock-fix.patch
-  ext3-reservation-info-cleanup-remove-rsv_seqlock fix
+officially-deprecate-register_ioctl32_conversion.patch
+  officially deprecate register_ioctl32_conversion
 
-ext3-move-goal-logical-block-into-block-allocation-info.patch
-  ext3: move goal logical block into block allocation info structure
+undo-do_readv_writev-behavior-change.patch
+  undo do_readv_writev() behavior change
 
-kfree-null-pointer-cleanups-no-need-to-check-fs-ext3.patch
-  kfree() NULL pointer cleanups - no need to check - fs/ext3/
+kprobes-incorrect-handling-of-probes-on-ret-lret-instruction.patch
+  Kprobes: Incorrect handling of probes on ret/lret instruction
+
+sysfs-for-ipmi-for-new-mm-kernels.patch
+  sysfs for IPMI
+
+remove-all-kernel-bugs.patch
+  remove all kernel BUGs
+
+exterminate-page_bug.patch
+  Exterminate PAGE_BUG
+
+clean-up-kernel-messages.patch
+  clean up kernel messages
+
+move-sa_xxx-defines-to-linux-signalh.patch
+  move SA_xxx defines to linux/signal.h
+
+procfs-fix-hardlink-counts.patch
+  procfs: Fix hardlink counts
+
+procfs-fix-hardlink-counts-for-proc-pid-task.patch
+  procfs: Fix hardlink counts for /proc/<PID>/task
+
+show-thread_info-flags-in-proc-pid-status.patch
+  Show thread_info->flags in /proc/PID/status
+
+direct-io-async-short-read-fix.patch
+  Direct IO async short read fix
+
+set-ms_active-bit-before-calling-fill_super.patch
+  Set MS_ACTIVE bit before calling ->fill_super functions
+
+some-changes-and-extensions-to-the-kernel-documentation.patch
+  Some changes and extensions to the Kernel documentation
+
+kernel-rcupdatec-make-the-exports-export_symbol_gpl.patch
+  kernel/rcupdate.c: make the exports EXPORT_SYMBOL_GPL
+
+add-deprecated_for_modules.patch
+  Add deprecated_for_modules
+
+add-deprecated_for_modules-fix.patch
+  deprecate-synchronize_kernel-gpl-replacement fix
+
+deprecate-synchronize_kernel-gpl-replacement.patch
+  Deprecate synchronize_kernel, GPL replacement
+
+deprecate-synchronize_kernel-gpl-replacement-fix.patch
+  deprecate-synchronize_kernel-gpl-replacement-fix
+
+change-synchronize_kernel-to-_rcu-and-_sched.patch
+  Change synchronize_kernel to _rcu and _sched
+
+update-rcu-documentation.patch
+  Update RCU documentation
+
+fix-comment-in-listh-that-refers-to-nonexistent-api.patch
+  Fix comment in list.h that refers to nonexistent API
+
+pnpbios-eliminate-bad-section-references.patch
+  pnpbios: eliminate bad section references
+
+hd-eliminate-bad-section-references.patch
+  hd: eliminate bad section references
+
+efi-eliminate-bad-section-references.patch
+  efi: eliminate bad section references
+
+create-a-kstrdup-library-function.patch
+  create a kstrdup library function
+
+create-a-kstrdup-library-function-fixes.patch
+  create-a-kstrdup-library-function-fixes
+
+add-big-endian-variants-of-ioread-iowrite.patch
+  add Big Endian variants of ioread/iowrite
+
+inotify-022-for-2612-rc1-mm4.patch
+  inotify 0.22 for 2.6.12-rc1-mm4
+
+ipoib-set-skb-macraw-on-receive.patch
+  IPoIB: set skb->mac.raw on receive
+
+ipoib-fix-static-rate-calculation.patch
+  IPoIB: fix static rate calculation
+
+ipoib-convert-to-debugfs.patch
+  IPoIB: convert to debugfs
+
+ipoib-document-conversion-to.patch
+  IPoIB: document conversion to debugfs
+
+ib-keep-mad-work-completion-valid.patch
+  IB: Keep MAD work completion valid
+
+ib-remove-unneeded-includes.patch
+  IB: remove unneeded includes
+
+ib-fix-fmr-pool-crash.patch
+  IB: Fix FMR pool crash
+
+ib-trivial-fmr-printk-cleanup.patch
+  IB: Trivial FMR printk cleanup
+
+ib-fix-user-mad-registrations-with-class-0.patch
+  IB: Fix user MAD registrations with class 0
+
+ib-remove-incorrect-comments.patch
+  IB: Remove incorrect comments
+
+ib-mthca-map-mpt-mtt-context-in-mem-free-mode.patch
+  IB/mthca: map MPT/MTT context in mem-free mode
+
+ib-mthca-fill-in-more-device-query-fields.patch
+  IB/mthca: fill in more device query fields
+
+ib-mthca-fix-calculation-of-rdb-shift.patch
+  IB/mthca: fix calculation of RDB shift
+
+ib-mthca-fix-posting-sends-with-immediate-data.patch
+  IB/mthca: fix posting sends with immediate data
+
+ib-mthca-allow-unaligned-memory-regions.patch
+  IB/mthca: allow unaligned memory regions
+
+ib-mthca-allocate-correct-number-of-doorbell-pages.patch
+  IB/mthca: allocate correct number of doorbell pages
+
+ib-mthca-clean-up-mthca_dereg_mr.patch
+  IB/mthca: clean up mthca_dereg_mr()
+
+ib-mthca-fix-mr-allocation-error-path.patch
+  IB/mthca: fix MR allocation error path
+
+ib-mthca-release-mutex-on-doorbell-alloc-error-path.patch
+  IB/mthca: release mutex on doorbell alloc error path
+
+ib-mthca-print-assigned-irq-when-interrupt-test-fails.patch
+  IB/mthca: print assigned IRQ when interrupt test fails
+
+ib-mthca-only-free-doorbell-records-in-mem-free-mode.patch
+  IB/mthca: only free doorbell records in mem-free mode
+
+ib-mthca-fix-format-of-cq-number-for-cq-events.patch
+  IB/mthca: fix format of CQ number for CQ events
+
+ib-mthca-implement-rdma-atomic-operations-for-mem-free-mode.patch
+  IB/mthca: implement RDMA/atomic operations for mem-free mode
+
+ib-mthca-fix-mtt-allocation-in-mem-free-mode.patch
+  IB/mthca: fix MTT allocation in mem-free mode
+
+ib-mthca-fill-in-opcode-field-for-send-completions.patch
+  IB/mthca: fill in opcode field for send completions
+
+ib-mthca-allow-address-handle-creation-in-interrupt-context.patch
+  IB/mthca: allow address handle creation in interrupt context
+
+ib-mthca-encapsulate-mtt-buddy-allocator.patch
+  IB/mthca: encapsulate MTT buddy allocator
+
+ib-mthca-add-sync_tpt-firmware-command.patch
+  IB/mthca: add SYNC_TPT firmware command
+
+ib-mthca-add-mthca_write64_raw-for-writing-to-mtt-table-directly.patch
+  IB/mthca: add mthca_write64_raw() for writing to MTT table directly
+
+ib-mthca-add-mthca_table_find-function.patch
+  IB/mthca: add mthca_table_find() function
+
+ib-mthca-split-mr-key-munging-routines.patch
+  IB/mthca: split MR key munging routines
+
+ib-mthca-add-fast-memory-region-implementation.patch
+  IB/mthca: add fast memory region implementation
+
+ib-mthca-tweaks-to-mthca_cmdc.patch
+  IB/mthca: tweaks to mthca_cmd.c
+
+ib-mthca-encapsulate-mem-free-check-into-mthca_is_memfree.patch
+  IB/mthca: encapsulate mem-free check into mthca_is_memfree()
+
+ib-mthca-map-context-for-rdma-responder-in-mem-free-mode.patch
+  IB/mthca: map context for RDMA responder in mem-free mode
+
+ib-mthca-update-receive-queue-initialization-for-new-hcas.patch
+  IB/mthca: update receive queue initialization for new HCAs
+
+ib-mthca-add-support-for-new-mt25204-hca.patch
+  IB/mthca: add support for new MT25204 HCA
+
+jbd-dirty-buffer-leak-fix.patch
+  jbd dirty buffer leak fix
 
 pcmcia-hotplug-event-for-pcmcia-devices.patch
   pcmcia: hotplug event for PCMCIA devices
@@ -1495,53 +1444,14 @@ pcmcia-mod_devicetableh-fix-for-different-sizes-in-kernel-and-userspace.patch
 pcmcia-select-crc32-in-kconfig-for-pcmcia.patch
   pcmcia: select crc32 in Kconfig for PCMCIA
 
-svcrpc-auth_domain-documentation.patch
-  svcrpc: auth_domain documentation
-
-nfsd4-fix-share-conflict-tests.patch
-  nfsd4: fix share conflict tests
-
-nfsd4-remove-unneeded-stateowner-arguments.patch
-  nfsd4: remove unneeded stateowner arguments
-
-nfsd4-fix-use-after-put-in-cb_recall.patch
-  nfsd4: fix use after put() in cb_recall
-
-nfsd4-allow-read-on-open-for-write.patch
-  nfsd4: allow read on open for write
-
-nfsd4-factor-out-common-open_truncate-code.patch
-  nfsd4: factor out common open_truncate code
-
-nfsd4-fix-failure-to-truncate-on-some-opens.patch
-  nfsd4: fix failure to truncate on some opens
-
-nfsd4_remove_unused_acl_function.patch
-  nfsd4_remove_unused_acl_function
-
-nfsd4-dont-set-write_owner-in-either-allow-or-deny-bits.patch
-  nfsd4: don't set WRITE_OWNER in either allow or deny bits
-
-nfsd4-acl-dont-set-named-attrs.patch
-  nfsd4: acl don't set named attrs
-
-nfsd4-acl-error-fix.patch
-  nfsd4: acl error fix
-
-nfsd4-rename-release_delegation.patch
-  nfsd4: rename release_delegation
-
-nfsd4-remove-trailing-whitespace-from-nfs4procc.patch
-  nfsd4: remove trailing whitespace from nfs4proc.c
-
-nfsd4-fix-open-returns-for-other-claim-types.patch
-  nfsd4: fix open returns for other claim types
-
-nfsd4-fix-indentation-in-nfsd4_open.patch
-  nfsd4: fix indentation in nfsd4_open
+pcmcia-resource-handling-fixes.patch
+  pcmcia: resource handling fixes
 
 nfsacl-solaris-nfsacl-workaround.patch
   nfsacl: Solaris nfsacl workaround
+
+nfs-client-latencies.patch
+  NFS client latency fixes
 
 kgdb-ga.patch
   kgdb stub for ia32 (George Anzinger's one)
@@ -1655,9 +1565,6 @@ slab-leak-detector-warning-fixes.patch
 
 irqpoll.patch
   irqpoll
-
-figure-out-who-is-inserting-bogus-modules.patch
-  Figure out who is inserting bogus modules
 
 releasing-resources-with-children.patch
   Releasing resources with children
@@ -1850,8 +1757,14 @@ perfctr-mapped-state-cleanup-ppc32.patch
 perfctr-mapped-state-cleanup-common.patch
   perfctr: mapped state cleanup: common
 
-sched2-fix-schedstats-warning.patch
-  sched: fix schedstats warning
+perfctr-ppc64-arch-hooks.patch
+  perfctr: ppc64 arch hooks
+
+perfctr-common-updates-for-ppc64.patch
+  perfctr: common updates for ppc64
+
+perfctr-ppc64-driver-core.patch
+  perfctr: ppc64 driver core
 
 sched2-cleanup-wake_idle.patch
   sched: cleanup wake_idle
@@ -1898,6 +1811,15 @@ sched2-sched-domain-sysctl.patch
 sched-uninline-task_timeslice.patch
   sched: uninline task_timeslice
 
+sched-remove-unnecessary-sched-domains.patch
+  sched: remove unnecessary sched domains
+
+sched-improve-pinned-task-handling-again.patch
+  Subject: [patch] sched: improve pinned task handling again!
+
+sched-cleanup-context-switch-locking.patch
+  sched: cleanup context switch locking
+
 add-do_proc_doulonglongvec_minmax-to-sysctl-functions.patch
   Add do_proc_doulonglongvec_minmax to sysctl functions
   add-do_proc_doulonglongvec_minmax-to-sysctl-functions-fix
@@ -1907,8 +1829,7 @@ allow-x86_64-to-reenable-interrupts-on-contention.patch
   Allow x86_64 to reenable interrupts on contention
 
 i386-cpu-hotplug-updated-for-mm.patch
-  i386 CPU hotplug updated for -mm
-  ppc64: fix hotplug cpu
+  i386 CPU hotplug
 
 disable-atykb-warning.patch
   disable atykb "too many keys pressed" warning
@@ -1961,6 +1882,9 @@ add-page-becoming-writable-notification-fix.patch
 add-page-becoming-writable-notification-build-fix.patch
   add-page-becoming-writable-notification build fix
 
+make-page-becoming-writable-notification-a-vma-op-only.patch
+  Make page-becoming-writable notification a VMA-op only
+
 provide-a-filesystem-specific-syncable-page-bit.patch
   Provide a filesystem-specific sync'able page bit
 
@@ -1987,6 +1911,9 @@ rework-the-cachefs-documentation-to-reflect-fs-cache-split.patch
 
 update-afs-client-to-reflect-cachefs-split.patch
   Update AFS client to reflect CacheFS split
+
+make-page-becoming-writable-notification-a-vma-op-only-kafs-fix.patch
+  Make page-becoming-writable notification a VMA-op only (kafs fix)
 
 fscache-menuconfig-help-fix-documentation-path.patch
   fscache-menuconfig-help-fix-documentation-pathc
@@ -2108,6 +2035,9 @@ kdump-accessing-dump-file-in-linear-raw-format.patch
 kdump-cleanups-for-dump-file-access-in-linear.patch
   kdump: cleanups for dump file access in linear raw format
 
+kdump-sysrq-trigger-mechanism-for-kexec-based-crashdumps.patch
+  kdump: sysrq trigger mechanism for kexec based crashdumps
+
 reiser4-sb_sync_inodes.patch
   reiser4: vfs: add super_operations.sync_inodes()
 
@@ -2178,102 +2108,6 @@ kfree_skb-dump_stack.patch
 
 minimal-ide-disk-updates.patch
   Minimal ide-disk updates
-
-vt-dont-call-unblank-at-irq-time.patch
-  vt: don't call unblank at irq time
-
-ppc32-move-powermac-backlight-stuff-to-a-workqueue.patch
-  ppc32: move powermac backlight stuff to a workqueue
-
-radeonfb-implement-proper-workarounds-for-pll-accesses.patch
-  radeonfb: Implement proper workarounds for PLL accesses
-
-radeonfb-ddc-i2c-fix.patch
-  radeonfb: DDC i2c fix
-
-fbdev-nvidia-licensing-clarification.patch
-  fbdev: mvidia licensing clarification
-
-fbcon-stop-framebuffer-operations-before-hardware-is-properly-initialized.patch
-  fbcon: Stop framebuffer operations before hardware is properly initialized
-
-nvidiafb-maximize-blit-buffer-capacity.patch
-  nvidiafb: Maximize blit buffer capacity
-
-nvidiafb-fix-section-references.patch
-  nvidiafb: fix section references
-
-nvidiafb-process-boot-options-earlier.patch
-  nvidiafb: Process boot options earlier
-
-nvidiafb-kconfig-help-text-update-for-config-fb_nvidia.patch
-  nvidiafb: Kconfig help text update for config FB_NVIDIA
-
-nvidiafb-delete-i2c-bus-on-driver-unload.patch
-  nvidiafb: Delete i2c bus on driver unload
-
-pm2fb-x-and-vt-switching-crash-fix.patch
-  pm2fb: X and VT switching crash fix
-
-fbdev-cleanups-in-drivers-video-part-2.patch
-  fbdev: Cleanups in drivers/video part 2
-
-fbdev-cleanups-in-drivers-video-part-2-fix.patch
-  fbdev-cleanups-in-drivers-video-part-2 fix
-
-excessive-atyfb-debug-messages.patch
-  Excessive atyfb debug messages
-
-atyfb-add-boot-module-option-to-override-composite-sync.patch
-  atyfb: Add boot/module option to override composite sync
-
-fbdev-kconfig-fix-for-macmodes-and-ppc.patch
-  fbdev: Kconfig fix for macmodes and PPC
-
-fbdev-convert-drivers-to-pci_register_driver.patch
-  fbdev: Convert drivers to pci_register_driver
-
-sisfb-trivial-cleanups.patch
-  sisfb: Trivial cleanups
-
-tridentfb-clean-up-printks.patch
-  tridentfb: Clean up printk()'s
-
-s1d13xxxfb-add-support-for-epson-s1d13806-fb.patch
-  s1d13xxxfb: Add support for Epson S1D13806 FB
-
-fbcon-save-var-rotate-field-in-struct-display.patch
-  fbcon: Save var rotate field in struct display
-
-fbcon-call-set_par-per-fb_info-once-during-init.patch
-  fbcon: Call set_par per fb_info once during init
-
-fbcon-do-not-set-palette-if-console-is-not-visible.patch
-  fbcon: Do not set palette if console is not visible
-
-neofb-mmio-fixes.patch
-  neofb: mmio fixes
-
-neofb-set-hwaccel-flags-properly.patch
-  neofb: Set hwaccel flags properly
-
-remove-redundant-null-checks-before-kfree-in-drivers-video.patch
-  remove redundant NULL checks before kfree() in drivers/video/
-
-remove-redundant-null-checks-before-kfree-in-drivers-video-fix.patch
-  remove-redundant-null-checks-before-kfree-in-drivers-video fix
-
-fix-matroxfb-on-big-endian-hardware.patch
-  Fix matroxfb on big-endian hardware
-
-radeonfb-fix-mode-setting-on-crt-monitors.patch
-  radeonfb: Fix mode setting on CRT monitors
-
-radeonfb-preserve-tmds-setting.patch
-  radeonfb: Preserve TMDS setting
-
-fix-atyfb-build-on-ppc.patch
-  Fix atyfb build on ppc
 
 md-merge-md_enter_safemode-into-md_check_recovery.patch
   md: merge md_enter_safemode into md_check_recovery
@@ -2347,9 +2181,6 @@ md-allow-md-to-update-multiple-superblocks-in-parallel.patch
 detect-atomic-counter-underflows.patch
   detect atomic counter underflows
 
-doc-where-to-find-ldd3.patch
-  doc: where to find LDD3
-
 post-halloween-doc.patch
   post halloween doc
 
@@ -2362,6 +2193,9 @@ fuse-core.patch
 fuse-device-functions.patch
   FUSE - device functions
 
+fuse-device-functions-abi-version-change.patch
+  FUSE: ABI version change
+
 fuse-device-functions-comments-and-documentation.patch
   FUSE: comments and documentation
 
@@ -2370,6 +2204,12 @@ fuse-device-functions-cleanup.patch
 
 fuse-read-only-operations.patch
   FUSE - read-only operations
+
+fuse-read-only-operations-add-offset-to-fuse_dirent.patch
+  FUSE: add offset to fuse_dirent
+
+fuse-read-only-operations-readdir-fixes.patch
+  FUSE: readdir fixes
 
 fuse-read-write-operations.patch
   FUSE - read-write operations
@@ -2395,6 +2235,9 @@ fuse-mount-options-fix-fix.patch
 fuse-extended-attribute-operations.patch
   FUSE - extended attribute operations
 
+fuse-add-padding.patch
+  FUSE: add padding
+
 fuse-readpages-operation.patch
   FUSE - readpages operation
 
@@ -2404,8 +2247,14 @@ fuse-nfs-export.patch
 fuse-direct-i-o.patch
   FUSE - direct I/O
 
+fuse-direct-i-o-fix-warning-on-x86_64.patch
+  FUSE: fix warning on x86_64
+
 fuse-transfer-readdir-data-through-device.patch
   fuse: transfer readdir data through device
+
+fuse-add-fsync-operation-for-directories.patch
+  FUSE: add fsync operation for directories
 
 drivers-isdn-divert-isdn_divertc-make-5-functions-static.patch
   drivers/isdn/divert/isdn_divert.c: make 5 functions static
