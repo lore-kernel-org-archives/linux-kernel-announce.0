@@ -1,8 +1,8 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.5.48 released
-Date: Sun, 17 Nov 2002 20:38:03 -0800
+Subject: Linux kernel 2.5.49 released
+Date: Fri, 22 Nov 2002 13:51:04 -0800
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <200211180438.gAI4c3r04581@hera.kernel.org>
+Message-ID: <200211222151.gAMLp4b15303@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-Id: <linux-kernel-announce.vger.kernel.org>
 MIME-Version: 1.0
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.5.48 has been released.  It is available from:
+Linux kernel version 2.5.49 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.5/patch-2.5.48.gz
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.5/linux-2.5.48.tar.gz
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.5/patch-2.5.49.gz
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.5/linux-2.5.49.tar.gz
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               831400           3287873
-Full source                       38833894         174745600
+Patch                               458948           2051317
+Full source                       38853562         174858240
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -33,1034 +33,925 @@ Full source                       38833894         174745600
 
 The following files were changed in this release:
 
- Documentation/README.nsp_cs.eng                   |  128 -
- Documentation/scsi-generic.txt                    |  101 -
- Documentation/scsi.txt                            |   44 
- arch/sparc64/mm/modutil.c                         |  117 -
- b/Documentation/00-INDEX                          |    8 
- b/Documentation/DocBook/procfs_example.c          |   17 
- b/Documentation/scsi/00-INDEX                     |   68 
- b/Documentation/scsi/53c700.txt                   |  154 +
- b/Documentation/scsi/AM53C974.txt                 |  246 ++
- b/Documentation/scsi/BusLogic.txt                 |  613 ++++++
- b/Documentation/scsi/ChangeLog                    | 2023 ++++++++++++++++++++
- b/Documentation/scsi/ChangeLog.ips                |  122 +
- b/Documentation/scsi/ChangeLog.ncr53c8xx          |  495 ++++
- b/Documentation/scsi/ChangeLog.sym53c8xx          |  593 +++++
- b/Documentation/scsi/ChangeLog.sym53c8xx_2        |  144 +
- b/Documentation/scsi/FlashPoint.txt               |  163 +
- b/Documentation/scsi/LICENSE.FlashPoint           |   60 
- b/Documentation/scsi/Mylex.txt                    |    5 
- b/Documentation/scsi/NinjaSCSI.txt                |  130 +
- b/Documentation/scsi/aha152x.txt                  |  183 +
- b/Documentation/scsi/aic7xxx.txt                  |  477 ++++
- b/Documentation/scsi/aic7xxx_old.txt              |  511 +++++
- b/Documentation/scsi/cpqfc.txt                    |  273 ++
- b/Documentation/scsi/dpti.txt                     |   83 
- b/Documentation/scsi/dtc3x80.txt                  |   43 
- b/Documentation/scsi/g_NCR5380.txt                |   63 
- b/Documentation/scsi/ibmmca.txt                   | 1402 +++++++++++++
- b/Documentation/scsi/in2000.txt                   |  202 ++
- b/Documentation/scsi/ncr53c7xx.txt                |   40 
- b/Documentation/scsi/ncr53c8xx.txt                | 1854 ++++++++++++++++++
- b/Documentation/scsi/osst.txt                     |  219 ++
- b/Documentation/scsi/ppa.txt                      |   16 
- b/Documentation/scsi/qlogicfas.txt                |   79 
- b/Documentation/scsi/qlogicisp.txt                |   30 
- b/Documentation/scsi/scsi-generic.txt             |  101 +
- b/Documentation/scsi/scsi.txt                     |   44 
- b/Documentation/scsi/scsi_mid_low_api.txt         |  977 +++++++++
- b/Documentation/scsi/st.txt                       |  447 ++++
- b/Documentation/scsi/sym53c8xx_2.txt              | 1149 +++++++++++
- b/Documentation/scsi/tmscsim.txt                  |  449 ++++
- b/Makefile                                        |   19 
- b/arch/alpha/Kconfig                              |    2 
- b/arch/alpha/kernel/srm_env.c                     |   47 
- b/arch/alpha/kernel/sys_jensen.c                  |    2 
- b/arch/alpha/kernel/sys_nautilus.c                |    1 
- b/arch/arm/Kconfig                                |    9 
- b/arch/arm/Makefile                               |  178 -
- b/arch/arm/boot/Makefile                          |  158 -
- b/arch/arm/boot/bootp/Makefile                    |    4 
- b/arch/arm/boot/compressed/Makefile               |   24 
- b/arch/arm/kernel/dma-isa.c                       |    1 
- b/arch/arm/kernel/dma.c                           |    1 
- b/arch/arm/kernel/ecard.c                         |   48 
- b/arch/arm/kernel/irq.c                           |    3 
- b/arch/arm/kernel/plx90x0.c                       |    1 
- b/arch/arm/kernel/setup.c                         |   12 
- b/arch/arm/kernel/time-acorn.c                    |    1 
- b/arch/arm/kernel/time.c                          |    1 
- b/arch/arm/kernel/via82c505.c                     |    1 
- b/arch/arm/mach-adifcc/arch.c                     |    2 
- b/arch/arm/mach-adifcc/irq.c                      |    1 
- b/arch/arm/mach-anakin/irq.c                      |    1 
- b/arch/arm/mach-arc/dma.c                         |    1 
- b/arch/arm/mach-arc/oldlatches.c                  |    1 
- b/arch/arm/mach-clps711x/autcpu12.c               |    1 
- b/arch/arm/mach-clps711x/cdb89712.c               |    1 
- b/arch/arm/mach-clps711x/dma.c                    |    8 
- b/arch/arm/mach-clps711x/fortunet.c               |    3 
- b/arch/arm/mach-clps711x/mm.c                     |    1 
- b/arch/arm/mach-clps711x/p720t.c                  |    1 
- b/arch/arm/mach-clps711x/time.c                   |    2 
- b/arch/arm/mach-ebsa110/time.c                    |    1 
- b/arch/arm/mach-epxa10db/arch.c                   |    3 
- b/arch/arm/mach-epxa10db/dma.c                    |    8 
- b/arch/arm/mach-epxa10db/time.c                   |    2 
- b/arch/arm/mach-footbridge/cats-hw.c              |    1 
- b/arch/arm/mach-footbridge/dc21285.c              |    1 
- b/arch/arm/mach-footbridge/dma.c                  |    1 
- b/arch/arm/mach-footbridge/irq.c                  |    2 
- b/arch/arm/mach-footbridge/isa-irq.c              |    3 
- b/arch/arm/mach-footbridge/mm.c                   |    1 
- b/arch/arm/mach-footbridge/netwinder-hw.c         |    1 
- b/arch/arm/mach-ftvpci/core.c                     |    1 
- b/arch/arm/mach-integrator/arch.c                 |    2 
- b/arch/arm/mach-integrator/dma.c                  |    1 
- b/arch/arm/mach-integrator/pci.c                  |    1 
- b/arch/arm/mach-integrator/pci_v3.c               |    1 
- b/arch/arm/mach-integrator/time.c                 |    2 
- b/arch/arm/mach-iop310/arch.c                     |    2 
- b/arch/arm/mach-iop310/iop310-irq.c               |    1 
- b/arch/arm/mach-iop310/iop310-pci.c               |    2 
- b/arch/arm/mach-iop310/iq80310-irq.c              |    4 
- b/arch/arm/mach-iop310/iq80310-time.c             |    3 
- b/arch/arm/mach-iop310/xs80200-irq.c              |    2 
- b/arch/arm/mach-pxa/dma.c                         |    1 
- b/arch/arm/mach-pxa/idp.c                         |    2 
- b/arch/arm/mach-pxa/irq.c                         |    1 
- b/arch/arm/mach-pxa/lubbock.c                     |    2 
- b/arch/arm/mach-pxa/pm.c                          |    1 
- b/arch/arm/mach-rpc/dma.c                         |    1 
- b/arch/arm/mach-sa1100/adsbitsy.c                 |    2 
- b/arch/arm/mach-sa1100/assabet.c                  |    1 
- b/arch/arm/mach-sa1100/dma.c                      |    2 
- b/arch/arm/mach-sa1100/flexanet.c                 |    1 
- b/arch/arm/mach-sa1100/graphicsclient.c           |    2 
- b/arch/arm/mach-sa1100/graphicsmaster.c           |    2 
- b/arch/arm/mach-sa1100/h3600.c                    |    1 
- b/arch/arm/mach-sa1100/irq.c                      |    2 
- b/arch/arm/mach-sa1100/neponset.c                 |    2 
- b/arch/arm/mach-sa1100/pm.c                       |    2 
- b/arch/arm/mach-sa1100/sa1111.c                   |    2 
- b/arch/arm/mach-sa1100/stork.c                    |    1 
- b/arch/arm/mach-sa1100/system3.c                  |    1 
- b/arch/arm/mach-shark/dma.c                       |    3 
- b/arch/arm/mach-tbox/core.c                       |    1 
- b/arch/arm/mm/Makefile                            |   23 
- b/arch/arm/mm/alignment.c                         |    2 
- b/arch/arm/mm/discontig.c                         |    8 
- b/arch/arm/mm/fault-armv.c                        |   72 
- b/arch/arm/mm/init.c                              |    1 
- b/arch/arm/mm/mm-armv.c                           |   29 
- b/arch/arm/mm/proc-arm1020.S                      |    8 
- b/arch/arm/mm/proc-arm6_7.S                       |   30 
- b/arch/arm/mm/proc-arm720.S                       |   10 
- b/arch/arm/mm/proc-arm920.S                       |    8 
- b/arch/arm/mm/proc-arm922.S                       |    8 
- b/arch/arm/mm/proc-arm926.S                       |    8 
- b/arch/arm/mm/proc-sa110.S                        |   12 
- b/arch/arm/mm/proc-syms.c                         |    6 
- b/arch/arm/mm/proc-xscale.S                       |    8 
- b/arch/arm/mm/tlb-v4wb.S                          |   57 
- b/arch/arm/mm/tlb-v4wbi.S                         |   68 
- b/arch/arm/tools/Makefile                         |    5 
- b/arch/cris/Kconfig                               |    2 
- b/arch/cris/drivers/axisflashmap.c                |   80 
- b/arch/cris/drivers/ds1302.c                      |    4 
- b/arch/cris/drivers/eeprom.c                      |   10 
- b/arch/cris/drivers/gpio.c                        |   12 
- b/arch/cris/drivers/i2c.c                         |    8 
- b/arch/cris/drivers/sync_serial.c                 |   12 
- b/arch/cris/kernel/debugport.c                    |   20 
- b/arch/cris/kernel/setup.c                        |    8 
- b/arch/i386/Kconfig                               |   17 
- b/arch/i386/kernel/Makefile                       |    3 
- b/arch/i386/kernel/acpi_wakeup.S                  |   42 
- b/arch/i386/kernel/apm.c                          |    8 
- b/arch/i386/kernel/cpu/amd.c                      |   16 
- b/arch/i386/kernel/cpu/intel.c                    |   72 
- b/arch/i386/kernel/cpu/nexgen.c                   |    7 
- b/arch/i386/kernel/cpu/rise.c                     |   12 
- b/arch/i386/kernel/cpu/umc.c                      |    8 
- b/arch/i386/kernel/entry.S                        |   31 
- b/arch/i386/kernel/module.c                       |  124 +
- b/arch/i386/kernel/suspend.c                      |  184 -
- b/arch/i386/kernel/suspend_asm.S                  |   80 
- b/arch/i386/kernel/sys_i386.c                     |    3 
- b/arch/i386/kernel/timers/timer_tsc.c             |    2 
- b/arch/i386/kernel/traps.c                        |    7 
- b/arch/i386/kernel/vm86.c                         |    1 
- b/arch/i386/mm/extable.c                          |   14 
- b/arch/i386/mm/hugetlbpage.c                      |  315 +--
- b/arch/i386/pci/numa.c                            |    4 
- b/arch/i386/vmlinux.lds.S                         |    1 
- b/arch/ia64/Kconfig                               |   16 
- b/arch/ia64/hp/sim/simscsi.c                      |    3 
- b/arch/ia64/ia32/sys_ia32.c                       |    2 
- b/arch/m68k/Kconfig                               |   16 
- b/arch/mips/Kconfig                               |    2 
- b/arch/mips/au1000/common/serial.c                |   12 
- b/arch/mips/baget/vacserial.c                     |   12 
- b/arch/mips/dec/promcon.c                         |   12 
- b/arch/mips/kernel/gdb-stub.c                     |   10 
- b/arch/mips/kernel/sysirix.c                      |    2 
- b/arch/mips/lib/rtc-no.c                          |    6 
- b/arch/mips64/Kconfig                             |    2 
- b/arch/mips64/sgi-ip27/ip27-console.c             |   10 
- b/arch/mips64/sgi-ip27/ip27-rtc.c                 |    8 
- b/arch/parisc/Kconfig                             |    2 
- b/arch/parisc/kernel/sys_parisc32.c               |    2 
- b/arch/ppc/Kconfig                                |    8 
- b/arch/ppc64/Kconfig                              |    2 
- b/arch/ppc64/kernel/LparData.c                    |   10 
- b/arch/ppc64/kernel/pci_dma.c                     |    8 
- b/arch/ppc64/kernel/rtas_flash.c                  |    8 
- b/arch/ppc64/kernel/setup.c                       |    8 
- b/arch/s390/kernel/debug.c                        |   13 
- b/arch/s390/kernel/setup.c                        |    8 
- b/arch/s390x/kernel/debug.c                       |   13 
- b/arch/s390x/kernel/setup.c                       |    8 
- b/arch/sh/Kconfig                                 |    2 
- b/arch/sparc/Kconfig                              |   22 
- b/arch/sparc/Makefile                             |    3 
- b/arch/sparc/kernel/Makefile                      |    1 
- b/arch/sparc/kernel/module.c                      |  139 +
- b/arch/sparc/kernel/systbls.S                     |    4 
- b/arch/sparc/mm/extable.c                         |   18 
- b/arch/sparc/mm/io-unit.c                         |    6 
- b/arch/sparc/mm/iommu.c                           |    8 
- b/arch/sparc/mm/sun4c.c                           |    8 
- b/arch/sparc/vmlinux.lds.S                        |    3 
- b/arch/sparc64/Kconfig                            |   34 
- b/arch/sparc64/kernel/Makefile                    |    1 
- b/arch/sparc64/kernel/head.S                      |    2 
- b/arch/sparc64/kernel/ioctl32.c                   |    2 
- b/arch/sparc64/kernel/module.c                    |  260 ++
- b/arch/sparc64/kernel/setup.c                     |    2 
- b/arch/sparc64/kernel/sys_sparc32.c               |  398 ---
- b/arch/sparc64/kernel/systbls.S                   |    8 
- b/arch/sparc64/mm/Makefile                        |    2 
- b/arch/sparc64/mm/extable.c                       |   18 
- b/arch/sparc64/mm/init.c                          |    2 
- b/arch/sparc64/solaris/timod.c                    |    5 
- b/arch/sparc64/vmlinux.lds.S                      |    3 
- b/arch/um/Makefile                                |    8 
- b/arch/um/Makefile-i386                           |   10 
- b/arch/um/defconfig                               |    8 
- b/arch/um/drivers/Makefile                        |    4 
- b/arch/um/drivers/mconsole_kern.c                 |    2 
- b/arch/um/drivers/port_kern.c                     |   70 
- b/arch/um/drivers/ssl.c                           |    1 
- b/arch/um/drivers/stdio_console.c                 |    1 
- b/arch/um/drivers/ubd_kern.c                      |  341 +--
- b/arch/um/drivers/xterm.c                         |   26 
- b/arch/um/drivers/xterm.h                         |   22 
- b/arch/um/drivers/xterm_kern.c                    |   77 
- b/arch/um/include/chan_user.h                     |    1 
- b/arch/um/include/kern_util.h                     |    2 
- b/arch/um/kernel/Makefile                         |    4 
- b/arch/um/kernel/irq_user.c                       |    1 
- b/arch/um/kernel/ksyms.c                          |   27 
- b/arch/um/kernel/process_kern.c                   |    2 
- b/arch/um/kernel/reboot.c                         |   19 
- b/arch/um/kernel/signal_user.c                    |   24 
- b/arch/um/kernel/smp.c                            |    4 
- b/arch/um/kernel/sys_call_table.c                 |   14 
- b/arch/um/kernel/sysrq.c                          |   10 
- b/arch/um/kernel/trap_kern.c                      |    1 
- b/arch/um/os-Linux/Makefile                       |    4 
- b/arch/um/os-Linux/file.c                         |    7 
- b/arch/um/sys-i386/Makefile                       |   11 
- b/arch/um/uml.lds.S                               |    7 
- b/arch/v850/kernel/memcons.c                      |   10 
- b/arch/v850/kernel/procfs.c                       |    8 
- b/arch/v850/kernel/rte_cb_leds.c                  |   12 
- b/arch/x86_64/Kconfig                             |   16 
- b/arch/x86_64/ia32/sys_ia32.c                     |    2 
- b/crypto/api.c                                    |    3 
- b/drivers/acorn/block/fd1772.c                    |    8 
- b/drivers/acorn/block/mfmhd.c                     |  126 -
- b/drivers/acorn/net/ether1.c                      |    5 
- b/drivers/acorn/net/ether3.c                      |    6 
- b/drivers/acorn/net/etherh.c                      |    4 
- b/drivers/acorn/scsi/acornscsi.c                  |  282 +-
- b/drivers/acorn/scsi/arxescsi.c                   |  264 +-
- b/drivers/acorn/scsi/cumana_1.c                   |  308 +--
- b/drivers/acorn/scsi/cumana_2.c                   |  313 +--
- b/drivers/acorn/scsi/ecoscsi.c                    |    1 
- b/drivers/acorn/scsi/eesox.c                      |  337 +--
- b/drivers/acorn/scsi/fas216.c                     | 1565 +++++++++------
- b/drivers/acorn/scsi/fas216.h                     |   14 
- b/drivers/acorn/scsi/oak.c                        |  256 --
- b/drivers/acorn/scsi/powertec.c                   |  348 +--
- b/drivers/acorn/scsi/queue.c                      |   22 
- b/drivers/acorn/scsi/queue.h                      |    9 
- b/drivers/acpi/ac.c                               |   21 
- b/drivers/acpi/battery.c                          |   21 
- b/drivers/acpi/bus.c                              |    1 
- b/drivers/acpi/button.c                           |   19 
- b/drivers/acpi/dispatcher/dsmethod.c              |    4 
- b/drivers/acpi/dispatcher/dswstate.c              |    6 
- b/drivers/acpi/ec.c                               |   31 
- b/drivers/acpi/events/evevent.c                   |    8 
- b/drivers/acpi/events/evmisc.c                    |    4 
- b/drivers/acpi/events/evxface.c                   |    4 
- b/drivers/acpi/executer/exdump.c                  |    3 
- b/drivers/acpi/executer/exfield.c                 |  124 +
- b/drivers/acpi/executer/exfldio.c                 |   37 
- b/drivers/acpi/executer/exoparg1.c                |   24 
- b/drivers/acpi/executer/exoparg2.c                |    6 
- b/drivers/acpi/executer/exoparg3.c                |    6 
- b/drivers/acpi/executer/exprep.c                  |   18 
- b/drivers/acpi/executer/exstore.c                 |    6 
- b/drivers/acpi/executer/exsystem.c                |   10 
- b/drivers/acpi/executer/exutils.c                 |    4 
- b/drivers/acpi/fan.c                              |   25 
- b/drivers/acpi/include/acconfig.h                 |    8 
- b/drivers/acpi/include/acdisasm.h                 |    5 
- b/drivers/acpi/include/acevents.h                 |    4 
- b/drivers/acpi/include/acinterp.h                 |    7 
- b/drivers/acpi/include/aclocal.h                  |    4 
- b/drivers/acpi/include/acpiosxf.h                 |    2 
- b/drivers/acpi/include/acpixf.h                   |    2 
- b/drivers/acpi/include/actypes.h                  |    3 
- b/drivers/acpi/include/amlcode.h                  |    5 
- b/drivers/acpi/namespace/nsdump.c                 |    4 
- b/drivers/acpi/namespace/nsobject.c               |   40 
- b/drivers/acpi/namespace/nsutils.c                |   10 
- b/drivers/acpi/namespace/nsxfeval.c               |   19 
- b/drivers/acpi/osl.c                              |    4 
- b/drivers/acpi/power.c                            |   13 
- b/drivers/acpi/processor.c                        |   26 
- b/drivers/acpi/scan.c                             |    2 
- b/drivers/acpi/tables/tbconvrt.c                  |   26 
- b/drivers/acpi/tables/tbxfroot.c                  |    9 
- b/drivers/acpi/thermal.c                          |   26 
- b/drivers/acpi/utilities/utmisc.c                 |    4 
- b/drivers/atm/idt77252.c                          |    4 
- b/drivers/base/bus.c                              |    1 
- b/drivers/base/class.c                            |    1 
- b/drivers/base/core.c                             |    8 
- b/drivers/base/driver.c                           |    1 
- b/drivers/base/interface.c                        |    1 
- b/drivers/base/intf.c                             |    1 
- b/drivers/base/power.c                            |    1 
- b/drivers/base/sys.c                              |    3 
- b/drivers/block/DAC960.c                          |    2 
- b/drivers/block/amiflop.c                         |    3 
- b/drivers/block/cciss.c                           |    1 
- b/drivers/block/cpqarray.c                        |    5 
- b/drivers/block/floppy.c                          |    3 
- b/drivers/block/ll_rw_blk.c                       |   27 
- b/drivers/block/loop.c                            |   11 
- b/drivers/block/paride/aten.c                     |   13 
- b/drivers/block/paride/bpck.c                     |   13 
- b/drivers/block/paride/bpck6.c                    |   29 
- b/drivers/block/paride/comm.c                     |   13 
- b/drivers/block/paride/dstr.c                     |   13 
- b/drivers/block/paride/epat.c                     |   13 
- b/drivers/block/paride/epia.c                     |   13 
- b/drivers/block/paride/fit2.c                     |   13 
- b/drivers/block/paride/fit3.c                     |   13 
- b/drivers/block/paride/friq.c                     |   14 
- b/drivers/block/paride/frpw.c                     |   14 
- b/drivers/block/paride/kbic.c                     |   16 
- b/drivers/block/paride/ktti.c                     |   13 
- b/drivers/block/paride/on20.c                     |   13 
- b/drivers/block/paride/on26.c                     |   13 
- b/drivers/block/paride/paride.c                   |  430 ++--
- b/drivers/block/paride/paride.h                   |    3 
- b/drivers/block/paride/pseudo.h                   |   95 
- b/drivers/block/ps2esdi.c                         |    7 
- b/drivers/block/xd.c                              |    3 
- b/drivers/bluetooth/bluecard_cs.c                 |    1 
- b/drivers/bluetooth/bt3c_cs.c                     |    1 
- b/drivers/bluetooth/dtl1_cs.c                     |    1 
- b/drivers/cdrom/aztcd.c                           |    4 
- b/drivers/cdrom/cm206.c                           |    1 
- b/drivers/cdrom/gscd.c                            |    2 
- b/drivers/cdrom/mcd.c                             |    3 
- b/drivers/cdrom/mcdx.c                            |    3 
- b/drivers/cdrom/optcd.c                           |    2 
- b/drivers/cdrom/sbpcd.c                           |    4 
- b/drivers/cdrom/sjcd.c                            |    2 
- b/drivers/cdrom/sonycd535.c                       |    3 
- b/drivers/char/agp/agp.c                          |    2 
- b/drivers/char/agp/ali-agp.c                      |    2 
- b/drivers/char/agp/amd-agp.c                      |    2 
- b/drivers/char/agp/hp-agp.c                       |    2 
- b/drivers/char/agp/i810-agp.c                     |    6 
- b/drivers/char/agp/i8x0-agp.c                     |    2 
- b/drivers/char/agp/sis-agp.c                      |    2 
- b/drivers/char/agp/sworks-agp.c                   |    2 
- b/drivers/char/agp/via-agp.c                      |    2 
- b/drivers/char/applicom.c                         |    8 
- b/drivers/char/drm/Makefile                       |    4 
- b/drivers/char/drm/drm_sarea.h                    |   57 
- b/drivers/char/drm/drm_vm.h                       |    2 
- b/drivers/char/drm/i810_dma.c                     |   50 
- b/drivers/char/drm/i810_drv.h                     |    2 
- b/drivers/char/drm/i830_dma.c                     |   33 
- b/drivers/char/drm/i830_drv.h                     |    2 
- b/drivers/char/drm/mga.h                          |   12 
- b/drivers/char/drm/mga_dma.c                      |    4 
- b/drivers/char/drm/mga_drm.h                      |   13 
- b/drivers/char/drm/mga_drv.h                      |   12 
- b/drivers/char/drm/mga_irq.c                      |   99 
- b/drivers/char/drm/mga_state.c                    |   35 
- b/drivers/char/drm/r128.h                         |   10 
- b/drivers/char/drm/r128_drm.h                     |   11 
- b/drivers/char/drm/r128_drv.h                     |    6 
- b/drivers/char/drm/r128_irq.c                     |   99 
- b/drivers/char/drm/r128_state.c                   |   33 
- b/drivers/char/drm/radeon.h                       |    6 
- b/drivers/char/drm/radeon_drm.h                   |   17 
- b/drivers/char/drm/radeon_drv.h                   |   45 
- b/drivers/char/drm/radeon_state.c                 |   59 
- b/drivers/char/ftape/compressor/zftape-compress.c |    9 
- b/drivers/char/ftape/zftape/zftape-init.c         |   20 
- b/drivers/char/mwave/mwavedd.c                    |    2 
- b/drivers/char/mwave/tp3780i.c                    |    1 
- b/drivers/char/pcmcia/synclink_cs.c               |    1 
- b/drivers/char/random.c                           |    4 
- b/drivers/char/raw.c                              |    7 
- b/drivers/char/rtc.c                              |    4 
- b/drivers/char/sonypi.c                           |    3 
- b/drivers/char/sx.c                               |    1 
- b/drivers/char/tpqic02.c                          |   25 
- b/drivers/char/tty_io.c                           |    9 
- b/drivers/char/vc_screen.c                        |   41 
- b/drivers/char/wdt.c                              |   10 
- b/drivers/fc4/fc.c                                |    3 
- b/drivers/hotplug/pci_hotplug_core.c              |    1 
- b/drivers/ide/ide-probe.c                         |    5 
- b/drivers/ide/ide-tape.c                          |    3 
- b/drivers/ide/legacy/ide-cs.c                     |    1 
- b/drivers/ide/pci/adma100.h                       |   34 
- b/drivers/ide/pci/aec62xx.h                       |  138 -
- b/drivers/ide/pci/alim15x3.h                      |   40 
- b/drivers/ide/pci/amd74xx.h                       |  136 -
- b/drivers/ide/pci/cmd640.h                        |   32 
- b/drivers/ide/pci/cmd64x.h                        |  112 -
- b/drivers/ide/pci/cs5530.h                        |   40 
- b/drivers/ide/pci/cy82c693.h                      |   32 
- b/drivers/ide/pci/generic.h                       |  256 +-
- b/drivers/ide/pci/hpt34x.h                        |   40 
- b/drivers/ide/pci/hpt366.h                        |  146 -
- b/drivers/ide/pci/it8172.h                        |   34 
- b/drivers/ide/pci/ns87415.h                       |   32 
- b/drivers/ide/pci/nvidia.h                        |   32 
- b/drivers/ide/pci/opti621.h                       |   60 
- b/drivers/ide/pci/pdc202xx_new.h                  |  202 +-
- b/drivers/ide/pci/pdc202xx_old.h                  |  154 -
- b/drivers/ide/pci/pdcadma.h                       |   42 
- b/drivers/ide/pci/piix.h                          |  434 ++--
- b/drivers/ide/pci/rz1000.h                        |   56 
- b/drivers/ide/pci/serverworks.c                   |    4 
- b/drivers/ide/pci/serverworks.h                   |  120 -
- b/drivers/ide/pci/siimage.h                       |   64 
- b/drivers/ide/pci/sis5513.h                       |   40 
- b/drivers/ide/pci/sl82c105.h                      |   32 
- b/drivers/ide/pci/slc90e66.h                      |   40 
- b/drivers/ide/pci/trm290.h                        |   32 
- b/drivers/ide/pci/via82cxxx.h                     |   64 
- b/drivers/ieee1394/dv1394.c                       |  151 -
- b/drivers/input/Kconfig                           |    4 
- b/drivers/input/evbug.c                           |    9 
- b/drivers/input/evdev.c                           |    9 
- b/drivers/input/gameport/emu10k1-gp.c             |    4 
- b/drivers/input/joydev.c                          |    7 
- b/drivers/input/keyboard/Kconfig                  |   12 
- b/drivers/input/keyboard/atkbd.c                  |   27 
- b/drivers/input/misc/uinput.c                     |    9 
- b/drivers/input/mouse/Kconfig                     |    2 
- b/drivers/input/mouse/psmouse.c                   |   22 
- b/drivers/input/mouse/rpcmouse.c                  |    2 
- b/drivers/input/mousedev.c                        |   14 
- b/drivers/input/serio/Kconfig                     |    5 
- b/drivers/input/serio/i8042.c                     |    6 
- b/drivers/input/serio/rpckbd.c                    |    8 
- b/drivers/input/serio/serio.c                     |    7 
- b/drivers/isdn/Kconfig                            |    2 
- b/drivers/isdn/capi/capi.c                        |    2 
- b/drivers/isdn/hardware/avm/Kconfig               |    2 
- b/drivers/isdn/hardware/eicon/adapter.h           |   13 
- b/drivers/isdn/hardware/eicon/capifunc.c          | 1891 +++++++++---------
- b/drivers/isdn/hardware/eicon/capifunc.h          |    2 
- b/drivers/isdn/hardware/eicon/capimain.c          |  156 -
- b/drivers/isdn/hardware/eicon/diddfunc.c          |  117 -
- b/drivers/isdn/hardware/eicon/diva.c              |  942 ++++-----
- b/drivers/isdn/hardware/eicon/diva.h              |   34 
- b/drivers/isdn/hardware/eicon/diva_didd.c         |  168 -
- b/drivers/isdn/hardware/eicon/diva_pci.h          |   23 
- b/drivers/isdn/hardware/eicon/divamnt.c           |  632 +++---
- b/drivers/isdn/hardware/eicon/divasfunc.c         |  244 +-
- b/drivers/isdn/hardware/eicon/divasi.c            |  681 +++---
- b/drivers/isdn/hardware/eicon/divasmain.c         | 1198 ++++++-----
- b/drivers/isdn/hardware/eicon/divasproc.c         |  560 ++---
- b/drivers/isdn/hardware/eicon/dlist.c             |  118 -
- b/drivers/isdn/hardware/eicon/dlist.h             |   36 
- b/drivers/isdn/hardware/eicon/dqueue.c            |  147 -
- b/drivers/isdn/hardware/eicon/dqueue.h            |   42 
- b/drivers/isdn/hardware/eicon/dsp_tst.h           |    4 
- b/drivers/isdn/hardware/eicon/entity.h            |   26 
- b/drivers/isdn/hardware/eicon/idifunc.c           |  354 +--
- b/drivers/isdn/hardware/eicon/mntfunc.c           |  499 ++--
- b/drivers/isdn/hardware/eicon/os_4bri.c           | 1861 +++++++++---------
- b/drivers/isdn/hardware/eicon/os_4bri.h           |    4 
- b/drivers/isdn/hardware/eicon/os_bri.c            | 1356 ++++++-------
- b/drivers/isdn/hardware/eicon/os_bri.h            |    4 
- b/drivers/isdn/hardware/eicon/os_pri.c            | 1659 ++++++++--------
- b/drivers/isdn/hardware/eicon/os_pri.h            |    4 
- b/drivers/isdn/hardware/eicon/platform.h          |    2 
- b/drivers/isdn/hardware/eicon/s_4bri.c            |   28 
- b/drivers/isdn/hardware/eicon/s_bri.c             |    4 
- b/drivers/isdn/hardware/eicon/s_pri.c             |    8 
- b/drivers/isdn/hardware/eicon/um_idi.c            | 1010 +++++-----
- b/drivers/isdn/hardware/eicon/um_idi.h            |   58 
- b/drivers/isdn/hardware/eicon/um_xdi.h            |   41 
- b/drivers/isdn/hardware/eicon/xdi_adapter.h       |   76 
- b/drivers/isdn/hardware/eicon/xdi_msg.h           |   37 
- b/drivers/isdn/hisax/Kconfig                      |   83 
- b/drivers/isdn/i4l/Kconfig                        |   34 
- b/drivers/isdn/i4l/isdn_net_lib.c                 |    2 
- b/drivers/isdn/i4l/isdn_ppp.c                     |   13 
- b/drivers/macintosh/adb.c                         |   10 
- b/drivers/macintosh/adbhid.c                      |    2 
- b/drivers/macintosh/ans-lcd.c                     |    6 
- b/drivers/macintosh/apm_emu.c                     |   12 
- b/drivers/macintosh/macserial.c                   |   12 
- b/drivers/macintosh/mediabay.c                    |   36 
- b/drivers/macintosh/nvram.c                       |   10 
- b/drivers/macintosh/via-pmu.c                     |   12 
- b/drivers/macintosh/via-pmu68k.c                  |    8 
- b/drivers/md/dm-ioctl.c                           |   33 
- b/drivers/md/dm-linear.c                          |    2 
- b/drivers/md/dm-stripe.c                          |    2 
- b/drivers/md/dm.c                                 |   10 
- b/drivers/md/dm.h                                 |    2 
- b/drivers/md/md.c                                 |  279 --
- b/drivers/media/dvb/dvb-core/dvbdev.c             |    6 
- b/drivers/media/radio/miropcm20-rds.c             |    8 
- b/drivers/media/video/bttv-driver.c               |    1 
- b/drivers/message/fusion/mptscsih.h               |    4 
- b/drivers/mtd/devices/blkmtd.c                    |    2 
- b/drivers/net/3c59x.c                             |    2 
- b/drivers/net/eepro100.c                          |    2 
- b/drivers/net/irda/old_belkin.c                   |    1 
- b/drivers/net/rrunner.c                           |  604 +++---
- b/drivers/net/rrunner.h                           |   37 
- b/drivers/net/sk98lin/skge.c                      |    2 
- b/drivers/net/skfp/skfddi.c                       |    2 
- b/drivers/net/tg3.c                               |   46 
- b/drivers/net/tg3.h                               |    2 
- b/drivers/net/tulip/de4x5.c                       |    2 
- b/drivers/pci/names.c                             |    9 
- b/drivers/pci/probe.c                             |    9 
- b/drivers/pci/proc.c                              |    2 
- b/drivers/pci/quirks.c                            |    2 
- b/drivers/pci/setup-bus.c                         |    2 
- b/drivers/pci/setup-irq.c                         |    2 
- b/drivers/pci/setup-res.c                         |    6 
- b/drivers/pcmcia/cardbus.c                        |    1 
- b/drivers/pcmcia/cs.c                             |    2 
- b/drivers/pcmcia/i82092.c                         |    1 
- b/drivers/pcmcia/i82365.c                         |   15 
- b/drivers/pcmcia/rsrc_mgr.c                       |    2 
- b/drivers/pcmcia/yenta.c                          |   89 
- b/drivers/pnp/isapnp/core.c                       |    2 
- b/drivers/pnp/resource.c                          |    1 
- b/drivers/s390/block/dasd.c                       |   11 
- b/drivers/s390/block/dasd_devmap.c                |   15 
- b/drivers/s390/block/dasd_int.h                   |    1 
- b/drivers/s390/block/dasd_ioctl.c                 |    7 
- b/drivers/s390/block/dasd_proc.c                  |    9 
- b/drivers/s390/char/tape.c                        |    5 
- b/drivers/s390/char/tapechar.c                    |    5 
- b/drivers/s390/char/tubfs.c                       |   16 
- b/drivers/scsi/53c700.c                           |    4 
- b/drivers/scsi/Kconfig                            |   54 
- b/drivers/scsi/Makefile                           |    9 
- b/drivers/scsi/NCR53C9x.c                         |    4 
- b/drivers/scsi/aacraid/linit.c                    |    3 
- b/drivers/scsi/aha152x.c                          |    4 
- b/drivers/scsi/aic7xxx/aic7xxx_linux.c            |    2 
- b/drivers/scsi/aic7xxx/aic7xxx_osm.h              |    1 
- b/drivers/scsi/aic7xxx_old.c                      |   21 
- b/drivers/scsi/dpt/dpti_ioctl.h                   |    3 
- b/drivers/scsi/dpt_i2o.c                          |    5 
- b/drivers/scsi/dpti.h                             |    3 
- b/drivers/scsi/gdth.c                             |    9 
- b/drivers/scsi/hosts.c                            |  256 +-
- b/drivers/scsi/hosts.h                            |   23 
- b/drivers/scsi/ibmmca.c                           |    5 
- b/drivers/scsi/ibmmca.h                           |    5 
- b/drivers/scsi/megaraid.c                         |   25 
- b/drivers/scsi/ncr53c8xx.c                        |    2 
- b/drivers/scsi/osst.c                             |   42 
- b/drivers/scsi/pcmcia/Kconfig                     |    2 
- b/drivers/scsi/pcmcia/nsp_cs.c                    |    3 
- b/drivers/scsi/qla1280.c                          |    6 
- b/drivers/scsi/scsi.c                             |  859 ++------
- b/drivers/scsi/scsi.h                             |   95 
- b/drivers/scsi/scsi_debug.c                       |  279 +-
- b/drivers/scsi/scsi_debug.h                       |   15 
- b/drivers/scsi/scsi_error.c                       |   84 
- b/drivers/scsi/scsi_lib.c                         |  295 +-
- b/drivers/scsi/scsi_proc.c                        |  772 +++++--
- b/drivers/scsi/scsi_scan.c                        |  102 -
- b/drivers/scsi/scsi_syms.c                        |    3 
- b/drivers/scsi/sd.c                               |   43 
- b/drivers/scsi/sg.c                               |   46 
- b/drivers/scsi/sr.c                               |   22 
- b/drivers/scsi/st.c                               |   29 
- b/drivers/scsi/tmscsim.c                          |   29 
- b/drivers/scsi/wd33c93.c                          |    2 
- b/drivers/serial/Kconfig                          |   44 
- b/drivers/serial/Makefile                         |    1 
- b/drivers/serial/mux.c                            |  499 ++++
- b/drivers/usb/Makefile                            |    7 
- b/drivers/usb/class/Kconfig                       |   16 
- b/drivers/usb/class/usblp.c                       |   67 
- b/drivers/usb/core/driverfs.c                     |    8 
- b/drivers/usb/core/hcd-pci.c                      |    5 
- b/drivers/usb/core/hcd.c                          |   79 
- b/drivers/usb/core/hcd.h                          |    2 
- b/drivers/usb/core/inode.c                        |    1 
- b/drivers/usb/core/usb.c                          |   63 
- b/drivers/usb/host/Kconfig                        |    2 
- b/drivers/usb/host/Makefile                       |    2 
- b/drivers/usb/host/ehci-dbg.c                     |   17 
- b/drivers/usb/host/ehci-hcd.c                     |    4 
- b/drivers/usb/host/ehci-mem.c                     |   41 
- b/drivers/usb/host/ehci-q.c                       |   84 
- b/drivers/usb/host/ehci.h                         |    6 
- b/drivers/usb/host/ohci-dbg.c                     |   15 
- b/drivers/usb/host/ohci-hcd.c                     |    4 
- b/drivers/usb/host/ohci-pci.c                     |    2 
- b/drivers/usb/host/ohci-q.c                       |   28 
- b/drivers/usb/host/ohci-sa1111.c                  |    4 
- b/drivers/usb/host/ohci.h                         |    5 
- b/drivers/usb/image/scanner.c                     |   19 
- b/drivers/usb/image/scanner.h                     |    8 
- b/drivers/usb/input/hid-core.c                    |    4 
- b/drivers/usb/input/hid-debug.h                   |   92 
- b/drivers/usb/input/hid-input.c                   |    2 
- b/drivers/usb/input/hid.h                         |    2 
- b/drivers/usb/input/hiddev.c                      |   15 
- b/drivers/usb/input/usbkbd.c                      |    4 
- b/drivers/usb/input/usbmouse.c                    |    4 
- b/drivers/usb/media/vicam.c                       |   35 
- b/drivers/usb/misc/usbtest.c                      |  107 -
- b/drivers/usb/net/Kconfig                         |   15 
- b/drivers/usb/storage/freecom.c                   |   52 
- b/drivers/usb/storage/isd200.c                    |  205 --
- b/drivers/usb/storage/raw_bulk.c                  |   11 
- b/drivers/usb/storage/scsiglue.c                  |    2 
- b/drivers/usb/storage/transport.c                 |   79 
- b/drivers/usb/storage/transport.h                 |    1 
- b/drivers/usb/storage/usb.c                       |   35 
- b/fs/Kconfig                                      |   17 
- b/fs/adfs/dir_f.c                                 |    1 
- b/fs/adfs/dir_fplus.c                             |    1 
- b/fs/adfs/inode.c                                 |    9 
- b/fs/affs/inode.c                                 |    7 
- b/fs/affs/super.c                                 |    5 
- b/fs/afs/inode.c                                  |    5 
- b/fs/afs/vlclient.c                               |    6 
- b/fs/attr.c                                       |    2 
- b/fs/autofs/autofs_i.h                            |    1 
- b/fs/autofs/inode.c                               |    3 
- b/fs/autofs/root.c                                |    2 
- b/fs/autofs4/expire.c                             |    1 
- b/fs/befs/datastream.c                            |    1 
- b/fs/befs/linuxvfs.c                              |    5 
- b/fs/bfs/inode.c                                  |   15 
- b/fs/binfmt_misc.c                                |    1 
- b/fs/binfmt_som.c                                 |   36 
- b/fs/block_dev.c                                  |   12 
- b/fs/buffer.c                                     |   33 
- b/fs/char_dev.c                                   |    1 
- b/fs/cifs/cifsfs.c                                |    1 
- b/fs/cifs/cifsproto.h                             |    4 
- b/fs/cifs/md5.c                                   |    2 
- b/fs/cifs/netmisc.c                               |   12 
- b/fs/coda/coda_linux.c                            |   19 
- b/fs/dcache.c                                     |   73 
- b/fs/devfs/base.c                                 |   30 
- b/fs/devfs/util.c                                 |   28 
- b/fs/devpts/inode.c                               |    1 
- b/fs/direct-io.c                                  |    7 
- b/fs/dquot.c                                      |   13 
- b/fs/efs/inode.c                                  |    7 
- b/fs/eventpoll.c                                  |  534 +++--
- b/fs/exec.c                                       |    1 
- b/fs/ext2/inode.c                                 |   16 
- b/fs/ext2/super.c                                 |   10 
- b/fs/ext2/xattr.c                                 |    4 
- b/fs/ext3/inode.c                                 |   16 
- b/fs/ext3/super.c                                 |   16 
- b/fs/ext3/xattr.c                                 |    4 
- b/fs/fat/dir.c                                    |    2 
- b/fs/fat/inode.c                                  |   20 
- b/fs/fifo.c                                       |    1 
- b/fs/file_table.c                                 |   10 
- b/fs/filesystems.c                                |   16 
- b/fs/freevxfs/vxfs_fshead.c                       |    1 
- b/fs/freevxfs/vxfs_inode.c                        |    9 
- b/fs/hfs/file.c                                   |    2 
- b/fs/hfs/file_cap.c                               |    2 
- b/fs/hfs/file_hdr.c                               |    5 
- b/fs/hfs/inode.c                                  |    7 
- b/fs/hfs/sysdep.c                                 |    6 
- b/fs/hpfs/dir.c                                   |   13 
- b/fs/hpfs/inode.c                                 |   18 
- b/fs/hpfs/namei.c                                 |   30 
- b/fs/hpfs/super.c                                 |    9 
- b/fs/hugetlbfs/inode.c                            |    1 
- b/fs/inode.c                                      |   44 
- b/fs/intermezzo/file.c                            |    2 
- b/fs/intermezzo/journal.c                         |    6 
- b/fs/intermezzo/psdev.c                           |    4 
- b/fs/intermezzo/super.c                           |    5 
- b/fs/intermezzo/vfs.c                             |    2 
- b/fs/isofs/inode.c                                |    5 
- b/fs/isofs/rock.c                                 |   24 
- b/fs/jffs/inode-v23.c                             |   39 
- b/fs/jffs/intrep.c                                |    2 
- b/fs/jffs2/dir.c                                  |   18 
- b/fs/jffs2/file.c                                 |   22 
- b/fs/jffs2/fs.c                                   |   11 
- b/fs/jffs2/os-linux.h                             |    6 
- b/fs/jffs2/super.c                                |    1 
- b/fs/jffs2/write.c                                |    4 
- b/fs/jfs/acl.c                                    |  301 +++
- b/fs/jfs/jfs_imap.c                               |   21 
- b/fs/jfs/jfs_inode.c                              |    2 
- b/fs/lockd/clntproc.c                             |   46 
- b/fs/lockd/mon.c                                  |   79 
- b/fs/lockd/xdr.c                                  |   78 
- b/fs/lockd/xdr4.c                                 |   68 
- b/fs/locks.c                                      |    7 
- b/fs/mbcache.c                                    |  207 --
- b/fs/minix/inode.c                                |   22 
- b/fs/mpage.c                                      |   20 
- b/fs/msdos/namei.c                                |    2 
- b/fs/namei.c                                      |    2 
- b/fs/namespace.c                                  |   52 
- b/fs/ncpfs/inode.c                                |   15 
- b/fs/nfs/inode.c                                  |   22 
- b/fs/nfs/mount_clnt.c                             |   18 
- b/fs/nfs/nfs2xdr.c                                |   73 
- b/fs/nfs/nfs3proc.c                               |   51 
- b/fs/nfs/nfs3xdr.c                                |   83 
- b/fs/nfs/nfs4proc.c                               |   17 
- b/fs/nfs/nfs4xdr.c                                |   46 
- b/fs/nfs/proc.c                                   |   34 
- b/fs/nfs/unlink.c                                 |    6 
- b/fs/nfsctl.c                                     |    1 
- b/fs/nfsd/export.c                                |   15 
- b/fs/nfsd/lockd.c                                 |    2 
- b/fs/nfsd/nfs3xdr.c                               |   51 
- b/fs/nfsd/nfs4xdr.c                               |   32 
- b/fs/nfsd/nfsfh.c                                 |    1 
- b/fs/nfsd/nfsxdr.c                                |   20 
- b/fs/nfsd/vfs.c                                   |   18 
- b/fs/ntfs/inode.c                                 |   10 
- b/fs/ntfs/time.c                                  |    3 
- b/fs/open.c                                       |   13 
- b/fs/partitions/check.c                           |   43 
- b/fs/pipe.c                                       |    3 
- b/fs/proc/base.c                                  |    1 
- b/fs/proc/generic.c                               |    5 
- b/fs/proc/proc_misc.c                             |   12 
- b/fs/qnx4/inode.c                                 |   15 
- b/fs/quota_v2.c                                   |    1 
- b/fs/reiserfs/inode.c                             |   30 
- b/fs/reiserfs/journal.c                           |   16 
- b/fs/reiserfs/namei.c                             |   11 
- b/fs/romfs/inode.c                                |    3 
- b/fs/select.c                                     |   35 
- b/fs/smbfs/cache.c                                |    1 
- b/fs/smbfs/dir.c                                  |    3 
- b/fs/smbfs/file.c                                 |    1 
- b/fs/smbfs/getopt.c                               |    1 
- b/fs/smbfs/inode.c                                |    6 
- b/fs/smbfs/ioctl.c                                |    1 
- b/fs/smbfs/proc.c                                 |   70 
- b/fs/smbfs/request.c                              |    1 
- b/fs/smbfs/smbiod.c                               |    1 
- b/fs/smbfs/sock.c                                 |    1 
- b/fs/smbfs/symlink.c                              |    1 
- b/fs/stat.c                                       |   28 
- b/fs/super.c                                      |    1 
- b/fs/sysfs/inode.c                                |    2 
- b/fs/sysv/balloc.c                                |    1 
- b/fs/sysv/inode.c                                 |   17 
- b/fs/sysv/itree.c                                 |    2 
- b/fs/udf/balloc.c                                 |   30 
- b/fs/udf/dir.c                                    |   65 
- b/fs/udf/directory.c                              |   61 
- b/fs/udf/file.c                                   |   98 
- b/fs/udf/ialloc.c                                 |   19 
- b/fs/udf/inode.c                                  |  450 +---
- b/fs/udf/lowlevel.c                               |    7 
- b/fs/udf/misc.c                                   |   12 
- b/fs/udf/namei.c                                  |  296 +-
- b/fs/udf/osta_udf.h                               |    2 
- b/fs/udf/super.c                                  |   57 
- b/fs/udf/symlink.c                                |   19 
- b/fs/udf/truncate.c                               |   18 
- b/fs/udf/udf_i.h                                  |    9 
- b/fs/udf/udfdecl.h                                |   53 
- b/fs/udf/unicode.c                                |   90 
- b/fs/ufs/balloc.c                                 |    4 
- b/fs/ufs/ialloc.c                                 |    2 
- b/fs/ufs/inode.c                                  |   15 
- b/fs/ufs/super.c                                  |    4 
- b/fs/umsdos/namei.c                               |    4 
- b/fs/vfat/namei.c                                 |    2 
- b/fs/xfs/linux/xfs_ioctl.c                        |    1 
- b/fs/xfs/linux/xfs_iops.c                         |    9 
- b/fs/xfs/linux/xfs_super.c                        |   10 
- b/fs/xfs/linux/xfs_vnode.c                        |    9 
- b/fs/xfs/xfs_dquot.c                              |    4 
- b/fs/xfs/xfs_inode.c                              |   12 
- b/fs/xfs/xfs_trans_dquot.c                        |    4 
- b/include/asm-arm/arch-pxa/pxa-regs.h             |    2 
- b/include/asm-arm/ecard.h                         |   17 
- b/include/asm-arm/proc-armv/cache.h               |    8 
- b/include/asm-arm/proc-armv/pgalloc.h             |   20 
- b/include/asm-arm/proc-armv/pgtable.h             |   11 
- b/include/asm-arm/stat.h                          |   14 
- b/include/asm-cris/stat.h                         |   14 
- b/include/asm-i386/module.h                       |   15 
- b/include/asm-i386/stat.h                         |   12 
- b/include/asm-i386/suspend.h                      |    9 
- b/include/asm-i386/unistd.h                       |    1 
- b/include/asm-ia64/stat.h                         |    8 
- b/include/asm-m68k/stat.h                         |    6 
- b/include/asm-mips/stat.h                         |    6 
- b/include/asm-mips64/stat.h                       |    8 
- b/include/asm-parisc/stat.h                       |    8 
- b/include/asm-ppc/stat.h                          |   14 
- b/include/asm-ppc64/stat.h                        |   14 
- b/include/asm-s390/stat.h                         |   14 
- b/include/asm-s390x/stat.h                        |    8 
- b/include/asm-sh/stat.h                           |   14 
- b/include/asm-sparc/elf.h                         |    1 
- b/include/asm-sparc/module.h                      |   13 
- b/include/asm-sparc/stat.h                        |   14 
- b/include/asm-sparc64/module.h                    |   13 
- b/include/asm-sparc64/stat.h                      |    6 
- b/include/asm-um/irq.h                            |    3 
- b/include/asm-um/system-generic.h                 |   12 
- b/include/asm-um/unistd.h                         |    2 
- b/include/asm-x86_64/stat.h                       |    8 
- b/include/linux/amigaffs.h                        |    1 
- b/include/linux/atmdev.h                          |    2 
- b/include/linux/blkdev.h                          |    1 
- b/include/linux/buffer_head.h                     |    1 
- b/include/linux/coda_linux.h                      |    1 
- b/include/linux/cpu.h                             |    3 
- b/include/linux/dcache.h                          |    6 
- b/include/linux/devfs_fs_kernel.h                 |   16 
- b/include/linux/device.h                          |   19 
- b/include/linux/elf.h                             |   46 
- b/include/linux/eventpoll.h                       |    5 
- b/include/linux/ext3_fs.h                         |    1 
- b/include/linux/file.h                            |    7 
- b/include/linux/fs.h                              |   64 
- b/include/linux/fs_struct.h                       |   74 
- b/include/linux/ftape.h                           |    2 
- b/include/linux/hfs_sysdep.h                      |    2 
- b/include/linux/hiddev.h                          |    1 
- b/include/linux/hugetlb.h                         |    2 
- b/include/linux/i2c.h                             |    1 
- b/include/linux/if_pppox.h                        |    1 
- b/include/linux/in.h                              |    1 
- b/include/linux/init.h                            |  121 -
- b/include/linux/input.h                           |    3 
- b/include/linux/intermezzo_fs.h                   |    1 
- b/include/linux/interrupt.h                       |   15 
- b/include/linux/kernel.h                          |    3 
- b/include/linux/kmod.h                            |    1 
- b/include/linux/lockd/debug.h                     |    4 
- b/include/linux/major.h                           |    1 
- b/include/linux/mbcache.h                         |    2 
- b/include/linux/module.h                          |  715 ++-----
- b/include/linux/moduleloader.h                    |   61 
- b/include/linux/msdos_fs.h                        |    1 
- b/include/linux/ncp_fs_sb.h                       |    3 
- b/include/linux/netlink.h                         |    3 
- b/include/linux/nfs_fs.h                          |    8 
- b/include/linux/nfsd/cache.h                      |    3 
- b/include/linux/nfsd/nfsfh.h                      |   10 
- b/include/linux/parport.h                         |    8 
- b/include/linux/pci.h                             |    1 
- b/include/linux/poll.h                            |   42 
- b/include/linux/sched.h                           |  163 -
- b/include/linux/smb.h                             |    6 
- b/include/linux/stat.h                            |    7 
- b/include/linux/string.h                          |    2 
- b/include/linux/sunrpc/clnt.h                     |   11 
- b/include/linux/sunrpc/sched.h                    |    3 
- b/include/linux/suspend.h                         |    4 
- b/include/linux/time.h                            |   16 
- b/include/linux/udf_fs.h                          |   16 
- b/include/linux/udf_fs_i.h                        |   55 
- b/include/linux/udp.h                             |    3 
- b/include/linux/wait.h                            |  144 +
- b/include/linux/xfrm.h                            |  215 ++
- b/include/net/ip_fib.h                            |    3 
- b/include/net/route.h                             |   11 
- b/include/net/sock.h                              |   15 
- b/include/net/udp.h                               |    2 
- b/include/net/xfrm.h                              |  121 -
- b/include/scsi/sg.h                               |    2 
- b/include/sound/initval.h                         |    2 
- b/init/Kconfig                                    |   31 
- b/init/do_mounts.c                                |  402 +++-
- b/init/initramfs.c                                |    1 
- b/init/main.c                                     |    7 
- b/ipc/msg.c                                       |   10 
- b/ipc/sem.c                                       |   12 
- b/ipc/shm.c                                       |    8 
- b/kernel/Makefile                                 |    8 
- b/kernel/exec_domain.c                            |    4 
- b/kernel/exit.c                                   |    1 
- b/kernel/fork.c                                   |   49 
- b/kernel/futex.c                                  |    1 
- b/kernel/intermodule.c                            |  183 +
- b/kernel/kmod.c                                   |    4 
- b/kernel/ksyms.c                                  |   15 
- b/kernel/module.c                                 | 2204 ++++++++++------------
- b/kernel/suspend.c                                |    6 
- b/kernel/sys.c                                    |    2 
- b/kernel/time.c                                   |   12 
- b/kernel/timer.c                                  |   11 
- b/lib/string.c                                    |   23 
- b/lib/zlib_deflate/deflate_syms.c                 |    2 
- b/lib/zlib_inflate/inflate_syms.c                 |    2 
- b/mm/filemap.c                                    |    8 
- b/mm/page-writeback.c                             |    1 
- b/mm/page_io.c                                    |    3 
- b/mm/rmap.c                                       |    2 
- b/mm/shmem.c                                      |    1 
- b/mm/slab.c                                       |   32 
- b/mm/swapfile.c                                   |   14 
- b/net/802/tr.c                                    |    2 
- b/net/atm/mpc.c                                   |    2 
- b/net/core/neighbour.c                            |    2 
- b/net/ipv4/Kconfig                                |    8 
- b/net/ipv4/Makefile                               |    1 
- b/net/ipv4/af_inet.c                              |   16 
- b/net/ipv4/ah.c                                   |    2 
- b/net/ipv4/arp.c                                  |  153 -
- b/net/ipv4/esp.c                                  |   25 
- b/net/ipv4/fib_hash.c                             |   12 
- b/net/ipv4/inetpeer.c                             |    1 
- b/net/ipv4/ip_output.c                            |   10 
- b/net/ipv4/ip_sockglue.c                          |    1 
- b/net/ipv4/netfilter/ip_nat_helper.c              |   14 
- b/net/ipv4/netfilter/ipt_TCPMSS.c                 |    2 
- b/net/ipv4/proc.c                                 |  248 +-
- b/net/ipv4/raw.c                                  |  216 +-
- b/net/ipv4/tcp_ipv4.c                             |    6 
- b/net/ipv4/udp.c                                  |   18 
- b/net/ipv4/xfrm_input.c                           |    2 
- b/net/ipv4/xfrm_policy.c                          |   84 
- b/net/ipv4/xfrm_state.c                           |   23 
- b/net/ipv4/xfrm_user.c                            | 1045 ++++++++++
- b/net/ipv6/af_inet6.c                             |    4 
- b/net/ipv6/mcast.c                                |    1 
- b/net/irda/af_irda.c                              |    1 
- b/net/key/af_key.c                                |   93 
- b/net/llc/llc_main.c                              |    5 
- b/net/netsyms.c                                   |    1 
- b/net/sched/sch_sfq.c                             |    2 
- b/net/socket.c                                    |   24 
- b/net/sunrpc/cache.c                              |   29 
- b/net/sunrpc/clnt.c                               |   25 
- b/net/sunrpc/pmap_clnt.c                          |   26 
- b/net/sunrpc/sched.c                              |    3 
- b/net/sunrpc/svcsock.c                            |    6 
- b/net/sunrpc/xprt.c                               |    6 
- b/net/unix/af_unix.c                              |    3 
- b/scripts/Makefile.build                          |   36 
- b/scripts/Makefile.lib                            |   21 
- b/scripts/Makefile.modinst                        |    4 
- b/scripts/Makefile.modver                         |    7 
- b/sound/core/info.c                               |   14 
- b/sound/core/pcm_native.c                         |    1 
- b/sound/core/sound.c                              |   13 
- b/sound/drivers/dummy.c                           |    1 
- b/sound/drivers/mpu401/mpu401_uart.c              |    3 
- b/sound/drivers/mtpav.c                           |    5 
- b/sound/drivers/opl3/opl3_seq.c                   |    1 
- b/sound/drivers/serial-u16550.c                   |    4 
- b/sound/isa/ad1848/ad1848_lib.c                   |    6 
- b/sound/isa/cs423x/cs4231_lib.c                   |    8 
- b/sound/isa/es1688/es1688_lib.c                   |    6 
- b/sound/isa/gus/gus_main.c                        |    4 
- b/sound/isa/opl3sa2.c                             |    4 
- b/sound/isa/sb/sb8_midi.c                         |    1 
- b/sound/isa/sb/sb_common.c                        |    6 
- b/sound/isa/wavefront/wavefront.c                 |    1 
- b/sound/isa/wavefront/wavefront_midi.c            |    1 
- b/sound/oss/ad1816.c                              |    1 
- b/sound/oss/ad1848.c                              |    1 
- b/sound/oss/cmpci.c                               |   62 
- b/sound/oss/es1370.c                              |   10 
- b/sound/oss/es1371.c                              |    8 
- b/sound/oss/esssolo1.c                            |   10 
- b/sound/oss/gus_card.c                            |    1 
- b/sound/oss/i810_audio.c                          |   10 
- b/sound/oss/mpu401.c                              |    1 
- b/sound/oss/nm256_audio.c                         |    1 
- b/sound/oss/pas2_card.c                           |    1 
- b/sound/oss/sb_common.c                           |    1 
- b/sound/oss/sonicvibes.c                          |   11 
- b/sound/oss/soundcard.c                           |   61 
- b/sound/oss/trident.c                             |    1 
- b/sound/oss/uart401.c                             |    1 
- b/sound/oss/uart6850.c                            |    1 
- b/sound/oss/via82cxxx_audio.c                     |    2 
- b/sound/oss/ymfpci.c                              |    1 
- b/sound/synth/emux/emux.c                         |    1 
- drivers/scsi/ChangeLog                            | 2023 --------------------
- drivers/scsi/ChangeLog.ips                        |  122 -
- drivers/scsi/ChangeLog.ncr53c8xx                  |  495 ----
- drivers/scsi/ChangeLog.serverraid                 |  103 -
- drivers/scsi/ChangeLog.sym53c8xx                  |  593 -----
- drivers/scsi/LICENSE.FlashPoint                   |   60 
- drivers/scsi/README.53c700                        |  152 -
- drivers/scsi/README.AM53C974                      |  228 --
- drivers/scsi/README.BusLogic                      |  613 ------
- drivers/scsi/README.FlashPoint                    |  163 -
- drivers/scsi/README.Mylex                         |    5 
- drivers/scsi/README.aha152x                       |  175 -
- drivers/scsi/README.aic7xxx                       |  476 ----
- drivers/scsi/README.dpti                          |   83 
- drivers/scsi/README.dtc3x80                       |   45 
- drivers/scsi/README.g_NCR5380                     |   63 
- drivers/scsi/README.ibmmca                        | 1401 -------------
- drivers/scsi/README.in2000                        |  199 -
- drivers/scsi/README.ncr53c7xx                     |   40 
- drivers/scsi/README.ncr53c8xx                     | 1806 ------------------
- drivers/scsi/README.osst                          |  209 --
- drivers/scsi/README.ppa                           |   15 
- drivers/scsi/README.qlogicfas                     |   79 
- drivers/scsi/README.qlogicisp                     |   34 
- drivers/scsi/README.st                            |  444 ----
- drivers/scsi/README.tmscsim                       |  437 ----
- drivers/scsi/aic7xxx_old/README.aic7xxx           |  510 -----
- drivers/scsi/cpqfc.Readme                         |  275 --
- drivers/scsi/scsi_mid_low_api.txt                 |  536 -----
- drivers/scsi/sym53c8xx_2/ChangeLog.txt            |  148 -
- drivers/scsi/sym53c8xx_2/Documentation.txt        | 1110 -----------
- include/linux/logibusmouse.h                      |  104 -
- 1029 files changed, 37932 insertions(+), 34260 deletions(-)
+ b/Documentation/cpufreq                      |   31 
+ b/Documentation/crypto/api-intro.txt         |   10 
+ b/Documentation/filesystems/Locking          |   12 
+ b/Documentation/filesystems/vfs.txt          |    2 
+ b/Documentation/kobject.txt                  |  125 +
+ b/Documentation/sonypi.txt                   |   38 
+ b/Documentation/video4linux/meye.txt         |    5 
+ b/MAINTAINERS                                |   17 
+ b/Makefile                                   |   21 
+ b/arch/alpha/Kconfig                         |    2 
+ b/arch/alpha/defconfig                       |  515 ++---
+ b/arch/alpha/kernel/Makefile                 |    2 
+ b/arch/alpha/kernel/entry.S                  |   21 
+ b/arch/alpha/kernel/err_common.c             |   22 
+ b/arch/alpha/kernel/err_impl.h               |    2 
+ b/arch/alpha/kernel/irq.c                    |    2 
+ b/arch/alpha/kernel/osf_sys.c                |   49 
+ b/arch/alpha/kernel/pci.c                    |    4 
+ b/arch/alpha/kernel/process.c                |   13 
+ b/arch/alpha/kernel/setup.c                  |   71 
+ b/arch/alpha/kernel/smc37c669.c              |   12 
+ b/arch/alpha/kernel/smp.c                    |    4 
+ b/arch/alpha/kernel/srm_env.c                |    2 
+ b/arch/alpha/kernel/sys_nautilus.c           |    8 
+ b/arch/alpha/kernel/sys_sio.c                |    2 
+ b/arch/alpha/kernel/systbls.S                |   17 
+ b/arch/alpha/kernel/time.c                   |    2 
+ b/arch/alpha/lib/fpreg.c                     |    2 
+ b/arch/alpha/lib/io.c                        |   12 
+ b/arch/alpha/mm/init.c                       |   35 
+ b/arch/alpha/mm/numa.c                       |   12 
+ b/arch/arm/Makefile                          |    4 
+ b/arch/arm/kernel/Makefile                   |    2 
+ b/arch/arm/kernel/armksyms.c                 |    9 
+ b/arch/arm/kernel/bios32.c                   |    6 
+ b/arch/arm/kernel/calls.S                    |    6 
+ b/arch/arm/kernel/entry-armv.S               |    2 
+ b/arch/arm/kernel/module.c                   |  172 +
+ b/arch/arm/kernel/process.c                  |    1 
+ b/arch/arm/kernel/sys_arm.c                  |    8 
+ b/arch/arm/kernel/time-acorn.c               |    3 
+ b/arch/arm/kernel/traps.c                    |    1 
+ b/arch/arm/mach-footbridge/netwinder-pci.c   |    2 
+ b/arch/arm/mach-integrator/cpu.c             |   11 
+ b/arch/arm/mach-integrator/pci_v3.c          |    2 
+ b/arch/arm/mach-rpc/dma.c                    |    3 
+ b/arch/arm/mach-sa1100/cpu-sa1100.c          |    8 
+ b/arch/arm/mach-sa1100/cpu-sa1110.c          |   12 
+ b/arch/arm/mach-sa1100/generic.c             |    3 
+ b/arch/arm/mm/extable.c                      |   16 
+ b/arch/arm/nwfpe/fpa11.c                     |    1 
+ b/arch/arm/tools/mach-types                  |   20 
+ b/arch/i386/Kconfig                          |   15 
+ b/arch/i386/kernel/cpu/amd.c                 |   15 
+ b/arch/i386/kernel/cpu/cpufreq/elanfreq.c    |   30 
+ b/arch/i386/kernel/cpu/cpufreq/longhaul.c    |   34 
+ b/arch/i386/kernel/cpu/cpufreq/longrun.c     |   24 
+ b/arch/i386/kernel/cpu/cpufreq/p4-clockmod.c |   28 
+ b/arch/i386/kernel/cpu/cpufreq/powernow-k6.c |   30 
+ b/arch/i386/kernel/cpu/cpufreq/speedstep.c   |   25 
+ b/arch/i386/kernel/entry.S                   |   49 
+ b/arch/i386/kernel/module.c                  |    2 
+ b/arch/i386/kernel/process.c                 |   16 
+ b/arch/i386/kernel/smpboot.c                 |   12 
+ b/arch/i386/kernel/traps.c                   |    1 
+ b/arch/i386/mach-generic/topology.c          |    1 
+ b/arch/i386/oprofile/Makefile                |   16 
+ b/arch/ia64/Kconfig                          |   14 
+ b/arch/ppc/Kconfig                           |   17 
+ b/arch/ppc/Makefile                          |   22 
+ b/arch/ppc/boot/Makefile                     |   28 
+ b/arch/ppc/boot/common/Makefile              |    2 
+ b/arch/ppc/boot/images/Makefile              |    5 
+ b/arch/ppc/boot/lib/Makefile                 |    2 
+ b/arch/ppc/boot/of1275/Makefile              |    2 
+ b/arch/ppc/boot/openfirmware/Makefile        |   18 
+ b/arch/ppc/boot/prep/Makefile                |   12 
+ b/arch/ppc/boot/prep/misc.c                  |    1 
+ b/arch/ppc/boot/simple/Makefile              |   23 
+ b/arch/ppc/boot/simple/misc.c                |    1 
+ b/arch/ppc/kernel/Makefile                   |    2 
+ b/arch/ppc/kernel/misc.S                     |    6 
+ b/arch/ppc/kernel/module.c                   |  260 ++
+ b/arch/ppc/kernel/process.c                  |    1 
+ b/arch/ppc/mm/extable.c                      |   25 
+ b/arch/ppc/platforms/pmac_pic.c              |    1 
+ b/arch/ppc/syslib/i8259.c                    |    5 
+ b/arch/ppc/syslib/open_pic.c                 |    1 
+ b/arch/s390/Kconfig                          |   48 
+ b/arch/s390/Makefile                         |   15 
+ b/arch/s390/boot/Makefile                    |   27 
+ b/arch/s390/defconfig                        |  235 --
+ b/arch/s390/kernel/Makefile                  |    2 
+ b/arch/s390/kernel/entry.S                   |   12 
+ b/arch/s390/kernel/module.c                  |  174 +
+ b/arch/s390/kernel/setup.c                   |   22 
+ b/arch/s390/kernel/smp.c                     |   11 
+ b/arch/s390/kernel/time.c                    |    1 
+ b/arch/s390/kernel/traps.c                   |    8 
+ b/arch/s390/lib/uaccess.S                    |   84 
+ b/arch/s390/mm/extable.c                     |   14 
+ b/arch/s390/mm/init.c                        |    2 
+ b/arch/s390/vmlinux.lds.S                    |   42 
+ b/arch/s390x/Kconfig                         |   47 
+ b/arch/s390x/Makefile                        |   17 
+ b/arch/s390x/boot/Makefile                   |   24 
+ b/arch/s390x/defconfig                       |  238 +-
+ b/arch/s390x/kernel/Makefile                 |    2 
+ b/arch/s390x/kernel/entry.S                  |   12 
+ b/arch/s390x/kernel/ioctl32.c                |   45 
+ b/arch/s390x/kernel/linux32.c                |  438 +---
+ b/arch/s390x/kernel/module.c                 |  190 ++
+ b/arch/s390x/kernel/s390_ksyms.c             |   14 
+ b/arch/s390x/kernel/setup.c                  |   22 
+ b/arch/s390x/kernel/time.c                   |    1 
+ b/arch/s390x/kernel/traps.c                  |    8 
+ b/arch/s390x/kernel/wrapper32.S              |   24 
+ b/arch/s390x/lib/uaccess.S                   |   77 
+ b/arch/s390x/mm/extable.c                    |   23 
+ b/arch/s390x/vmlinux.lds.S                   |   47 
+ b/arch/sparc/kernel/apc.c                    |   28 
+ b/arch/sparc/kernel/entry.S                  |    3 
+ b/arch/sparc/kernel/module.c                 |   23 
+ b/arch/sparc/kernel/process.c                |   26 
+ b/arch/sparc/kernel/systbls.S                |    6 
+ b/arch/sparc64/Makefile                      |   12 
+ b/arch/sparc64/boot/Makefile                 |   30 
+ b/arch/sparc64/kernel/Makefile               |    2 
+ b/arch/sparc64/kernel/ebus.c                 |    1 
+ b/arch/sparc64/kernel/entry.S                |    2 
+ b/arch/sparc64/kernel/isa.c                  |   22 
+ b/arch/sparc64/kernel/module.c               |   23 
+ b/arch/sparc64/kernel/pci.c                  |    2 
+ b/arch/sparc64/kernel/pci_common.c           |   12 
+ b/arch/sparc64/kernel/pci_psycho.c           |    1 
+ b/arch/sparc64/kernel/pci_sabre.c            |    1 
+ b/arch/sparc64/kernel/pci_schizo.c           |    1 
+ b/arch/sparc64/kernel/power.c                |    1 
+ b/arch/sparc64/kernel/process.c              |   20 
+ b/arch/sparc64/kernel/sbus.c                 |    1 
+ b/arch/sparc64/kernel/sys_sparc32.c          |    6 
+ b/arch/sparc64/kernel/sys_sunos32.c          |    3 
+ b/arch/sparc64/kernel/systbls.S              |   12 
+ b/arch/sparc64/kernel/time.c                 |    4 
+ b/arch/sparc64/lib/Makefile                  |    2 
+ b/arch/sparc64/math-emu/Makefile             |    4 
+ b/arch/sparc64/mm/Makefile                   |    2 
+ b/arch/sparc64/prom/Makefile                 |    2 
+ b/arch/sparc64/solaris/Makefile              |    2 
+ b/arch/sparc64/solaris/fs.c                  |   25 
+ b/arch/sparc64/solaris/ioctl.c               |    2 
+ b/arch/sparc64/solaris/socket.c              |    1 
+ b/arch/sparc64/solaris/socksys.c             |    2 
+ b/arch/sparc64/vmlinux.lds.S                 |    4 
+ b/arch/x86_64/Kconfig                        |   14 
+ b/crypto/Kconfig                             |    6 
+ b/crypto/Makefile                            |    1 
+ b/crypto/api.c                               |   41 
+ b/crypto/cipher.c                            |   30 
+ b/crypto/compress.c                          |   18 
+ b/crypto/crypto_null.c                       |  132 +
+ b/crypto/digest.c                            |   17 
+ b/crypto/hmac.c                              |   34 
+ b/crypto/internal.h                          |   23 
+ b/drivers/acorn/scsi/arxescsi.c              |    2 
+ b/drivers/acorn/scsi/cumana_1.c              |   10 
+ b/drivers/acorn/scsi/ecoscsi.c               |   98 -
+ b/drivers/acorn/scsi/oak.c                   |    8 
+ b/drivers/acpi/acpi_ksyms.c                  |    9 
+ b/drivers/acpi/dispatcher/dsutils.c          |   41 
+ b/drivers/acpi/dispatcher/dswexec.c          |   16 
+ b/drivers/acpi/ec.c                          |  165 +
+ b/drivers/acpi/events/evmisc.c               |    9 
+ b/drivers/acpi/executer/exconvrt.c           |  146 -
+ b/drivers/acpi/executer/exfield.c            |   53 
+ b/drivers/acpi/executer/exmisc.c             |   79 
+ b/drivers/acpi/executer/exoparg1.c           |   10 
+ b/drivers/acpi/executer/exoparg2.c           |   50 
+ b/drivers/acpi/executer/exresnte.c           |    6 
+ b/drivers/acpi/executer/exresop.c            |   26 
+ b/drivers/acpi/include/acconfig.h            |    4 
+ b/drivers/acpi/include/acdispat.h            |    6 
+ b/drivers/acpi/include/acutils.h             |    6 
+ b/drivers/acpi/namespace/nseval.c            |    4 
+ b/drivers/acpi/namespace/nsinit.c            |    4 
+ b/drivers/acpi/osl.c                         |   27 
+ b/drivers/acpi/parser/psparse.c              |   18 
+ b/drivers/acpi/processor.c                   |   30 
+ b/drivers/acpi/sleep.c                       |    2 
+ b/drivers/acpi/utilities/utobject.c          |   69 
+ b/drivers/base/base.h                        |    3 
+ b/drivers/base/bus.c                         |  286 +--
+ b/drivers/base/class.c                       |   48 
+ b/drivers/base/core.c                        |  235 +-
+ b/drivers/base/cpu.c                         |    4 
+ b/drivers/base/driver.c                      |  127 -
+ b/drivers/base/fs/device.c                   |    2 
+ b/drivers/base/hotplug.c                     |    2 
+ b/drivers/base/intf.c                        |   36 
+ b/drivers/base/power.c                       |    8 
+ b/drivers/base/sys.c                         |    2 
+ b/drivers/block/cciss_scsi.c                 |   16 
+ b/drivers/block/ll_rw_blk.c                  |   63 
+ b/drivers/block/loop.c                       |    2 
+ b/drivers/block/umem.c                       |    1 
+ b/drivers/cdrom/mcdx.c                       |   16 
+ b/drivers/cdrom/optcd.c                      |    2 
+ b/drivers/cdrom/sbpcd.c                      |   28 
+ b/drivers/char/Kconfig                       |  284 ---
+ b/drivers/char/Makefile                      |   23 
+ b/drivers/char/agp/agp.c                     |    8 
+ b/drivers/char/mem.c                         |   24 
+ b/drivers/char/rtc.c                         |    4 
+ b/drivers/char/sonypi.c                      |  288 +--
+ b/drivers/char/sonypi.h                      |  143 +
+ b/drivers/char/tty_io.c                      |   13 
+ b/drivers/char/watchdog/Kconfig              |  286 +++
+ b/drivers/char/watchdog/Makefile             |   27 
+ b/drivers/char/watchdog/acquirewdt.c         |  251 ++
+ b/drivers/char/watchdog/advantechwdt.c       |  280 +++
+ b/drivers/char/watchdog/eurotechwdt.c        |  501 +++++
+ b/drivers/char/watchdog/i810-tco.c           |  431 ++++
+ b/drivers/char/watchdog/ib700wdt.c           |  311 +++
+ b/drivers/char/watchdog/machzwd.c            |  557 ++++++
+ b/drivers/char/watchdog/mixcomwd.c           |  282 +++
+ b/drivers/char/watchdog/pcwd.c               |  672 +++++++
+ b/drivers/char/watchdog/sbc60xxwdt.c         |  354 +++
+ b/drivers/char/watchdog/scx200_wdt.c         |  277 +++
+ b/drivers/char/watchdog/shwdt.c              |  417 ++++
+ b/drivers/char/watchdog/softdog.c            |  196 ++
+ b/drivers/char/watchdog/w83877f_wdt.c        |  366 ++++
+ b/drivers/char/watchdog/wdt.c                |  565 ++++++
+ b/drivers/char/watchdog/wdt285.c             |  193 ++
+ b/drivers/char/watchdog/wdt977.c             |  346 +++
+ b/drivers/char/watchdog/wdt_pci.c            |  653 +++++++
+ b/drivers/hotplug/cpci_hotplug_pci.c         |    4 
+ b/drivers/hotplug/cpqphp_core.c              |    3 
+ b/drivers/hotplug/pci_hotplug_core.c         |    4 
+ b/drivers/i2c/i2c-core.c                     |    2 
+ b/drivers/i2c/i2c-dev.c                      |   39 
+ b/drivers/i2c/i2c-elektor.c                  |   46 
+ b/drivers/i2c/i2c-frodo.c                    |   29 
+ b/drivers/i2c/i2c-rpx.c                      |    2 
+ b/drivers/i2c/scx200_acb.c                   |    8 
+ b/drivers/ide/ide-cd.c                       |    2 
+ b/drivers/ide/legacy/hd.c                    |    4 
+ b/drivers/ieee1394/dv1394.c                  |    2 
+ b/drivers/ieee1394/raw1394.c                 |    8 
+ b/drivers/input/evbug.c                      |    2 
+ b/drivers/input/evdev.c                      |    2 
+ b/drivers/input/misc/sparcspkr.c             |    6 
+ b/drivers/input/mouse/inport.c               |    7 
+ b/drivers/input/mouse/logibm.c               |    7 
+ b/drivers/input/mouse/pc110pad.c             |    1 
+ b/drivers/input/serio/ct82c710.c             |   10 
+ b/drivers/input/tsdev.c                      |   16 
+ b/drivers/isdn/hisax/bkm_a8.c                |   23 
+ b/drivers/md/linear.c                        |    7 
+ b/drivers/md/md.c                            |   10 
+ b/drivers/md/raid0.c                         |   14 
+ b/drivers/md/raid5.c                         |    2 
+ b/drivers/media/video/meye.c                 |  153 -
+ b/drivers/media/video/meye.h                 |    6 
+ b/drivers/message/i2o/i2o_config.c           |   16 
+ b/drivers/message/i2o/i2o_pci.c              |    4 
+ b/drivers/net/3c501.c                        |    1 
+ b/drivers/net/3c503.c                        |    2 
+ b/drivers/net/3c505.c                        |    2 
+ b/drivers/net/3c507.c                        |   17 
+ b/drivers/net/3c509.c                        |    4 
+ b/drivers/net/3c515.c                        |    9 
+ b/drivers/net/3c523.c                        |   10 
+ b/drivers/net/3c527.c                        |   15 
+ b/drivers/net/3c59x.c                        |    2 
+ b/drivers/net/68360enet.c                    |    2 
+ b/drivers/net/7990.c                         |   27 
+ b/drivers/net/82596.c                        |    2 
+ b/drivers/net/a2065.c                        |   12 
+ b/drivers/net/ac3200.c                       |    2 
+ b/drivers/net/aironet4500_card.c             |   20 
+ b/drivers/net/aironet4500_core.c             |    8 
+ b/drivers/net/aironet4500_proc.c             |   17 
+ b/drivers/net/am79c961a.c                    |    1 
+ b/drivers/net/apne.c                         |    6 
+ b/drivers/net/appletalk/cops.c               |   13 
+ b/drivers/net/appletalk/ltpc.c               |   14 
+ b/drivers/net/ariadne.c                      |    4 
+ b/drivers/net/ariadne2.c                     |    2 
+ b/drivers/net/at1700.c                       |   15 
+ b/drivers/net/atarilance.c                   |    9 
+ b/drivers/net/atp.c                          |   11 
+ b/drivers/net/au1000_eth.c                   |    4 
+ b/drivers/net/b44.c                          |    1 
+ b/drivers/net/bagetlance.c                   |   10 
+ b/drivers/net/bonding.c                      |   14 
+ b/drivers/net/cs89x0.c                       |   13 
+ b/drivers/net/de600.c                        |    6 
+ b/drivers/net/de620.c                        |    8 
+ b/drivers/net/declance.c                     |    1 
+ b/drivers/net/defxx.c                        |    8 
+ b/drivers/net/depca.c                        |   13 
+ b/drivers/net/dgrs.c                         |    1 
+ b/drivers/net/e2100.c                        |    2 
+ b/drivers/net/eepro.c                        |   11 
+ b/drivers/net/eexpress.c                     |   13 
+ b/drivers/net/es3210.c                       |    6 
+ b/drivers/net/eth16i.c                       |    3 
+ b/drivers/net/ewrk3.c                        |   13 
+ b/drivers/net/fc/iph5526.c                   |   13 
+ b/drivers/net/fealnx.c                       |    2 
+ b/drivers/net/fec.c                          |    2 
+ b/drivers/net/fmv18x.c                       |   12 
+ b/drivers/net/gt96100eth.c                   |    2 
+ b/drivers/net/hamachi.c                      |   12 
+ b/drivers/net/hamradio/baycom_par.c          |    8 
+ b/drivers/net/hamradio/scc.c                 |   12 
+ b/drivers/net/hamradio/soundmodem/sm_sbc.c   |    7 
+ b/drivers/net/hamradio/soundmodem/sm_wss.c   |    7 
+ b/drivers/net/hp-plus.c                      |    2 
+ b/drivers/net/hp.c                           |    2 
+ b/drivers/net/hp100.c                        |    8 
+ b/drivers/net/hplance.c                      |   11 
+ b/drivers/net/hydra.c                        |    2 
+ b/drivers/net/ibmlana.c                      |   10 
+ b/drivers/net/irda/act200l.c                 |    1 
+ b/drivers/net/irda/actisys.c                 |    1 
+ b/drivers/net/irda/ep7211_ir.c               |    1 
+ b/drivers/net/irda/esi.c                     |    2 
+ b/drivers/net/irda/girbil.c                  |    1 
+ b/drivers/net/irda/litelink.c                |    1 
+ b/drivers/net/irda/ma600.c                   |    1 
+ b/drivers/net/irda/mcp2120.c                 |    1 
+ b/drivers/net/irda/old_belkin.c              |    1 
+ b/drivers/net/irda/sir_kthread.c             |    1 
+ b/drivers/net/irda/tekram.c                  |    1 
+ b/drivers/net/isa-skeleton.c                 |   12 
+ b/drivers/net/jazzsonic.c                    |   11 
+ b/drivers/net/lance.c                        |    9 
+ b/drivers/net/lasi_82596.c                   |    3 
+ b/drivers/net/lne390.c                       |    5 
+ b/drivers/net/lp486e.c                       |    1 
+ b/drivers/net/mac8390.c                      |   13 
+ b/drivers/net/mac89x0.c                      |   12 
+ b/drivers/net/macsonic.c                     |   14 
+ b/drivers/net/mvme147.c                      |   10 
+ b/drivers/net/myri_sbus.c                    |   24 
+ b/drivers/net/ne.c                           |    7 
+ b/drivers/net/ne2.c                          |   13 
+ b/drivers/net/ne2k-pci.c                     |    6 
+ b/drivers/net/ne3210.c                       |    6 
+ b/drivers/net/net_init.c                     |    1 
+ b/drivers/net/ni65.c                         |   10 
+ b/drivers/net/pcmcia/3c574_cs.c              |   11 
+ b/drivers/net/pcmcia/3c589_cs.c              |   12 
+ b/drivers/net/pcmcia/aironet4500_cs.c        |   14 
+ b/drivers/net/pcmcia/axnet_cs.c              |   11 
+ b/drivers/net/pcmcia/com20020_cs.c           |    7 
+ b/drivers/net/pcmcia/fmvj18x_cs.c            |   10 
+ b/drivers/net/pcmcia/ibmtr_cs.c              |    9 
+ b/drivers/net/pcmcia/nmclan_cs.c             |   12 
+ b/drivers/net/pcmcia/pcnet_cs.c              |   11 
+ b/drivers/net/pcmcia/ray_cs.c                |   12 
+ b/drivers/net/pcmcia/smc91c92_cs.c           |    9 
+ b/drivers/net/pcmcia/xirc2ps_cs.c            |   11 
+ b/drivers/net/pcnet32.c                      |   12 
+ b/drivers/net/plip.c                         |   12 
+ b/drivers/net/pppoe.c                        |    8 
+ b/drivers/net/pppox.c                        |   10 
+ b/drivers/net/rcpci45.c                      |    2 
+ b/drivers/net/sb1000.c                       |   13 
+ b/drivers/net/seeq8005.c                     |   10 
+ b/drivers/net/sgiseeq.c                      |   18 
+ b/drivers/net/shaper.c                       |    4 
+ b/drivers/net/sis900.c                       |    1 
+ b/drivers/net/sk_g16.c                       |    9 
+ b/drivers/net/sk_mca.c                       |   10 
+ b/drivers/net/skfp/skfddi.c                  |   12 
+ b/drivers/net/slhc.c                         |    1 
+ b/drivers/net/smc-mca.c                      |   10 
+ b/drivers/net/smc-ultra.c                    |    7 
+ b/drivers/net/smc-ultra32.c                  |    6 
+ b/drivers/net/smc9194.c                      |    8 
+ b/drivers/net/stnic.c                        |    4 
+ b/drivers/net/sun3lance.c                    |   10 
+ b/drivers/net/sunbmac.c                      |   22 
+ b/drivers/net/sungem.c                       |    3 
+ b/drivers/net/sunhme.c                       |   12 
+ b/drivers/net/sunlance.c                     |   19 
+ b/drivers/net/sunqe.c                        |   12 
+ b/drivers/net/tc35815.c                      |   13 
+ b/drivers/net/tg3.c                          |   14 
+ b/drivers/net/tokenring/3c359.c              |    3 
+ b/drivers/net/tokenring/Kconfig              |    4 
+ b/drivers/net/tokenring/abyss.c              |    5 
+ b/drivers/net/tokenring/ibmtr.c              |    2 
+ b/drivers/net/tokenring/lanstreamer.c        |    3 
+ b/drivers/net/tokenring/madgemc.c            |    5 
+ b/drivers/net/tokenring/olympic.c            |    3 
+ b/drivers/net/tokenring/smctr.c              |   13 
+ b/drivers/net/tokenring/tms380tr.c           |   16 
+ b/drivers/net/tokenring/tmsisa.c             |    5 
+ b/drivers/net/tokenring/tmspci.c             |    5 
+ b/drivers/net/tulip/de2104x.c                |    2 
+ b/drivers/net/tulip/de4x5.c                  |   18 
+ b/drivers/net/tulip/dmfe.c                   |    2 
+ b/drivers/net/tulip/xircom_cb.c              |    5 
+ b/drivers/net/tun.c                          |    3 
+ b/drivers/net/wan/comx-hw-comx.c             |    2 
+ b/drivers/net/wan/comx-hw-locomx.c           |    7 
+ b/drivers/net/wan/comx-hw-mixcom.c           |    9 
+ b/drivers/net/wan/comx-hw-munich.c           |    8 
+ b/drivers/net/wan/comx-proto-fr.c            |    1 
+ b/drivers/net/wan/cosa.c                     |    1 
+ b/drivers/net/wan/dlci.c                     |   15 
+ b/drivers/net/wan/hdlc_cisco.c               |    1 
+ b/drivers/net/wan/hdlc_fr.c                  |    1 
+ b/drivers/net/wan/hdlc_generic.c             |    1 
+ b/drivers/net/wan/hdlc_ppp.c                 |    1 
+ b/drivers/net/wan/hdlc_raw.c                 |    1 
+ b/drivers/net/wan/hdlc_x25.c                 |    1 
+ b/drivers/net/wan/lmc/lmc_debug.c            |    2 
+ b/drivers/net/wan/lmc/lmc_main.c             |   18 
+ b/drivers/net/wan/lmc/lmc_media.c            |   18 
+ b/drivers/net/wan/lmc/lmc_proto.c            |   17 
+ b/drivers/net/wan/n2.c                       |    1 
+ b/drivers/net/wan/pc300_drv.c                |    5 
+ b/drivers/net/wan/pc300_tty.c                |    7 
+ b/drivers/net/wan/sbni.c                     |   20 
+ b/drivers/net/wan/sdla.c                     |   14 
+ b/drivers/net/wan/syncppp.c                  |    7 
+ b/drivers/net/wd.c                           |    8 
+ b/drivers/net/wireless/airo_cs.c             |    8 
+ b/drivers/net/wireless/airport.c             |    9 
+ b/drivers/net/wireless/netwave_cs.c          |   12 
+ b/drivers/net/wireless/orinoco.c             |    8 
+ b/drivers/net/wireless/orinoco_cs.c          |    8 
+ b/drivers/net/wireless/orinoco_pci.c         |    8 
+ b/drivers/net/znet.c                         |   11 
+ b/drivers/parisc/ccio-dma.c                  |    7 
+ b/drivers/parisc/dino.c                      |   20 
+ b/drivers/parisc/eisa.c                      |    6 
+ b/drivers/parisc/led.c                       |    2 
+ b/drivers/parisc/power.c                     |    4 
+ b/drivers/parport/ieee1284.c                 |    2 
+ b/drivers/parport/parport_gsc.c              |   56 
+ b/drivers/parport/parport_serial.c           |    8 
+ b/drivers/pci/Makefile                       |    4 
+ b/drivers/pci/pci-driver.c                   |    8 
+ b/drivers/pci/pci.c                          |    2 
+ b/drivers/pci/probe.c                        |    2 
+ b/drivers/pci/proc.c                         |   48 
+ b/drivers/pci/setup-bus.c                    |   16 
+ b/drivers/pci/setup-res.c                    |   23 
+ b/drivers/pcmcia/cistpl.c                    |    5 
+ b/drivers/pcmcia/ds.c                        |   14 
+ b/drivers/pcmcia/hd64465_ss.c                |   14 
+ b/drivers/pcmcia/i82092.c                    |   44 
+ b/drivers/pcmcia/pci_socket.c                |   24 
+ b/drivers/pcmcia/tcic.c                      |   64 
+ b/drivers/pnp/driver.c                       |    4 
+ b/drivers/pnp/isapnp/core.c                  |    8 
+ b/drivers/pnp/isapnp/proc.c                  |    4 
+ b/drivers/pnp/pnpbios/core.c                 |   42 
+ b/drivers/s390/Kconfig                       |   24 
+ b/drivers/s390/block/Makefile                |    2 
+ b/drivers/s390/block/dasd_diag.c             |   26 
+ b/drivers/s390/block/dasd_eckd.c             |   56 
+ b/drivers/s390/block/dasd_fba.c              |   42 
+ b/drivers/s390/block/dasd_proc.c             |   20 
+ b/drivers/s390/block/xpram.c                 |    2 
+ b/drivers/s390/char/Makefile                 |   25 
+ b/drivers/s390/char/con3215.c                |   12 
+ b/drivers/s390/char/sclp.c                   |  663 +++++++
+ b/drivers/s390/char/sclp.h                   |  157 +
+ b/drivers/s390/char/sclp_con.c               |  237 ++
+ b/drivers/s390/char/sclp_cpi.c               |  243 ++
+ b/drivers/s390/char/sclp_rw.c                |  458 +++++
+ b/drivers/s390/char/sclp_rw.h                |   94 +
+ b/drivers/s390/char/sclp_tty.c               |  798 ++++++++
+ b/drivers/s390/char/sclp_tty.h               |   67 
+ b/drivers/s390/char/tape.c                   |    8 
+ b/drivers/s390/char/tapechar.c               |   12 
+ b/drivers/s390/char/tubfs.c                  |   12 
+ b/drivers/s390/cio/chsc.c                    |   20 
+ b/drivers/s390/cio/proc.c                    |    6 
+ b/drivers/s390/net/ctcmain.c                 |   16 
+ b/drivers/s390/net/netiucv.c                 |   38 
+ b/drivers/sbus/char/bbc_i2c.c                |    1 
+ b/drivers/sbus/char/display7seg.c            |    1 
+ b/drivers/scsi/BusLogic.c                    |    8 
+ b/drivers/scsi/NCR53c406a.c                  |   34 
+ b/drivers/scsi/NCR_D700.c                    |    8 
+ b/drivers/scsi/advansys.c                    |   15 
+ b/drivers/scsi/aha1542.c                     |   10 
+ b/drivers/scsi/aha1740.c                     |   10 
+ b/drivers/scsi/aic7xxx_old.c                 |    1 
+ b/drivers/scsi/atp870u.c                     |   14 
+ b/drivers/scsi/cpqfcTSinit.c                 |   13 
+ b/drivers/scsi/dpt_i2o.c                     |    6 
+ b/drivers/scsi/esp.c                         |   20 
+ b/drivers/scsi/fd_mcs.c                      |    4 
+ b/drivers/scsi/fdomain.c                     |   15 
+ b/drivers/scsi/hosts.c                       |   61 
+ b/drivers/scsi/hosts.h                       |    9 
+ b/drivers/scsi/ibmmca.c                      |   14 
+ b/drivers/scsi/ide-scsi.c                    |   28 
+ b/drivers/scsi/imm.c                         |   14 
+ b/drivers/scsi/in2000.c                      |   13 
+ b/drivers/scsi/inia100.c                     |    9 
+ b/drivers/scsi/ips.c                         |   24 
+ b/drivers/scsi/mca_53c9x.c                   |    6 
+ b/drivers/scsi/nsp32.c                       |   70 
+ b/drivers/scsi/osst.c                        |   26 
+ b/drivers/scsi/ppa.c                         |   15 
+ b/drivers/scsi/psi240i.c                     |    8 
+ b/drivers/scsi/qlogicfas.c                   |    6 
+ b/drivers/scsi/qlogicfc.c                    |    1 
+ b/drivers/scsi/qlogicisp.c                   |    1 
+ b/drivers/scsi/qlogicpti.c                   |    1 
+ b/drivers/scsi/scsi.c                        |  102 -
+ b/drivers/scsi/scsi.h                        |    9 
+ b/drivers/scsi/scsi_debug.c                  |  261 ++
+ b/drivers/scsi/scsi_debug.h                  |    1 
+ b/drivers/scsi/scsi_error.c                  |    4 
+ b/drivers/scsi/scsi_lib.c                    |   51 
+ b/drivers/scsi/scsi_proc.c                   |   20 
+ b/drivers/scsi/scsi_scan.c                   |    8 
+ b/drivers/scsi/seagate.c                     |   14 
+ b/drivers/scsi/sym53c8xx_2/sym_glue.h        |    1 
+ b/drivers/scsi/tmscsim.c                     |    8 
+ b/drivers/scsi/u14-34f.c                     |   14 
+ b/drivers/scsi/ultrastor.c                   |    8 
+ b/drivers/scsi/wd7000.c                      |   13 
+ b/drivers/serial/68328serial.c               |   12 
+ b/drivers/serial/68360serial.c               |   14 
+ b/drivers/serial/8250_gsc.c                  |   12 
+ b/drivers/serial/mcfserial.c                 |   12 
+ b/drivers/serial/nb85e_uart.c                |   12 
+ b/drivers/serial/sunsu.c                     |    4 
+ b/drivers/serial/uart00.c                    |    6 
+ b/drivers/sgi/char/ds1286.c                  |   12 
+ b/drivers/sgi/char/graphics.c                |   10 
+ b/drivers/sgi/char/sgiserial.c               |   12 
+ b/drivers/sgi/char/shmiq.c                   |   14 
+ b/drivers/sgi/char/streamable.c              |   12 
+ b/drivers/sgi/char/usema.c                   |    6 
+ b/drivers/tc/lk201.c                         |    9 
+ b/drivers/tc/zs.c                            |   12 
+ b/drivers/telephony/ixj.c                    |   14 
+ b/drivers/telephony/phonedev.c               |    4 
+ b/drivers/usb/core/config.c                  |   23 
+ b/drivers/usb/core/inode.c                   |    6 
+ b/drivers/usb/core/usb.c                     |    6 
+ b/drivers/usb/media/vicam.c                  |  236 +-
+ b/drivers/usb/net/pegasus.c                  |  303 ++-
+ b/drivers/usb/net/pegasus.h                  |   15 
+ b/drivers/usb/serial/usb-serial.c            |   81 
+ b/drivers/usb/storage/freecom.c              |   56 
+ b/drivers/usb/storage/isd200.c               |    4 
+ b/drivers/usb/storage/transport.c            |  178 -
+ b/drivers/usb/storage/transport.h            |   14 
+ b/drivers/video/matrox/matroxfb_accel.c      |    2 
+ b/drivers/video/matrox/matroxfb_misc.c       |    2 
+ b/drivers/zorro/proc.c                       |    4 
+ b/fs/Kconfig                                 |   17 
+ b/fs/Makefile                                |    2 
+ b/fs/adfs/inode.c                            |   34 
+ b/fs/afs/inode.c                             |    2 
+ b/fs/afs/vlclient.c                          |    2 
+ b/fs/autofs4/root.c                          |    2 
+ b/fs/block_dev.c                             |    2 
+ b/fs/buffer.c                                |  199 ++
+ b/fs/char_dev.c                              |  164 +
+ b/fs/cifs/CHANGES                            |   10 
+ b/fs/cifs/README                             |   10 
+ b/fs/cifs/cifs_debug.c                       |    4 
+ b/fs/cifs/cifspdu.h                          |   40 
+ b/fs/cifs/cifsproto.h                        |    5 
+ b/fs/cifs/cifssmb.c                          |   93 -
+ b/fs/cifs/connect.c                          |    2 
+ b/fs/cifs/dir.c                              |    7 
+ b/fs/cifs/file.c                             |   15 
+ b/fs/cifs/inode.c                            |   19 
+ b/fs/cifs/link.c                             |   23 
+ b/fs/cifs/netmisc.c                          |    6 
+ b/fs/coda/coda_linux.c                       |    2 
+ b/fs/coda/dir.c                              |    5 
+ b/fs/coda/upcall.c                           |    4 
+ b/fs/dcache.c                                |   23 
+ b/fs/devfs/base.c                            |   23 
+ b/fs/exec.c                                  |    4 
+ b/fs/ext2/dir.c                              |   30 
+ b/fs/ext2/ext2.h                             |    1 
+ b/fs/ext2/ialloc.c                           |    4 
+ b/fs/ext2/inode.c                            |   41 
+ b/fs/ext2/namei.c                            |   17 
+ b/fs/ext2/super.c                            |    2 
+ b/fs/ext2/xattr.c                            |    2 
+ b/fs/ext2/xattr.h                            |    2 
+ b/fs/ext3/ialloc.c                           |    4 
+ b/fs/ext3/namei.c                            |    7 
+ b/fs/ext3/xattr.c                            |    2 
+ b/fs/ext3/xattr.h                            |    2 
+ b/fs/hpfs/hpfs_fn.h                          |    2 
+ b/fs/hpfs/namei.c                            |    2 
+ b/fs/hugetlbfs/inode.c                       |    6 
+ b/fs/inode.c                                 |   25 
+ b/fs/intermezzo/dcache.c                     |    2 
+ b/fs/intermezzo/dir.c                        |    2 
+ b/fs/intermezzo/journal.c                    |    8 
+ b/fs/intermezzo/journal_ext2.c               |   10 
+ b/fs/intermezzo/journal_tmpfs.c              |   14 
+ b/fs/intermezzo/presto.c                     |    2 
+ b/fs/intermezzo/vfs.c                        |    8 
+ b/fs/jffs/inode-v23.c                        |    2 
+ b/fs/jffs2/TODO                              |   12 
+ b/fs/jffs2/background.c                      |   77 
+ b/fs/jffs2/build.c                           |  146 -
+ b/fs/jffs2/dir.c                             |  115 -
+ b/fs/jffs2/erase.c                           |  277 +--
+ b/fs/jffs2/file.c                            |  168 +
+ b/fs/jffs2/fs.c                              |   61 
+ b/fs/jffs2/gc.c                              |  297 ++-
+ b/fs/jffs2/nodelist.c                        |  283 ++-
+ b/fs/jffs2/nodelist.h                        |   83 
+ b/fs/jffs2/nodemgmt.c                        |  199 +-
+ b/fs/jffs2/os-linux.h                        |   12 
+ b/fs/jffs2/read.c                            |   88 
+ b/fs/jffs2/readinode.c                       |  356 ++-
+ b/fs/jffs2/scan.c                            |  700 +++----
+ b/fs/jffs2/super.c                           |    2 
+ b/fs/jffs2/wbuf.c                            |  139 +
+ b/fs/jffs2/write.c                           |  165 +
+ b/fs/jffs2/writev.c                          |    4 
+ b/fs/jfs/jfs_xattr.h                         |    6 
+ b/fs/jfs/namei.c                             |    2 
+ b/fs/jfs/xattr.c                             |    6 
+ b/fs/libfs.c                                 |   15 
+ b/fs/locks.c                                 |   21 
+ b/fs/minix/namei.c                           |    2 
+ b/fs/mpage.c                                 |   15 
+ b/fs/namei.c                                 |    4 
+ b/fs/ncpfs/dir.c                             |    8 
+ b/fs/ncpfs/ncplib_kernel.h                   |    2 
+ b/fs/nfs/dir.c                               |    7 
+ b/fs/nfs/inode.c                             |  122 -
+ b/fs/nfs/nfs2xdr.c                           |   22 
+ b/fs/nfs/nfs3xdr.c                           |   26 
+ b/fs/nfs/nfs4proc.c                          |   23 
+ b/fs/nfs/nfs4xdr.c                           |  547 ++----
+ b/fs/nfsd/nfs3xdr.c                          |   47 
+ b/fs/nfsd/nfs4proc.c                         |   21 
+ b/fs/nfsd/nfs4xdr.c                          |  273 ++-
+ b/fs/nfsd/nfsxdr.c                           |    2 
+ b/fs/nfsd/vfs.c                              |   10 
+ b/fs/open.c                                  |    2 
+ b/fs/partitions/check.c                      |    2 
+ b/fs/proc/array.c                            |    5 
+ b/fs/proc/base.c                             |   18 
+ b/fs/proc/proc_misc.c                        |   10 
+ b/fs/ramfs/inode.c                           |    7 
+ b/fs/reiserfs/namei.c                        |    2 
+ b/fs/smbfs/dir.c                             |    4 
+ b/fs/smbfs/proto.h                           |    1 
+ b/fs/smbfs/request.h                         |    3 
+ b/fs/stat.c                                  |    4 
+ b/fs/sysfs/inode.c                           |  127 -
+ b/fs/sysv/namei.c                            |    2 
+ b/fs/sysv/super.c                            |   24 
+ b/fs/udf/file.c                              |    3 
+ b/fs/udf/ialloc.c                            |    6 
+ b/fs/udf/inode.c                             |   89 
+ b/fs/udf/namei.c                             |    8 
+ b/fs/udf/super.c                             |    9 
+ b/fs/udf/udf_i.h                             |    3 
+ b/fs/udf/udfdecl.h                           |    4 
+ b/fs/udf/udftime.c                           |   14 
+ b/fs/ufs/namei.c                             |    2 
+ b/fs/umsdos/namei.c                          |    4 
+ b/fs/xfs/linux/xfs_iops.c                    |    2 
+ b/fs/xfs/xfs_iget.c                          |    4 
+ b/fs/xfs/xfsidbg.c                           |    2 
+ b/include/asm-alpha/hardirq.h                |    2 
+ b/include/asm-alpha/module.h                 |   24 
+ b/include/asm-alpha/suspend.h                |    6 
+ b/include/asm-alpha/unistd.h                 |    8 
+ b/include/asm-alpha/xor.h                    | 1574 ++++++++---------
+ b/include/asm-arm/arch-adifcc/memory.h       |    4 
+ b/include/asm-arm/arch-adifcc/vmalloc.h      |    3 
+ b/include/asm-arm/arch-anakin/memory.h       |    4 
+ b/include/asm-arm/arch-anakin/vmalloc.h      |    3 
+ b/include/asm-arm/arch-cl7500/memory.h       |    4 
+ b/include/asm-arm/arch-cl7500/vmalloc.h      |    4 
+ b/include/asm-arm/arch-clps711x/memory.h     |    4 
+ b/include/asm-arm/arch-clps711x/vmalloc.h    |    3 
+ b/include/asm-arm/arch-ebsa110/memory.h      |    4 
+ b/include/asm-arm/arch-ebsa110/vmalloc.h     |    3 
+ b/include/asm-arm/arch-ebsa285/memory.h      |    6 
+ b/include/asm-arm/arch-ebsa285/vmalloc.h     |    3 
+ b/include/asm-arm/arch-epxa10db/memory.h     |    4 
+ b/include/asm-arm/arch-epxa10db/vmalloc.h    |    3 
+ b/include/asm-arm/arch-integrator/memory.h   |    4 
+ b/include/asm-arm/arch-integrator/vmalloc.h  |    3 
+ b/include/asm-arm/arch-iop310/memory.h       |    4 
+ b/include/asm-arm/arch-iop310/vmalloc.h      |    3 
+ b/include/asm-arm/arch-l7200/memory.h        |    4 
+ b/include/asm-arm/arch-l7200/vmalloc.h       |    3 
+ b/include/asm-arm/arch-nexuspci/memory.h     |    4 
+ b/include/asm-arm/arch-nexuspci/vmalloc.h    |    3 
+ b/include/asm-arm/arch-pxa/memory.h          |    4 
+ b/include/asm-arm/arch-pxa/vmalloc.h         |    3 
+ b/include/asm-arm/arch-rpc/memory.h          |    4 
+ b/include/asm-arm/arch-rpc/vmalloc.h         |    3 
+ b/include/asm-arm/arch-sa1100/memory.h       |    4 
+ b/include/asm-arm/arch-sa1100/vmalloc.h      |    3 
+ b/include/asm-arm/arch-shark/memory.h        |    4 
+ b/include/asm-arm/arch-shark/vmalloc.h       |    2 
+ b/include/asm-arm/arch-tbox/memory.h         |    4 
+ b/include/asm-arm/arch-tbox/vmalloc.h        |    2 
+ b/include/asm-arm/bitops.h                   |  184 +-
+ b/include/asm-arm/cpu-multi32.h              |    4 
+ b/include/asm-arm/cpu-single.h               |    4 
+ b/include/asm-arm/module.h                   |   15 
+ b/include/asm-arm/proc-armv/elf.h            |   14 
+ b/include/asm-arm/proc-armv/pgtable.h        |    4 
+ b/include/asm-i386/msr.h                     |    1 
+ b/include/asm-i386/xor.h                     |    2 
+ b/include/asm-ppc/atomic.h                   |   11 
+ b/include/asm-ppc/hardirq.h                  |    2 
+ b/include/asm-ppc/module.h                   |   37 
+ b/include/asm-ppc/page.h                     |   13 
+ b/include/asm-ppc/processor.h                |   60 
+ b/include/asm-s390/debug.h                   |    2 
+ b/include/asm-s390/ebcdic.h                  |    2 
+ b/include/asm-s390/lowcore.h                 |    2 
+ b/include/asm-s390/mman.h                    |    2 
+ b/include/asm-s390/module.h                  |   21 
+ b/include/asm-s390/pgtable.h                 |    2 
+ b/include/asm-s390/poll.h                    |    1 
+ b/include/asm-s390/setup.h                   |    6 
+ b/include/asm-s390/smp.h                     |    2 
+ b/include/asm-s390/tlbflush.h                |   12 
+ b/include/asm-s390/types.h                   |    5 
+ b/include/asm-s390/uaccess.h                 |   20 
+ b/include/asm-s390/unistd.h                  |   28 
+ b/include/asm-s390x/debug.h                  |    2 
+ b/include/asm-s390x/ebcdic.h                 |    2 
+ b/include/asm-s390x/mman.h                   |    2 
+ b/include/asm-s390x/module.h                 |   21 
+ b/include/asm-s390x/pgtable.h                |    2 
+ b/include/asm-s390x/poll.h                   |    1 
+ b/include/asm-s390x/setup.h                  |    6 
+ b/include/asm-s390x/tlbflush.h               |   12 
+ b/include/asm-s390x/uaccess.h                |   20 
+ b/include/asm-s390x/unistd.h                 |   28 
+ b/include/asm-sparc/system.h                 |   29 
+ b/include/asm-sparc/unistd.h                 |    8 
+ b/include/asm-sparc64/floppy.h               |   10 
+ b/include/asm-sparc64/isa.h                  |   18 
+ b/include/asm-sparc64/parport.h              |    6 
+ b/include/asm-sparc64/unistd.h               |    8 
+ b/include/linux/acpi.h                       |    6 
+ b/include/linux/agp_backend.h                |    1 
+ b/include/linux/backing-dev.h                |   12 
+ b/include/linux/blkdev.h                     |    1 
+ b/include/linux/buffer_head.h                |    3 
+ b/include/linux/coda_psdev.h                 |   10 
+ b/include/linux/cpufreq.h                    |   22 
+ b/include/linux/crypto.h                     |   20 
+ b/include/linux/dcache.h                     |    7 
+ b/include/linux/device.h                     |   57 
+ b/include/linux/elf.h                        |   35 
+ b/include/linux/ext2_fs.h                    |    1 
+ b/include/linux/fs.h                         |   23 
+ b/include/linux/interrupt.h                  |    2 
+ b/include/linux/jffs2.h                      |  103 -
+ b/include/linux/jffs2_fs_i.h                 |    5 
+ b/include/linux/jffs2_fs_sb.h                |    6 
+ b/include/linux/kallsyms.h                   |  192 --
+ b/include/linux/kobject.h                    |    4 
+ b/include/linux/meye.h                       |    4 
+ b/include/linux/mmzone.h                     |    3 
+ b/include/linux/module.h                     |   80 
+ b/include/linux/netfilter_bridge.h           |    7 
+ b/include/linux/netlink.h                    |    4 
+ b/include/linux/nfs_fs.h                     |   18 
+ b/include/linux/nfs_xdr.h                    |   16 
+ b/include/linux/nfsd/xdr4.h                  |   17 
+ b/include/linux/page-flags.h                 |    5 
+ b/include/linux/pagevec.h                    |    1 
+ b/include/linux/pci.h                        |   21 
+ b/include/linux/pci_ids.h                    |    1 
+ b/include/linux/sched.h                      |   70 
+ b/include/linux/sonypi.h                     |    8 
+ b/include/linux/sunrpc/xdr.h                 |   87 
+ b/include/linux/udf_fs_i.h                   |    5 
+ b/include/linux/udf_fs_sb.h                  |    2 
+ b/include/linux/umsdos_fs.p                  |    2 
+ b/include/linux/umsdos_fs_i.h                |    6 
+ b/include/math-emu/op-4.h                    |   90 
+ b/include/net/sctp/command.h                 |    3 
+ b/include/net/sctp/sctp.h                    |   81 
+ b/include/net/sctp/sm.h                      |   11 
+ b/include/net/sctp/structs.h                 |  218 +-
+ b/include/net/xfrm.h                         |    1 
+ b/include/pcmcia/mem_op.h                    |    1 
+ b/include/scsi/scsi_ioctl.h                  |   20 
+ b/include/sound/core.h                       |   10 
+ b/init/initramfs.c                           |   16 
+ b/ipc/shm.c                                  |   24 
+ b/ipc/util.c                                 |    8 
+ b/kernel/Makefile                            |    2 
+ b/kernel/capability.c                        |   16 
+ b/kernel/cpufreq.c                           |  106 -
+ b/kernel/exit.c                              |    4 
+ b/kernel/extable.c                           |   51 
+ b/kernel/fork.c                              |   47 
+ b/kernel/futex.c                             |   27 
+ b/kernel/kallsyms.c                          |  295 ---
+ b/kernel/ksyms.c                             |    2 
+ b/kernel/module.c                            |  137 +
+ b/kernel/sched.c                             |   30 
+ b/kernel/signal.c                            |   30 
+ b/lib/kobject.c                              |  154 +
+ b/lib/radix-tree.c                           |    3 
+ b/mm/page-writeback.c                        |   67 
+ b/mm/page_alloc.c                            |   61 
+ b/mm/page_io.c                               |   16 
+ b/mm/shmem.c                                 |   15 
+ b/mm/swap.c                                  |   29 
+ b/mm/truncate.c                              |    1 
+ b/mm/vmscan.c                                |   90 
+ b/net/8021q/vlan.c                           |   18 
+ b/net/8021q/vlan_dev.c                       |    6 
+ b/net/Kconfig                                |   14 
+ b/net/bridge/netfilter/ebtables.c            |    2 
+ b/net/core/dev.c                             |    1 
+ b/net/ipv4/ah.c                              |    3 
+ b/net/ipv4/esp.c                             |    3 
+ b/net/ipv4/xfrm_policy.c                     |   74 
+ b/net/ipv4/xfrm_state.c                      |   16 
+ b/net/ipv4/xfrm_user.c                       |   34 
+ b/net/ipv6/ip6_input.c                       |    5 
+ b/net/ipv6/ipv6_syms.c                       |    1 
+ b/net/key/af_key.c                           |   46 
+ b/net/llc/llc_main.c                         |    8 
+ b/net/netlink/af_netlink.c                   |   16 
+ b/net/netsyms.c                              |    2 
+ b/net/sched/sch_gred.c                       |   16 
+ b/net/sctp/associola.c                       |  191 --
+ b/net/sctp/bind_addr.c                       |  247 --
+ b/net/sctp/endpointola.c                     |   54 
+ b/net/sctp/input.c                           |  136 -
+ b/net/sctp/ipv6.c                            |  211 ++
+ b/net/sctp/output.c                          |   20 
+ b/net/sctp/outqueue.c                        |    6 
+ b/net/sctp/primitive.c                       |   23 
+ b/net/sctp/protocol.c                        |  274 ++-
+ b/net/sctp/sm_make_chunk.c                   |  339 +--
+ b/net/sctp/sm_sideeffect.c                   |  115 -
+ b/net/sctp/sm_statefuns.c                    |  166 +
+ b/net/sctp/sm_statetable.c                   |   24 
+ b/net/sctp/socket.c                          |  535 ++++-
+ b/net/sctp/transport.c                       |   24 
+ b/net/socket.c                               |    9 
+ b/net/sunrpc/svcsock.c                       |   75 
+ b/scripts/Makefile.lib                       |    4 
+ b/scripts/kallsyms                           |   40 
+ b/scripts/per-cpu-check.awk                  |   19 
+ b/security/capability.c                      |    4 
+ b/security/dummy.c                           |   17 
+ b/sound/isa/ad1816a/ad1816a_lib.c            |    6 
+ b/sound/oss/cs4281/cs4281_wrapper-24.c       |    3 
+ b/sound/oss/cs4281/cs4281m.c                 |   70 
+ b/sound/oss/cs4281/cs4281pm-24.c             |    8 
+ b/sound/oss/cs46xx.c                         |  143 +
+ b/sound/oss/maestro.c                        |   20 
+ b/sound/oss/maestro3.c                       |   72 
+ b/sound/oss/rme96xx.c                        |   51 
+ b/sound/oss/vidc.c                           |    1 
+ b/sound/pci/cs46xx/cs46xx_lib.c              |    8 
+ b/sound/pci/emu10k1/emu10k1_main.c           |    2 
+ b/sound/pci/es1938.c                         |    4 
+ b/sound/pci/fm801.c                          |    4 
+ b/sound/pci/korg1212/korg1212.c              |   21 
+ b/sound/pci/rme32.c                          |    5 
+ b/sound/pci/rme96.c                          |    5 
+ b/sound/pci/rme9652/hammerfall_mem.c         |    2 
+ b/sound/pci/rme9652/hdsp.c                   |   26 
+ b/sound/pci/rme9652/rme9652.c                |   21 
+ b/sound/pci/sonicvibes.c                     |    5 
+ b/sound/pci/trident/trident_main.c           |    5 
+ b/sound/pci/ymfpci/ymfpci_main.c             |    6 
+ b/sound/sparc/amd7930.c                      |    1 
+ b/sound/sparc/cs4231.c                       |    1 
+ drivers/char/acquirewdt.c                    |  251 --
+ drivers/char/advantechwdt.c                  |  280 ---
+ drivers/char/eurotechwdt.c                   |  505 -----
+ drivers/char/i810-tco.c                      |  431 ----
+ drivers/char/ib700wdt.c                      |  311 ---
+ drivers/char/machzwd.c                       |  557 ------
+ drivers/char/mixcomwd.c                      |  282 ---
+ drivers/char/pcwd.c                          |  672 -------
+ drivers/char/sbc60xxwdt.c                    |  354 ---
+ drivers/char/scx200_wdt.c                    |  277 ---
+ drivers/char/shwdt.c                         |  417 ----
+ drivers/char/softdog.c                       |  196 --
+ drivers/char/w83877f_wdt.c                   |  366 ----
+ drivers/char/wdt.c                           |  565 ------
+ drivers/char/wdt285.c                        |  193 --
+ drivers/char/wdt977.c                        |  346 ---
+ drivers/char/wdt_pci.c                       |  653 -------
+ drivers/pci/compat.c                         |   37 
+ drivers/s390/char/hwc.h                      |  280 ---
+ drivers/s390/char/hwc_con.c                  |   92 -
+ drivers/s390/char/hwc_cpi.c                  |  212 --
+ drivers/s390/char/hwc_rw.c                   | 2456 ---------------------------
+ drivers/s390/char/hwc_rw.h                   |  132 -
+ drivers/s390/char/hwc_tty.c                  |  276 ---
+ fs/devices.c                                 |  221 --
+ 920 files changed, 23955 insertions(+), 21744 deletions(-)
 
