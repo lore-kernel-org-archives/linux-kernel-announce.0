@@ -1,53 +1,55 @@
-From: Martins Krikis <mkrikis@yahoo.com>
-Subject: [Announce] "iswraid" (ICH5R/ICH6R ataraid sub-driver) for 2.4.26
-Date: Thu, 8 Jul 2004 21:38:04 -0700 (PDT)
+From: Jari Ruusu <jariruusu@users.sourceforge.net>
+Subject: Announce loop-AES-v2.1c file/swap crypto package
+Date: Wed, 28 Jul 2004 18:45:58 +0300
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <20040709043804.50539.qmail@web13702.mail.yahoo.com>
-References: <20040221024833.16640.qmail@web13707.mail.yahoo.com>
+Message-ID: <4107CA36.2C105379@users.sourceforge.net>
 Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-In-Reply-To: <20040221024833.16640.qmail@web13707.mail.yahoo.com>
 List-Id: <linux-kernel-announce.vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-To: linux-kernel@vger.kernel.org, linux-kernel-announce@vger.kernel.org
-Cc: mkrikis@yahoo.com
+To: linux-crypto@nl.linux.org
+Cc: linux-kernel@vger.kernel.org
 
-Version 0.1.4 of the Intel Sofware RAID driver (iswraid) is now
-available for the 2.4 series kernels at
-http://prdownloads.sourceforge.net/iswraid/2.4.26-libata-iswraid.patch.gz?download
+loop-AES changes since previous release:
+- Adapted and merged Russell King's loop.c flush_dcache_page() fix. Most
+  sane processors were not affected, but some processors with goofy aliasing
+  caches were indeed affected (2.4 and 2.6 kernels).
+- Added optimized assembler implementations of AES and MD5 functions for
+  AMD64 and compatible processors.
+- Pentium-2 optimized assembler implementations of AES and MD5 are really
+  i386 compatible, so now those assembler implementations are enabled for
+  all x86 processors.
+- Fixed Makefile to be compatible with distros that include "" characters in
+  KERNELRELEASE string.
+- Added dkms.conf configuration file for Dynamic Kernel Module Support.
+  Charles Duffy wrote original version.
+- Added support for /lib/modules/`uname -r`/source symlink.
+- Converted MODULE_PARM macros to module_param (2.6 kernels only).
+- Added workaround for scripts/modpost breakage (2.6 kernels only).
 
-It is an ataraid "subdriver" but uses the SCSI subsystem to find the
-RAID member disks. It depends on the libata library, particularly the
-ata_piix driver that enables the Serial ATA capabilities in ICH5/ICH6
-chipsets. The libata patch by Jeff Garzik should be applied before
-applying this patch. There is more information and some ICH6R related
-patches at the project's home page at http://iswraid.sourceforge.net/.
+bzip2 compressed tarball is here:
 
-The changes WRT version 0.1.3 are as follows:
-* a fix for CONFIG_HIGHMEM systems; 
-* reasonable handling of missing disks; 
-* when RAID1 goes degraded, the I/O succeeds; 
-* new mode that does not fail degraded RAID1 ever; 
-* metadata updates started from the scheduler's queue; 
-* slab caches instead of kmalloc-s; 
-* small /proc filesystem tweaks; 
-* serial number extraction fixed; 
-* unused disks properly freed; 
-* added documentation file; 
-* major style changes and more comments about implementation choices.
+    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.1c.tar.bz2
+    md5sum b404d9d679b7096dd3fb089345c52320
 
-If you have any questions or comments, please CC me directly because
-I no longer read this list.
-
-           Martins Krikis
-           Storage Components Division (SCD)
-           Intel Massachusetts
+    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.1c.tar.bz2.sign
 
 
+Additional ciphers package changes since previous release:
+- Fixed Makefile to be compatible with distros that include "" characters in
+  KERNELRELEASE string.
+- Added dkms.conf configuration file for Dynamic Kernel Module Support.
+  Adapted from version that was originally written by Charles Duffy.
+- Added support for /lib/modules/`uname -r`/source symlink.
+- Added workaround for scripts/modpost breakage (2.6 kernels only).
 
-		
-__________________________________
-Do you Yahoo!?
-Yahoo! Mail - Helps protect you from nasty viruses.
-http://promotions.yahoo.com/new_mail
+bzip2 compressed tarball is here:
+
+    http://loop-aes.sourceforge.net/ciphers/ciphers-v2.0i.tar.bz2
+    md5sum 1a5e1d967bca0cde71a32e533ef26ce9
+
+    http://loop-aes.sourceforge.net/ciphers/ciphers-v2.0i.tar.bz2.sign
+
+-- 
+Jari Ruusu  1024R/3A220F51 5B 4B F9 BB D3 3F 52 E9  DB 1D EB E3 24 0E A9 DD
