@@ -1,70 +1,82 @@
-From: Jari Ruusu <jariruusu@users.sourceforge.net>
-Subject: Announce loop-AES-v2.0b file/swap crypto package
-Date: Sat, 29 Nov 2003 15:45:20 +0200
+From: kdist@linux.kernel.org (Linux Kernel Distribution System)
+Subject: Linux kernel 2.6.0 released
+Date: Thu, 18 Dec 2003 03:57:50 GMT
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <3FC8A2F0.8C199016@users.sourceforge.net>
-Mime-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Message-ID: <200312180357.hBI3voUI029982@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-Id: <linux-kernel-announce.vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
-To: linux-crypto@nl.linux.org
+Content-Transfer-Encoding: 7bit
+To: linux-kernel-announce@hera.kernel.org
 
-loop-AES changes since previous release:
-- Added workaround for module naming breakage in recent module-init-tools
-  (2.6 kernels).
-- loop.c-2.6.patched updated with fixes from 2.6.0-test11
-- Added INITIALDELAY setting to build-initrd.sh. This delays /linuxrc mounts
-  to be more compatible with slowly initializing devices. Code from Andreas
-  Voegele.
-- Added support for struct loop_info64 (2.4 kernels).
-- Added support for removing offset from IV computations (2.4 and 2.6
-  kernels).
-- Added -r option to losetup for read-only mode.
-- 64 bit loop device/file offset can now be used on 2.4 and later kernels.
-- Added 64 bit "-s nnn" option to losetup and "-o sizelimit=nnn" option to
-  mount to limit size of loop device. This option works only on 2.4 and
-  later kernels.
-- Added support for MD5 IV computation and multi-key operation that reduce
-  chances of identical ciphertexts and triggers change to all cipher blocks
-  in 512 byte CBC chain if any bit is changed in the 512 byte CBC chain. MD5
-  IV is only used in multi-key mode, read losetup -K man page for more
-  details.
-- Unhashed encryption type, created using ancient loop-AES-v1.0c, now needs
-  'mount -o phash=unhashed1' or 'losetup -H unhashed1'.
-- Added support for separate object dir on 2.6.x kernels.
-- Eliminated highmem io buffer bouncing (2.4 and 2.6 kernels).
-- Added proper error handling to kernel_thread() error cases (2.4 and 2.6
-  kernels).
+Linux kernel version 2.6.0 has been released.  It is available from:
 
-bzip2 compressed tarball is here:
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.0.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.0.tar.bz2
 
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.0b.tar.bz2
-    md5sum 1e42495aabb814d71a8bac65b6780474
+Sizes in bytes			Compressed	Uncompressed
+------------------------------------------------------------
+Patch                                10727                 0
+34410                                    0          33255278
+/pub/linux/kernel/v2.6/linux-2.6.0.tar.bz2         187340800                 0
+                                         0                 0
 
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.0b.tar.bz2.sign
+-----------------------------------------------------------------------------
+ This is an automatically generated message.  To unsubscribe from this list,
+ please send a message to majordomo@vger.kernel.org containing
+ the line:
 
+   unsubscribe linux-kernel-announce <your_email_address>
 
-Additional ciphers package changes since previous release:
-- Added workaround for module naming breakage in recent module-init-tools
-  (2.6 kernels).
-- Switched default loop_serpent.o byte order to correct little endian
-  serpent. Old incorrect big endian serpent disk images can be used with
-  "losetup -I 2" or "mount -o loinit=2" options.
-- Added support for MD5 IV computation and multi-key operation to
-  loop_serpent.o and loop_twofish.o modules. They reduce chances of
-  identical ciphertexts and trigger change to all cipher blocks in 512 byte
-  CBC chain if any bit is changed in the 512 byte CBC chain. MD5 IV is only
-  used in multi-key mode, read losetup -K man page for more details.
-- Little endian blowfish tests are now disabled by default.
-- Added support for separate object dir on 2.6.x kernels.
+ ... where <your_email_address> is the email address you are receiving
+     this message at.
+-----------------------------------------------------------------------------
 
-bzip2 compressed tarball is here:
+The following files were changed in this release:
 
-    http://loop-aes.sourceforge.net/ciphers/ciphers-v2.0b.tar.bz2
-    md5sum 8a07d3ae4ca7e081b2c44f0dbd5f60df
+ Makefile                                     |    2 -
+ arch/i386/mm/fault.c                         |    3 +
+ drivers/block/scsi_ioctl.c                   |   17 +++++++--
+ drivers/i2c/busses/i2c-nforce2.c             |    2 -
+ drivers/ide/ide-cd.c                         |    4 ++
+ drivers/ide/ide-cd.h                         |    3 +
+ drivers/md/raid5.c                           |   34 +++++++++++++-----
+ drivers/net/pci-skeleton.c                   |    7 ---
+ drivers/net/pcnet32.c                        |    2 -
+ drivers/net/r8169.c                          |    4 --
+ drivers/net/sis190.c                         |    4 --
+ drivers/net/wireless/airo.c                  |    7 +--
+ drivers/scsi/ide-scsi.c                      |    1 
+ drivers/scsi/libata-core.c                   |    3 -
+ drivers/scsi/qla1280.c                       |   15 +++++++-
+ drivers/usb/core/devio.c                     |    2 -
+ drivers/usb/core/hub.c                       |   10 +++--
+ drivers/usb/core/usb.c                       |    1 
+ drivers/usb/image/Kconfig                    |    4 +-
+ drivers/usb/misc/auerswald.c                 |    4 +-
+ drivers/usb/serial/usb-serial.c              |   50 +++++++--------------------
+ drivers/usb/storage/datafab.c                |    2 -
+ drivers/usb/storage/jumpshot.c               |    2 -
+ fs/hpfs/dir.c                                |    2 +
+ fs/libfs.c                                   |    2 -
+ fs/proc/base.c                               |   10 +++--
+ include/asm-x86_64/msr.h                     |    6 +--
+ include/linux/blkdev.h                       |    4 +-
+ include/linux/list.h                         |   12 ++++++
+ include/linux/rtnetlink.h                    |    1 
+ kernel/exit.c                                |   23 ++++++++++--
+ kernel/fork.c                                |   32 +++++++++++++++--
+ kernel/sched.c                               |    2 -
+ lib/kobject.c                                |   11 +++--
+ mm/mmap.c                                    |   10 ++++-
+ net/bridge/br_netfilter.c                    |    2 -
+ net/ipv4/netfilter/ip_conntrack_proto_tcp.c  |    2 -
+ net/ipv4/netfilter/ip_conntrack_standalone.c |    3 +
+ net/ipv4/tcp_ipv4.c                          |    1 
+ net/ipv6/tcp_ipv6.c                          |    2 -
+ net/ipv6/udp.c                               |    2 -
+ net/sched/sch_htb.c                          |   18 +++++++--
+ scripts/file2alias.c                         |    7 +++
+ 43 files changed, 218 insertions(+), 117 deletions(-)
 
-    http://loop-aes.sourceforge.net/ciphers/ciphers-v2.0b.tar.bz2.sign
-
--- 
-Jari Ruusu  1024R/3A220F51 5B 4B F9 BB D3 3F 52 E9  DB 1D EB E3 24 0E A9 DD
