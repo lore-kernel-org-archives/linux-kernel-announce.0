@@ -1,8 +1,8 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
 Subject: Linux kernel 2.6.8.1 released
-Date: Sun, 15 Aug 2004 01:30:09 GMT
+Date: Sun, 15 Aug 2004 01:42:10 GMT
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <200408150130.i7F1U9Ga032196@hera.kernel.org>
+Message-ID: <200408150142.i7F1gAdc003577@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-Id: <linux-kernel-announce.vger.kernel.org>
 MIME-Version: 1.0
