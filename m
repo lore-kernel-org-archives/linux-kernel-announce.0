@@ -1,8 +1,8 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
 Subject: Linux kernel 2.5.31 released
-Date: Sat, 10 Aug 2002 18:51:03 -0700
+Date: Sat, 17 Aug 2002 13:49:25 -0700
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <200208110151.g7B1p3Z22432@hera.kernel.org>
+Message-ID: <200208172049.g7HKnPW17737@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-Id: <linux-kernel-announce.vger.kernel.org>
 MIME-Version: 1.0
