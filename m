@@ -1,44 +1,67 @@
-From: Jari Ruusu <jariruusu@users.sourceforge.net>
-Subject: Announce loop-AES-v3.0c file/swap crypto package
-Date: Fri, 18 Mar 2005 21:34:44 +0200
-Message-ID: <423B2D54.5E4B9F6C@users.sourceforge.net>
-Mime-Version: 1.0
-Content-Transfer-Encoding: 7bit
+From: kdist@linux.kernel.org (Linux Kernel Distribution System)
+Subject: Linux kernel 2.6.11.5 released
+Date: Sat, 19 Mar 2005 09:49:52 GMT
+Message-ID: <200503190949.j2J9nqqS022899@hera.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
-To: linux-crypto@nl.linux.org
-Cc: linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: 7bit
+To: linux-kernel-announce@hera.kernel.org
 
-loop-AES changes since previous release:
-- Changed gpg pipe code in losetup/mount to use '--no-options' instead of
-  '--options /dev/null'. Fix from Lars Packschies.
-- Changed losetup/mount programs to warn about unknown key data format.
-- Added workaround for vanished QUEUE_FLAG_ORDERED define in 2.6.11-rc3-mm1
-  kernel.
-- Changed gcc command line parameter order to be same as in kernel Makefile.
-  Wrong parameter order caused miscompilation with Xen architecture (2.6
-  kernels).
+Linux kernel version 2.6.11.5 has been released.  It is available from:
 
-bzip2 compressed tarball is here:
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.11.5.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.11.5.tar.bz2
 
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.0c.tar.bz2
-    md5sum 3ba40e971da6a18df3e82fbbd3795ac8
+Sizes in bytes			Compressed	Uncompressed
+------------------------------------------------------------
+Patch                                 6572             22246
+Full source                       37088482         208250880
 
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.0c.tar.bz2.sign
+-----------------------------------------------------------------------------
+ This is an automatically generated message.  To unsubscribe from this list,
+ please send a message to majordomo@vger.kernel.org containing
+ the line:
 
+   unsubscribe linux-kernel-announce <your_email_address>
 
-Additional ciphers package changes since previous release:
-- Changed gcc command line parameter order to be same as in kernel Makefile.
-  Wrong parameter order caused miscompilation with Xen architecture (2.6
-  kernels).
+ ... where <your_email_address> is the email address you are receiving
+     this message at.
+-----------------------------------------------------------------------------
 
-bzip2 compressed tarball is here:
+The following files were changed in this release:
 
-    http://loop-aes.sourceforge.net/ciphers/ciphers-v3.0b.tar.bz2
-    md5sum 603b188299dfbe1d05e3bca7d281a9a2
+ Makefile                               |    2 +-
+ arch/ppc/oprofile/op_model_fsl_booke.c |    3 +--
+ arch/ppc/platforms/4xx/ebony.h         |    4 ++--
+ arch/ppc/platforms/4xx/luan.h          |    6 +++---
+ arch/ppc/platforms/4xx/ocotea.h        |    4 ++--
+ drivers/char/drm/drm_ioctl.c           |    2 ++
+ drivers/input/serio/i8042-x86ia64io.h  |    6 +++---
+ drivers/md/raid6altivec.uc             |    4 ++++
+ drivers/media/video/adv7170.c          |    2 +-
+ drivers/media/video/adv7175.c          |    2 +-
+ drivers/media/video/bt819.c            |    2 +-
+ drivers/media/video/saa7110.c          |   33 ++++++++++++++++-----------------
+ drivers/media/video/saa7114.c          |    2 +-
+ drivers/media/video/saa7185.c          |    2 +-
+ drivers/net/amd8111e.c                 |    2 ++
+ drivers/net/ppp_async.c                |    2 +-
+ drivers/net/r8169.c                    |   17 ++++++++++-------
+ drivers/net/sis900.c                   |   30 ++++++++++++++----------------
+ drivers/net/tun.c                      |    2 +-
+ drivers/net/via-rhine.c                |    7 ++++++-
+ drivers/net/wan/hd6457x.c              |    2 +-
+ drivers/pci/hotplug/pciehp_ctrl.c      |    3 ++-
+ fs/cramfs/inode.c                      |    1 +
+ fs/eventpoll.c                         |    3 ++-
+ fs/exec.c                              |    2 +-
+ kernel/signal.c                        |    1 +
+ net/ipv4/fib_hash.c                    |   12 +++++++++++-
+ net/ipv4/tcp_timer.c                   |    1 +
+ net/netrom/nr_in.c                     |    9 ---------
+ net/xfrm/xfrm_state.c                  |    2 +-
+ sound/pci/ac97/ac97_codec.c            |   13 ++++++++-----
+ 31 files changed, 102 insertions(+), 81 deletions(-)
 
-    http://loop-aes.sourceforge.net/ciphers/ciphers-v3.0b.tar.bz2.sign
-
--- 
-Jari Ruusu  1024R/3A220F51 5B 4B F9 BB D3 3F 52 E9  DB 1D EB E3 24 0E A9 DD
