@@ -1,26 +1,70 @@
-From: Jari Ruusu <jariruusu@users.sourceforge.net>
-Subject: Announce loop-AES-v2.0g file/swap crypto package
-Date: Mon, 15 Mar 2004 16:09:51 +0200
+From: Marc-Christian Petersen <m.c.p@kernel.linux-systeme.com>
+Subject: Linux 2.2.27-pre1 released
+Date: Wed, 24 Mar 2004 20:32:37 +0100
 Sender: linux-kernel-announce-owner@vger.kernel.org
-Message-ID: <4055B92F.2DBBD53E__36528.4451669597$1079360486@users.sourceforge.net>
+Message-ID: <200403242032.38265@WOLK>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+Content-Disposition: inline
 List-Id: <linux-kernel-announce.vger.kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-To: linux-crypto@nl.linux.org
+Content-Type: Text/Plain; charset="us-ascii"
+To: lkml <linux-kernel@vger.kernel.org>
 
-loop-AES changes since previous release:
-- Fixed build-initrd.sh compile time incompatibility with Fedora Core1.
-- Added support for Axboe's per-backing dev unplugging (2.6 kernels).
-- Added kernel patch version for 2.6.4 kernel.
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-bzip2 compressed tarball is here:
+Hi all,
 
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.0g.tar.bz2
-    md5sum 6150f021f8ff24d5fc8933788a7f5862
+now some more fixes with 2.2.27-pre1. Please test. Have fun :)
 
-    http://loop-aes.sourceforge.net/loop-AES/loop-AES-v2.0g.tar.bz2.sign
 
--- 
-Jari Ruusu  1024R/3A220F51 5B 4B F9 BB D3 3F 52 E9  DB 1D EB E3 24 0E A9 DD
+
+2.2.27-pre1
+- -----------
+o	fixed TCP keepalive bug					(Neal Cardwell)
+o       fixed tcp seq nr wrapping bug				(Ulrik De Bie)
+o	added cciss root translation table			(Eduard Bloch)
+o	VIA KL133/KM133 northbridge: vga console going crazy	(Roberto Biancardi)
+o	speedup 'make dep'					(Benoit Poulot-Cazajous)
+o	disabled MCE only on Pentiums by default (2.4 backport)	(Herbert Xu)
+	  (boot with 'mce' if your MCE works as expected)
+o	skb_realloc_headroom() panics when new headroom is	(James Morris)
+	  smaller than existing headroom
+o	invalid nh.raw use after free				(Julian Anastasov)
+o	fix a local APIC initaliziation ordering bug that	(Andrea Arcangeli)
+	  triggers on the P4
+o	TSC calibration must be dynamic and not a compile	(Andrea Arcangeli)
+	  time thing because gettimeofday is dynamic and it
+	  depends on the TSCs to be in sync
+o	fix deadlock on shutdown in 8139too			(Herbert Xu)
+o	support for ELF executables which use an a.out format	(Solar Designer)
+	  interpreter (dynamic linker) moved into a separate
+	  configuration option and disabled by default
+o	fixed sys_utimes perm check according to sys_utim	(Al Viro)
+o	show us the saved kernel command line (2.4 backport)	(me)
+o	some whitespace cleanups, some coding style cleanups	(me)
+o	fixed some gcc warnings					(me)
+o	add PCI ID for 82820 NIC to eepro100 network driver	(me)
+o	move 'Network device support' near 'Networking options'	(me)
+
+
+
+
+- --
+Kind regards
+        Marc-Christian Petersen
+
+http://sourceforge.net/projects/wolk
+
+PGP/GnuPG Key: 1024D/569DE2E3DB441A16
+Fingerprint:  3469 0CF8 CA7E 0042 7824 080A 569D E2E3 DB44 1A16
+Key available at http://pgp.mit.edu. Encrypted e-mail preferred
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+Comment: !! No Risk - No Fun !! - Try to crack this ;-)
+
+iD8DBQFAYeJVVp3i49tEGhYRAuHmAKD2ihPakphQJTuVAuxlue4OyIOMjQCgoS8h
+0stEf8UFmhkHcPYfftNGeO0=
+=BpqA
+-----END PGP SIGNATURE-----
