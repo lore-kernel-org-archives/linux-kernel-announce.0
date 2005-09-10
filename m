@@ -1,37 +1,33 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.13.1 released
-Date: Sat, 10 Sep 2005 03:45:07 GMT
-Message-ID: <200509100345.j8A3j7oj029691@hera.kernel.org>
+From: Chris Wright <chrisw@osdl.org>
+Subject: Linux 2.6.13.1
+Date: Fri, 9 Sep 2005 20:22:02 -0700
+Message-ID: <20050910032202.GF7762__37509.5712989152$1126335179$gmane$org@shell0.pdx.osdl.net>
+Mime-Version: 1.0
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+Content-Disposition: inline
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+To: linux-kernel@vger.kernel.org
+Cc: akpm@osdl.org, torvalds@osdl.org, stable@kernel.org
 
-Linux kernel version 2.6.13.1 has been released.  It is available from:
+We (the -stable team) are announcing the release of the 2.6.13.1 kernel.
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.13.1.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.13.1.tar.bz2
+The diffstat and short summary of the fixes are below.
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                 4327             12911
-Full source                       38375454         219432960
+I'll also be replying to this message with a copy of the patch between
+2.6.13 and 2.6.13.1, as it is small enough to do so.
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
+The updated 2.6.13.y git tree can be found at:
+	rsync://rsync.kernel.org/pub/scm/linux/kernel/git/chrisw/linux-2.6.13.y.git
+and can be browsed at the normal kernel.org git web browser:
+	www.kernel.org/git/
 
-   unsubscribe linux-kernel-announce <your_email_address>
+thanks,
+-chris
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
-
-The following files were changed in this release:
+----------
 
  Makefile                      |    2 -
  arch/i386/pci/common.c        |    1 
@@ -51,3 +47,36 @@ The following files were changed in this release:
  net/socket.c                  |    3 +-
  16 files changed, 85 insertions(+), 77 deletions(-)
 
+Summary of changes from v2.6.13 to v2.6.13.1
+============================================
+
+Al Viro:
+  raw_sendmsg DoS (CAN-2005-2492)
+
+Benjamin Herrenschmidt:
+  Fix PCI ROM mapping
+
+Chris Wright:
+  Linux 2.6.13.1
+
+David S. Miller:
+  Use SA_SHIRQ in sparc specific code.
+
+David Woodhouse:
+  32bit sendmsg() flaw (CAN-2005-2490)
+
+Herbert Xu:
+  2.6.13 breaks libpcap (and tcpdump)
+  Fix boundary check in standard multi-block cipher processors
+
+Ivan Kokshaysky:
+  x86: pci_assign_unassigned_resources() update
+
+Mark Haverkamp:
+  aacraid: 2.6.13 aacraid bad BUG_ON fix
+
+Michael Krufky:
+  Kconfig: saa7134-dvb must select tda1004x
+
+Stephen Hemminger:
+  Reassembly trim not clearing CHECKSUM_HW
