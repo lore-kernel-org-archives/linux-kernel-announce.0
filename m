@@ -1,450 +1,910 @@
-From: Chris Wright <chrisw@osdl.org>
-Subject: Re: Linux 2.6.13.1
-Date: Fri, 9 Sep 2005 20:23:56 -0700
-Message-ID: <20050910032356.GG7762__16277.8946258642$1126335191$gmane$org@shell0.pdx.osdl.net>
-References: <20050910032202.GF7762@shell0.pdx.osdl.net>
+From: Andrew Morton <akpm@osdl.org>
+Subject: 2.6.13-mm3
+Date: Mon, 12 Sep 2005 02:43:50 -0700
+Message-ID: <20050912024350.60e89eb1.akpm__41685.1053516895$1126518316$gmane$org@osdl.org>
 Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20050910032202.GF7762@shell0.pdx.osdl.net>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: linux-kernel@vger.kernel.org
-Cc: akpm@osdl.org, torvalds@osdl.org, stable@kernel.org
 
-diff --git a/Makefile b/Makefile
---- a/Makefile
-+++ b/Makefile
-@@ -1,7 +1,7 @@
- VERSION = 2
- PATCHLEVEL = 6
- SUBLEVEL = 13
--EXTRAVERSION =
-+EXTRAVERSION = .1
- NAME=Woozy Numbat
- 
- # *DOCUMENTATION*
-diff --git a/arch/i386/pci/common.c b/arch/i386/pci/common.c
---- a/arch/i386/pci/common.c
-+++ b/arch/i386/pci/common.c
-@@ -165,7 +165,6 @@ static int __init pcibios_init(void)
- 	if ((pci_probe & PCI_BIOS_SORT) && !(pci_probe & PCI_NO_SORT))
- 		pcibios_sort();
- #endif
--	pci_assign_unassigned_resources();
- 	return 0;
- }
- 
-diff --git a/arch/i386/pci/i386.c b/arch/i386/pci/i386.c
---- a/arch/i386/pci/i386.c
-+++ b/arch/i386/pci/i386.c
-@@ -170,43 +170,26 @@ static void __init pcibios_allocate_reso
- static int __init pcibios_assign_resources(void)
- {
- 	struct pci_dev *dev = NULL;
--	int idx;
--	struct resource *r;
-+	struct resource *r, *pr;
- 
--	for_each_pci_dev(dev) {
--		int class = dev->class >> 8;
--
--		/* Don't touch classless devices and host bridges */
--		if (!class || class == PCI_CLASS_BRIDGE_HOST)
--			continue;
--
--		for(idx=0; idx<6; idx++) {
--			r = &dev->resource[idx];
--
--			/*
--			 *  Don't touch IDE controllers and I/O ports of video cards!
--			 */
--			if ((class == PCI_CLASS_STORAGE_IDE && idx < 4) ||
--			    (class == PCI_CLASS_DISPLAY_VGA && (r->flags & IORESOURCE_IO)))
--				continue;
--
--			/*
--			 *  We shall assign a new address to this resource, either because
--			 *  the BIOS forgot to do so or because we have decided the old
--			 *  address was unusable for some reason.
--			 */
--			if (!r->start && r->end)
--				pci_assign_resource(dev, idx);
--		}
--
--		if (pci_probe & PCI_ASSIGN_ROMS) {
-+	if (!(pci_probe & PCI_ASSIGN_ROMS)) {
-+		/* Try to use BIOS settings for ROMs, otherwise let
-+		   pci_assign_unassigned_resources() allocate the new
-+		   addresses. */
-+		for_each_pci_dev(dev) {
- 			r = &dev->resource[PCI_ROM_RESOURCE];
--			r->end -= r->start;
--			r->start = 0;
--			if (r->end)
--				pci_assign_resource(dev, PCI_ROM_RESOURCE);
-+			if (!r->flags || !r->start)
-+				continue;
-+			pr = pci_find_parent_resource(dev, r);
-+			if (!pr || request_resource(pr, r) < 0) {
-+				r->end -= r->start;
-+				r->start = 0;
-+			}
- 		}
- 	}
-+
-+	pci_assign_unassigned_resources();
-+
- 	return 0;
- }
- 
-diff --git a/crypto/cipher.c b/crypto/cipher.c
---- a/crypto/cipher.c
-+++ b/crypto/cipher.c
-@@ -191,6 +191,8 @@ static unsigned int cbc_process_encrypt(
- 	u8 *iv = desc->info;
- 	unsigned int done = 0;
- 
-+	nbytes -= bsize;
-+
- 	do {
- 		xor(iv, src);
- 		fn(crypto_tfm_ctx(tfm), dst, iv);
-@@ -198,7 +200,7 @@ static unsigned int cbc_process_encrypt(
- 
- 		src += bsize;
- 		dst += bsize;
--	} while ((done += bsize) < nbytes);
-+	} while ((done += bsize) <= nbytes);
- 
- 	return done;
- }
-@@ -219,6 +221,8 @@ static unsigned int cbc_process_decrypt(
- 	u8 *iv = desc->info;
- 	unsigned int done = 0;
- 
-+	nbytes -= bsize;
-+
- 	do {
- 		u8 *tmp_dst = *dst_p;
- 
-@@ -230,7 +234,7 @@ static unsigned int cbc_process_decrypt(
- 
- 		src += bsize;
- 		dst += bsize;
--	} while ((done += bsize) < nbytes);
-+	} while ((done += bsize) <= nbytes);
- 
- 	return done;
- }
-@@ -243,12 +247,14 @@ static unsigned int ecb_process(const st
- 	void (*fn)(void *, u8 *, const u8 *) = desc->crfn;
- 	unsigned int done = 0;
- 
-+	nbytes -= bsize;
-+
- 	do {
- 		fn(crypto_tfm_ctx(tfm), dst, src);
- 
- 		src += bsize;
- 		dst += bsize;
--	} while ((done += bsize) < nbytes);
-+	} while ((done += bsize) <= nbytes);
- 
- 	return done;
- }
-diff --git a/drivers/char/rtc.c b/drivers/char/rtc.c
---- a/drivers/char/rtc.c
-+++ b/drivers/char/rtc.c
-@@ -938,10 +938,9 @@ found:
- 
- 	/*
- 	 * XXX Interrupt pin #7 in Espresso is shared between RTC and
--	 * PCI Slot 2 INTA# (and some INTx# in Slot 1). SA_INTERRUPT here
--	 * is asking for trouble with add-on boards. Change to SA_SHIRQ.
-+	 * PCI Slot 2 INTA# (and some INTx# in Slot 1).
- 	 */
--	if (request_irq(rtc_irq, rtc_interrupt, SA_INTERRUPT, "rtc", (void *)&rtc_port)) {
-+	if (request_irq(rtc_irq, rtc_interrupt, SA_SHIRQ, "rtc", (void *)&rtc_port)) {
- 		/*
- 		 * Standard way for sparc to print irq's is to use
- 		 * __irq_itoa(). I think for EBus it's ok to use %d.
-diff --git a/drivers/media/video/Kconfig b/drivers/media/video/Kconfig
---- a/drivers/media/video/Kconfig
-+++ b/drivers/media/video/Kconfig
-@@ -254,6 +254,7 @@ config VIDEO_SAA7134_DVB
- 	select VIDEO_BUF_DVB
- 	select DVB_MT352
- 	select DVB_CX22702
-+	select DVB_TDA1004X
- 	---help---
- 	  This adds support for DVB cards based on the
- 	  Philips saa7134 chip.
-diff --git a/drivers/pci/rom.c b/drivers/pci/rom.c
---- a/drivers/pci/rom.c
-+++ b/drivers/pci/rom.c
-@@ -21,13 +21,21 @@
-  * between the ROM and other resources, so enabling it may disable access
-  * to MMIO registers or other card memory.
-  */
--static void pci_enable_rom(struct pci_dev *pdev)
-+static int pci_enable_rom(struct pci_dev *pdev)
- {
-+	struct resource *res = pdev->resource + PCI_ROM_RESOURCE;
-+	struct pci_bus_region region;
- 	u32 rom_addr;
- 
-+	if (!res->flags)
-+		return -1;
-+
-+	pcibios_resource_to_bus(pdev, &region, res);
- 	pci_read_config_dword(pdev, pdev->rom_base_reg, &rom_addr);
--	rom_addr |= PCI_ROM_ADDRESS_ENABLE;
-+	rom_addr &= ~PCI_ROM_ADDRESS_MASK;
-+	rom_addr |= region.start | PCI_ROM_ADDRESS_ENABLE;
- 	pci_write_config_dword(pdev, pdev->rom_base_reg, rom_addr);
-+	return 0;
- }
- 
- /**
-@@ -71,19 +79,21 @@ void __iomem *pci_map_rom(struct pci_dev
- 	} else {
- 		if (res->flags & IORESOURCE_ROM_COPY) {
- 			*size = pci_resource_len(pdev, PCI_ROM_RESOURCE);
--			return (void __iomem *)pci_resource_start(pdev, PCI_ROM_RESOURCE);
-+			return (void __iomem *)pci_resource_start(pdev,
-+							     PCI_ROM_RESOURCE);
- 		} else {
- 			/* assign the ROM an address if it doesn't have one */
--			if (res->parent == NULL)
--				pci_assign_resource(pdev, PCI_ROM_RESOURCE);
--
-+			if (res->parent == NULL &&
-+			    pci_assign_resource(pdev,PCI_ROM_RESOURCE))
-+				return NULL;
- 			start = pci_resource_start(pdev, PCI_ROM_RESOURCE);
- 			*size = pci_resource_len(pdev, PCI_ROM_RESOURCE);
- 			if (*size == 0)
- 				return NULL;
- 
- 			/* Enable ROM space decodes */
--			pci_enable_rom(pdev);
-+			if (pci_enable_rom(pdev))
-+				return NULL;
- 		}
- 	}
- 
-diff --git a/drivers/pci/setup-bus.c b/drivers/pci/setup-bus.c
---- a/drivers/pci/setup-bus.c
-+++ b/drivers/pci/setup-bus.c
-@@ -40,7 +40,7 @@
-  * FIXME: IO should be max 256 bytes.  However, since we may
-  * have a P2P bridge below a cardbus bridge, we need 4K.
-  */
--#define CARDBUS_IO_SIZE		(256)
-+#define CARDBUS_IO_SIZE		(4*1024)
- #define CARDBUS_MEM_SIZE	(32*1024*1024)
- 
- static void __devinit
-diff --git a/drivers/scsi/aacraid/aachba.c b/drivers/scsi/aacraid/aachba.c
---- a/drivers/scsi/aacraid/aachba.c
-+++ b/drivers/scsi/aacraid/aachba.c
-@@ -968,7 +968,7 @@ static int aac_read(struct scsi_cmnd * s
- 		fibsize = sizeof(struct aac_read64) + 
- 			((le32_to_cpu(readcmd->sg.count) - 1) * 
- 			 sizeof (struct sgentry64));
--		BUG_ON (fibsize > (sizeof(struct hw_fib) - 
-+		BUG_ON (fibsize > (dev->max_fib_size - 
- 					sizeof(struct aac_fibhdr)));
- 		/*
- 		 *	Now send the Fib to the adapter
-diff --git a/include/net/compat.h b/include/net/compat.h
---- a/include/net/compat.h
-+++ b/include/net/compat.h
-@@ -33,7 +33,8 @@ extern asmlinkage long compat_sys_sendms
- extern asmlinkage long compat_sys_recvmsg(int,struct compat_msghdr __user *,unsigned);
- extern asmlinkage long compat_sys_getsockopt(int, int, int, char __user *, int __user *);
- extern int put_cmsg_compat(struct msghdr*, int, int, int, void *);
--extern int cmsghdr_from_user_compat_to_kern(struct msghdr *, unsigned char *,
--		int);
-+
-+struct sock;
-+extern int cmsghdr_from_user_compat_to_kern(struct msghdr *, struct sock *, unsigned char *, int);
- 
- #endif /* NET_COMPAT_H */
-diff --git a/net/compat.c b/net/compat.c
---- a/net/compat.c
-+++ b/net/compat.c
-@@ -135,13 +135,14 @@ static inline struct compat_cmsghdr __us
-  * thus placement) of cmsg headers and length are different for
-  * 32-bit apps.  -DaveM
-  */
--int cmsghdr_from_user_compat_to_kern(struct msghdr *kmsg,
-+int cmsghdr_from_user_compat_to_kern(struct msghdr *kmsg, struct sock *sk,
- 			       unsigned char *stackbuf, int stackbuf_size)
- {
- 	struct compat_cmsghdr __user *ucmsg;
- 	struct cmsghdr *kcmsg, *kcmsg_base;
- 	compat_size_t ucmlen;
- 	__kernel_size_t kcmlen, tmp;
-+	int err = -EFAULT;
- 
- 	kcmlen = 0;
- 	kcmsg_base = kcmsg = (struct cmsghdr *)stackbuf;
-@@ -156,6 +157,7 @@ int cmsghdr_from_user_compat_to_kern(str
- 
- 		tmp = ((ucmlen - CMSG_COMPAT_ALIGN(sizeof(*ucmsg))) +
- 		       CMSG_ALIGN(sizeof(struct cmsghdr)));
-+		tmp = CMSG_ALIGN(tmp);
- 		kcmlen += tmp;
- 		ucmsg = cmsg_compat_nxthdr(kmsg, ucmsg, ucmlen);
- 	}
-@@ -167,30 +169,34 @@ int cmsghdr_from_user_compat_to_kern(str
- 	 * until we have successfully copied over all of the data
- 	 * from the user.
- 	 */
--	if(kcmlen > stackbuf_size)
--		kcmsg_base = kcmsg = kmalloc(kcmlen, GFP_KERNEL);
--	if(kcmsg == NULL)
-+	if (kcmlen > stackbuf_size)
-+		kcmsg_base = kcmsg = sock_kmalloc(sk, kcmlen, GFP_KERNEL);
-+	if (kcmsg == NULL)
- 		return -ENOBUFS;
- 
- 	/* Now copy them over neatly. */
- 	memset(kcmsg, 0, kcmlen);
- 	ucmsg = CMSG_COMPAT_FIRSTHDR(kmsg);
- 	while(ucmsg != NULL) {
--		__get_user(ucmlen, &ucmsg->cmsg_len);
-+		if (__get_user(ucmlen, &ucmsg->cmsg_len))
-+			goto Efault;
-+		if (!CMSG_COMPAT_OK(ucmlen, ucmsg, kmsg))
-+			goto Einval;
- 		tmp = ((ucmlen - CMSG_COMPAT_ALIGN(sizeof(*ucmsg))) +
- 		       CMSG_ALIGN(sizeof(struct cmsghdr)));
-+		if ((char *)kcmsg_base + kcmlen - (char *)kcmsg < CMSG_ALIGN(tmp))
-+			goto Einval;
- 		kcmsg->cmsg_len = tmp;
--		__get_user(kcmsg->cmsg_level, &ucmsg->cmsg_level);
--		__get_user(kcmsg->cmsg_type, &ucmsg->cmsg_type);
--
--		/* Copy over the data. */
--		if(copy_from_user(CMSG_DATA(kcmsg),
--				  CMSG_COMPAT_DATA(ucmsg),
--				  (ucmlen - CMSG_COMPAT_ALIGN(sizeof(*ucmsg)))))
--			goto out_free_efault;
-+		tmp = CMSG_ALIGN(tmp);
-+		if (__get_user(kcmsg->cmsg_level, &ucmsg->cmsg_level) ||
-+		    __get_user(kcmsg->cmsg_type, &ucmsg->cmsg_type) ||
-+		    copy_from_user(CMSG_DATA(kcmsg),
-+				   CMSG_COMPAT_DATA(ucmsg),
-+				   (ucmlen - CMSG_COMPAT_ALIGN(sizeof(*ucmsg)))))
-+			goto Efault;
- 
- 		/* Advance. */
--		kcmsg = (struct cmsghdr *)((char *)kcmsg + CMSG_ALIGN(tmp));
-+		kcmsg = (struct cmsghdr *)((char *)kcmsg + tmp);
- 		ucmsg = cmsg_compat_nxthdr(kmsg, ucmsg, ucmlen);
- 	}
- 
-@@ -199,10 +205,12 @@ int cmsghdr_from_user_compat_to_kern(str
- 	kmsg->msg_controllen = kcmlen;
- 	return 0;
- 
--out_free_efault:
--	if(kcmsg_base != (struct cmsghdr *)stackbuf)
--		kfree(kcmsg_base);
--	return -EFAULT;
-+Einval:
-+	err = -EINVAL;
-+Efault:
-+	if (kcmsg_base != (struct cmsghdr *)stackbuf)
-+		sock_kfree_s(sk, kcmsg_base, kcmlen);
-+	return err;
- }
- 
- int put_cmsg_compat(struct msghdr *kmsg, int level, int type, int len, void *data)
-diff --git a/net/core/filter.c b/net/core/filter.c
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -182,7 +182,7 @@ int sk_run_filter(struct sk_buff *skb, s
- 				A = ntohl(*(u32 *)ptr);
- 				continue;
- 			}
--			return 0;
-+			break;
- 		case BPF_LD|BPF_H|BPF_ABS:
- 			k = fentry->k;
-  load_h:
-@@ -191,7 +191,7 @@ int sk_run_filter(struct sk_buff *skb, s
- 				A = ntohs(*(u16 *)ptr);
- 				continue;
- 			}
--			return 0;
-+			break;
- 		case BPF_LD|BPF_B|BPF_ABS:
- 			k = fentry->k;
- load_b:
-@@ -200,7 +200,7 @@ load_b:
- 				A = *(u8 *)ptr;
- 				continue;
- 			}
--			return 0;
-+			break;
- 		case BPF_LD|BPF_W|BPF_LEN:
- 			A = skb->len;
- 			continue;
-diff --git a/net/ipv4/ip_fragment.c b/net/ipv4/ip_fragment.c
---- a/net/ipv4/ip_fragment.c
-+++ b/net/ipv4/ip_fragment.c
-@@ -457,7 +457,7 @@ static void ip_frag_queue(struct ipq *qp
- 
- 	if (pskb_pull(skb, ihl) == NULL)
- 		goto err;
--	if (pskb_trim(skb, end-offset))
-+	if (pskb_trim_rcsum(skb, end-offset))
- 		goto err;
- 
- 	/* Find out which fragments are in front and at the back of us
-diff --git a/net/ipv4/raw.c b/net/ipv4/raw.c
---- a/net/ipv4/raw.c
-+++ b/net/ipv4/raw.c
-@@ -358,7 +358,7 @@ static void raw_probe_proto_opt(struct f
- 
- 			if (type && code) {
- 				get_user(fl->fl_icmp_type, type);
--				__get_user(fl->fl_icmp_code, code);
-+			        get_user(fl->fl_icmp_code, code);
- 				probed = 1;
- 			}
- 			break;
-diff --git a/net/ipv6/raw.c b/net/ipv6/raw.c
---- a/net/ipv6/raw.c
-+++ b/net/ipv6/raw.c
-@@ -619,7 +619,7 @@ static void rawv6_probe_proto_opt(struct
- 
- 			if (type && code) {
- 				get_user(fl->fl_icmp_type, type);
--				__get_user(fl->fl_icmp_code, code);
-+				get_user(fl->fl_icmp_code, code);
- 				probed = 1;
- 			}
- 			break;
-diff --git a/net/socket.c b/net/socket.c
---- a/net/socket.c
-+++ b/net/socket.c
-@@ -1739,10 +1739,11 @@ asmlinkage long sys_sendmsg(int fd, stru
- 		goto out_freeiov;
- 	ctl_len = msg_sys.msg_controllen; 
- 	if ((MSG_CMSG_COMPAT & flags) && ctl_len) {
--		err = cmsghdr_from_user_compat_to_kern(&msg_sys, ctl, sizeof(ctl));
-+		err = cmsghdr_from_user_compat_to_kern(&msg_sys, sock->sk, ctl, sizeof(ctl));
- 		if (err)
- 			goto out_freeiov;
- 		ctl_buf = msg_sys.msg_control;
-+		ctl_len = msg_sys.msg_controllen;
- 	} else if (ctl_len) {
- 		if (ctl_len > sizeof(ctl))
- 		{
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.13/2.6.13-mm3/
+
+(temp copy at http://www.zip.com.au/~akpm/linux/patches/stuff/2.6.13-mm3.gz)
+
+- perfctr was dropped.  Mikael has ceased development and recommends that
+  the focus be upon perfmon.  See
+  http://sourceforge.net/mailarchive/forum.php?thread_id=8102899&forum_id=2237
+
+- There are several performance tuning patches here which need careful
+  attention and testing.  (Does anyone do performance testing any more?)
+
+  - An update to the anticipatory scheduler to fix a performance problem
+    where processes do a single read then exit, in the presence of competing
+    I/O acticity.
+
+  - The size of the page allocator per-cpu magazines has been increased
+
+  - The page allocator has been changed to use higher-order allocations
+    when batch-loading the per-cpu magazines.  This is intended to give
+    improved cache colouring effects however it might have the downside of
+    causing extra page allocator fragmentation.
+
+  - The page allocator's per-cpu magazines have had their lower threshold
+    set to zero.  And we can't remember why it ever had a lower threshold.
+
+- Dropped all the virtualisation preparatory patches.  Will later pick these
+  up from a git tree which chrisw is running.
+
+- There are still quite a few patches here for 2.6.14 (30-50, perhaps).
+
+
+
+
+Changes since 2.6.13-mm2:
+
+
+ linus.patch
+ git-cifs.patch
+ git-drm.patch
+ git-ia64.patch
+ git-ia64-fixup.patch
+ git-audit.patch
+ git-libata-all.patch
+ git-mtd.patch
+ git-netdev-all.patch
+ git-nfs.patch
+ git-nfs-oops-fix.patch
+ git-ocfs2-prep.patch
+ git-ocfs2.patch
+ git-scsi-misc.patch
+ git-scsi-rc-fixes.patch
+
+ Subsystem trees
+
+-ip_conntrack_netbios_ns-build-fix.patch
+-clear-task_struct-fs_excl-on-fork.patch
+-i386-config_acpi_srat-typo-fix.patch
+-ppc64-fix-oops-for-config_numa.patch
+-ppc32-fix-kconfig-mismerge.patch
+-agp-AGP-01-printk-levels.patch
+-gregkh-driver-sysfs-write-ENOBUFS.patch
+-gregkh-i2c-w1-fs9490-sync.patch
+-gregkh-i2c-w1-01-hotplug.patch
+-gregkh-i2c-w1-02-64bit.patch
+-gregkh-i2c-w1-03.patch
+-gregkh-i2c-w1-04.patch
+-gregkh-i2c-w1-05.patch
+-gregkh-i2c-w1-06.patch
+-gregkh-i2c-w1-07.patch
+-gregkh-i2c-w1-08.patch
+-gregkh-i2c-w1-09.patch
+-gregkh-i2c-w1-10-crc16.patch
+-gregkh-i2c-w1-11.patch
+-gregkh-i2c-w1-12.patch
+-ignore-all-debugging-info-sections-in-scripts-reference_discardedpl.patch
+-fix-split-include-dependency.patch
+-txx9-serial-update.patch
+-gregkh-pci-pci-rpaphp-01.patch
+-gregkh-pci-pci-rpaphp-02.patch
+-gregkh-pci-pci-rpaphp-03.patch
+-gregkh-pci-pci-rpaphp-04.patch
+-gregkh-pci-pci-rpaphp-05.patch
+-gregkh-pci-pci-rpaphp-06.patch
+-gregkh-pci-pci-driver-init-on-node.patch
+-gregkh-pci-pci-move-pci-fixup-data-into-r-o-section.patch
+-gregkh-pci-pci-remove-pretty-names.patch
+-gregkh-pci-pci-remove-pretty-names-02.patch
+-gregkh-pci-pci-cleanup-pci.h.patch
+-gregkh-pci-pci-io_remap_pfn_range.patch
+-gregkh-pci-pci-hotplug-use-bus_slot-number-for-name.patch
+-gregkh-pci-pci-restore-bar-values.patch
+-gregkh-pci-pci-make-sparc64-use-setup-res.patch
+-gregkh-pci-pci-cleanup-return-values.patch
+-gregkh-pci-pci-cleanup-return-values-fix.patch
+-gregkh-pci-pci-remove-pci_find_device-from-parport_pc.patch
+-gregkh-pci-pci-sgi-hotplug-fixes.patch
+-gregkh-pci-pci-pci_intx.patch
+-gregkh-pci-pci-pm-support-pm-cap-version-3.patch
+-gregkh-pci-pci-pci_walk_bus.patch
+-gregkh-pci-pci-fix-hotplug-vars.patch
+-gregkh-pci-pci-must_check-attributes.patch
+-pci-unhide-smbus-on-compaq-evo-n620c.patch
+-git-scsi-iscsi-vs-git-net.patch
+-git-net-vs-iscsi-fix.patch
+-gregkh-usb-usb-cypress_m8-whitespace-fixes.patch
+-gregkh-usb-usb-add-apple-touchpad-driver.patch
+-gregkh-usb-usb-option-card-driver-coding-style-tweaks.patch
+-gregkh-usb-usb-usbserial-remove-unneeded-casts.patch
+-gregkh-usb-usb-gadget-centrialize-numbers.patch
+-gregkh-usb-usb-keyspan_remote-endian-fix.patch
+-gregkh-usb-usb-pl2303hx-fix.patch
+-gregkh-usb-usb-ftdi_sio-userspecified-vid.patch
+-gregkh-usb-usb-ftdi_sio-new-ids.patch
+-gregkh-usb-usb-hid-blacklist-apple-bluetooth.patch
+-gregkh-usb-usb-real-nodes-instead-of-usbfs.patch
+-gregkh-usb-usb-real-nodes-instead-of-usbfs-fix.patch
+-gregkh-usb-usb-storage-unusual-devs-mitsumi.patch
+-gregkh-usb-usb-ub-01.patch
+-gregkh-usb-usb-ub-02.patch
+-gregkh-usb-usb-ub-03.patch
+-gregkh-usb-usb-ub-04.patch
+-gregkh-usb-usb-usblp-rate-limit-error-messages.patch
+-gregkh-usb-usb-usbnet-gfp_flags-fix.patch
+-gregkh-usb-usb-isp116x-hcd-01.patch
+-gregkh-usb-usb-isp116x-hcd-02.patch
+-gregkh-usb-usb-isp116x-hcd-03.patch
+-gregkh-usb-usb-isp116x-hcd-04.patch
+-gregkh-usb-usb-isp116x-hcd-05.patch
+-gregkh-usb-usb-isp116x-hcd-06.patch
+-gregkh-usb-usb-storage-01.patch
+-gregkh-usb-usb-storage-02.patch
+-gregkh-usb-usb-storage-03.patch
+-gregkh-usb-usb-storage-04.patch
+-gregkh-usb-usb-storage-05.patch
+-gregkh-usb-usb-remove-URB_ASYNC_UNLINK.patch
+-gregkh-usb-usb-serial-async-fixup.patch
+-gregkh-usb-usb-fix-hp8200.patch
+-gregkh-usb-usb-hub-code-motion.patch
+-gregkh-usb-usb-hub-disconnect-children.patch
+-gregkh-usb-usb-s3c24xx-port-numbering-fix.patch
+-gregkh-usb-usb-ohci-ppc-soc-fix.patch
+-gregkh-usb-usb-usb_lock_device_for_reset-timeout.patch
+-gregkh-usb-usb-unbind-usb_generic-driver.patch
+-gregkh-usb-usb-tweak-highspeed-calculations.patch
+-gregkh-usb-usb-remove-annoying-message.patch
+-gregkh-usb-usb-ohci-ppc-soc-include.patch
+-gregkh-usb-usb-schedule-oss-usb-drivers-removal.patch
+-gregkh-usb-usb-ldusb-64-bit-warnings.patch
+-gregkh-usb-usb-usbnet-01.patch
+-gregkh-usb-usb-usbnet-02.patch
+-gregkh-usb-usb-usbnet-03.patch
+-gregkh-usb-usb-usbnet-04.patch
+-gregkh-usb-usb-usbnet-05.patch
+-gregkh-usb-usb-usbnet-06.patch
+-gregkh-usb-usb-usbnet-07.patch
+-gregkh-usb-usb-usbnet-08.patch
+-gregkh-usb-usb-usbnet-09.patch
+-gregkh-usb-usb-ehci-01.patch
+-gregkh-usb-usb-ehci-02.patch
+-gregkh-usb-usb-usbmon-dma-areas.patch
+-gregkh-usb-usb-yealink.patch
+-gregkh-usb-usb-yealink-update.patch
+-gregkh-usb-usb-storage-onetouch-cleanups.patch
+-security-enable-atomic-inode-security-labeling.patch
+-security-enable-atomic-inode-security-labeling-use-kstrdup.patch
+-ext2-enable-atomic-inode-security-labeling.patch
+-ext2-enable-atomic-inode-security-labeling-fix.patch
+-ext3-enable-atomic-inode-security-labeling.patch
+-ext3-enable-atomic-inode-security-labeling-fix.patch
+-tmpfs-enable-atomic-inode-security.patch
+-tmpfs-enable-atomic-inode-security-fix.patch
+-remove-security_inode_post_create-mkdir-symlink-mknod.patch
+-remove-the-inode_post_link-and-inode_post_rename-lsm-hooks.patch
+-ppc32-make-perfmono-config_e500-specific.patch
+-mips-add-tanbac-tb0287-support.patch
+-i386-seccomp-fix-for-auditing-ptrace.patch
+-x86_64dont-do-broadcast-ipis-when-hotplug-is-enabled-in-flat-mode.patch
+-x86_64-dont-call-enforce_max_cpus-when-hotplug-is-enabled-2.patch
+-alpha-process_reloc_for_got-confuses-r_offset-and-r_addend.patch
+-scan-all-enabled-ports-on-ata_piix.patch
+-pty_chars_in_buffer-oops-fix.patch
+-convert-proc-devices-to-use-seq_file-interface.patch
+-convert-proc-devices-to-use-seq_file-interface-tidy.patch
+-ibm-hdaps-accelerometer-driver-with-probing.patch
+-vga-text-console-and-stty-cols-rows.patch
+-vga-text-console-and-stty-cols-rows-tidy.patch
+-autofs-fix-busy-inodes-after-umount.patch
+-fix-disassociate_ctty-vs-fork-race.patch
+-prefetch-kernel-stacks-to-speed-up-context-switch.patch
+-bfs-fix-endianness-signedness-add-trivial-bugfix.patch
+-cs89x0-add-netpoll-support.patch
+-change-io_cancel-return-code-for-no-cancel-case.patch
+-kiocb-locking-to-serialise-retry-and-cancel-2.patch
+-subcpusets-fix-for-cpusets-minor-problem.patch
+-remove-unnecessary-handle_irq_event-prototypes.patch
+-deadline-cleanup-question-mark-operator.patch
+-synclinkc-compiler-optimisation-fix.patch
+-synclinkc-add-clear-stats.patch
+-synclinkc-add-loopback-to-async-mode.patch
+-synclinkmpc-fix-double-mapping-of-signals.patch
+-synclinkmpc-disable-burst-transfers.patch
+-synclinkmpc-add-statistics-clear.patch
+-synclinkmpc-fix-async-internal-loopback.patch
+-fix-reboot-via-keyboard-controller-reset.patch
+-dvb-email-address-update.patch
+-dvb-remove-versionh-dependencies.patch
+-dvb-avoid-building-empty-built-ino.patch
+-dvb-core-glue-code-for-dmx_get_caps-and-dmx_set_source.patch
+-dvb-core-dvb_demux-fix-continuity-counter-error-handling.patch
+-dvb-core-dvb_demux-remove-unused-cruft.patch
+-dvb-core-dvb_demux-remove-unsused-descramble-callbacks.patch
+-dvb-core-dvb_demux-remove-more-unused-cruft.patch
+-dvb-core-dvb_demux-use-init_list_head.patch
+-dvb-core-dvb_demux-formatting-fixes.patch
+-dvb-core-ci-timeout-fix.patch
+-dvb-frontend-mt352-fix-signal-strength-reading.patch
+-dvb-frontend-stv0299-pass-i2c-bus-to-pll-callback.patch
+-dvb-frontend-s5h1420-fixes.patch
+-dvb-frontend-stv0299-support-reading-both-ber-and-ucblocks.patch
+-dvb-frontend-tda1004x-fix-snr-reading.patch
+-dvb-frontend-ves1820-improve-tuning.patch
+-dvb-frontend-cx24110-diseqc-fix.patch
+-dvb-frontend-cx24110-another-diseqc-fix.patch
+-dvb-frontend-cx24110-clean-up-timeout-handling.patch
+-dvb-frontend-stv0297-qam128-tuning-improvement.patch
+-dvb-frontend-or51132-remove-bogus-optimization-attempt.patch
+-dvb-usb-add-twinhandtv-starbox-support.patch
+-dvb-usb-dibusb-kworld-xpert-dvb-t-usb20-support.patch
+-dvb-usb-removed-empty-module_init-exit-calls.patch
+-dvb-usb-dtt200u-copy-frontend_ops-before-modifying.patch
+-dvb-usb-dtt200u-add-proper-device-names.patch
+-dvb-usb-core-change-dvb_usb_device_init-api.patch
+-dvb-usb-digitv-support-for-nxt6000-demod.patch
+-dvb-usb-white-space-cleanup.patch
+-dvb-usb-cxusb-fixes-for-new-firmware.patch
+-dvb-remove-noisy-debug-print.patch
+-dvb-bt8xx-endianness-fix.patch
+-dvb-bt8xx-cleanup.patch
+-dvb-bt8xx-nebula-digitv-mt352-support.patch
+-dvb-nebula-digitv-nxt6000-fix.patch
+-dvb-dst-fix-symbol-rate-setting.patch
+-dvb-dst-remove-unnecessary-code.patch
+-dvb-dst-dprrintk-cleanup.patch
+-dvb-dst-dprrintk-cleanup-gcc-29x-fix.patch
+-dvb-dst-dprrintk-cleanup-gcc-295-fix.patch
+-dvb-dst-identify-boards.patch
+-dvb-dst-fix-dvb-c-tuning.patch
+-dvb-dst-ci-doc-update.patch
+-dvb-dst-updated-documentation.patch
+-dvb-cinergyt2-remote-control-fixes.patch
+-dvb-av7110-siemens-dvb-c-analog-video-input-support.patch
+-dvb-budget-ci-add-support-for-tt-dvb-c-ci-card.patch
+-dvb-budget-av-fixes-for-ci-interface.patch
+-dvb-budget-av-enable-frontend-on-knc1-plus-cards.patch
+-dvb-av7110-disable-superflous-firmware-handshake.patch
+-dvb-av7110-conditionally-disable-workaround-for-broken-firmware.patch
+-dvb-ttpci-av7110-rc5-remote-control-support.patch
+-dvb-ttpci-add-pci-ids-for-old-siemens-tt-dvb-c-card.patch
+-dvb-saa7146-i2c-vs-sysfs-fix.patch
+-dvb-ttusb-budget-use-time_after_eq.patch
+-pcmcia-reduce-dsc-stack-footprint.patch
+-yenta-share-code-with-pci-core.patch
+-pcmcia-cs-fix-possible-missed-wakeup.patch
+-fix-pcmcia_request_irq-for-multifunction-card.patch
+-pcmcia-yenta-avoid-pci-write-posting-problem.patch
+-pcmcia-remove-unused-client_t.patch
+-pcmcia-remove-unused-vpp1-vpp2-and-vcc.patch
+-pcmcia-omap-cf-controller.patch
+-pcmcia-more-ids-for-ide_cs.patch
+-pcmcia-add-pcmcia-to-irq-information.patch
+-spinlock-consolidation.patch
+-mips-build-fix-for-spinlock-consolidation.patch
+-spinlock-consolidation-ia64-fix.patch
+-spinlock-consolidation-sparc64-fix.patch
+-numa-aware-slab-allocator-v5.patch
+-sched-run-sched_normal-tasks-with-real-time-tasks-on-smt-siblings.patch
+-sched-idlest-cpus_allowed-aware.patch
+-sched-cleanups.patch
+-sched-task_noninteractive.patch
+-sched-fix-smt-scheduler-latency-bug.patch
+-sched-less-newidle-locking.patch
+-sched-less-locking.patch
+-sched-ht-optimisation.patch
+-sched-use-cached-variable-in-sys_sched_yield.patch
+-sched-dont-kick-alb-in-the-presence-of-pinned-task.patch
+-sched-allow-the-load-to-grow-upto-its-cpu_power.patch
+-video_bt848-remove-not-required-part-of-the-help-text.patch
+-v4l-common-part-updates-and-tuner-additions.patch
+-v4l-common-part-updates-and-tuner-additions-gcc-29x-fix.patch
+-v4l-bttv-updates-and-card-additions.patch
+-v4l-bttv-updates-and-card-additions-fix.patch
+-v4l-cx88-updates-and-card-additions.patch
+-v4l-cx88-updates-and-card-additions-gcc-295-fix.patch
+-v4l-saa7134-updates-and-board-additions.patch
+-v4l-changes-the-prefix-of-msp34xx-and-error-while.patch
+-v4l-syncs-tveeprom-tuners-list-with-the-list-from.patch
+-v4l-correct-lg-ntsc-taln-mini-tuner-takeover.patch
+-v4l-add-saa713x-card-65-kworld-v-stream-studio-tv-terminator.patch
+-v4l-add-saa713x-card-66-yuan-tun-900-saa7135.patch
+-v4l-cx88-dvb-incorrectly-reporting-fixed-and.patch
+-v4l-normalize-whitespace-and-comments-in-tuner.patch
+-v4l-change-lg-tdvs-h062f-from-ntsc-to-atsc.patch
+-v4l-some-error-treatment-implemented-at-resume.patch
+-v4l-the-microtune-4049fm5-uses-an-if-frequency-of.patch
+-v4l-include-linux-configh-no-longer-needed.patch
+-v4l-correct-the-amux-for-composite-and-s-video.patch
+-v4l-print-warning-if-pal=-or-secam=-argument-is.patch
+-v4l-added-some-missing-parameter-descriptions-at.patch
+-v4l-makes-the-input-event-device-for-ir-matchable.patch
+-v4l-include-saa6588-compiler-option-and-files.patch
+-v4l-removed-kernel-version-dependency-from.patch
+-v4l-tvaudio-cleanup-and-better-degug-messages.patch
+-v4l-tvaudio-cleanup-and-better-degug-messages-gcc-29c-fix.patch
+-v4l-tveeprom-improved-to-support-newer-hauppage-cards.patch
+-v4l-tveeprom-improved-to-support-newer-hauppage-cards-gcc-29x-fix.patch
+-files-fix-rcu-initializers.patch
+-files-rcuref-apis.patch
+-files-break-up-files-struct.patch
+-files-sparc64-fix-2.patch
+-files-files-struct-with-rcu.patch
+-files-lock-free-fd-look-up.patch
+-files-files-locking-doc.patch
+-v9fs-documentation-makefiles-configuration.patch
+-v9fs-documentation-makefiles-configuration-add-fd-based-transport-to-makefile-docs.patch
+-v9fs-documentation-makefiles-configuration-fix-plan9port-example-in-v9fs.patch
+-v9fs-vfs-file-dentry-and-directory-operations.patch
+-v9fs-vfs-inode-operations.patch
+-v9fs-vfs-inode-operations-adjust-follow_link-and-put_link-to.patch
+-v9fs-vfs-superblock-operations-and-glue.patch
+-v9fs-vfs-superblock-operations-and-glue-add-fd-based-transport-to-mount-options.patch
+-v9fs-9p-protocol-implementation.patch
+-v9fs-9p-protocol-implementation-use-standard-kernel-byteswapping.patch
+-v9fs-9p-protocol-implementation-remove-sparse-bitwise-warnings.patch
+-v9fs-transport-modules.patch
+-v9fs-transport-modules-add-fd-based-transport-module.patch
+-v9fs-transport-modules-fix-a-problem-with-named-pipe-transport.patch
+-v9fs-transport-modules-cleanup-fd-transport.patch
+-v9fs-support-to-force-umount.patch
+-v9fs-debug-and-support-routines.patch
+-v9fs-change-error-magic-numbers-to-defined-constants.patch
+-v9fs-clean-up-vfs_inode-and-setattr-functions.patch
+-v9fs-fix-support-for-special-files-devices-named-pipes-etc.patch
+-v9fs-readlink-extended-mode-check.patch
+-v9fs-fix-handling-of-malformed-9p-messages.patch
+-fbdev-add-fbset-a-support.patch
+-vesafb-add-blanking-support.patch
+-fbdev-prevent-drivers-that-have-hardware-cursors-from-calling-software-cursor-code.patch
+-fbdev-geode-updates.patch
+-fbdev-geode-updates-fix.patch
+-fbdev-resurrect-hooks-to-get-edid-from-firmware.patch
+-fbdev-resurrect-hooks-to-get-edid-from-firmware-fix.patch
+-savagefb-driver-updates.patch
+-nvidiafb-fallback-to-firmware-edid.patch
+-fbdev-fix-greater-than-1-bit-monochrome-color-handling.patch
+-fbcon-saner-16-color-to-4-color-conversion.patch
+-console-fix-buffer-copy-on-vc-resize.patch
+-atyfb-remove-code-that-sets-sync-polarity-unconditionally.patch
+-radeonfb_old-fix-broken-link.patch
+-matroxfb-read-mga-pins-data-on-powerpc.patch
+-sisfb-update.patch
+-sisfb-update-resurrect-makefile.patch
+-sisfb-update-makefile.patch
+-better-error-handing-in-savagefb_probe.patch
+-framebuffer-new-driver-for-cyberblade-i1-graphics.patch
+-framebuffer-bit_putcs-optimization-for-8x.patch
+-radeonfb-only-request-resources-we-need.patch
+-fbdev-add-vesa-coordinated-video-timings-cvt-support.patch
+-nvidiafb-use-cvt-to-get-mode-for-digital-displays.patch
+-savagefb-make-mode_option-available-when-compiled-as.patch
+-fbcon-stop-cursor-timer-if-console-is-inactive.patch
+-nvidiafb-fixed-mirrored-characters-in-big-endian-machines.patch
+-fbdev-initialize-var-structure-in-calc_mode_timings.patch
+-pxafb-add-hsync-time-reporting-hook.patch
+-fbcon-break-up-bit_putcs-into-its-component-functions.patch
+-fbcon-break-up-bit_putcs-into-its-component-functions-fix.patch
+-i810fb-add-i2c-ddc-support.patch
+-i810fb-add-i2c-ddc-support-fix.patch
+-i810fb-add-i2c-ddc-support-fix-fix.patch
+-i810fb-add-i2c-ddc-support-Makefile-fix.patch
+-i810fb-stop-lcd-displays-from-flickering.patch
+-quiet-non-x86-option-rom-warnings.patch
+-s3c2410fb-arm-s3c2410-framebuffer-driver.patch
+-s3c2410fb-platform-support-for-arm-s3c2410-framebuffer.patch
+-md-fix-minor-error-in-raid10-read-balancing-calculation.patch
+-md-fail-io-request-to-md-that-require-a-barrier.patch
+-# wait:
+-md-fix-rh_dec-rh_inc-race-in-dm-raid1c.patch
+-md-dont-allow-new-md-bitmap-file-to-be-set-if-one-already-exists.patch
+-md-improve-handling-of-bitmap-initialisation.patch
+-md-all-hot-add-and-hot-remove-of-md-intent-logging-bitmaps.patch
+-md-support-write-mostly-device-in-raid1.patch
+-md-add-write-behind-support-for-md-raid1.patch
+-md-support-md-linear-array-with-components-greater-than-2-terabytes.patch
+-md-raid1_quiesce-is-back-to-front-fix-it.patch
+-md-make-sure-bitmap_daemon_work-actually-does-work.patch
+-md-do-not-set-mddev-bitmap-until-bitmap-is-fully-initialised.patch
+-md-allow-hot-adding-devices-to-arrays-with-non-persistant-superblocks.patch
+-md-allow-md-to-load-a-superblock-with-feature-bit-1-set.patch
+-md-fix-bitmap-read_sb_page-so-that-it-handles-errors-properly.patch
+-md-remove-old-cruft-from-md_kh-header-file.patch
+-md-limit-size-of-sb-read-written-to-appropriate-amount.patch
+-md-add-write-intent-bitmap-support-to-raid5.patch
+-md-write-intent-bitmap-support-for-raid6.patch
+-md-use-kthread-infrastructure-in-md.patch
+-md-ensure-bitmap_writeback_daemon-handles-shutdown-properly.patch
+-md-tidy-up-daemon-stop-start-code-in-md-bitmapc.patch
+-drivers-md-raid1c-make-a-function-static.patch
+-md-choose-better-default-offset-for-bitmap.patch
+-md-use-queue_hardsect_size-instead-of-block_size-for-md-superblock-size-calc.patch
+-md-add-information-about-superblock-version-to-proc-mdstat.patch
+-md-report-spare-drives-in-proc-mdstat.patch
+-md-make-sure-the-new-sb_size-is-set-properly-device-added-without-pre-existing-superblock.patch
+-md-really-get-sb_size-setting-right-in-all-cases.patch
+-md-fix-raid10-assembly-when-too-many-devices-are-missing.patch
+-md-fix-bug-when-raid10-rebuilds-without-enough-drives.patch
+-update-documentation-docbook-kernel-hackingtmpl.patch
+-documentation-how-to-apply-patches-for-various-trees.patch
+-documentation-how-to-apply-patches-for-various-tree-fix.patch
+-isa-dma-api-documentation.patch
+-docs-fix-misinformation-about.patch
+-update-kfree-vfree-and-vunmap-kerneldoc.patch
+-docbook-fix-kernel-api-documentation-generation.patch
+-kdump-documentation-update.patch
+-vfs-update-documentation.patch
+-documentation-sparse-snapshot-url.patch
+-fuse-maintainers-kconfig-and-makefile-changes.patch
+-fuse-core.patch
+-fuse-device-functions.patch
+-fuse-device-functions-document-mount-options.patch
+-fuse-device-functions-document-mount-options-documentation-update.patch
+-fuse-device-functions-request-counter-overflow-fix.patch
+-fuse-device-functions-module-alias.patch
+-fuse-read-only-operations.patch
+-fuse-read-only-operations-follow_link-fix.patch
+-fuse-read-write-operations.patch
+-fuse-file-operations.patch
+-fuse-mount-options.patch
+-fuse-extended-attribute-operations.patch
+-fuse-add-padding.patch
+-fuse-readpages-operation.patch
+-fuse-tighten-check-for-processes-allowed-access.patch
+-fuse-stricter-mount-option-checking.patch
+-fuse-direct-i-o.patch
+-fuse-direct-i-o-cleanup.patch
+-fuse-transfer-readdir-data-through-device.patch
+-fuse-more-flexible-caching.patch
+-fuse-dont-update-file-times.patch
+-fuse-add-fsync-operation-for-directories.patch
+-fuse-dont-allow-restarting-of-system-calls.patch
+-timer-initialization-cleanup-define_timer.patch
+-more-spin_lock_unlocked-define_spinlock-conversions.patch
+-mm-filemapc-make-two-functions-static.patch
+-mm-filemapc-make-sync_page_range_nolock-static.patch
+-mm-filemapc-make-generic_file_direct_io-static.patch
+-applicom-fix-error-handling.patch
+-drivers-char-lcdc-misc_register-can-fail.patch
+-hdpu_cpustate-misc_register-can-fail.patch
+-sb16_csp-remove-home-grown-le_to_cpu-macros.patch
+-sb16_csp-untypedef.patch
+-mm-slab-fix-sparse-warnings.patch
+-char-n_tty-fix-sparse-warnings-__nocast-type.patch
+-kernel-acct-add-kerneldoc.patch
+-ppc-c99-initializers-for-hw_interrupt_type-structures.patch
+-sh-c99-initializers-for-hw_interrupt_type-structures.patch
+-v850-c99-initializers-for-hw_interrupt_type-structures.patch
+-sh64-c99-initializers-for-hw_interrupt_type-structures.patch
+-add-kerneldoc-reference-to-codingstyle.patch
+-mm-swap_state-fix-nocast-type-warnings.patch
+-spelling-fixes-for-documentation.patch
+-lib-radix-tree-fix-nocast-type-warnings.patch
+-dmapool-fix-nocast-type-warnings.patch
+-telephony-ixj-use-msleep-instead-of-schedule_timeout.patch
+-i386-smpboot-use-msleep-instead-of-schedule_timeout.patch
+-update-fsf-address-in-copying.patch
+-fix-unusual-placement-of-inline-keyword-in-hpet.patch
+-vfree-and-kfree-cleanup-in-drivers.patch
+-merge-some-from-rustys-trivial-patches.patch
+-include-asm-arm26-hardirqh-remove-define-irq_enter.patch
+-remove-sound-oss-skeletonc.patch
+-drivers-char-lpc-use-of-the-time_after-macro.patch
+-spelling-and-whitespace-fixes-for-reporting-bugs.patch
+-remove-invalid-comment-in-mm-page_allocc.patch
+-lib-sortc-small-cleanups.patch
+-janitor-ide-min-max-macros-in-ide-timingh.patch
+-janitor-net-ppp-generic-list_for_each_entry.patch
+-janitor-jffs-intrep-list_for_each_entry.patch
+-janitor-fs-namespacec-list_for_each_entry.patch
+-janitor-fs-dcachec-list_for_each.patch
+-janitor-ide-tape-replace-schedule_timeout-with-msleep.patch
+-janitor-block-umem-replace-printk-with-pr_debug.patch
+-janitor-tulip-de4x5-list_for_each.patch
+-janitor-sh-bigsur-io-minmax-removal.patch
+-janitor-sh-hd64465-minmax-removal.patch
+-janitor-block-xd-replace-schedule_timeout-with-msleep-msleep_interruptible.patch
+-janitor-ide-ide-cs-replace-schedule_timeout-with-msleep.patch
+-janitor-reiserfs-superc-vfree-checking-cleanups.patch
+-include-asm-i386-extern-inline-static-inline.patch
+-include-linux-blkdevh-extern-inline-static-inline.patch
+-extern-inline-static-inline.patch
+-include-linux-bioh-extern-inline-static-inline.patch
+-remove-acpi-s4bios-support.patch
+-fs-cramfs-uncompressc-should-include-linux-cramfs_fsh.patch
+-i386-x86_64-make-get_cpu_vendor-static.patch
+-schedule_timeout_uninterruptible.patch
+-include-update-jiffies-musecs-conversion-functions.patch
+-timeh-remove-ifdefs.patch
+-fs-fix-up-schedule_timeout-usage.patch
+-kernel-fix-up-schedule_timeout-usage.patch
+-mm-fix-up-schedule_timeout-usage.patch
+-alpha-fix-up-schedule_timeout-usage.patch
+-i386-fix-up-schedule_timeout-usage.patch
+-mips-fix-up-schedule_timeout-usage.patch
+-drivers-block-fix-up-schedule_timeout-usage.patch
+-drivers-cdrom-fix-up-schedule_timeout-usage.patch
+-drivers-cdrom-fix-up-schedule_timeout-usage-fix.patch
+-drivers-char-fix-up-schedule_timeout-usage.patch
+-drivers-dlm-fix-up-schedule_timeout-usage.patch
+-parport-fix-up-schedule_timeout-usage.patch
+-parport-fix-up-schedule_timeout-usage-fix.patch
+-telephony-fix-up-schedule_timeout-usage.patch
+-drivers-usb-fix-up-schedule_timeout-usage-fix.patch
+
+ Merged
+
++fbdev-kconfig-fix.patch
+
+ fbdev fix
+
++set-ibm-thinkpad-extras-to-default-n-in-kconfig.patch
++dont-set-dcdbas-driver-to-default-m.patch
++pnpacpi-only-parse-device-that-have-crs-method.patch
++pnpacpi-clean-blacklist.patch
+
+ acpi fixes
+
++atiixp_modem-printk-fixes.patch
+
+ Fix some printks
+
+-gregkh-driver-sysfs-strip_leading_trailing_whitespace.patch
+-gregkh-driver-sysfs-strip_leading_trailing_whitespace-fix.patch
+
+ Dropped
+
++gregkh-driver-firmware_documenation.patch
++gregkh-driver-aoe-01.patch
++gregkh-driver-aoe-02.patch
+
+ Greg's driver tree
+
++gregkh-i2c-hdaps.patch
++gregkh-i2c-i2c-nforce-drop-define.patch
++gregkh-i2c-hwmon-w83627hf.patch
++gregkh-i2c-hwmon-smsc47m1.patch
++gregkh-i2c-hwmon-force_addr-fix.patch
+
+ Greg's i2c tree
+
++i2c-keywest-warning-fix.patch
+
+ warning fix
+
++git-ia64-fixup.patch
+
+ Fix reject in  git-ia64.patch
+
+-sata_sisc-introducing-device-id-0x182.patch
+
+ Dropped
+
++netlink-connector.patch
+
+ The netlink connector again (wrong version thereof)
+
++git-ocfs2-prep.patch
+
+ Make git-ocfs2.patch apply.
+
+-arch-pci_find_device-remove-sparc64-kernel-ebusc-fix.patch
+
+ Folded into arch-pci_find_device-remove-sparc64-kernel-ebusc.patch
+
++pci-block-config-access-during-bist-fix-43.patch
++pci-block-config-access-during-bist-resend.patch
+
+ Fix pci-block-config-access-during-bist.patch
+
++fix-buffer-overrun-in-rpadlpar_sysfsc.patch
+
+ driver sysfs fix
+
++megaraid-mode_sense-fix.patch
+
+ Megaraid fix
+
++scsi-sas-makefile-and-kconfig.patch
++sas_class-include-files-in-include-scsi-sas.patch
++sas-class-core-files.patch
++aic94xx-the-aic94xx-sas-lldd.patch
+
+ Serial Attached SCSI driver and infrastructure.  Doesn't compile under
+ gcc-2.95.x, will probably drop this after it's had a couple of -mm testing
+ cycles.
+
++apple-usb-touchpad-driver-2.patch
+
+ This is back again
+
++x86_64-gcc4-unzip-warnings.patch
++x86_64-cfi.patch
++x86_64-suspend-include.patch
++x86_64-msr-merge.patch
++x86_64-oops-irq.patch
++x86_64-init-rsp.patch
++x86_64-remove-vxtime-hz.patch
++x86_64-nmi-vector.patch
++x86_64-cmpxchg-constraints.patch
++x86_64-nmi-newline.patch
++x86_64-i387-sig.patch
++x86_64-include-irq.patch
++x86_64-allow-framepointer.patch
++x86_64-dmi-warning.patch
++x86_64-smaller-bug.patch
++x86_64-srat-early-cutoff.patch
++x86_64-srat-cleanup.patch
++x86_64-srat-conflict.patch
++x86_64-local-add-fix.patch
+
+ x86_64 updates
+
++x86_64-dma32-srat-fix.patch
+
+ Fix it.
+
++vm-kswapd-cleanup-use-pgdat.patch
+
+ VM cleanup
+
++mm-try-to-allocate-higher-order-pages-in-rmqueue_bulk.patch
++mm-try-to-allocate-higher-order-pages-in-rmqueue_bulk-fix.patch
++mm-page_alloc-increase-size-of-per-cpu-pages.patch
++mm-set-per-cpu-pages-lower-threshold-to-zero.patch
+
+ Page allocator tuning
+
++mm-move_pte-to-remap-zero_page.patch
+
+ mm cleanup
+
++fix-mpol_f_verify.patch
++convert-mempolicies-to-nodemask_t.patch
++remove-near-all-bugs-in-mm-mempolicyc.patch
+
+ NUMA memory allocator fixes
+
++memory-hotplug-i386-addition-functions-highmem-fix.patch
+
+ Fix memory-hotplug-i386-addition-functions-warning-fix.patch
+
++3c59xc-cleanup-mdio_read-routines.patch
++3c59x-avoid-blindly-reading-link-status-twice.patch
++s2io-warning-fixes.patch
++pcnet32-set-min-ring-size-to-4.patch
+
+ Net driver updates
+
++acx-update.patch
+
+ Updates to the TI ACX1xx wireless network driver
+
++ppc32-discard-exittext-and-exitdata-sections.patch
++ppc32-remove-use-of-asm-segmenth.patch
+
+ ppc32 updates
+
++i386-kill-off-config_pc.patch
++x86-cmpxchg-improvements.patch
++i386-dont-miss-pending-signals-returning-to-user-mode-after-signal-processing.patch
+
+ x86 updates
+
+-i386-transparent-paravirtualization-sub-arch-move-msr-accessors-into-the-sub-arch-layer.patch
+-i386-transparent-paravirtualization-sub-arch-move-privileged-processor-operations-to-the-subarch-layer.patch
+-i386-transparent-paravirtualization-sub-arch-move-sensitive-system-definitions-into-the-sub-arch-layer.patch
+-i386-transparent-paravirtualization-sub-arch-move-tlb-flush-definitions-to-the-sub-architecture-level.patch
+-i386-transparent-paravirtualization-sub-arch-move-descriptor-table-management-into-the-sub-arch-layer.patch
+-i386-transparent-paravirtualization-sub-arch-move-sensitive-i-o-instructions-into-the-sub-arch-layer.patch
+-i386-transparent-paravirtualization-sub-arch-create-accessors-that-allow-the-i386-kernel-to-run-at.patch
+-i386-transparent-paravirtualization-sub-arch-create-mmu-2-3-level-accessors-in-the-sub-arch-layer.patch
+-i386--make-write-ldt-return-error-code.patch
+-i386--remove-ugly-tls-code.patch
+-i386--remove-unnecessary-tls-init.patch
+-i386--clean-up-asm-and-volatile-keywords-in-desc.patch
+-i386--use-early-clobber-to-eliminate-rotate-in-desc.patch
+-i386--add-some-segment-convenience-functions.patch
+-i386--add-some-descriptor-convenience-functions.patch
+-i386--add-a-per-cpu-gdt-accessor.patch
+-i386--typecheck-and-optimize-base-and-limit-accessors.patch
+-i386--typecheck-and-optimize-base-and-limit-accessors-fix.patch
+-i386--typecheck-and-optimize-base-and-limit-accessors-fix-tidy.patch
+-i386--move-descriptor-accessors-into-desc-h.patch
+-i386--eliminate-yet-another-redundant-accessor.patch
+-i386--move-context-switch-inline.patch
+-i386--introduce-hypervisor-ldt-hooks.patch
+-i386--introduce-hypervisor-lazy-pinning-hooks.patch
+-i386-virtualization-fix-uml-build.patch
+-i386-virtualization-remove-some-dead-debugging-code.patch
+-i386-virtualization-make-ldt-a-desc-struct.patch
+-i386-virtualization-ldt-kprobes-bugfix.patch
+-i386-virtualization-make-generic-set-wrprotect-a-macro.patch
+-i386-virtualization-attempt-to-clean-up-pgtable-code-motion.patch
+-i386-fix-desc-empty.patch
+
+ Dropped.  I'll be picking these up via the git-virt tree (Chris Wright)
+ soon.  Right now the tree doesn't come out right due to git-related woes.
+
+-x86-64-ptrace-ia32-bp-fix.patch
+
+ Dropped. Makes 32-bit apps crash.
+
+-pselect-ppoll-system-calls.patch
+
+ Dropped - needs work
+
++free-initrd-mem-adjustment.patch
++free-initrd-mem-adjustment-fix.patch
+
+ Boot-time fix
+
++fix-sys_poll-large-timeout-handling.patch
+
+ Fix poll() timeout thresholding
+
++make-build_bug_on-fail-at-compile-time.patch
+
+ Make BUILD_BUG_ON() fail at compile time
+
++set_current_state-commentary.patch
+
+ Add comments to set_current_state()
+
++schedule_timeout_interruptible-speedup.patch
+
+ Speed up schedule_timeout_[un]interruptible()
+
++remove-unnecessary-check_region-references-in-comments.patch
+
+ check_region() cleanup
+
++use-add_taint-for-setting-tainted-bit-flags.patch
+
+ cleanup
+
++reiserfs_file_write-should-mark-inodes-dirty.patch
+
+ reiserfs3 fix
+
++as-cooperating-processes.patch
++as-cooperating-processes-cant-spel.patch
++as-tidy.patch
+
+ ANticipatory scheduler work
+
++cciss-new-controller-pci-subsystem-ids.patch
++cciss-busy_initializing-flag.patch
++cciss-new-disk-register-deregister-routines.patch
++cciss-direct-lookup-for-command-completions.patch
++cciss-bug-fix-in-cciss_remove_one.patch
++cciss-fix-for-dma-brokeness.patch
++cciss-one-button-disaster-recovery-support.patch
++cciss-scsi-tape-info-for-proc.patch
+
+ CCISS update
+
++parport-constification-fix.patch
+
+ Fix parport-constification.patch
+
++fix-bogus-bug_on-in-pktcdvd.patch
++pktcdvd-documentation-update.patch
++pktcdvd-more-accurate-i-o-accounting.patch
++use-kcalloc-and-kzalloc-in-pktcdvd.patch
++pktcdvd-bug_on-cleanups.patch
+
+ Packet driver updates
+
+-ipmi-convert-driver-over-to-use-refcounts.patch
+
+ Dropped - needs work
+
++sharpsl-add-an-input-keyboard-driver-for-zaurus.patch
+
+ Zaurus update
+
+-rapidio-support-net-driver-fixes.patch
+
+ Folded into rapidio-support-net-driver.patch
+
++drivers-dlm-fix-up-schedule_timeout-usage.patch
+
+ dlm cleanup
+
++nfsd4-printk-reduction.patch
++nfsd4-move-replay_owner.patch
++nfsd4-fix-open-seqid-incrementing-in-lock.patch
++nfsd4-fix-setclientid-unlock-of-unlocked-state-lock.patch
++code-cleanups-in-calbacks-in-svcsock.patch
+
+ NFS server updates
+
+-debug-preempt-tracing.patch
+-debug-preempt-tracing-fix.patch
+-debug-preempt-tracing-fix-2.patch
+-debug-preempt-tracing-fix-3.patch
+
+ Dropped - it breaks ppc64.   Still working out why this started happening.
+
+-ingo-nfs-stuff-fix.patch
+
+ Folded into ingo-nfs-stuff.patch
+
+-make-kmalloc-fail-for-swapped-size--gfp-flags-fix.patch
+-make-kmalloc-fail-for-swapped-size--gfp-flags-aic-fix.patch
+-s390-fix-invalid-kmalloc-flags.patch
+-fix-invalid-kmalloc-flags-gfp_dma-alone.patch
+
+ Folded into make-kmalloc-fail-for-swapped-size--gfp-flags.patch
+
++page-owner-tracking-leak-detector-fix.patch
+
+ Fix page-owner-tracking-leak-detector.patch
+
+-perfctr.patch
+-fix-pm_message_t-stuff-in-mm-tree-perfctr.patch
+
+ Dropped
+
+-sched-add-cacheflush-asm.patch
+-scheduler-cache-hot-autodetect.patch
+
+ Dropped again - breaks NUMAQ
+
++v4l-experimental-sliced-vbi-api-support.patch
++v4l-fixup-on-cx88_dvb-for-dvico-hdtv5-gold.patch
+
+ v4l updates
+
++sis5513-support-sis-965l.patch
++ide-fix-null-request-pointer-for-taskfile-ioctl.patch
+
+ IDE fixes
+
++minor-fbcon_scroll-adjustment.patch
++fbcon-constify-font-data.patch
++matroxfb-adjustments.patch
+
+ fbdev updates
+
++doc-update-oops-tracingtxt-tainted-flags.patch
++tell-people-not-to-use-pm_register.patch
++documentation-ioctl-messtxt-start-tree-wide-ioctl-registry.patch
++documentation-ioctl-messtxt-add-260-more-ioctls.patch
+
+ Documentation updates
+
++drivers-net-wan-replace-custom-macro-with-isdigit-isxdigit.patch
+
+ cleanup
+
+-net-fix-up-schedule_timeout-usage-fix.patch
+-net-fix-up-schedule_timeout-usage-fix-2.patch
+
+ Folded into net-fix-up-schedule_timeout-usage.patch
+
++arch-i386-replace-custom-macro-with-isdigit.patch
++drivers-video-replace-custom-macro-with-isdigit.patch
++jbd-remove-duplicated-debug-print.patch
++feature-removal-of-io_remap_page_range.patch
+
+ Little fixes
+
++tty-layer-buffering-revamp-s390-fixes.patch
++moxa-intellio.patch
++tty-layer-buffering-revamp-speakup-fix.patch
++tty-layer-buffering-revamp-mkiss-update-re-introduced-defunct-receive_room-function.patch
++clean-up-computone-remaining-cli-use.patch
+
+ tty fixes
+
+
+
+
+All 473 patches:
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.13/2.6.13-mm3/patch-list
+
+
