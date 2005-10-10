@@ -1,448 +1,88 @@
-From: Chris Wright <chrisw@osdl.org>
-Subject: Re: Linux 2.6.13.3
-Date: Mon, 3 Oct 2005 18:17:13 -0700
-Message-ID: <20051004011713.GP16352@shell0.pdx.osdl.net>
-References: <20051004011620.GO16352@shell0.pdx.osdl.net>
-Mime-Version: 1.0
+From: kdist@linux.kernel.org (Linux Kernel Distribution System)
+Subject: Linux kernel 2.6.13.4 released
+Date: Mon, 10 Oct 2005 21:32:40 GMT
+Message-ID: <200510102132.j9ALWej1025998@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20051004011620.GO16352@shell0.pdx.osdl.net>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-To: linux-kernel@vger.kernel.org
-Cc: akpm@osdl.org, torvalds@osdl.org, stable@kernel.org
+To: linux-kernel-announce@hera.kernel.org
 
-diff --git a/Makefile b/Makefile
---- a/Makefile
-+++ b/Makefile
-@@ -1,7 +1,7 @@
- VERSION = 2
- PATCHLEVEL = 6
- SUBLEVEL = 13
--EXTRAVERSION = .2
-+EXTRAVERSION = .3
- NAME=Woozy Numbat
- 
- # *DOCUMENTATION*
-diff --git a/arch/um/kernel/skas/include/mmu-skas.h b/arch/um/kernel/skas/include/mmu-skas.h
---- a/arch/um/kernel/skas/include/mmu-skas.h
-+++ b/arch/um/kernel/skas/include/mmu-skas.h
-@@ -6,11 +6,15 @@
- #ifndef __SKAS_MMU_H
- #define __SKAS_MMU_H
- 
-+#include "linux/config.h"
- #include "mm_id.h"
- 
- struct mmu_context_skas {
- 	struct mm_id id;
-         unsigned long last_page_table;
-+#ifdef CONFIG_3_LEVEL_PGTABLES
-+        unsigned long last_pmd;
-+#endif
- };
- 
- extern void switch_mm_skas(struct mm_id * mm_idp);
-diff --git a/arch/um/kernel/skas/mmu.c b/arch/um/kernel/skas/mmu.c
---- a/arch/um/kernel/skas/mmu.c
-+++ b/arch/um/kernel/skas/mmu.c
-@@ -56,6 +56,9 @@ static int init_stub_pte(struct mm_struc
- 	 */
- 
-         mm->context.skas.last_page_table = pmd_page_kernel(*pmd);
-+#ifdef CONFIG_3_LEVEL_PGTABLES
-+        mm->context.skas.last_pmd = (unsigned long) __va(pud_val(*pud));
-+#endif
- 
- 	*pte = mk_pte(virt_to_page(kernel), __pgprot(_PAGE_PRESENT));
- 	*pte = pte_mkexec(*pte);
-@@ -140,6 +143,10 @@ void destroy_context_skas(struct mm_stru
- 	else {
- 		os_kill_ptraced_process(mmu->id.u.pid, 1);
- 		free_page(mmu->id.stack);
--		free_page(mmu->last_page_table);
-+		pte_free_kernel((pte_t *) mmu->last_page_table);
-+		dec_page_state(nr_page_table_pages);
-+#ifdef CONFIG_3_LEVEL_PGTABLES
-+		pmd_free((pmd_t *) mmu->last_pmd);
-+#endif
- 	}
- }
-diff --git a/drivers/net/skge.c b/drivers/net/skge.c
---- a/drivers/net/skge.c
-+++ b/drivers/net/skge.c
-@@ -2828,21 +2828,29 @@ static void skge_netpoll(struct net_devi
- static int skge_set_mac_address(struct net_device *dev, void *p)
- {
- 	struct skge_port *skge = netdev_priv(dev);
--	struct sockaddr *addr = p;
--	int err = 0;
-+	struct skge_hw *hw = skge->hw;
-+	unsigned port = skge->port;
-+	const struct sockaddr *addr = p;
- 
- 	if (!is_valid_ether_addr(addr->sa_data))
- 		return -EADDRNOTAVAIL;
- 
--	skge_down(dev);
-+	spin_lock_bh(&hw->phy_lock);
- 	memcpy(dev->dev_addr, addr->sa_data, ETH_ALEN);
--	memcpy_toio(skge->hw->regs + B2_MAC_1 + skge->port*8,
-+	memcpy_toio(hw->regs + B2_MAC_1 + port*8,
- 		    dev->dev_addr, ETH_ALEN);
--	memcpy_toio(skge->hw->regs + B2_MAC_2 + skge->port*8,
-+	memcpy_toio(hw->regs + B2_MAC_2 + port*8,
- 		    dev->dev_addr, ETH_ALEN);
--	if (dev->flags & IFF_UP)
--		err = skge_up(dev);
--	return err;
-+
-+	if (hw->chip_id == CHIP_ID_GENESIS)
-+		xm_outaddr(hw, port, XM_SA, dev->dev_addr);
-+	else {
-+		gma_set_addr(hw, port, GM_SRC_ADDR_1L, dev->dev_addr);
-+		gma_set_addr(hw, port, GM_SRC_ADDR_2L, dev->dev_addr);
-+	}
-+	spin_unlock_bh(&hw->phy_lock);
-+
-+	return 0;
- }
- 
- static const struct {
-diff --git a/drivers/pcmcia/yenta_socket.c b/drivers/pcmcia/yenta_socket.c
---- a/drivers/pcmcia/yenta_socket.c
-+++ b/drivers/pcmcia/yenta_socket.c
-@@ -976,7 +976,18 @@ static int __devinit yenta_probe (struct
- {
- 	struct yenta_socket *socket;
- 	int ret;
--	
-+
-+	/*
-+	 * If we failed to assign proper bus numbers for this cardbus
-+	 * controller during PCI probe, its subordinate pci_bus is NULL.
-+	 * Bail out if so.
-+	 */
-+	if (!dev->subordinate) {
-+		printk(KERN_ERR "Yenta: no bus associated with %s! "
-+			"(try 'pci=assign-busses')\n", pci_name(dev));
-+		return -ENODEV;
-+	}
-+
- 	socket = kmalloc(sizeof(struct yenta_socket), GFP_KERNEL);
- 	if (!socket)
- 		return -ENOMEM;
-diff --git a/fs/exec.c b/fs/exec.c
---- a/fs/exec.c
-+++ b/fs/exec.c
-@@ -745,8 +745,8 @@ static inline int de_thread(struct task_
-         }
- 
- 	/*
--	 * Now there are really no other threads at all,
--	 * so it's safe to stop telling them to kill themselves.
-+	 * There may be one thread left which is just exiting,
-+	 * but it's safe to stop telling the group to kill themselves.
- 	 */
- 	sig->flags = 0;
- 
-@@ -785,7 +785,6 @@ no_thread_group:
- 			kmem_cache_free(sighand_cachep, oldsighand);
- 	}
- 
--	BUG_ON(!thread_group_empty(current));
- 	BUG_ON(!thread_group_leader(current));
- 	return 0;
- }
-diff --git a/include/asm-um/pgalloc.h b/include/asm-um/pgalloc.h
---- a/include/asm-um/pgalloc.h
-+++ b/include/asm-um/pgalloc.h
-@@ -42,11 +42,13 @@ static inline void pte_free(struct page 
- #define __pte_free_tlb(tlb,pte) tlb_remove_page((tlb),(pte))
- 
- #ifdef CONFIG_3_LEVEL_PGTABLES
--/*
-- * In the 3-level case we free the pmds as part of the pgd.
-- */
--#define pmd_free(x)			do { } while (0)
--#define __pmd_free_tlb(tlb,x)		do { } while (0)
-+
-+extern __inline__ void pmd_free(pmd_t *pmd)
-+{
-+	free_page((unsigned long)pmd);
-+}
-+
-+#define __pmd_free_tlb(tlb,x)   tlb_remove_page((tlb),virt_to_page(x))
- #endif
- 
- #define check_pgt_cache()	do { } while (0)
-diff --git a/include/asm-um/pgtable-3level.h b/include/asm-um/pgtable-3level.h
---- a/include/asm-um/pgtable-3level.h
-+++ b/include/asm-um/pgtable-3level.h
-@@ -98,14 +98,11 @@ static inline pmd_t *pmd_alloc_one(struc
-         return pmd;
- }
- 
--static inline void pmd_free(pmd_t *pmd){
--	free_page((unsigned long) pmd);
-+extern inline void pud_clear (pud_t *pud)
-+{
-+        set_pud(pud, __pud(0));
- }
- 
--#define __pmd_free_tlb(tlb,x)   do { } while (0)
--
--static inline void pud_clear (pud_t * pud) { }
--
- #define pud_page(pud) \
- 	((struct page *) __va(pud_val(pud) & PAGE_MASK))
- 
-diff --git a/include/net/ip_vs.h b/include/net/ip_vs.h
---- a/include/net/ip_vs.h
-+++ b/include/net/ip_vs.h
-@@ -84,6 +84,7 @@
- #define IP_VS_CONN_F_IN_SEQ	0x0400		/* must do input seq adjust */
- #define IP_VS_CONN_F_SEQ_MASK	0x0600		/* in/out sequence mask */
- #define IP_VS_CONN_F_NO_CPORT	0x0800		/* no client port set yet */
-+#define IP_VS_CONN_F_TEMPLATE	0x1000		/* template, not connection */
- 
- /* Move it to better place one day, for now keep it unique */
- #define NFC_IPVS_PROPERTY	0x10000
-@@ -740,6 +741,8 @@ enum {
- 
- extern struct ip_vs_conn *ip_vs_conn_in_get
- (int protocol, __u32 s_addr, __u16 s_port, __u32 d_addr, __u16 d_port);
-+extern struct ip_vs_conn *ip_vs_ct_in_get
-+(int protocol, __u32 s_addr, __u16 s_port, __u32 d_addr, __u16 d_port);
- extern struct ip_vs_conn *ip_vs_conn_out_get
- (int protocol, __u32 s_addr, __u16 s_port, __u32 d_addr, __u16 d_port);
- 
-diff --git a/net/ipv4/ipvs/ip_vs_conn.c b/net/ipv4/ipvs/ip_vs_conn.c
---- a/net/ipv4/ipvs/ip_vs_conn.c
-+++ b/net/ipv4/ipvs/ip_vs_conn.c
-@@ -196,6 +196,7 @@ static inline struct ip_vs_conn *__ip_vs
- 	list_for_each_entry(cp, &ip_vs_conn_tab[hash], c_list) {
- 		if (s_addr==cp->caddr && s_port==cp->cport &&
- 		    d_port==cp->vport && d_addr==cp->vaddr &&
-+		    ((!s_port) ^ (!(cp->flags & IP_VS_CONN_F_NO_CPORT))) &&
- 		    protocol==cp->protocol) {
- 			/* HIT */
- 			atomic_inc(&cp->refcnt);
-@@ -227,6 +228,40 @@ struct ip_vs_conn *ip_vs_conn_in_get
- 	return cp;
- }
- 
-+/* Get reference to connection template */
-+struct ip_vs_conn *ip_vs_ct_in_get
-+(int protocol, __u32 s_addr, __u16 s_port, __u32 d_addr, __u16 d_port)
-+{
-+	unsigned hash;
-+	struct ip_vs_conn *cp;
-+
-+	hash = ip_vs_conn_hashkey(protocol, s_addr, s_port);
-+
-+	ct_read_lock(hash);
-+
-+	list_for_each_entry(cp, &ip_vs_conn_tab[hash], c_list) {
-+		if (s_addr==cp->caddr && s_port==cp->cport &&
-+		    d_port==cp->vport && d_addr==cp->vaddr &&
-+		    cp->flags & IP_VS_CONN_F_TEMPLATE &&
-+		    protocol==cp->protocol) {
-+			/* HIT */
-+			atomic_inc(&cp->refcnt);
-+			goto out;
-+		}
-+	}
-+	cp = NULL;
-+
-+  out:
-+	ct_read_unlock(hash);
-+
-+	IP_VS_DBG(7, "template lookup/in %s %u.%u.%u.%u:%d->%u.%u.%u.%u:%d %s\n",
-+		  ip_vs_proto_name(protocol),
-+		  NIPQUAD(s_addr), ntohs(s_port),
-+		  NIPQUAD(d_addr), ntohs(d_port),
-+		  cp?"hit":"not hit");
-+
-+	return cp;
-+}
- 
- /*
-  *  Gets ip_vs_conn associated with supplied parameters in the ip_vs_conn_tab.
-@@ -367,7 +402,7 @@ ip_vs_bind_dest(struct ip_vs_conn *cp, s
- 		  atomic_read(&dest->refcnt));
- 
- 	/* Update the connection counters */
--	if (cp->cport || (cp->flags & IP_VS_CONN_F_NO_CPORT)) {
-+	if (!(cp->flags & IP_VS_CONN_F_TEMPLATE)) {
- 		/* It is a normal connection, so increase the inactive
- 		   connection counter because it is in TCP SYNRECV
- 		   state (inactive) or other protocol inacive state */
-@@ -406,7 +441,7 @@ static inline void ip_vs_unbind_dest(str
- 		  atomic_read(&dest->refcnt));
- 
- 	/* Update the connection counters */
--	if (cp->cport || (cp->flags & IP_VS_CONN_F_NO_CPORT)) {
-+	if (!(cp->flags & IP_VS_CONN_F_TEMPLATE)) {
- 		/* It is a normal connection, so decrease the inactconns
- 		   or activeconns counter */
- 		if (cp->flags & IP_VS_CONN_F_INACTIVE) {
-@@ -776,7 +811,7 @@ void ip_vs_random_dropentry(void)
- 		ct_write_lock_bh(hash);
- 
- 		list_for_each_entry(cp, &ip_vs_conn_tab[hash], c_list) {
--			if (!cp->cport && !(cp->flags & IP_VS_CONN_F_NO_CPORT))
-+			if (cp->flags & IP_VS_CONN_F_TEMPLATE)
- 				/* connection template */
- 				continue;
- 
-diff --git a/net/ipv4/ipvs/ip_vs_core.c b/net/ipv4/ipvs/ip_vs_core.c
---- a/net/ipv4/ipvs/ip_vs_core.c
-+++ b/net/ipv4/ipvs/ip_vs_core.c
-@@ -242,10 +242,10 @@ ip_vs_sched_persist(struct ip_vs_service
- 	if (ports[1] == svc->port) {
- 		/* Check if a template already exists */
- 		if (svc->port != FTPPORT)
--			ct = ip_vs_conn_in_get(iph->protocol, snet, 0,
-+			ct = ip_vs_ct_in_get(iph->protocol, snet, 0,
- 					       iph->daddr, ports[1]);
- 		else
--			ct = ip_vs_conn_in_get(iph->protocol, snet, 0,
-+			ct = ip_vs_ct_in_get(iph->protocol, snet, 0,
- 					       iph->daddr, 0);
- 
- 		if (!ct || !ip_vs_check_template(ct)) {
-@@ -271,14 +271,14 @@ ip_vs_sched_persist(struct ip_vs_service
- 						    iph->daddr,
- 						    ports[1],
- 						    dest->addr, dest->port,
--						    0,
-+						    IP_VS_CONN_F_TEMPLATE,
- 						    dest);
- 			else
- 				ct = ip_vs_conn_new(iph->protocol,
- 						    snet, 0,
- 						    iph->daddr, 0,
- 						    dest->addr, 0,
--						    0,
-+						    IP_VS_CONN_F_TEMPLATE,
- 						    dest);
- 			if (ct == NULL)
- 				return NULL;
-@@ -297,10 +297,10 @@ ip_vs_sched_persist(struct ip_vs_service
- 		 * port zero template: <protocol,caddr,0,vaddr,0,daddr,0>
- 		 */
- 		if (svc->fwmark)
--			ct = ip_vs_conn_in_get(IPPROTO_IP, snet, 0,
-+			ct = ip_vs_ct_in_get(IPPROTO_IP, snet, 0,
- 					       htonl(svc->fwmark), 0);
- 		else
--			ct = ip_vs_conn_in_get(iph->protocol, snet, 0,
-+			ct = ip_vs_ct_in_get(iph->protocol, snet, 0,
- 					       iph->daddr, 0);
- 
- 		if (!ct || !ip_vs_check_template(ct)) {
-@@ -325,14 +325,14 @@ ip_vs_sched_persist(struct ip_vs_service
- 						    snet, 0,
- 						    htonl(svc->fwmark), 0,
- 						    dest->addr, 0,
--						    0,
-+						    IP_VS_CONN_F_TEMPLATE,
- 						    dest);
- 			else
- 				ct = ip_vs_conn_new(iph->protocol,
- 						    snet, 0,
- 						    iph->daddr, 0,
- 						    dest->addr, 0,
--						    0,
-+						    IP_VS_CONN_F_TEMPLATE,
- 						    dest);
- 			if (ct == NULL)
- 				return NULL;
-diff --git a/net/ipv4/ipvs/ip_vs_sync.c b/net/ipv4/ipvs/ip_vs_sync.c
---- a/net/ipv4/ipvs/ip_vs_sync.c
-+++ b/net/ipv4/ipvs/ip_vs_sync.c
-@@ -297,16 +297,24 @@ static void ip_vs_process_message(const 
- 
- 	p = (char *)buffer + sizeof(struct ip_vs_sync_mesg);
- 	for (i=0; i<m->nr_conns; i++) {
-+		unsigned flags;
-+
- 		s = (struct ip_vs_sync_conn *)p;
--		cp = ip_vs_conn_in_get(s->protocol,
--				       s->caddr, s->cport,
--				       s->vaddr, s->vport);
-+		flags = ntohs(s->flags);
-+		if (!(flags & IP_VS_CONN_F_TEMPLATE))
-+			cp = ip_vs_conn_in_get(s->protocol,
-+					       s->caddr, s->cport,
-+					       s->vaddr, s->vport);
-+		else
-+			cp = ip_vs_ct_in_get(s->protocol,
-+					       s->caddr, s->cport,
-+					       s->vaddr, s->vport);
- 		if (!cp) {
- 			cp = ip_vs_conn_new(s->protocol,
- 					    s->caddr, s->cport,
- 					    s->vaddr, s->vport,
- 					    s->daddr, s->dport,
--					    ntohs(s->flags), NULL);
-+					    flags, NULL);
- 			if (!cp) {
- 				IP_VS_ERR("ip_vs_conn_new failed\n");
- 				return;
-@@ -315,11 +323,11 @@ static void ip_vs_process_message(const 
- 		} else if (!cp->dest) {
- 			/* it is an entry created by the synchronization */
- 			cp->state = ntohs(s->state);
--			cp->flags = ntohs(s->flags) | IP_VS_CONN_F_HASHED;
-+			cp->flags = flags | IP_VS_CONN_F_HASHED;
- 		}	/* Note that we don't touch its state and flags
- 			   if it is a normal entry. */
- 
--		if (ntohs(s->flags) & IP_VS_CONN_F_SEQ_MASK) {
-+		if (flags & IP_VS_CONN_F_SEQ_MASK) {
- 			opt = (struct ip_vs_sync_conn_options *)&s[1];
- 			memcpy(&cp->in_seq, opt, sizeof(*opt));
- 			p += FULL_CONN_SIZE;
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -350,8 +350,6 @@ static void tcp_clamp_window(struct sock
- 			app_win -= tp->ack.rcv_mss;
- 		app_win = max(app_win, 2U*tp->advmss);
- 
--		if (!ofo_win)
--			tp->window_clamp = min(tp->window_clamp, app_win);
- 		tp->rcv_ssthresh = min(tp->window_clamp, 2U*tp->advmss);
- 	}
- }
-diff --git a/net/ipv4/tcp_minisocks.c b/net/ipv4/tcp_minisocks.c
---- a/net/ipv4/tcp_minisocks.c
-+++ b/net/ipv4/tcp_minisocks.c
-@@ -774,7 +774,7 @@ struct sock *tcp_create_openreq_child(st
- 		newtp->frto_counter = 0;
- 		newtp->frto_highmark = 0;
- 
--		newtp->ca_ops = &tcp_reno;
-+		newtp->ca_ops = &tcp_init_congestion_ops;
- 
- 		tcp_set_ca_state(newtp, TCP_CA_Open);
- 		tcp_init_xmit_timers(newsk);
-diff --git a/net/ipv6/udp.c b/net/ipv6/udp.c
---- a/net/ipv6/udp.c
-+++ b/net/ipv6/udp.c
-@@ -404,9 +404,8 @@ static struct sock *udp_v6_mcast_next(st
- 				continue;
- 
- 			if (!ipv6_addr_any(&np->rcv_saddr)) {
--				if (ipv6_addr_equal(&np->rcv_saddr, loc_addr))
--					return s;
--				continue;
-+				if (!ipv6_addr_equal(&np->rcv_saddr, loc_addr))
-+					continue;
- 			}
- 			if(!inet6_mc_check(s, loc_addr, rmt_addr))
- 				continue;
+Linux kernel version 2.6.13.4 has been released.  It is available from:
+
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.13.4.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.13.4.tar.bz2
+
+Sizes in bytes			Compressed	Uncompressed
+------------------------------------------------------------
+Patch                                13589             46822
+Full source                       38375371         219443200
+
+-----------------------------------------------------------------------------
+ This is an automatically generated message.  To unsubscribe from this list,
+ please send a message to majordomo@vger.kernel.org containing
+ the line:
+
+   unsubscribe linux-kernel-announce <your_email_address>
+
+ ... where <your_email_address> is the email address you are receiving
+     this message at.
+-----------------------------------------------------------------------------
+
+The following files were changed in this release:
+
+ Makefile                               |    2 -
+ arch/i386/pci/common.c                 |    1 
+ arch/i386/pci/i386.c                   |   49 ++++++++++-----------------------
+ arch/sparc64/kernel/entry.S            |   39 ++++++++++++++------------
+ arch/sparc64/kernel/rtrap.S            |    7 ++--
+ arch/sparc64/lib/VISsave.S             |    8 +++--
+ arch/um/kernel/skas/include/mmu-skas.h |    4 ++
+ arch/um/kernel/skas/mmu.c              |    9 +++++-
+ arch/x86_64/ia32/ia32_ioctl.c          |   17 ++++++++---
+ crypto/cipher.c                        |   12 ++++++--
+ drivers/char/drm/drm_stub.c            |    2 -
+ drivers/char/rtc.c                     |    5 +--
+ drivers/ide/pci/cmd64x.c               |    2 -
+ drivers/ide/pci/hpt34x.c               |    2 -
+ drivers/ide/pci/hpt366.c               |    8 ++++-
+ drivers/ieee1394/sbp2.c                |   38 +++++++++++++++++++++++--
+ drivers/media/video/Kconfig            |    1 
+ drivers/net/forcedeth.c                |    3 ++
+ drivers/net/skge.c                     |   24 ++++++++++------
+ drivers/net/sungem.c                   |   36 +++++++++---------------
+ drivers/net/sunhme.c                   |   45 ++++++++++++------------------
+ drivers/net/wireless/orinoco.c         |   14 ++++++---
+ drivers/pci/rom.c                      |   24 +++++++++++-----
+ drivers/pci/setup-bus.c                |    2 -
+ drivers/pcmcia/yenta_socket.c          |   13 ++++++++
+ drivers/scsi/aacraid/aachba.c          |    2 -
+ drivers/usb/serial/ftdi_sio.c          |    2 -
+ fs/compat_ioctl.c                      |    7 +++-
+ fs/exec.c                              |    5 +--
+ fs/jfs/inode.c                         |   24 ++++++++--------
+ fs/namei.c                             |    6 ++--
+ include/asm-um/pgalloc.h               |   12 ++++----
+ include/asm-um/pgtable-3level.h        |    9 ++----
+ include/net/compat.h                   |    5 ++-
+ include/net/ip_vs.h                    |    3 ++
+ mm/mempolicy.c                         |    7 ++++
+ net/compat.c                           |   44 +++++++++++++++++------------
+ net/core/filter.c                      |    6 ++--
+ net/ipv4/ip_fragment.c                 |    2 -
+ net/ipv4/ipvs/ip_vs_conn.c             |   41 +++++++++++++++++++++++++--
+ net/ipv4/ipvs/ip_vs_core.c             |   16 +++++-----
+ net/ipv4/ipvs/ip_vs_sync.c             |   20 +++++++++----
+ net/ipv4/netfilter/ipt_MASQUERADE.c    |    6 ++++
+ net/ipv4/raw.c                         |    2 -
+ net/ipv4/tcp_bic.c                     |    2 -
+ net/ipv4/tcp_input.c                   |    2 -
+ net/ipv4/tcp_minisocks.c               |    2 -
+ net/ipv6/raw.c                         |    2 -
+ net/ipv6/udp.c                         |    5 +--
+ net/socket.c                           |    3 +-
+ security/keys/request_key_auth.c       |    1 
+ 51 files changed, 369 insertions(+), 234 deletions(-)
+
