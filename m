@@ -1,14 +1,14 @@
 From: Andrew Morton <akpm@osdl.org>
 Subject: 2.6.15-rc1-mm1
-Date: Thu, 17 Nov 2005 03:08:33 -0800
-Message-ID: <20051117030833.323c2f68.akpm@osdl.org>
+Date: Thu, 17 Nov 2005 11:18:07 -0800
+Message-ID: <20051117111807.6d4b0535.akpm@osdl.org>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
-To: linux-kernel-announce@vger.kernel.org
+To: linux-kernel@vger.kernel.org
 
 
 ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.15-rc1/2.6.15-rc1-mm1
