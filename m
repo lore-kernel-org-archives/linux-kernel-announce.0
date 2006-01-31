@@ -1,24 +1,66 @@
-From: Jindrich Makovicka <makovick@kmlinux.fjfi.cvut.cz>
-Subject: Re: 2.6.16-rc1-mm4
-Date: Mon, 30 Jan 2006 19:50:47 +0100
-Message-ID: <drln68$n82$1@sea.gmane.org>
-References: <20060129144533.128af741.akpm@osdl.org>
-Mime-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Return-path: <linux-kernel-owner+glk-linux-kernel-3=40m.gmane.org-S964863AbWA3SxK@vger.kernel.org>
-In-Reply-To: <20060129144533.128af741.akpm@osdl.org>
-Sender: linux-kernel-owner@vger.kernel.org
+From: kdist@linux.kernel.org (Linux Kernel Distribution System)
+Subject: Linux kernel 2.6.15.2 released
+Date: Tue, 31 Jan 2006 07:31:27 GMT
+Message-ID: <200601310731.k0V7VRBq019627@hera.kernel.org>
+Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
-To: linux-kernel@vger.kernel.org
-Cc: linux-kernel-announce@vger.kernel.org
+Content-Transfer-Encoding: 7bit
+To: linux-kernel-announce@hera.kernel.org
 
-Andrew Morton wrote:
-> ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.16-rc1/2.6.16-rc1-mm4/
+Linux kernel version 2.6.15.2 has been released.  It is available from:
 
-In vgacon.c, there is a stray printk("vgacon delta: %i\n", lines); which
-effectively disables the scrollback of the vga console (at least when
-not using the new soft scrollback). Removing it fixes the problem.
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.15.2.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.15.2.tar.bz2
 
--- 
-Jindrich Makovicka
+Sizes in bytes			Compressed	Uncompressed
+------------------------------------------------------------
+Patch                                10637             33547
+Full source                       39848634         228157440
+
+-----------------------------------------------------------------------------
+ This is an automatically generated message.  To unsubscribe from this list,
+ please send a message to majordomo@vger.kernel.org containing
+ the line:
+
+   unsubscribe linux-kernel-announce <your_email_address>
+
+ ... where <your_email_address> is the email address you are receiving
+     this message at.
+-----------------------------------------------------------------------------
+
+The following files were changed in this release:
+
+ Makefile                                |    2 
+ arch/ppc/boot/simple/Makefile           |    2 
+ arch/sparc64/Kconfig                    |    2 
+ arch/sparc64/kernel/entry.S             |    7 --
+ arch/sparc64/kernel/systbls.S           |    2 
+ arch/sparc64/kernel/time.c              |   22 ++++----
+ arch/x86_64/kernel/pci-gart.c           |    1 
+ block/ll_rw_blk.c                       |   24 ---------
+ drivers/char/moxa.c                     |    2 
+ drivers/ide/ide-cd.c                    |   10 ----
+ drivers/message/i2o/i2o_scsi.c          |    2 
+ drivers/net/hamradio/mkiss.c            |    1 
+ drivers/net/skge.c                      |   80 +++++++++++++++++++-------------
+ drivers/usb/input/pid.c                 |    2 
+ drivers/video/aty/atyfb_base.c          |    2 
+ drivers/video/console/vgacon.c          |    8 ++-
+ fs/reiserfs/super.c                     |    2 
+ fs/ufs/super.c                          |    4 +
+ fs/ufs/util.h                           |    4 -
+ include/linux/blkdev.h                  |    1 
+ include/linux/skbuff.h                  |    2 
+ ipc/mqueue.c                            |   59 +++++++++++++----------
+ kernel/workqueue.c                      |   16 ++++--
+ net/bridge/br_stp_if.c                  |    2 
+ net/bridge/netfilter/ebt_ip.c           |    3 +
+ net/core/net-sysfs.c                    |   28 +++++++----
+ net/ipv4/netfilter/ip_nat_helper_pptp.c |   59 +++++++++++------------
+ net/netlink/af_netlink.c                |    4 -
+ sound/usb/usbaudio.c                    |   26 ++++++++--
+ 29 files changed, 204 insertions(+), 175 deletions(-)
+
