@@ -1,94 +1,132 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.15.4 released
-Date: Fri, 10 Feb 2006 07:58:34 GMT
-Message-ID: <200602100758.k1A7wYe3015172@hera.kernel.org>
+From: Chris Wright <chrisw@sous-sol.org>
+Subject: Linux 2.6.15.4
+Date: Fri, 10 Feb 2006 00:15:52 -0800
+Message-ID: <20060210081552.GF30803@sorel.sous-sol.org>
+Mime-Version: 1.0
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+Content-Disposition: inline
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+To: linux-kernel@vger.kernel.org, stable@kernel.org
+Cc: torvalds@osdl.org
 
-Linux kernel version 2.6.15.4 has been released.  It is available from:
+We (the -stable team) are announcing the release of the 2.6.15.4 kernel.
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.15.4.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.15.4.tar.bz2
+The diffstat and short summary of the fixes are below.
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                18466             64211
-Full source                       39846379         228167680
+I'll also be replying to this message with a copy of the patch between
+2.6.15.3 and 2.6.15.4, as it is small enough to do so.
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
+The updated 2.6.15.y git tree can be found at:
+ 	rsync://rsync.kernel.org/pub/scm/linux/kernel/git/chrisw/linux-2.6.15.y.git
+and can be browsed at the normal kernel.org git web browser:
+	www.kernel.org/git/
 
-   unsubscribe linux-kernel-announce <your_email_address>
+thanks,
+-chris
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
-
-The following files were changed in this release:
+--------
 
  Makefile                                       |    2 
  arch/i386/kernel/acpi/boot.c                   |   13 +++-
- arch/ppc/boot/simple/Makefile                  |    2 
- arch/sparc64/Kconfig                           |    2 
- arch/sparc64/kernel/entry.S                    |    7 --
  arch/sparc64/kernel/sys32.S                    |    1 
- arch/sparc64/kernel/systbls.S                  |    4 -
- arch/sparc64/kernel/time.c                     |   22 +++---
- arch/x86_64/kernel/pci-gart.c                  |    1 
- arch/x86_64/kernel/vmlinux.lds.S               |   10 +--
- arch/x86_64/mm/srat.c                          |   28 ++++++--
- block/ll_rw_blk.c                              |   24 -------
- drivers/char/moxa.c                            |    2 
- drivers/ide/ide-cd.c                           |   10 ---
- drivers/input/joystick/db9.c                   |   70 +++++++++++----------
- drivers/input/joystick/grip.c                  |    3 
+ arch/sparc64/kernel/systbls.S                  |    2 
+ arch/x86_64/kernel/vmlinux.lds.S               |   10 ++-
+ arch/x86_64/mm/srat.c                          |   28 +++++++---
+ drivers/input/joystick/db9.c                   |   70 ++++++++++++-------------
+ drivers/input/joystick/grip.c                  |    3 +
  drivers/input/joystick/iforce/iforce-main.c    |    2 
  drivers/input/joystick/iforce/iforce-packets.c |    4 -
  drivers/input/joystick/iforce/iforce-usb.c     |    1 
  drivers/input/joystick/sidewinder.c            |    2 
- drivers/input/mousedev.c                       |    9 --
+ drivers/input/mousedev.c                       |    9 +--
  drivers/md/dm-crypt.c                          |    5 +
- drivers/md/md.c                                |    3 
- drivers/message/i2o/i2o_scsi.c                 |    2 
- drivers/net/hamradio/mkiss.c                   |    1 
- drivers/net/ppp_generic.c                      |    3 
- drivers/net/skge.c                             |   80 +++++++++++++++----------
+ drivers/md/md.c                                |    3 +
+ drivers/net/ppp_generic.c                      |    3 +
  drivers/net/wireless/hostap/Kconfig            |    2 
  drivers/scsi/scsi_lib.c                        |    5 -
- drivers/usb/input/pid.c                        |    2 
- drivers/video/aty/atyfb_base.c                 |    2 
- drivers/video/console/vgacon.c                 |    8 ++
- fs/dcache.c                                    |    7 +-
- fs/reiserfs/super.c                            |    2 
- fs/ufs/super.c                                 |    4 -
- fs/ufs/util.h                                  |    4 -
+ fs/dcache.c                                    |    7 ++
  fs/xfs/linux-2.6/xfs_buf.c                     |    7 ++
  include/asm-alpha/system.h                     |    2 
- include/linux/blkdev.h                         |    1 
  include/linux/security.h                       |    4 -
- include/linux/skbuff.h                         |    2 
- ipc/mqueue.c                                   |   59 ++++++++++--------
- kernel/workqueue.c                             |   16 +++--
  net/bridge/br_if.c                             |    7 --
  net/bridge/br_input.c                          |   10 ++-
- net/bridge/br_netfilter.c                      |   55 +++++++++++------
- net/bridge/br_stp_bpdu.c                       |    8 +-
- net/bridge/br_stp_if.c                         |    2 
- net/bridge/netfilter/ebt_ip.c                  |    3 
- net/core/net-sysfs.c                           |   28 +++++---
- net/ipv4/icmp.c                                |    2 
- net/ipv4/netfilter/ip_nat_helper_pptp.c        |   59 ++++++++----------
- net/netlink/af_netlink.c                       |    4 -
- security/keys/keyctl.c                         |   15 +++-
+ net/bridge/br_netfilter.c                      |   55 +++++++++++++------
+ net/bridge/br_stp_bpdu.c                       |    8 ++
+ security/keys/keyctl.c                         |   15 +++--
  security/seclvl.c                              |    2 
  sound/pci/emu10k1/emumixer.c                   |    2 
- sound/usb/usbaudio.c                           |   26 ++++++--
- 57 files changed, 382 insertions(+), 281 deletions(-)
+ 29 files changed, 178 insertions(+), 106 deletions(-)
+
+Summary of changes from v2.6.15.3 to v2.6.15.4
+==============================================
+
+Adrian Bunk:
+      PCMCIA=m, HOSTAP_CS=y is not a legal configuration
+
+Alexey Dobriyan:
+      Input: iforce - do not return ENOMEM upon successful allocation
+
+Andi Kleen:
+      x86_64: Let impossible CPUs point to reference per cpu data
+      x86_64: Clear more state when ignoring empty node in SRAT parsing
+
+Ashok Raj:
+      x86_64: Dont record local apic ids when they are disabled in MADT
+
+Chris Wright:
+      Linux 2.6.15.4
+
+Davi Arnaut:
+      Fix keyctl usage of strnlen_user()
+
+David S. Miller:
+      Kill compat_sys_clock_settime sign extension stub.
+
+Dmitry Torokhov:
+      Input: grip - fix crash when accessing device
+      Input: db9 - fix possible crash with Saturn gamepads
+      Input: iforce - fix detection of USB devices
+
+Herbert Xu:
+      Fixed hardware RX checksum handling
+
+Jens Axboe:
+      SCSI: turn off ordered flush barriers
+
+Kimball Murray:
+      Input: mousedev - fix memory leak
+
+Linus Torvalds:
+      seclvl settime fix
+
+Nathan Scott:
+      fix regression in xfs_buf_rele
+
+Neil Brown:
+      md: remove slashes from disk names when creation dev names in sysfs
+
+Oleg Drokin:
+      d_instantiate_unique / NFS inode leakage
+
+Stefan Rompf:
+      dm-crypt: zero key before freeing it
+
+Stephen Hemminger:
+      bridge: netfilter races on device removal
+      bridge: fix RCU race on device removal
+
+Stephen Smalley:
+      SELinux: fix size-128 slab leak
+
+Steve Langasek:
+      __cmpxchg() must really always be inlined
+
+Takashi Iwai:
+      emu10k1 - Fix the confliction of 'Front' control
+
+Zinx Verituse:
+      Input: sidewinder - fix an oops
 
