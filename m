@@ -1,127 +1,175 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.15.5 released
-Date: Wed, 1 Mar 2006 23:01:46 GMT
-Message-ID: <200603012301.k21N1kbD015001@hera.kernel.org>
+From: Chris Wright <chrisw@sous-sol.org>
+Subject: Linux 2.6.15.5
+Date: Wed, 1 Mar 2006 15:19:07 -0800
+Message-ID: <20060301231907.GR3883@sorel.sous-sol.org>
+Mime-Version: 1.0
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+Content-Disposition: inline
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+To: linux-kernel@vger.kernel.org, stable@kernel.org
+Cc: torvalds@osdl.org
 
-Linux kernel version 2.6.15.5 has been released.  It is available from:
+We (the -stable team) are announcing the release of the 2.6.15.5 kernel.
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.15.5.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.15.5.tar.bz2
+The diffstat and short summary of the fixes are below.
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                28214             99851
-Full source                       39844900         228167680
+I'll also be replying to this message with a copy of the patch between
+2.6.15.4 and 2.6.15.5, as it is small enough to do so.
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
+The updated 2.6.15.y git tree can be found at:
+ 	rsync://rsync.kernel.org/pub/scm/linux/kernel/git/stable/linux-2.6.15.y.git
+and can be browsed at the normal kernel.org git web browser:
+	www.kernel.org/git/
 
-   unsubscribe linux-kernel-announce <your_email_address>
+thanks,
+-chris
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
+--------
 
-The following files were changed in this release:
+ Documentation/hwmon/it87               |    2 
+ Makefile                               |    2 
+ arch/i386/kernel/cpu/common.c          |   17 +++---
+ arch/ia64/ia32/ia32_signal.c           |    1 
+ arch/ppc/boot/common/util.S            |    6 +-
+ arch/s390/kernel/compat_signal.c       |    3 -
+ drivers/hwmon/it87.c                   |    6 +-
+ drivers/ieee1394/sbp2.c                |   10 +++
+ drivers/infiniband/hw/mthca/mthca_qp.c |   62 +++++++++++++-----------
+ drivers/md/dm.c                        |    8 ++-
+ drivers/mtd/chips/cfi_cmdset_0001.c    |    1 
+ drivers/net/skge.c                     |   85 ++++++++++++++++++++-------------
+ drivers/net/skge.h                     |    1 
+ drivers/scsi/sd.c                      |   19 ++++++-
+ drivers/video/Kconfig                  |    2 
+ drivers/video/gbefb.c                  |    3 +
+ fs/binfmt_elf.c                        |    5 +
+ fs/exec.c                              |    2 
+ fs/ext2/xattr.c                        |    6 +-
+ fs/hugetlbfs/inode.c                   |    4 -
+ fs/nfs/direct.c                        |    5 +
+ fs/ramfs/inode.c                       |    2 
+ fs/reiserfs/super.c                    |    2 
+ fs/xfs/linux-2.6/xfs_aops.c            |    2 
+ include/asm-s390/setup.h               |   10 ++-
+ include/linux/netlink.h                |    3 -
+ include/linux/ptrace.h                 |    1 
+ include/linux/sched.h                  |    2 
+ ipc/mqueue.c                           |    3 -
+ ipc/shm.c                              |    1 
+ kernel/ptrace.c                        |   25 +++++----
+ kernel/signal.c                        |    9 +--
+ mm/mempolicy.c                         |    2 
+ net/bridge/br_netfilter.c              |    4 -
+ net/bridge/br_stp_if.c                 |    4 -
+ net/core/datagram.c                    |   81 ++++++++++++++++++++-----------
+ net/ipv6/addrconf.c                    |    3 +
+ net/netlink/af_netlink.c               |    7 +-
+ sound/core/control_compat.c            |   16 ++++--
+ sound/drivers/opl3/opl3_oss.c          |    2 
+ 40 files changed, 277 insertions(+), 152 deletions(-)
 
- Documentation/hwmon/it87                       |    2 
- Makefile                                       |    2 
- arch/i386/kernel/acpi/boot.c                   |   13 +
- arch/i386/kernel/cpu/common.c                  |   17 +-
- arch/ia64/ia32/ia32_signal.c                   |    1 
- arch/ppc/boot/common/util.S                    |    6 
- arch/ppc/boot/simple/Makefile                  |    2 
- arch/s390/kernel/compat_signal.c               |    3 
- arch/sparc64/Kconfig                           |    2 
- arch/sparc64/kernel/entry.S                    |    7 -
- arch/sparc64/kernel/sys32.S                    |    1 
- arch/sparc64/kernel/systbls.S                  |    4 
- arch/sparc64/kernel/time.c                     |   22 +--
- arch/x86_64/kernel/pci-gart.c                  |    1 
- arch/x86_64/kernel/vmlinux.lds.S               |   10 -
- arch/x86_64/mm/srat.c                          |   28 +++-
- block/ll_rw_blk.c                              |   24 ---
- drivers/char/moxa.c                            |    2 
- drivers/hwmon/it87.c                           |    6 
- drivers/ide/ide-cd.c                           |   10 -
- drivers/ieee1394/sbp2.c                        |   10 +
- drivers/infiniband/hw/mthca/mthca_qp.c         |   62 +++++----
- drivers/input/joystick/db9.c                   |   70 +++++-----
- drivers/input/joystick/grip.c                  |    3 
- drivers/input/joystick/iforce/iforce-main.c    |    2 
- drivers/input/joystick/iforce/iforce-packets.c |    4 
- drivers/input/joystick/iforce/iforce-usb.c     |    1 
- drivers/input/joystick/sidewinder.c            |    2 
- drivers/input/mousedev.c                       |    9 -
- drivers/md/dm-crypt.c                          |    5 
- drivers/md/dm.c                                |    8 +
- drivers/md/md.c                                |    3 
- drivers/message/i2o/i2o_scsi.c                 |    2 
- drivers/mtd/chips/cfi_cmdset_0001.c            |    1 
- drivers/net/hamradio/mkiss.c                   |    1 
- drivers/net/ppp_generic.c                      |    3 
- drivers/net/skge.c                             |  165 +++++++++++++++----------
- drivers/net/skge.h                             |    1 
- drivers/net/wireless/hostap/Kconfig            |    2 
- drivers/scsi/scsi_lib.c                        |    5 
- drivers/scsi/sd.c                              |   19 ++
- drivers/usb/input/pid.c                        |    2 
- drivers/video/Kconfig                          |    2 
- drivers/video/aty/atyfb_base.c                 |    2 
- drivers/video/console/vgacon.c                 |    8 +
- drivers/video/gbefb.c                          |    3 
- fs/binfmt_elf.c                                |    5 
- fs/dcache.c                                    |    7 -
- fs/exec.c                                      |    2 
- fs/ext2/xattr.c                                |    6 
- fs/hugetlbfs/inode.c                           |    4 
- fs/nfs/direct.c                                |    5 
- fs/ramfs/inode.c                               |    2 
- fs/reiserfs/super.c                            |    2 
- fs/ufs/super.c                                 |    4 
- fs/ufs/util.h                                  |    4 
- fs/xfs/linux-2.6/xfs_aops.c                    |    2 
- fs/xfs/linux-2.6/xfs_buf.c                     |    7 +
- include/asm-alpha/system.h                     |    2 
- include/asm-s390/setup.h                       |   10 -
- include/linux/blkdev.h                         |    1 
- include/linux/netlink.h                        |    3 
- include/linux/ptrace.h                         |    1 
- include/linux/sched.h                          |    2 
- include/linux/security.h                       |    4 
- include/linux/skbuff.h                         |    2 
- ipc/mqueue.c                                   |   62 +++++----
- ipc/shm.c                                      |    1 
- kernel/ptrace.c                                |   25 ++-
- kernel/signal.c                                |    9 -
- kernel/workqueue.c                             |   16 +-
- mm/mempolicy.c                                 |    2 
- net/bridge/br_if.c                             |    7 -
- net/bridge/br_input.c                          |   10 +
- net/bridge/br_netfilter.c                      |   59 ++++++--
- net/bridge/br_stp_bpdu.c                       |    8 -
- net/bridge/br_stp_if.c                         |    6 
- net/bridge/netfilter/ebt_ip.c                  |    3 
- net/core/datagram.c                            |   81 ++++++++----
- net/core/net-sysfs.c                           |   28 ++--
- net/ipv4/icmp.c                                |    2 
- net/ipv4/netfilter/ip_nat_helper_pptp.c        |   59 ++++----
- net/ipv6/addrconf.c                            |    3 
- net/netlink/af_netlink.c                       |   11 -
- security/keys/keyctl.c                         |   15 +-
- security/seclvl.c                              |    2 
- sound/core/control_compat.c                    |   16 +-
- sound/drivers/opl3/opl3_oss.c                  |    2 
- sound/pci/emu10k1/emumixer.c                   |    2 
- sound/usb/usbaudio.c                           |   26 +++
- 90 files changed, 657 insertions(+), 431 deletions(-)
+Summary of changes from v2.6.15.4 to v2.6.15.5
+==============================================
+
+Adrian Drzewiecki:
+      Fix deadlock in br_stp_disable_bridge
+
+Alexey Kuznetsov:
+      Fix a severe bug
+
+Andi Kleen:
+      i386: Move phys_proc_id/early intel workaround to correct function
+
+Andrew Morton:
+      ramfs: update dir mtime and ctime
+
+Chris Wright:
+      sys_mbind sanity checking
+      Linux 2.6.15.5
+
+Dave Jones:
+      Fix s390 build failure.
+
+David S. Miller:
+      Revert skb_copy_datagram_iovec() recursion elimination.
+
+Heiko Carstens:
+      s390: add #ifdef __KERNEL__ to asm-s390/setup.h
+
+Horms:
+      netfilter missing symbol has_bridge_parent
+
+Hugh Dickins:
+      hugetlbfs mmap ENOMEM failure
+
+Jack Morgenstein:
+      IB/mthca: max_inline_data handling tweaks
+
+Jean Delvare:
+      it87: Fix oops on removal
+      hwmon it87: Probe i2c 0x2d only
+
+Jeff Mahoney:
+      reiserfs: disable automatic enabling of reiserfs inode attributes
+
+Juergen Kreileder:
+      Fix snd-usb-audio in 32-bit compat environment
+
+Jun'ichi Nomura:
+      dm: missing bdput/thaw_bdev at removal
+      dm: free minor after unlink gendisk
+
+Kaj-Michael Lang:
+      gbefb: IP32 gbefb depth change fix
+
+KAMEZAWA Hiroyuki:
+      shmdt cannot detach not-alined shm segment cleanly.
+
+Kristian Slavov:
+      Address autoconfiguration does not work after device down/up cycle
+
+Martin Michlmayr:
+      gbefb: Set default of FB_GBE_MEM to 4 MB
+
+Mike O'Connor:
+      XFS ftruncate() bug could expose stale data (CVE-2006-0554)
+
+Oleg Nesterov:
+      sys_signal: initialize ->sa_mask
+      do_sigaction: cleanup ->sa_mask manipulation
+      fix zap_thread's ptrace related problems
+
+Peter Staubach:
+      fix deadlock in ext2
+
+Simon Vogl:
+      cfi: init wait queue in chip struct
+
+Stefan Richter:
+      sd: fix memory corruption with broken mode page headers
+      sbp2: fix another deadlock after disconnection
+
+Stephen Hemminger:
+      skge: speed setting
+      skge: fix NAPI/irq race
+      skge: genesis phy initialization fix
+      skge: fix SMP race
+
+Suresh Siddha:
+      x86_64: Check for bad elf entry address (CVE-2006-0741)
+
+Takashi Iwai:
+      alsa: fix bogus snd_device_free() in opl3-oss.c
+
+Tom Rini:
+      ppc32: Put cache flush routines back into .relocate_code section
+
+Tony Luck:
+      sys32_signal() forgets to initialize ->sa_mask
+
+Trond Myklebust:
+      Normal user can panic NFS client with direct I/O (CVE-2006-0555)
 
