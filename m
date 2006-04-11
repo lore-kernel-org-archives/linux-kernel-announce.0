@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.3 released
-Date: Tue, 11 Apr 2006 06:52:06 GMT
-Message-ID: <200604110652.k3B6q6EI007149@hera.kernel.org>
+Subject: Linux kernel 2.6.16.4 released
+Date: Tue, 11 Apr 2006 17:39:21 GMT
+Message-ID: <200604111739.k3BHdLwN005686@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.3 has been released.  It is available from:
+Linux kernel version 2.6.16.4 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.3.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.3.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.4.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.4.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                11793             36238
-Full source                       40842734         233953280
+Patch                                11913             36609
+Full source                       40843479         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -79,6 +79,7 @@ The following files were changed in this release:
  kernel/exec_domain.c                          |    1 
  kernel/fork.c                                 |    2 -
  kernel/sched.c                                |    9 ++++-
+ kernel/signal.c                               |    1 
  net/core/sock.c                               |    5 +-
  net/ipv4/fib_trie.c                           |   12 +++---
  net/ipv4/ip_output.c                          |    6 ---
@@ -88,5 +89,5 @@ The following files were changed in this release:
  security/keys/keyring.c                       |    1 
  sound/isa/opti9xx/opti92x-ad1848.c            |    6 +++
  sound/pci/hda/patch_realtek.c                 |    2 +
- 55 files changed, 149 insertions(+), 108 deletions(-)
+ 56 files changed, 149 insertions(+), 109 deletions(-)
 
