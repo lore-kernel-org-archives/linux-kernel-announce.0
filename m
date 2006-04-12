@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.4 released
-Date: Tue, 11 Apr 2006 17:39:21 GMT
-Message-ID: <200604111739.k3BHdLwN005686@hera.kernel.org>
+Subject: Linux kernel 2.6.16.5 released
+Date: Wed, 12 Apr 2006 21:04:04 GMT
+Message-ID: <200604122104.k3CL44sE010536@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.4 has been released.  It is available from:
+Linux kernel version 2.6.16.5 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.4.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.4.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.5.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.5.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                11913             36609
-Full source                       40843479         233953280
+Patch                                12684             38317
+Full source                       40845129         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -39,6 +39,7 @@ The following files were changed in this release:
  arch/i386/kernel/cpu/cpufreq/speedstep-smi.c  |    4 +-
  arch/i386/kernel/dmi_scan.c                   |    2 -
  arch/powerpc/kernel/pci_64.c                  |    1 
+ arch/x86_64/kernel/entry.S                    |   28 +++++-----------
  drivers/base/cpu.c                            |    2 -
  drivers/base/firmware_class.c                 |    6 ++-
  drivers/base/node.c                           |    2 -
@@ -89,5 +90,5 @@ The following files were changed in this release:
  security/keys/keyring.c                       |    1 
  sound/isa/opti9xx/opti92x-ad1848.c            |    6 +++
  sound/pci/hda/patch_realtek.c                 |    2 +
- 56 files changed, 149 insertions(+), 109 deletions(-)
+ 57 files changed, 159 insertions(+), 127 deletions(-)
 
