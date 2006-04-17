@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.5 released
-Date: Wed, 12 Apr 2006 21:04:04 GMT
-Message-ID: <200604122104.k3CL44sE010536@hera.kernel.org>
+Subject: Linux kernel 2.6.16.6 released
+Date: Mon, 17 Apr 2006 21:13:01 GMT
+Message-ID: <200604172113.k3HLD1Jl019762@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.5 has been released.  It is available from:
+Linux kernel version 2.6.16.6 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.5.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.5.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.6.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.6.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                12684             38317
-Full source                       40845129         233953280
+Patch                                25501             90606
+Full source                       40844533         233943040
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -33,62 +33,94 @@ Full source                       40845129         233953280
 
 The following files were changed in this release:
 
- Makefile                                      |    2 -
- arch/i386/kernel/cpu/cpufreq/Kconfig          |    1 
- arch/i386/kernel/cpu/cpufreq/p4-clockmod.c    |    2 -
- arch/i386/kernel/cpu/cpufreq/speedstep-smi.c  |    4 +-
- arch/i386/kernel/dmi_scan.c                   |    2 -
- arch/powerpc/kernel/pci_64.c                  |    1 
- arch/x86_64/kernel/entry.S                    |   28 +++++-----------
- drivers/base/cpu.c                            |    2 -
- drivers/base/firmware_class.c                 |    6 ++-
- drivers/base/node.c                           |    2 -
- drivers/block/cciss.c                         |    2 -
- drivers/char/Kconfig                          |    1 
- drivers/char/tlclk.c                          |    1 
- drivers/ieee1394/sbp2.c                       |   32 ++++++++----------
- drivers/md/dm.c                               |   45 ++++++++++++++------------
- drivers/media/video/Kconfig                   |    1 
- drivers/media/video/tuner-types.c             |    4 +-
- drivers/net/irda/irda-usb.c                   |    5 +-
- drivers/net/wireless/Kconfig                  |    5 ++
- drivers/net/wireless/hostap/hostap_80211_tx.c |    2 -
- drivers/net/wireless/ipw2200.c                |    5 +-
- drivers/pcmcia/ds.c                           |    2 -
- drivers/scsi/sata_mv.c                        |    7 ++--
- drivers/usb/core/message.c                    |   12 ++++--
- drivers/usb/host/ehci-sched.c                 |   11 +++---
- drivers/video/cfbimgblt.c                     |    2 -
- drivers/video/i810/i810_main.c                |    2 -
- fs/9p/vfs_inode.c                             |    3 -
- fs/nfsd/nfs3proc.c                            |    2 -
- fs/nfsd/nfs4proc.c                            |    2 -
- fs/nfsd/nfsproc.c                             |    2 -
- fs/proc/proc_misc.c                           |    2 -
- fs/proc/vmcore.c                              |    4 +-
- fs/sysfs/dir.c                                |    1 
- fs/sysfs/file.c                               |    2 -
- fs/sysfs/inode.c                              |    6 ++-
- fs/sysfs/symlink.c                            |    1 
- fs/xfs/linux-2.6/xfs_aops.c                   |    2 -
- include/asm-powerpc/floppy.h                  |    5 +-
- include/linux/cpu.h                           |    2 -
- include/linux/fb.h                            |    2 -
- include/linux/proc_fs.h                       |    2 -
- include/linux/raid/raid1.h                    |    2 -
- include/linux/rtc.h                           |    4 +-
- kernel/exec_domain.c                          |    1 
- kernel/fork.c                                 |    2 -
- kernel/sched.c                                |    9 ++++-
- kernel/signal.c                               |    1 
- net/core/sock.c                               |    5 +-
- net/ipv4/fib_trie.c                           |   12 +++---
- net/ipv4/ip_output.c                          |    6 ---
- net/ipv4/netfilter/ip_conntrack_netlink.c     |    2 -
- net/netfilter/nf_conntrack_netlink.c          |    2 -
- security/keys/key.c                           |    4 ++
- security/keys/keyring.c                       |    1 
- sound/isa/opti9xx/opti92x-ad1848.c            |    6 +++
- sound/pci/hda/patch_realtek.c                 |    2 +
- 57 files changed, 159 insertions(+), 127 deletions(-)
+ arch/m32r/lib/getuser.S                         |   88 -------
+ arch/m32r/lib/putuser.S                         |   84 -------
+ b/Makefile                                      |    2 
+ b/arch/alpha/kernel/setup.c                     |   17 +
+ b/arch/alpha/kernel/smp.c                       |    8 
+ b/arch/i386/kernel/cpu/cpufreq/Kconfig          |    1 
+ b/arch/i386/kernel/cpu/cpufreq/p4-clockmod.c    |    2 
+ b/arch/i386/kernel/cpu/cpufreq/speedstep-smi.c  |    4 
+ b/arch/i386/kernel/dmi_scan.c                   |    2 
+ b/arch/m32r/kernel/m32r_ksyms.c                 |    4 
+ b/arch/m32r/kernel/setup.c                      |   12 -
+ b/arch/m32r/kernel/smpboot.c                    |   19 -
+ b/arch/m32r/lib/Makefile                        |    4 
+ b/arch/powerpc/kernel/pci_64.c                  |    1 
+ b/arch/powerpc/kernel/setup_64.c                |   10 
+ b/arch/powerpc/kernel/signal_64.c               |    2 
+ b/arch/x86_64/kernel/entry.S                    |   28 --
+ b/drivers/base/cpu.c                            |    2 
+ b/drivers/base/firmware_class.c                 |    6 
+ b/drivers/base/node.c                           |    2 
+ b/drivers/block/cciss.c                         |   98 ++++----
+ b/drivers/char/Kconfig                          |    1 
+ b/drivers/char/tlclk.c                          |   37 +--
+ b/drivers/edac/Kconfig                          |    2 
+ b/drivers/ieee1394/sbp2.c                       |   32 +-
+ b/drivers/md/dm.c                               |   45 ++--
+ b/drivers/media/video/Kconfig                   |    1 
+ b/drivers/media/video/tuner-types.c             |    4 
+ b/drivers/net/irda/irda-usb.c                   |    5 
+ b/drivers/net/sky2.c                            |    4 
+ b/drivers/net/sky2.h                            |    1 
+ b/drivers/net/wireless/Kconfig                  |    5 
+ b/drivers/net/wireless/hostap/hostap_80211_tx.c |    2 
+ b/drivers/net/wireless/ipw2200.c                |    5 
+ b/drivers/pcmcia/ds.c                           |    2 
+ b/drivers/scsi/sata_mv.c                        |    7 
+ b/drivers/usb/core/message.c                    |   12 -
+ b/drivers/usb/host/ehci-sched.c                 |   11 
+ b/drivers/usb/serial/console.c                  |    2 
+ b/drivers/usb/storage/Kconfig                   |    3 
+ b/drivers/video/cfbimgblt.c                     |    2 
+ b/drivers/video/i810/i810_main.c                |    2 
+ b/fs/9p/vfs_inode.c                             |    3 
+ b/fs/cifs/cifsencrypt.c                         |   36 ++-
+ b/fs/ext3/resize.c                              |    1 
+ b/fs/fuse/file.c                                |    8 
+ b/fs/nfsd/nfs3proc.c                            |    2 
+ b/fs/nfsd/nfs4proc.c                            |    2 
+ b/fs/nfsd/nfsproc.c                             |    2 
+ b/fs/partitions/check.c                         |    5 
+ b/fs/proc/proc_misc.c                           |    2 
+ b/fs/proc/vmcore.c                              |    4 
+ b/fs/sysfs/dir.c                                |    1 
+ b/fs/sysfs/file.c                               |    2 
+ b/fs/sysfs/inode.c                              |    6 
+ b/fs/sysfs/symlink.c                            |    1 
+ b/fs/xfs/linux-2.6/xfs_aops.c                   |    2 
+ b/fs/xfs/linux-2.6/xfs_iops.c                   |    3 
+ b/include/asm-m32r/smp.h                        |    3 
+ b/include/asm-m32r/uaccess.h                    |  266 ++++++++++--------------
+ b/include/asm-powerpc/floppy.h                  |    5 
+ b/include/linux/cpu.h                           |    2 
+ b/include/linux/fb.h                            |    2 
+ b/include/linux/mm.h                            |    5 
+ b/include/linux/page-flags.h                    |    8 
+ b/include/linux/proc_fs.h                       |    2 
+ b/include/linux/raid/raid1.h                    |    2 
+ b/include/linux/rtc.h                           |    4 
+ b/include/net/ip.h                              |    1 
+ b/ipc/shm.c                                     |    2 
+ b/kernel/exec_domain.c                          |    1 
+ b/kernel/fork.c                                 |    2 
+ b/kernel/power/process.c                        |    3 
+ b/kernel/ptrace.c                               |    7 
+ b/kernel/sched.c                                |    9 
+ b/kernel/signal.c                               |    6 
+ b/kernel/sys.c                                  |   14 +
+ b/mm/page_alloc.c                               |   31 +-
+ b/net/atm/clip.c                                |   42 ++-
+ b/net/bridge/br_netfilter.c                     |   13 -
+ b/net/core/sock.c                               |    5 
+ b/net/ipv4/fib_trie.c                           |   12 -
+ b/net/ipv4/ip_output.c                          |   12 -
+ b/net/ipv4/netfilter/ip_conntrack_netlink.c     |    2 
+ b/net/netfilter/nf_conntrack_netlink.c          |    2 
+ b/security/keys/key.c                           |    4 
+ b/security/keys/keyring.c                       |    1 
+ b/sound/isa/opti9xx/opti92x-ad1848.c            |    6 
+ b/sound/pci/hda/patch_realtek.c                 |    2 
+ 89 files changed, 518 insertions(+), 619 deletions(-)
 
