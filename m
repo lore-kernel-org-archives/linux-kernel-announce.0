@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.6 released
-Date: Mon, 17 Apr 2006 21:13:01 GMT
-Message-ID: <200604172113.k3HLD1Jl019762@hera.kernel.org>
+Subject: Linux kernel 2.6.16.7 released
+Date: Mon, 17 Apr 2006 22:28:08 GMT
+Message-ID: <200604172228.k3HMS8SN012390@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.6 has been released.  It is available from:
+Linux kernel version 2.6.16.7 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.6.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.6.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.7.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.7.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                25501             90606
-Full source                       40844533         233943040
+Patch                                25608             90975
+Full source                       40843068         233943040
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -110,6 +110,7 @@ The following files were changed in this release:
  b/kernel/sched.c                                |    9 
  b/kernel/signal.c                               |    6 
  b/kernel/sys.c                                  |   14 +
+ b/mm/madvise.c                                  |    3 
  b/mm/page_alloc.c                               |   31 +-
  b/net/atm/clip.c                                |   42 ++-
  b/net/bridge/br_netfilter.c                     |   13 -
@@ -122,5 +123,5 @@ The following files were changed in this release:
  b/security/keys/keyring.c                       |    1 
  b/sound/isa/opti9xx/opti92x-ad1848.c            |    6 
  b/sound/pci/hda/patch_realtek.c                 |    2 
- 89 files changed, 518 insertions(+), 619 deletions(-)
+ 90 files changed, 521 insertions(+), 619 deletions(-)
 
