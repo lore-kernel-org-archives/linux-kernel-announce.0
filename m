@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.8 released
-Date: Tue, 18 Apr 2006 22:18:54 GMT
-Message-ID: <200604182218.k3IMIsmR003146@hera.kernel.org>
+Subject: Linux kernel 2.6.16.9 released
+Date: Wed, 19 Apr 2006 07:16:22 GMT
+Message-ID: <200604190716.k3J7GMr9014627@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.8 has been released.  It is available from:
+Linux kernel version 2.6.16.9 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.8.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.8.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.9.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.9.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                25802             91540
-Full source                       40845901         233943040
+Patch                                27849             98005
+Full source                       40849027         233943040
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -38,6 +38,7 @@ The following files were changed in this release:
  b/Makefile                                      |    2 
  b/arch/alpha/kernel/setup.c                     |   17 +
  b/arch/alpha/kernel/smp.c                       |    8 
+ b/arch/i386/kernel/cpu/amd.c                    |    2 
  b/arch/i386/kernel/cpu/cpufreq/Kconfig          |    1 
  b/arch/i386/kernel/cpu/cpufreq/p4-clockmod.c    |    2 
  b/arch/i386/kernel/cpu/cpufreq/speedstep-smi.c  |    4 
@@ -50,6 +51,8 @@ The following files were changed in this release:
  b/arch/powerpc/kernel/setup_64.c                |   10 
  b/arch/powerpc/kernel/signal_64.c               |    2 
  b/arch/x86_64/kernel/entry.S                    |   28 --
+ b/arch/x86_64/kernel/process.c                  |    8 
+ b/arch/x86_64/kernel/setup.c                    |    4 
  b/drivers/base/cpu.c                            |    2 
  b/drivers/base/firmware_class.c                 |    6 
  b/drivers/base/node.c                           |    2 
@@ -58,7 +61,7 @@ The following files were changed in this release:
  b/drivers/char/tlclk.c                          |   37 +--
  b/drivers/edac/Kconfig                          |    2 
  b/drivers/ieee1394/sbp2.c                       |   32 +-
- b/drivers/md/dm.c                               |   45 ++--
+ b/drivers/md/dm.c                               |   43 ++-
  b/drivers/media/video/Kconfig                   |    1 
  b/drivers/media/video/tuner-types.c             |    4 
  b/drivers/net/irda/irda-usb.c                   |    5 
@@ -91,9 +94,13 @@ The following files were changed in this release:
  b/fs/sysfs/symlink.c                            |    1 
  b/fs/xfs/linux-2.6/xfs_aops.c                   |    2 
  b/fs/xfs/linux-2.6/xfs_iops.c                   |    3 
+ b/include/asm-i386/cpufeature.h                 |    1 
+ b/include/asm-i386/i387.h                       |   30 ++
  b/include/asm-m32r/smp.h                        |    3 
  b/include/asm-m32r/uaccess.h                    |  266 ++++++++++--------------
  b/include/asm-powerpc/floppy.h                  |    5 
+ b/include/asm-x86_64/cpufeature.h               |    1 
+ b/include/asm-x86_64/i387.h                     |   20 +
  b/include/linux/cpu.h                           |    2 
  b/include/linux/fb.h                            |    2 
  b/include/linux/mm.h                            |    5 
@@ -124,5 +131,5 @@ The following files were changed in this release:
  b/security/keys/keyring.c                       |    1 
  b/sound/isa/opti9xx/opti92x-ad1848.c            |    6 
  b/sound/pci/hda/patch_realtek.c                 |    2 
- 91 files changed, 525 insertions(+), 620 deletions(-)
+ 98 files changed, 583 insertions(+), 626 deletions(-)
 
