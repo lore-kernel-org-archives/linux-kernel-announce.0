@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.10 released
-Date: Mon, 24 Apr 2006 17:38:10 GMT
-Message-ID: <200604241738.k3OHcAk0017789@hera.kernel.org>
+Subject: Linux kernel 2.6.16.11 released
+Date: Mon, 24 Apr 2006 20:56:54 GMT
+Message-ID: <200604242056.k3OKuskp013155@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.10 has been released.  It is available from:
+Linux kernel version 2.6.16.11 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.10.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.10.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.11.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.11.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                32813            118463
-Full source                       40840332         233953280
+Patch                                33098            119262
+Full source                       40837892         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -92,6 +92,7 @@ The following files were changed in this release:
  b/drivers/video/i810/i810_main.c                |    2 
  b/fs/9p/vfs_inode.c                             |    3 
  b/fs/cifs/cifsencrypt.c                         |   36 ++-
+ b/fs/cifs/dir.c                                 |   14 +
  b/fs/ext3/resize.c                              |    1 
  b/fs/fuse/file.c                                |    8 
  b/fs/locks.c                                    |    9 
@@ -156,5 +157,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                 |    2 
  b/sound/ppc/daca.c                              |    2 
  b/sound/ppc/tumbler.c                           |    2 
- 123 files changed, 753 insertions(+), 689 deletions(-)
+ 124 files changed, 767 insertions(+), 689 deletions(-)
 
