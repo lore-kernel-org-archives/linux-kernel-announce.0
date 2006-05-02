@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.12 released
-Date: Mon, 1 May 2006 19:51:08 GMT
-Message-ID: <200605011951.k41Jp83O011039@hera.kernel.org>
+Subject: Linux kernel 2.6.16.13 released
+Date: Tue, 2 May 2006 22:18:44 GMT
+Message-ID: <200605022218.k42MIiuo020035@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.12 has been released.  It is available from:
+Linux kernel version 2.6.16.13 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.12.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.12.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.13.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.13.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                41316            152533
-Full source                       40837784         233953280
+Patch                                41658            154203
+Full source                       40837424         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -175,11 +175,13 @@ The following files were changed in this release:
  b/net/ipv4/fib_trie.c                           |   12 -
  b/net/ipv4/ip_output.c                          |   12 -
  b/net/ipv4/netfilter/ip_conntrack_netlink.c     |    2 
+ b/net/ipv4/netfilter/ip_conntrack_proto_sctp.c  |   11 
  b/net/ipv4/route.c                              |    5 
  b/net/ipv4/tcp_output.c                         |    4 
  b/net/ipv6/exthdrs.c                            |   12 +
  b/net/ipv6/xfrm6_policy.c                       |    8 
  b/net/netfilter/nf_conntrack_netlink.c          |    2 
+ b/net/netfilter/nf_conntrack_proto_sctp.c       |   11 
  b/security/keys/key.c                           |    4 
  b/security/keys/keyring.c                       |    1 
  b/security/selinux/ss/mls.c                     |    2 
@@ -188,5 +190,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                 |    2 
  b/sound/ppc/daca.c                              |    2 
  b/sound/ppc/tumbler.c                           |    2 
- 155 files changed, 959 insertions(+), 1038 deletions(-)
+ 157 files changed, 973 insertions(+), 1046 deletions(-)
 
