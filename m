@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.13 released
-Date: Tue, 2 May 2006 22:18:44 GMT
-Message-ID: <200605022218.k42MIiuo020035@hera.kernel.org>
+Subject: Linux kernel 2.6.16.14 released
+Date: Fri, 5 May 2006 00:35:07 GMT
+Message-ID: <200605050035.k450Z76u022812@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.13 has been released.  It is available from:
+Linux kernel version 2.6.16.14 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.13.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.13.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.14.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.14.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                41658            154203
-Full source                       40837424         233953280
+Patch                                41796            154676
+Full source                       40841745         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -125,6 +125,7 @@ The following files were changed in this release:
  b/fs/proc/proc_misc.c                           |  163 +++-----------
  b/fs/proc/vmcore.c                              |    4 
  b/fs/reiserfs/xattr_acl.c                       |    5 
+ b/fs/smbfs/dir.c                                |    5 
  b/fs/sysfs/dir.c                                |    1 
  b/fs/sysfs/file.c                               |    2 
  b/fs/sysfs/inode.c                              |    6 
@@ -190,5 +191,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                 |    2 
  b/sound/ppc/daca.c                              |    2 
  b/sound/ppc/tumbler.c                           |    2 
- 157 files changed, 973 insertions(+), 1046 deletions(-)
+ 158 files changed, 978 insertions(+), 1046 deletions(-)
 
