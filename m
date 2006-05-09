@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.14 released
-Date: Fri, 5 May 2006 00:35:07 GMT
-Message-ID: <200605050035.k450Z76u022812@hera.kernel.org>
+Subject: Linux kernel 2.6.16.15 released
+Date: Tue, 9 May 2006 20:21:15 GMT
+Message-ID: <200605092021.k49KLFGt030618@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.14 has been released.  It is available from:
+Linux kernel version 2.6.16.15 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.14.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.14.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.15.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.15.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                41796            154676
-Full source                       40841745         233953280
+Patch                                44209            163672
+Full source                       40837359         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -156,6 +156,7 @@ The following files were changed in this release:
  b/include/linux/raid/raid1.h                    |    2 
  b/include/linux/rtc.h                           |    4 
  b/include/net/ip.h                              |    1 
+ b/include/net/sctp/structs.h                    |    1 
  b/ipc/shm.c                                     |    2 
  b/ipc/util.c                                    |    3 
  b/kernel/auditsc.c                              |    5 
@@ -183,6 +184,10 @@ The following files were changed in this release:
  b/net/ipv6/xfrm6_policy.c                       |    8 
  b/net/netfilter/nf_conntrack_netlink.c          |    2 
  b/net/netfilter/nf_conntrack_proto_sctp.c       |   11 
+ b/net/sctp/inqueue.c                            |    1 
+ b/net/sctp/sm_statefuns.c                       |   59 +++--
+ b/net/sctp/sm_statetable.c                      |   10 
+ b/net/sctp/ulpqueue.c                           |   27 ++
  b/security/keys/key.c                           |    4 
  b/security/keys/keyring.c                       |    1 
  b/security/selinux/ss/mls.c                     |    2 
@@ -191,5 +196,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                 |    2 
  b/sound/ppc/daca.c                              |    2 
  b/sound/ppc/tumbler.c                           |    2 
- 158 files changed, 978 insertions(+), 1046 deletions(-)
+ 163 files changed, 1054 insertions(+), 1068 deletions(-)
 
