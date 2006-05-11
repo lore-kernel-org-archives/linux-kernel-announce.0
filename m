@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.15 released
-Date: Tue, 9 May 2006 20:21:15 GMT
-Message-ID: <200605092021.k49KLFGt030618@hera.kernel.org>
+Subject: Linux kernel 2.6.16.16 released
+Date: Thu, 11 May 2006 02:27:36 GMT
+Message-ID: <200605110227.k4B2RaeQ017648@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.15 has been released.  It is available from:
+Linux kernel version 2.6.16.16 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.15.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.15.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.16.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.16.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                44209            163672
-Full source                       40837359         233953280
+Patch                                44544            164835
+Full source                       40837107         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -115,7 +115,7 @@ The following files were changed in this release:
  b/fs/compat.c                                   |    4 
  b/fs/ext3/resize.c                              |    1 
  b/fs/fuse/file.c                                |    8 
- b/fs/locks.c                                    |    9 
+ b/fs/locks.c                                    |   30 +-
  b/fs/nfsd/nfs3proc.c                            |    2 
  b/fs/nfsd/nfs4proc.c                            |    2 
  b/fs/nfsd/nfsproc.c                             |    2 
@@ -196,5 +196,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                 |    2 
  b/sound/ppc/daca.c                              |    2 
  b/sound/ppc/tumbler.c                           |    2 
- 163 files changed, 1054 insertions(+), 1068 deletions(-)
+ 163 files changed, 1066 insertions(+), 1077 deletions(-)
 
