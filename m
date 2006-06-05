@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.20 released
-Date: Mon, 5 Jun 2006 17:40:26 GMT
-Message-ID: <200606051740.k55HeQ89029879@hera.kernel.org>
+Subject: Linux kernel 2.6.16.19 released
+Date: Mon, 5 Jun 2006 17:26:06 GMT
+Message-ID: <200606051726.k55HQ63r026032@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.16.20 has been released.  It is available from:
+Linux kernel version 2.6.16.19 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.20.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.20.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.19.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.19.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                53107            197332
-Full source                       40840903         233953280
+Patch                                51000            190014
+Full source                       40836905         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -56,13 +56,11 @@ The following files were changed in this release:
  b/arch/powerpc/kernel/pci_64.c                   |    1 
  b/arch/powerpc/kernel/setup_64.c                 |   10 
  b/arch/powerpc/kernel/signal_64.c                |    2 
- b/arch/powerpc/platforms/powermac/setup.c        |   12 +
  b/arch/x86_64/ia32/Makefile                      |    4 
- b/arch/x86_64/kernel/entry.S                     |   35 ---
+ b/arch/x86_64/kernel/entry.S                     |   28 --
  b/arch/x86_64/kernel/pci-gart.c                  |    4 
  b/arch/x86_64/kernel/process.c                   |    8 
  b/arch/x86_64/kernel/setup.c                     |    4 
- b/arch/x86_64/kernel/traps.c                     |    5 
  b/block/elevator.c                               |    8 
  b/block/genhd.c                                  |  103 --------
  b/block/ll_rw_blk.c                              |   17 +
@@ -87,9 +85,7 @@ The following files were changed in this release:
  b/drivers/i2c/busses/scx200_acb.c                |    4 
  b/drivers/i2c/chips/m41t00.c                     |    8 
  b/drivers/ide/pci/alim15x3.c                     |    2 
- b/drivers/ieee1394/ohci1394.c                    |    2 
- b/drivers/ieee1394/sbp2.c                        |   54 ++--
- b/drivers/input/mouse/psmouse-base.c             |    4 
+ b/drivers/ieee1394/sbp2.c                        |   32 +-
  b/drivers/macintosh/therm_adt746x.c              |    4 
  b/drivers/md/dm-snap.c                           |    6 
  b/drivers/md/dm.c                                |   48 ++--
@@ -108,16 +104,13 @@ The following files were changed in this release:
  b/drivers/net/via-rhine.c                        |    6 
  b/drivers/net/wireless/Kconfig                   |    5 
  b/drivers/net/wireless/hostap/hostap_80211_tx.c  |    2 
- b/drivers/net/wireless/ipw2200.c                 |   21 +
+ b/drivers/net/wireless/ipw2200.c                 |    5 
  b/drivers/pci/pci-acpi.c                         |   60 +++--
  b/drivers/pci/quirks.c                           |   22 +
  b/drivers/pcmcia/ds.c                            |    2 
  b/drivers/scsi/3w-9xxx.c                         |    8 
  b/drivers/scsi/3w-xxxx.c                         |    3 
- b/drivers/scsi/libata-core.c                     |    1 
  b/drivers/scsi/sata_mv.c                         |    7 
- b/drivers/sn/ioc3.c                              |    2 
- b/drivers/sn/ioc4.c                              |    2 
  b/drivers/usb/core/message.c                     |   12 -
  b/drivers/usb/host/ehci-sched.c                  |   11 
  b/drivers/usb/serial/console.c                   |    2 
@@ -190,7 +183,7 @@ The following files were changed in this release:
  b/kernel/uid16.c                                 |   59 +++--
  b/mm/madvise.c                                   |    3 
  b/mm/mempolicy.c                                 |    1 
- b/mm/page_alloc.c                                |   34 +-
+ b/mm/page_alloc.c                                |   31 +-
  b/mm/shmem.c                                     |    1 
  b/mm/vmscan.c                                    |   11 
  b/net/atm/clip.c                                 |   42 ++-
@@ -226,5 +219,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                  |    2 
  b/sound/ppc/daca.c                               |    2 
  b/sound/ppc/tumbler.c                            |    2 
- 193 files changed, 1332 insertions(+), 1198 deletions(-)
+ 186 files changed, 1274 insertions(+), 1180 deletions(-)
 
