@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
 Subject: Linux kernel 2.6.16.20 released
-Date: Mon, 5 Jun 2006 16:57:06 GMT
-Message-ID: <200606051657.k55Gv6Jo021186@hera.kernel.org>
+Date: Mon, 5 Jun 2006 17:40:26 GMT
+Message-ID: <200606051740.k55HeQ89029879@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -17,8 +17,8 @@ Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.20.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                53046            197284
-Full source                       40839066         233953280
+Patch                                53107            197332
+Full source                       40840903         233953280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -88,7 +88,7 @@ The following files were changed in this release:
  b/drivers/i2c/chips/m41t00.c                     |    8 
  b/drivers/ide/pci/alim15x3.c                     |    2 
  b/drivers/ieee1394/ohci1394.c                    |    2 
- b/drivers/ieee1394/sbp2.c                        |   52 ++--
+ b/drivers/ieee1394/sbp2.c                        |   54 ++--
  b/drivers/input/mouse/psmouse-base.c             |    4 
  b/drivers/macintosh/therm_adt746x.c              |    4 
  b/drivers/md/dm-snap.c                           |    6 
@@ -226,5 +226,5 @@ The following files were changed in this release:
  b/sound/pci/hda/patch_realtek.c                  |    2 
  b/sound/ppc/daca.c                               |    2 
  b/sound/ppc/tumbler.c                            |    2 
- 193 files changed, 1331 insertions(+), 1197 deletions(-)
+ 193 files changed, 1332 insertions(+), 1198 deletions(-)
 
