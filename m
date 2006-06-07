@@ -1,223 +1,330 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.16.19 released
-Date: Mon, 5 Jun 2006 17:26:06 GMT
-Message-ID: <200606051726.k55HQ63r026032@hera.kernel.org>
+From: Andrew Morton <akpm@osdl.org>
+Subject: 2.6.17-rc6-mm1
+Date: Wed, 7 Jun 2006 10:47:24 -0700
+Message-ID: <20060607104724.c5d3d730.akpm__32490.5690424659$1149702534$gmane$org@osdl.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+To: linux-kernel@vger.kernel.org
 
-Linux kernel version 2.6.16.19 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.16.19.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.16.19.tar.bz2
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.17-rc6/2.6.17-rc6-mm1/
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                51000            190014
-Full source                       40836905         233953280
+- Many more lockdep updates
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
 
-   unsubscribe linux-kernel-announce <your_email_address>
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
+Boilerplate:
 
-The following files were changed in this release:
+- See the `hot-fixes' directory for any important updates to this patchset.
 
- arch/m32r/lib/getuser.S                          |   88 -------
- arch/m32r/lib/putuser.S                          |   84 -------
- b/Documentation/dvb/get_dvb_firmware             |    8 
- b/Makefile                                       |    2 
- b/arch/alpha/kernel/setup.c                      |   17 +
- b/arch/alpha/kernel/smp.c                        |    8 
- b/arch/alpha/lib/strncpy.S                       |    8 
- b/arch/i386/kernel/apm.c                         |    2 
- b/arch/i386/kernel/cpu/amd.c                     |    2 
- b/arch/i386/kernel/cpu/cpufreq/Kconfig           |    1 
- b/arch/i386/kernel/cpu/cpufreq/p4-clockmod.c     |    2 
- b/arch/i386/kernel/cpu/cpufreq/speedstep-smi.c   |    4 
- b/arch/i386/kernel/dmi_scan.c                    |    2 
- b/arch/i386/kernel/vm86.c                        |   12 -
- b/arch/m32r/kernel/m32r_ksyms.c                  |    4 
- b/arch/m32r/kernel/setup.c                       |   12 -
- b/arch/m32r/kernel/smpboot.c                     |   19 -
- b/arch/m32r/lib/Makefile                         |    4 
- b/arch/mips/kernel/branch.c                      |    2 
- b/arch/mips/mm/c-r4k.c                           |    3 
- b/arch/powerpc/kernel/pci_64.c                   |    1 
- b/arch/powerpc/kernel/setup_64.c                 |   10 
- b/arch/powerpc/kernel/signal_64.c                |    2 
- b/arch/x86_64/ia32/Makefile                      |    4 
- b/arch/x86_64/kernel/entry.S                     |   28 --
- b/arch/x86_64/kernel/pci-gart.c                  |    4 
- b/arch/x86_64/kernel/process.c                   |    8 
- b/arch/x86_64/kernel/setup.c                     |    4 
- b/block/elevator.c                               |    8 
- b/block/genhd.c                                  |  103 --------
- b/block/ll_rw_blk.c                              |   17 +
- b/drivers/base/cpu.c                             |    2 
- b/drivers/base/firmware_class.c                  |    6 
- b/drivers/base/node.c                            |    2 
- b/drivers/block/cciss.c                          |   98 ++++----
- b/drivers/block/ub.c                             |   18 -
- b/drivers/char/Kconfig                           |    1 
- b/drivers/char/agp/efficeon-agp.c                |    8 
- b/drivers/char/cs5535_gpio.c                     |    5 
- b/drivers/char/ipmi/ipmi_bt_sm.c                 |    2 
- b/drivers/char/pcmcia/cm4000_cs.c                |   10 
- b/drivers/char/pcmcia/cm4040_cs.c                |   11 
- b/drivers/char/snsc.c                            |    3 
- b/drivers/char/sonypi.c                          |    3 
- b/drivers/char/tipar.c                           |    2 
- b/drivers/char/tlclk.c                           |   37 +--
- b/drivers/char/tty_io.c                          |    8 
- b/drivers/edac/Kconfig                           |    2 
- b/drivers/i2c/busses/i2c-i801.c                  |    5 
- b/drivers/i2c/busses/scx200_acb.c                |    4 
- b/drivers/i2c/chips/m41t00.c                     |    8 
- b/drivers/ide/pci/alim15x3.c                     |    2 
- b/drivers/ieee1394/sbp2.c                        |   32 +-
- b/drivers/macintosh/therm_adt746x.c              |    4 
- b/drivers/md/dm-snap.c                           |    6 
- b/drivers/md/dm.c                                |   48 ++--
- b/drivers/md/kcopyd.c                            |   17 +
- b/drivers/md/raid10.c                            |    2 
- b/drivers/media/dvb/dvb-usb/cxusb.c              |   17 +
- b/drivers/media/video/Kconfig                    |    1 
- b/drivers/media/video/saa7127.c                  |    1 
- b/drivers/media/video/tuner-types.c              |    4 
- b/drivers/mtd/nand/Kconfig                       |   17 -
- b/drivers/net/e1000/e1000_main.c                 |    1 
- b/drivers/net/irda/irda-usb.c                    |    5 
- b/drivers/net/sky2.c                             |    4 
- b/drivers/net/sky2.h                             |    1 
- b/drivers/net/tg3.c                              |    8 
- b/drivers/net/via-rhine.c                        |    6 
- b/drivers/net/wireless/Kconfig                   |    5 
- b/drivers/net/wireless/hostap/hostap_80211_tx.c  |    2 
- b/drivers/net/wireless/ipw2200.c                 |    5 
- b/drivers/pci/pci-acpi.c                         |   60 +++--
- b/drivers/pci/quirks.c                           |   22 +
- b/drivers/pcmcia/ds.c                            |    2 
- b/drivers/scsi/3w-9xxx.c                         |    8 
- b/drivers/scsi/3w-xxxx.c                         |    3 
- b/drivers/scsi/sata_mv.c                         |    7 
- b/drivers/usb/core/message.c                     |   12 -
- b/drivers/usb/host/ehci-sched.c                  |   11 
- b/drivers/usb/serial/console.c                   |    2 
- b/drivers/usb/serial/option.c                    |    4 
- b/drivers/usb/storage/Kconfig                    |    3 
- b/drivers/video/cfbimgblt.c                      |    2 
- b/drivers/video/fbmem.c                          |   14 -
- b/drivers/video/i810/i810_main.c                 |    2 
- b/fs/9p/vfs_inode.c                              |    3 
- b/fs/char_dev.c                                  |   87 -------
- b/fs/cifs/cifsencrypt.c                          |   36 +--
- b/fs/cifs/dir.c                                  |   14 +
- b/fs/compat.c                                    |    6 
- b/fs/ext3/resize.c                               |    1 
- b/fs/fuse/file.c                                 |    8 
- b/fs/locks.c                                     |   60 +++--
- b/fs/nfsd/nfs3proc.c                             |    2 
- b/fs/nfsd/nfs4proc.c                             |    2 
- b/fs/nfsd/nfsproc.c                              |    2 
- b/fs/open.c                                      |   24 +-
- b/fs/partitions/check.c                          |    5 
- b/fs/proc/base.c                                 |   21 +
- b/fs/proc/proc_misc.c                            |  163 +++-----------
- b/fs/proc/vmcore.c                               |    4 
- b/fs/reiserfs/xattr_acl.c                        |    5 
- b/fs/smbfs/dir.c                                 |    5 
- b/fs/smbfs/request.c                             |    4 
- b/fs/sysfs/dir.c                                 |    1 
- b/fs/sysfs/file.c                                |    2 
- b/fs/sysfs/inode.c                               |    6 
- b/fs/sysfs/symlink.c                             |    1 
- b/fs/xfs/linux-2.6/xfs_aops.c                    |    2 
- b/fs/xfs/linux-2.6/xfs_iops.c                    |    3 
- b/include/asm-i386/cpufeature.h                  |    1 
- b/include/asm-i386/i387.h                        |   30 ++
- b/include/asm-i386/pgtable-2level.h              |    3 
- b/include/asm-i386/pgtable-3level.h              |   20 +
- b/include/asm-i386/pgtable.h                     |    4 
- b/include/asm-m32r/smp.h                         |    3 
- b/include/asm-m32r/uaccess.h                     |  266 +++++++++--------------
- b/include/asm-mips/bitops.h                      |   14 +
- b/include/asm-mips/byteorder.h                   |    4 
- b/include/asm-mips/interrupt.h                   |    8 
- b/include/asm-mips/r4kcache.h                    |    2 
- b/include/asm-powerpc/floppy.h                   |    5 
- b/include/asm-x86_64/cpufeature.h                |    1 
- b/include/asm-x86_64/i387.h                      |   20 +
- b/include/linux/cpu.h                            |    2 
- b/include/linux/cpumask.h                        |    1 
- b/include/linux/fb.h                             |    2 
- b/include/linux/fs.h                             |   15 -
- b/include/linux/mm.h                             |    5 
- b/include/linux/page-flags.h                     |    8 
- b/include/linux/proc_fs.h                        |    2 
- b/include/linux/raid/raid1.h                     |    2 
- b/include/linux/rtc.h                            |    4 
- b/include/net/ip.h                               |    1 
- b/include/net/sctp/sctp.h                        |    6 
- b/include/net/sctp/structs.h                     |    1 
- b/ipc/shm.c                                      |    2 
- b/ipc/util.c                                     |    3 
- b/kernel/auditsc.c                               |    5 
- b/kernel/exec_domain.c                           |    1 
- b/kernel/fork.c                                  |    2 
- b/kernel/power/process.c                         |    3 
- b/kernel/ptrace.c                                |   64 +++--
- b/kernel/sched.c                                 |    9 
- b/kernel/signal.c                                |    6 
- b/kernel/sys.c                                   |   14 +
- b/kernel/uid16.c                                 |   59 +++--
- b/mm/madvise.c                                   |    3 
- b/mm/mempolicy.c                                 |    1 
- b/mm/page_alloc.c                                |   31 +-
- b/mm/shmem.c                                     |    1 
- b/mm/vmscan.c                                    |   11 
- b/net/atm/clip.c                                 |   42 ++-
- b/net/bridge/br_netfilter.c                      |   13 -
- b/net/core/dev.c                                 |    2 
- b/net/core/sock.c                                |    5 
- b/net/ipv4/fib_trie.c                            |   12 -
- b/net/ipv4/ip_output.c                           |   12 -
- b/net/ipv4/netfilter/arp_tables.c                |    2 
- b/net/ipv4/netfilter/ip_conntrack_core.c         |    1 
- b/net/ipv4/netfilter/ip_conntrack_netlink.c      |    2 
- b/net/ipv4/netfilter/ip_conntrack_proto_sctp.c   |   11 
- b/net/ipv4/netfilter/ip_nat_snmp_basic.c         |   15 -
- b/net/ipv4/netfilter/ip_tables.c                 |    2 
- b/net/ipv4/netfilter/nf_conntrack_l3proto_ipv4.c |    1 
- b/net/ipv4/route.c                               |    5 
- b/net/ipv4/tcp_output.c                          |    4 
- b/net/ipv6/exthdrs.c                             |   12 +
- b/net/ipv6/netfilter/ip6_tables.c                |    2 
- b/net/ipv6/xfrm6_policy.c                        |    8 
- b/net/netfilter/nf_conntrack_netlink.c           |    2 
- b/net/netfilter/nf_conntrack_proto_sctp.c        |   11 
- b/net/sctp/inqueue.c                             |    1 
- b/net/sctp/sm_statefuns.c                        |   65 ++++-
- b/net/sctp/sm_statetable.c                       |   10 
- b/net/sctp/ulpqueue.c                            |   27 ++
- b/security/keys/key.c                            |    4 
- b/security/keys/keyring.c                        |    1 
- b/security/selinux/ss/mls.c                      |    2 
- b/security/selinux/ss/services.c                 |    4 
- b/sound/isa/opti9xx/opti92x-ad1848.c             |    6 
- b/sound/oss/dmasound/tas_common.c                |    4 
- b/sound/pci/hda/patch_realtek.c                  |    2 
- b/sound/ppc/daca.c                               |    2 
- b/sound/ppc/tumbler.c                            |    2 
- 186 files changed, 1274 insertions(+), 1180 deletions(-)
+- To fetch an -mm tree using git, use (for example)
+
+  git fetch git://git.kernel.org/pub/scm/linux/kernel/git/smurf/linux-trees.git v2.6.16-rc2-mm1
+
+- -mm kernel commit activity can be reviewed by subscribing to the
+  mm-commits mailing list.
+
+        echo "subscribe mm-commits" | mail majordomo@vger.kernel.org
+
+- If you hit a bug in -mm and it is not obvious which patch caused it, it is
+  most valuable if you can perform a bisection search to identify which patch
+  introduced the bug.  Instructions for this process are at
+
+        http://www.zip.com.au/~akpm/linux/patches/stuff/bisecting-mm-trees.txt
+
+  But beware that this process takes some time (around ten rebuilds and
+  reboots), so consider reporting the bug first and if we cannot immediately
+  identify the faulty patch, then perform the bisection search.
+
+- When reporting bugs, please try to Cc: the relevant maintainer and mailing
+  list on any email.
+
+
+
+
+Changes since 2.6.17-rc5-mm3:
+
+
+ git-acpi.patch
+ git-agpgart.patch
+ git-alsa.patch
+ git-audit-master.patch
+ git-block.patch
+ git-cifs.patch
+ git-cpufreq.patch
+ git-dvb.patch
+ git-gfs2.patch
+ git-ia64.patch
+ git-infiniband.patch
+ git-input.patch
+ git-intelfb.patch
+ git-jfs.patch
+ git-klibc.patch
+ git-hdrcleanup.patch
+ git-hdrinstall.patch
+ git-libata-all.patch
+ git-mips.patch
+ git-mtd.patch
+ git-mtd-fixup.patch
+ git-netdev-all.patch
+ git-net.patch
+ git-nfs.patch
+ git-powerpc.patch
+ git-rbtree.patch
+ git-sas.patch
+ git-pcmcia.patch
+ git-scsi-target.patch
+ git-supertrak.patch
+ git-watchdog.patch
+ git-cryptodev.patch
+
+ git trees
+
+-nmclan_cs-dereferencing-skb-after-netif_rx.patch
+-s390-irb-memcpy-argument-swap.patch
+-s390-cio-non-unique-path-group-ids.patch
+-sparsemem-build-fix.patch
+-selinux-fix-sb_lock-sb_security_lock-nesting-was.patch
+-alpha-smp-irq-routing-fix.patch
+-fs-nameic-call-to-file_permission-under-a-spinlock-in-do_lookup_path.patch
+-fs-nameic-call-to-file_permission-under-a-spinlock-in-do_lookup_path-fix.patch
+-pmf_register_irq_client-gives-sleep-with-locks-held-warning.patch
+-implement-get--set-tso-for-forcedeth-driver.patch
+-maintainers-add-entries-for-bnx2-and-tg3.patch
+-sbp2-fix-check-of-return-value-of.patch
+-sata_sil24-sii3124-sata-driver-endian-problem.patch
+-m48t86-ia64-build-fix.patch
+-m68k-get_user-build-fix.patch
+-uml-add-asm-irqflagsh.patch
+-uml-fix-wall_to_monotonic-initialization.patch
+-uml-fix-a-typo-in-do_uml_initcalls.patch
+-uml-__user-annotation-in-arch_prctl.patch
+-uml-more-__user-annotations.patch
+-uml-add-ffreestanding-to-cflags.patch
+-blk_start_queue-must-be-called-with-irq-disabled-add-warning.patch
+-blktrace_apih-endian-annotations.patch
+-dprintk-adjustments-to-cpufreq-nforce2.patch
+-dprintk-adjustments-to-cpufreq-speedstep-centrino.patch
+-cpufreq-dprintk-adjustments.patch
+-mm-constify-drivers-char-keyboardc.patch
+-input-fix-accuracy-of-fixp-arithh.patch
+-input-use-enospc-instead-of-enomem-in-iforce-when-device-full.patch
+-for_each_possible_cpu-mips.patch
+-prevent-au1xmmcc-breakage-on-non-au1200-alchemy.patch
+-clean-up-initcall-warning-for-netconsole.patch
+-remove-dead-entry-in-net-wan-kconfig.patch
+-eliminate-unused-proc-sys-net-ethernet.patch
+-irda-missing-allocation-result-check-in-irlap_change_speed.patch
+-pppoe-missing-result-check-in-__pppoe_xmit.patch
+-lock-validator-netlinkc-netlink_table_grab-fix.patch
+-x86_64-unexport-ia32_sys_call_table.patch
+-x86_64-dont-warn-for-overflow-in-nommu-case-when-dma_mask-is-32bit-fix.patch
+
+ Merged into mainline or a subsystem tree.
+
+-fix-hpet-operation-on-32-bit-nvidia-platforms-build-fix.patch
+
+ Folded into fix-hpet-operation-on-32-bit-nvidia-platforms.patch
+
++ep93xx-build-fix.patch
++fix-mempolicyh-build-error.patch
++fbcon-fix-limited-scroll-in-scroll_pan_redraw-mode.patch
+
+ 2.6.17 queue
+
++acpi-dock-driver-acpi_get_device-fix.patch
+
+ Fix acpi-dock-driver.patch
+
++fix-possible-oops-in-cs4281-irq-handler.patch
+
+ ALSA might-fix.
+
++zoran-strncpy-cleanup.patch
+
+ zoran fix
+
++ieee1394-hl_irqs_lock-is-taken-in-hardware.patch
++ieee1394-adjust-code-formatting-in.patch
+
+ More 1394 updates
+
+-input-powermac-cleanup-of-mac_hid-and-support-for-ctrlclick-and-commandclick.patch
+
+ Dropped.
+
++input-fix-comments-and-blank-lines-in-new-ff-code.patch
+
+ input force-feedback cleanup
+
++kinit-convert--in-block-device-names-to-not.patch
++klibc-ia64-fix.patch
+
+ Fix git-klibc.patch
+
++sata_sil24-endian-anotations.patch
+
+ libata tweak
+
++lock-validator-fix-ns83820c-irq-flags-bug.patch
++lock-validator-fix-ns83820c-irq-flags-bug-part.patch
++lock-validator-fix-ns83820c-irq-flags-part-3.patch
++ipw2200-locking-fix.patch
+
+ net driver fixes
+
++bugfix-pci-legacy-i-o-port-free-driver.patch
++msi-k8t-neo2-fir-run-only-where-needed.patch
+
+ PCI fixes
+
++pcmcia-fix-kernel-doc-function-name.patch
+
+ pcmcia kerneldoc fix
+
++gregkh-usb-usb-sisusbvga-possible-cleanups-fix.patch
+
+ USB fix
+
++add-apple-macbook-product-ids-to-usbhid.patch
+
+ new device IDs
+
++x86_64-mm-optimize-bitmap-weight.patch
++x86_64-mm-check_addr-cleanups.patch
++x86_64-mm-remove-redzone-comment.patch
++x86_64-mm-spinlock-short.patch
+
+ x86_64 udpates
+
++revert-x86_64-mm-spinlock-short.patch
+
+ Fix it
+
++x86-nmi-fix.patch
++x86-nmi-fix-2.patch
+
+ Fix it some more, maybe
+
+-swapless-pm-add-r-w-migration-entries-fix-2.patch
++swapless-pm-add-r-w-migration-entries-fix.patch
+
+ Better mm fix
+
++initialise-total_memory-earlier.patch
++update-vm_total_pages-at-memory-hotadd.patch
+
+ Avoid early oops in kswapd.
+
++i386-print-stack-size-in-oops-messages.patch
+
+ Enhance x86 oops output.
+
++m68k-clean-up-uaccessh.patch
+
+ m68k build fix
+
++powerpc-implement-support-for-setting.patch
++powerpc-implement-pr_et_unalign-prctls-for-powerpc.patch
+
+ powerpc set-endianness prctl
+
++poison-add-use-more-constants.patch
+
+ use poison.h some more.
+
+-fix-kbuild-dependencies-for-synclink-drivers.patch
+
+ Dropped.
+
+-remove-dead-entry-in-net-wan-makefile.patch
++remove-dead-entry-in-net-wan-kconfig.patch
+
+ Updated
+
++load_module-cleanup.patch
+
+ cleanup
+
++radixtree-normalize-radix_tree_tag_get-return-value.patch
++#fix-irqpoll-to-honor-disable_irq.patch
++printk-time-parameter.patch
++correct-sak-description-in-sysrqtxt.patch
++add-v3020-rtc-support.patch
++add-v3020-rtc-support-tidy.patch
++correct-tty-doc.patch
++block-layer-early-detection-of-medium-not-present.patch
++scsi-core-and-sd-early-detection-of-medium-not-present.patch
++sd-early-detection-of-medium-not-present.patch
+
+ Misc
+
++fix-typo-in-drivers-isdn-hisax-q931c.patch
+
+ ISDN fix
+
++sched-mc-smt-power-savings-sched-policy.patch
+
+ multicore/SMT scheduler features
+
++fix-rt-mutex-defaults-and-dependencies.patch
+
+ rt-mutex Kconfig fixes
+
++readahead-call-scheme-fix-fastcall.patch
+
+ readahead fix
+
++hpt3x7-merge-speedproc-handlers.patch
++fix-ide-deadlock-in-error-reporting-code.patch
+
+ IDE updates
+
++gxfb-get-the-frambuffer-size-from-the-bios.patch
++detaching-fbcon-fix-vgacon-to-allow-retaking-of-the.patch
++detaching-fbcon-fix-give_up_console.patch
++detaching-fbcon-remove-calls-to-pci_disable_device.patch
++detaching-fbcon-add-sysfs-class-device-entry-for-fbcon.patch
++detaching-fbcon-clean-up-exit-code.patch
++detaching-fbcon-add-capability-to-attach-detach-fbcon.patch
++detaching-fbcon-update-documentation.patch
+
+ fbdev/fbcon updates
+
++genirq-add-irq-chip-support-misroute-irq-dont-call-desc-chip-end.patch
+
+ IRQ oops fix
+
++lock-validator-sparc64-sparc-m68k-alpha-cris-build-fix.patch
++lock-validator-floppyc-irq-release-fix-fix-fix.patch
++lock-validator-core-early_boot_irqs_-build-fix-sparc64-sparc-m68k-alpha-cris-irqtrace-build-fix.patch
++lock-validator-core-add-config_debug_non_nested_unlocks.patch
++better-lock-debugging-remove-mutex-deadlock-checking-code.patch
++lock-validator-special-locking-bdev-fix.patch
++lock-validator-special-locking-genirq-lock-validator-early_init_irq_lock_type-build-fix.patch
++lock-validator-special-locking-sctp.patch
++lock-validator-special-locking-reiser4-false-positive.patch
++lockdep-annotate-the-quota-code.patch
++lock-validator-enable-lock-validator-in-kconfig-add-config_debug_non_nested_unlocks-kconfig.patch
++lock-validator-v3.patch
++lockdep-x86-only.patch
++lockdep-really-x86-only.patch
++lockdep-really-really-x86-only.patch
+
+ Locking validator updates
+
++acpi-identify-which-device-is-not-power-manageable-fix.patch
+
+ Fix acpi-identify-which-device-is-not-power-manageable.patch
+
+
+
+All 1526 patches:
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.17-rc6/2.6.17-rc6-mm1/patch-list
+
 
