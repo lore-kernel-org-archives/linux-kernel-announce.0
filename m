@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.17.5 released
-Date: Sat, 15 Jul 2006 03:19:57 GMT
-Message-ID: <200607150319.k6F3Jv3L012123@hera.kernel.org>
+Subject: Linux kernel 2.6.17.6 released
+Date: Sat, 15 Jul 2006 19:39:10 GMT
+Message-ID: <200607151939.k6FJdA5w003390@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.17.5 has been released.  It is available from:
+Linux kernel version 2.6.17.6 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.17.5.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.5.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.17.6.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.6.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                 7994             24273
-Full source                       41276227         236615680
+Patch                                 8045             24502
+Full source                       41278452         236615680
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -44,7 +44,7 @@ The following files were changed in this release:
  drivers/scsi/libata-core.c                   |    2 -
  drivers/usb/serial/whiteheat.c               |    4 +-
  fs/ntfs/file.c                               |   13 +++++----
- fs/proc/base.c                               |    1 
+ fs/proc/base.c                               |    2 +
  include/asm-i386/alternative.h               |    2 +
  include/linux/libata.h                       |    9 ++++--
  include/linux/pfkeyv2.h                      |    2 -
@@ -65,5 +65,5 @@ The following files were changed in this release:
  net/sctp/socket.c                            |   28 ++++++++++++++++++--
  net/sctp/ulpevent.c                          |   30 ++++++++++++++++++++-
  usr/Makefile                                 |    3 --
- 32 files changed, 176 insertions(+), 59 deletions(-)
+ 32 files changed, 177 insertions(+), 59 deletions(-)
 
