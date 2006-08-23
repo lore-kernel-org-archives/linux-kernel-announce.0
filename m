@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.17.10 released
-Date: Tue, 22 Aug 2006 20:02:21 GMT
-Message-ID: <200608222002.k7MK2LhL019776@hera.kernel.org>
+Subject: Linux kernel 2.6.17.11 released
+Date: Wed, 23 Aug 2006 22:23:40 GMT
+Message-ID: <200608232223.k7NMNeZa019076@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.17.10 has been released.  It is available from:
+Linux kernel version 2.6.17.11 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.17.10.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.10.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.17.11.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.11.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                30698            109113
-Full source                       41283284         236625920
+Patch                                36809            132979
+Full source                       41288067         236625920
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -40,9 +40,12 @@ The following files were changed in this release:
  arch/i386/kernel/cpu/cpufreq/powernow-k8.c    |    2 
  arch/i386/pci/mmconfig.c                      |    9 -
  arch/ia64/Kconfig                             |    3 
+ arch/ia64/kernel/sys_ia64.c                   |   28 +--
  arch/powerpc/Kconfig                          |    3 
  arch/powerpc/kernel/cpu_setup_power4.S        |    2 
+ arch/sparc/kernel/sys_sparc.c                 |   27 +--
  arch/sparc/mm/iommu.c                         |    3 
+ arch/sparc64/kernel/sys_sparc.c               |   36 ++--
  arch/um/kernel/time_kern.c                    |    2 
  arch/x86_64/Kconfig                           |    2 
  arch/x86_64/kernel/setup.c                    |    2 
@@ -51,6 +54,7 @@ The following files were changed in this release:
  block/ll_rw_blk.c                             |    2 
  drivers/acpi/namespace/nsxfeval.c             |    5 
  drivers/cdrom/cdrom.c                         |    2 
+ drivers/char/tpm/tpm_tis.c                    |    1 
  drivers/char/tty_io.c                         |   14 +
  drivers/i2c/busses/scx200_acb.c               |   20 +-
  drivers/i2c/i2c-core.c                        |    4 
@@ -59,6 +63,8 @@ The following files were changed in this release:
  drivers/ieee1394/sbp2.c                       |    3 
  drivers/infiniband/hw/mthca/mthca_reset.c     |   59 ++++++
  drivers/input/input.c                         |    2 
+ drivers/md/dm-mpath.c                         |    3 
+ drivers/md/raid1.c                            |    4 
  drivers/media/dvb/bt8xx/dvb-bt8xx.c           |   10 +
  drivers/media/dvb/bt8xx/dvb-bt8xx.h           |    1 
  drivers/media/dvb/dvb-core/dvb_frontend.c     |   14 -
@@ -69,19 +75,23 @@ The following files were changed in this release:
  drivers/media/video/stradis.c                 |    1 
  drivers/net/e1000/e1000_hw.c                  |    1 
  drivers/net/e1000/e1000_hw.h                  |    1 
- drivers/net/sky2.c                            |    5 
+ drivers/net/sky2.c                            |    9 -
  drivers/net/via-velocity.c                    |    6 
  drivers/net/wireless/bcm43xx/bcm43xx_main.c   |   28 +--
  drivers/parport/Kconfig                       |    2 
+ drivers/pci/quirks.c                          |    2 
  drivers/pnp/resource.c                        |    3 
  drivers/scsi/libata-core.c                    |    2 
  drivers/serial/8250.c                         |   13 +
+ drivers/serial/Kconfig                        |    1 
  drivers/usb/host/uhci-q.c                     |    6 
  drivers/usb/serial/ftdi_sio.c                 |   84 ++++++++-
  drivers/usb/serial/whiteheat.c                |    4 
+ fs/befs/linuxvfs.c                            |   11 +
  fs/buffer.c                                   |    7 
  fs/ext3/inode.c                               |   19 +-
  fs/ext3/namei.c                               |   15 +
+ fs/ext3/super.c                               |   40 ++++
  fs/file.c                                     |    4 
  fs/namei.c                                    |    8 
  fs/ntfs/file.c                                |   13 -
@@ -90,8 +100,12 @@ The following files were changed in this release:
  fs/udf/super.c                                |    2 
  fs/udf/truncate.c                             |   64 ++++---
  fs/xfs/xfs_dir2_node.c                        |    2 
+ include/asm-generic/mman.h                    |    6 
  include/asm-i386/alternative.h                |    2 
+ include/asm-ia64/mman.h                       |    6 
  include/asm-s390/futex.h                      |    5 
+ include/asm-sparc/mman.h                      |    6 
+ include/asm-sparc64/mman.h                    |    6 
  include/asm-sparc64/sfp-machine.h             |    2 
  include/linux/ext3_fs.h                       |    9 +
  include/linux/libata.h                        |    9 -
@@ -104,22 +118,36 @@ The following files were changed in this release:
  kernel/exit.c                                 |    2 
  kernel/sched.c                                |   25 +-
  kernel/sys.c                                  |    2 
+ kernel/timer.c                                |   41 ----
  lib/idr.c                                     |   16 +
+ lib/spinlock_debug.c                          |   10 -
  mm/Kconfig                                    |    2 
  mm/filemap.c                                  |   27 ++-
  mm/filemap.h                                  |    4 
+ mm/mmap.c                                     |   13 +
  mm/pdflush.c                                  |   15 -
+ mm/swapfile.c                                 |    3 
  net/8021q/vlan.c                              |    8 
+ net/bridge/netfilter/ebt_ulog.c               |    3 
  net/core/dev.c                                |    1 
+ net/core/dst.c                                |    3 
  net/core/ethtool.c                            |    5 
+ net/core/rtnetlink.c                          |   15 +
  net/core/skbuff.c                             |  108 ++++++++----
  net/decnet/dn_rules.c                         |    3 
  net/ieee80211/Kconfig                         |    1 
  net/ipv4/fib_rules.c                          |    4 
+ net/ipv4/fib_semantics.c                      |   12 -
+ net/ipv4/netfilter/arp_tables.c               |    3 
  net/ipv4/netfilter/ip_conntrack_helper_h323.c |    2 
  net/ipv4/netfilter/ip_conntrack_proto_sctp.c  |    2 
+ net/ipv4/netfilter/ip_tables.c                |    3 
+ net/ipv4/netfilter/ipt_ULOG.c                 |    5 
+ net/ipv4/route.c                              |    2 
  net/ipv6/addrconf.c                           |   37 +++-
+ net/ipx/af_ipx.c                              |    3 
  net/netfilter/nf_conntrack_proto_sctp.c       |    2 
+ net/netfilter/nfnetlink_log.c                 |    3 
  net/netfilter/xt_sctp.c                       |    2 
  net/sched/act_api.c                           |   18 +-
  net/sctp/input.c                              |    3 
@@ -143,5 +171,5 @@ The following files were changed in this release:
  sound/pci/hda/patch_sigmatel.c                |    8 
  sound/pci/rme9652/hdsp.c                      |    5 
  usr/Makefile                                  |    3 
- 110 files changed, 919 insertions(+), 465 deletions(-)
+ 138 files changed, 1118 insertions(+), 566 deletions(-)
 
