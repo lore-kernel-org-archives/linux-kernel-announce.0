@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.17.12 released
-Date: Fri, 8 Sep 2006 22:21:57 GMT
-Message-ID: <200609082221.k88MLvUK014023@hera.kernel.org>
+Subject: Linux kernel 2.6.17.13 released
+Date: Sat, 9 Sep 2006 03:34:13 GMT
+Message-ID: <200609090334.k893YD0G025552@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.17.12 has been released.  It is available from:
+Linux kernel version 2.6.17.13 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.17.12.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.12.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.17.13.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.13.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                49251            183062
-Full source                       41286585         236636160
+Patch                                50025            186368
+Full source                       41287303         236636160
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -127,8 +127,10 @@ The following files were changed in this release:
  include/asm-sparc64/mman.h                    |    6 
  include/asm-sparc64/sfp-machine.h             |    2 
  include/linux/ext3_fs.h                       |    9 +
+ include/linux/idr.h                           |    1 
  include/linux/libata.h                        |    9 -
  include/linux/netfilter_bridge.h              |   16 +
+ include/linux/pci_ids.h                       |    5 
  include/linux/pfkeyv2.h                       |    2 
  include/linux/skbuff.h                        |   39 +++-
  include/net/sctp/sctp.h                       |   13 -
@@ -141,7 +143,7 @@ The following files were changed in this release:
  kernel/stop_machine.c                         |    1 
  kernel/sys.c                                  |    2 
  kernel/timer.c                                |   41 ----
- lib/idr.c                                     |   16 +
+ lib/idr.c                                     |   59 ++++++
  lib/spinlock_debug.c                          |   10 -
  lib/ts_bm.c                                   |   11 -
  mm/Kconfig                                    |    2 
@@ -200,5 +202,5 @@ The following files were changed in this release:
  sound/pci/hda/patch_sigmatel.c                |    8 
  sound/pci/rme9652/hdsp.c                      |    5 
  usr/Makefile                                  |    3 
- 167 files changed, 1554 insertions(+), 793 deletions(-)
+ 169 files changed, 1602 insertions(+), 794 deletions(-)
 
