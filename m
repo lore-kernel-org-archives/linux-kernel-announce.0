@@ -1,7 +1,7 @@
 From: Andrew Morton <akpm@osdl.org>
-Subject: 2.6.18-rc6-mm2
-Date: Tue, 12 Sep 2006 00:06:18 -0700
-Message-ID: <20060912000618.a2e2afc0.akpm@osdl.org>
+Subject: 2.6.18-rc7-mm1
+Date: Tue, 19 Sep 2006 01:28:48 -0700
+Message-ID: <20060919012848.4482666d.akpm@osdl.org>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
@@ -11,35 +11,36 @@ Content-Type: text/plain; charset="us-ascii"
 To: linux-kernel@vger.kernel.org
 
 
-ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.18-rc6/2.6.18-rc6-mm2/
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.18-rc7/2.6.18-rc7-mm1/
 
-- autofs4 mounting remains busted.
 
-- CONFIG_BLOCK=n doesn't (quite) work.  Will fix later.
+- git-input.patch has been dropped due to major mismatches between it
+  and the driver tree.
 
-- CONFIG_MSI=y is probably broken - try disabling it before reporting
-  interrupt-related oopses.  Then please report it whether or not that fixed
-  it.
+- git-alsa.patch has been dropped due to similar mismatches.
 
-- Could I point out the fifth bullet-point in the "Boilerplate" section,
-  below?
+- ia64 doesn't build due to bugs in the PCI tree.
 
-- git-cryptodev.patch is dropped due to my continuing inability to pull a
-  clean git diff (there is hope, but more work is needed)
+- The kernel doesn't work properly on RH FC3 or pretty much anything
+  which uses old udev, due to improvements in the driver tree.
 
-  - Ditto git-sas.patch
+- `make headers_check' is busted due to various bugs in various trees
+  and due to collisions between git-magic.patch and git-gfs2.patch
+  which I couldn't be bothered fixing.
 
-  - And git-audit-master.patch (I think).
+- CONFIG_BLOCK=n is still busted due to mismatches between the NFS
+  and block trees.  Will fix later.
 
-  Things will improve around the 2.6.19-rc1 timeframe.
+- NFS automounts of subdirectories remain unfixed.
 
-- 1,915 patches breaks the previous record by ~200.
+- The large-NR_IRQS-exhausts-per_cpu-memory problem remains unfixed. 
+  I won't merge the genirq changes until it is.
 
-- This kernel includes the patch to sort the PCI devices breadth-first. 
-  This might cause strange things to happen (particular devices get assigned
-  to different /dev nodes, for example).  If this is suspected, please try
-  reverting gregkh-pci-pci-sort-device-lists-breadth-first.patch then send a
-  report.
+- The i386 genirq MSI bugs have been "fixed" by disabling 4k stacks.
+
+- It took maybe ten hours solid work to get this dogpile vaguely
+  compiling and limping to a login prompt on x86, x86_64 and powerpc. 
+  I guess it's worth briefly testing if you're keen.
 
 
 
@@ -79,276 +80,483 @@ Boilerplate:
 
 
 
+Breakage since 2.6.18-rc6-mm2:
 
-Changes since 2.6.18-rc6-mm1:
 
-
- origin.patch
- git-acpi.patch
- git-alsa.patch
- git-agpgart.patch
- git-block.patch
- git-cifs.patch
- git-cpufreq.patch
- git-drm.patch
- git-dvb.patch
- git-geode.patch
- git-gfs2.patch
- git-ia64.patch
- git-ieee1394.patch
- git-infiniband.patch
- git-input.patch
- git-intelfb.patch
- git-kbuild.patch
- git-libata-all.patch
- git-lxdialog.patch
- git-mtd.patch
- git-netdev-all.patch
- git-net.patch
- git-nfs.patch
- git-ocfs2.patch
- git-parisc.patch
- git-pcmcia.patch
- git-powerpc.patch
- git-r8169.patch
- git-s390.patch
- git-scsi-misc.patch
- git-scsi-rc-fixes.patch
- git-scsi-target.patch
- git-watchdog.patch
- git-xfs.patch
-
- git trees
-
--use-the-correct-restart-option-for-futex_lock_pi.patch
--optical-proc-ide-media.patch
--sh-fix-fpn_start-typo.patch
--sis5513-add-sis-south-bridge-id-0x966.patch
--ext3_getblk-should-handle-hole-correctly.patch
--invalidate_complete_page-race-fix.patch
--nfs-large-non-page-aligned-direct-i-o-clobbers-memory.patch
--input-i8042-get-rid-of-polling-timer.patch
--asus-mv-device-ids.patch
--gregkh-usb-usb-hid-core.c-fix-duplicate-usb_device_id_gtco_404.patch
--gregkh-usb-usb-support-for-usb20svga-wh-usb20svga-dg.patch
--gregkh-usb-usb-new-device-id-for-ftdi_sio-usb-serial-driver.patch
--gregkh-usb-usb-usbtouchscreen-fix-itm-data-reading.patch
--gregkh-usb-usb-must_check-fixes.patch
--x86_64-mm-module-locks-raw-spinlock.patch
+-libata-ignore-cfa-signature-while-sanity-checking-an-atapi-device.patch
+-lockdep-double-the-number-of-stack-trace-entries.patch
+-we-can-not-allow-anonymous-contributions-to-the-kernel.patch
+-alim15x3c-m5229-rev-c8-support-for-dma-cd-writer.patch
+-scsi-lockdep-annotation-in-scsi_send_eh_cmnd.patch
+-rcu_do_batch-make-qlen-decrement-irq-safe.patch
+-x86-reserve-a-boot-loader-id-number-for-xen.patch
+-headers_check-improve-include-regexp.patch
+-headers_check-clarify-error-message.patch
+-headers_check-reduce-user-visible-noise-in-linux-nfs_fsh.patch
+-headers_check-remove-asm-timexh-from-user-export.patch
+-headers_check-move-inclusion-of-linux-linkageh-in.patch
+-headers_check-move-kernel-only-includes-within-asm-i386-elfh.patch
+-headers_check-dont-expose-pfn-stuff-to-userspace-in.patch
+-headers_check-fix-userspace-build-of-asm-mips-pageh.patch
+-cciss-version-update-new-hw.patch
+-usbserial-reference-leak.patch
+-drivers-base-check-errors.patch
+-fix-device_attribute-memory-leak-in-device_del.patch
+-git-ieee1394-fixup.patch
+-ieee1394-fix-kerneldoc-of-hpsb_alloc_host.patch
+-ieee1394-shrink-tlabel-pools-remove-tpool-semaphores.patch
+-ieee1394-remove-include-asm-semaphoreh.patch
+-ieee1394-sbp2-safer-last_orb-and.patch
+-ieee1394-sbp2-discard-return-value-of.patch
+-ieee1394-sbp2-optimize-dma-direction-of.patch
+-ieee1394-sbp2-safer-initialization-of.patch
+-ieee1394-sbp2-more-checks-of-status.patch
+-ieee1394-sbp2-convert.patch
+-video1394-add-poll-file-operation-support.patch
+-ieee1394-safer-definition-of-empty-macros.patch
+-ieee1394-sbp2-enable-auto-spin-up-for-all-sbp-2-devices.patch
+-config_pm=n-slim-drivers-ieee1394-ohci1394c.patch
+-the-scheduled-removal-of-drivers-ieee1394-sbp2cforce_inquiry_hack.patch
+-ieee1394-sbp2-handle-sbp2util_node_write_no_wait-failed.patch
+-ieee1394-sbp2-safer-agent-reset-in-error-handlers.patch
+-ieee1394-sbp2-recheck-node-generation-in-sbp2_update.patch
+-ieee1394-sbp2-better-handling-of-transport-errors.patch
+-ieee1394-sbp2-update-includes.patch
+-ieee1394-sbp2-prevent-rare-deadlock-in-shutdown.patch
+-initialize-ieee1394-early-when-built-in.patch
+-ieee1394-sbp2-more-help-in-kconfig.patch
+-ieee1394-nodemgr-fix-rwsem-recursion.patch
+-ieee1394-nodemgr-grab-classsubsysrwsem-in.patch
+-ieee1394-sbp2-dont-prefer-mode-sense-10.patch
+-ieee1394-ohci1394-fix-endianess-bug-in-debug-message.patch
+-ieee1394-ohci1394-more-obvious-endianess-handling.patch
+-maintainers-updates-to-ieee-1394-subsystem.patch
+-git-libata-all-ata_piix-build-fix.patch
+-8139cp-trim-ring_info.patch
+-8139cp-remove-gratuitous-indirection.patch
+-8139cp-ring_info-removal-for-the-receive-path.patch
+-8139cp-sync-the-device-private-data-with-its-r8169-counterpart.patch
+-8139cp-removal-of-useless-bug_on-check.patch
+-8139cp-pci_get_drvdatapdev-can-not-be-null-in-suspend-handler.patch
+-8139cp-use-pci_device-to-shorten-the-pci-device-table.patch
+-rtnetlink-fix-netdevice-name-corruption.patch
+-fix-gregkh-pci-msi-blacklist-pci-e-chipsets-depending-on-hypertransport-msi-capability.patch
+-watchdog-use-enotty-instead-of-enoioctlcmd-in-ioctl.patch
+-hostap_cs-added-support-for-proxim-harmony-pci-w-lan.patch
+-x86_64-mm-core-2-oprofile-identification.patch
+-kernel-bug-fixing-for-kernel-kmodc.patch
+-linux-magich-for-magic-numbers.patch
+-linux-magich-for-magic-numbers-sparc-fix.patch
+-knfsd-have-ext2-reject-file-handles-with-bad-inode-numbers-early.patch
+-knfsd-have-ext2-reject-file-handles-with-bad-inode-numbers-early-tidy.patch
+-knfsd-make-ext3-reject-filehandles-referring-to-invalid-inode-numbers.patch
+-knfsd-make-ext3-reject-filehandles-referring-to-invalid-inode-numbers-tidy.patch
+-pr_debug-check-pr_debug-arguments.patch
 
  Merged into mainline or a subsystem tree.
 
-+libata-ignore-cfa-signature-while-sanity-checking-an-atapi-device.patch
-+lockdep-double-the-number-of-stack-trace-entries.patch
-+we-can-not-allow-anonymous-contributions-to-the-kernel.patch
-+alim15x3c-m5229-rev-c8-support-for-dma-cd-writer.patch
-+scsi-lockdep-annotation-in-scsi_send_eh_cmnd.patch
-+rcu_do_batch-make-qlen-decrement-irq-safe.patch
-+x86-reserve-a-boot-loader-id-number-for-xen.patch
-+headers_check-improve-include-regexp.patch
-+headers_check-clarify-error-message.patch
-+headers_check-reduce-user-visible-noise-in-linux-nfs_fsh.patch
-+headers_check-remove-asm-timexh-from-user-export.patch
-+headers_check-move-inclusion-of-linux-linkageh-in.patch
-+headers_check-move-kernel-only-includes-within-asm-i386-elfh.patch
-+headers_check-dont-expose-pfn-stuff-to-userspace-in.patch
-+headers_check-fix-userspace-build-of-asm-mips-pageh.patch
-+cciss-version-update-new-hw.patch
++add-headers_check-target-to-output-of-make-help.patch
++fix-make-headers_check-on-m68k.patch
++headers_check-clean-up-asm-parisc-pageh-for-user-headers.patch
++ext2-remove-superblock-lock-contention-in-ext2_statfs-2.patch
 
- 2.6.18 queue (already sent to Linus)
+ Sent to Linus for 2.6.18.
 
-+usbserial-reference-leak.patch
++autofs4-zero-timeout-prevents-shutdown.patch
 
- USB fix (probably for 2.6.18)
+ Probably for 2.6.18.
+ 
++fix-longstanding-load-balancing-bug-in-the-scheduler.patch
 
-+jbd-fix-commit-of-ordered-data-buffers.patch
+ sched fix
 
- JBD fix (for 2.6.19 and 2.6.18.x)
++update-to-the-kernel-kmap-kunmap-api.patch
 
-+fix-incorrect-handling-of-pci-express-root-bridge-_hid.patch
+ Prepare to overload the kmap() API in probably-wrong ways.
 
- PCI fix
++sound-core-use-seek_set-cur.patch
++opl4-use-seek_set-cur.patch
++gus-use-seek_set-cur.patch
++mixart-use-seek_set-cur.patch
 
-+maintainers-updates-to-ieee-1394-subsystem.patch
+ Sound stuff.
 
- 1394 maintainers update
++cifs-use-seek_end-instead-of-hardcoded-value.patch
 
-+revert-libata-ignore-cfa-signature-while-sanity-checking-an-atapi-device.patch
+ CIFS cleanup
 
- Make git-libata-all.patch apply.
++git-cpufreq-sw_any_bug_dmi_table-can-be-used-on-resume.patch
 
-+redo-libata-ignore-cfa-signature-while-sanity-checking-an-atapi-device.patch
+ cpufreq fix
 
- Reapply this fix after git-libata-all.patch.
++gregkh-driver-driver-core-add-const-to-class_create.patch
++gregkh-driver-sysfs_symlink_in_root.patch
++gregkh-driver-class_device_interface.patch
++gregkh-driver-config_sysfs_deprecated.patch
++gregkh-driver-sound-device.patch
++gregkh-driver-ppp-device.patch
++gregkh-driver-ppdev-device.patch
++gregkh-driver-mmc-device.patch
++gregkh-driver-pcmcia-device.patch
++gregkh-driver-input-device.patch
++gregkh-driver-firmware-device.patch
++gregkh-driver-fb-device.patch
 
-+git-libata-all-ata_piix-build-fix.patch
+ Driver tree updates.
 
- Fix git-libata-all.patch.
+-revert-gregkh-driver-class_device_rename-remove.patch
+-revert-gregkh-driver-network-class_device-to-device.patch
+-revert-gregkh-driver-tty-device.patch
+-revert-gregkh-driver-mem-devices.patch
 
-+rtnetlink-fix-netdevice-name-corruption.patch
+ It became untenable to revert so many things.
 
- Fix the net-device-names-go-bad bug.
+-more-driver-core-fixes-for-mm.patch
+-yet-further-driver-core-fixes-for-mm.patch
+-return-code-checking-for-make_class_name.patch
 
-+gregkh-pci-pci-sort-device-lists-breadth-first.patch
+ Some of these were broken by driver-tree changes.
 
- PCI tree update.
++gregkh-driver-input-device-a3d-fix.patch
++gregkh-driver-input-device-more-fixes.patch
++gregkh-driver-input-device-even-more-fixes.patch
++gregkh-driver-input-device-even-more-fixes-2.patch
++gregkh-driver-fb-device-fixes.patch
++more-driver-tree-fixes.patch
 
-+gregkh-usb-usb-ub-let-cdrecord-to-see-a-device-with-media-absent.patch
-+gregkh-usb-usb-core-must_check.patch
-+gregkh-usb-usb-misc-must_check.patch
-+gregkh-usb-usb-atm-must_check.patch
-+gregkh-usb-usb-class-must_check.patch
-+gregkh-usb-usb-input-must_check.patch
-+gregkh-usb-usb-host-must_check.patch
-+gregkh-usb-usb-serial-must_check-fixes.patch
+ Fix driver-tree mess.
 
- USB tree updates.
++dvb-usb-vs-driver-tree.patch
 
-+watchdog-use-enotty-instead-of-enoioctlcmd-in-ioctl.patch
+ More.
 
- Watchdog driver fixes.
+-gregkh-i2c-i2c-isa-plan-for-removal.patch
 
-+hostap_cs-added-support-for-proxim-harmony-pci-w-lan.patch
+ Dropped due to rejects.
 
- Wireless device support.
++hdapsc-inversion-of-each-axis.patch
 
-+x86_64-mm-lockdep-stacktrace-no-recursion.patch
-+x86_64-mm-compat-pselect-must-check.patch
-+x86_64-mm-compat-uname-must-check.patch
-+x86_64-mm-pda-noreturn.patch
-+x86_64-mm-fix-idle-notifiers.patch
-+x86_64-mm-pci-probe-type1-first.patch
-+x86_64-mm-i386-acpi-mcfg-check.patch
-+x86_64-mm-acpi-mcfg-check.patch
-+x86_64-mm-remove-mcfg-dmi.patch
-+x86_64-mm-insert-gart-region-into-resource-map.patch
-+x86_64-mm-mcfg-resource.patch
-+x86_64-mm-i386-mcfg-resource.patch
-+x86_64-mm-i386-pack-descriptor.patch
-+x86_64-mm-i386-multiline-oops.patch
+ hdaps fix
 
- x86_64 tree updates.
++stowaway-keyboard-support-update.patch
++stowaway-vs-driver-tree.patch
 
-+xfs-rename-uio_read.patch
+ Fix stowaway-keyboard-support.patch
 
- Rename a function in XFS to avoid a clash.
++hdrcheck-permission-fix.patch
 
-+numa-add-zone_to_nid-function-update.patch
+ Fix `make headercheck'
 
- Improve numa-add-zone_to_nid-function.patch
+-revert-libata-ignore-cfa-signature-while-sanity-checking-an-atapi-device.patch
+-redo-libata-ignore-cfa-signature-while-sanity-checking-an-atapi-device.patch
 
-+vm-add-per-zone-writeout-counter.patch
+ Unneeded.
 
- Add new counter to /proc/vmstat: counts number of pages written out via the
- vm scanner.
++git-magic.patch
++git-magic-fixup.patch
++git-magic-fixup-2.patch
 
-+own-header-file-for-struct-page.patch
-+convert-s390-page-handling-macros-to-functions.patch
-+convert-s390-page-handling-macros-to-functions-fix.patch
+ Consolidate magic numbers.
 
- MM header file cleanups.
+-tulip-update-tulip-version.patch
 
-+frv-improve-frvs-use-of-generic-irq-handling.patch
-+frv-permit-__do_irq-to-be-dispensed-with.patch
+ Unneeded
 
- FRV update.
+-tulip-update-winbond840c-version.patch
 
-+avr32-rename-at32stk100x-atstk100x.patch
+ Merged, I think.
 
- AVR32 update
++ip100a-fix-tx-pause-bug-reset_tx-intr_handler.patch
++ip100a-change-phy-address-search-from-phy=1-to-phy=0.patch
++ip100a-correct-initial-and-close-hardware-step.patch
++ip100a-solve-host-error-problem-in-low-performance.patch
 
-+nommu-move-the-fallback-arch_vma_name-to-a-sensible-place-fix.patch
+ Net driver updates
 
- Fix nommu-move-the-fallback-arch_vma_name-to-a-sensible-place.patch
++net-ipv6-bh_lock_sock_nested-on-tcp_v6_rcv.patch
 
-+uml-tty-locking.patch
+ lockdep fix
 
- TTY locking fix
++revert-allow-file-systems-to-manually-d_move-inside-of-rename.patch
 
--lockdep-core-add-enable-disable_irq_irqsave-irqrestore-apis-frv-fix.patch
+ Revert a patch which is also in the OCFS2 tree.
 
- Folded into
- lockdep-core-add-enable-disable_irq_irqsave-irqrestore-apis.patch (I think)
++git-parisc-powerpc-fix.patch
 
-+linux-kernel-dump-test-module-fixes.patch
+ Fix broken changes to core IRQ code which are (logically) in the parisc tree.
 
- Fix linux-kernel-dump-test-module.patch
++8250-uart-backup-timer.patch
 
-+ext3-more-whitespace-cleanups.patch
-+ext3-fix-sparse-warnings.patch
-+submittingpatches-add-a-note-about-format=flowed-when-sending-patches.patch
-+kmemdup-introduce.patch
-+kmemdup-some-users.patch
-+linux-magich-for-magic-numbers.patch
-+linux-magich-for-magic-numbers-sparc-fix.patch
-+cpuset-fix-obscure-attach_task-vs-exiting-race.patch
-+create-fs-utimesc.patch
-+cciss-support-for-2tb-logical-volumes.patch
+ Serial fix.
 
- Misc updates.
++gregkh-pci-msi-rename-pci_cap_id_ht_irqconf-into-pci_cap_id_ht.patch
++gregkh-pci-pci_bridge-device.patch
 
-+add-genetlink-utilities-for-payload-length-calculation.patch
-+fix-taskstats-size-calculation-use-the-new-genetlink-utility-functions.patch
-+fix-getdelaysc-cpumask-length-and-error-reporting.patch
+ PCI tree updates
 
- taskstats fixes for the Comprehensive System Accounting patches in -mm.
++pci-quirks-update.patch
 
--vt-update-spawnpid-to-be-a-struct-pid_t.patch
--vt-update-spawnpid-to-be-a-struct-pid_t-tidy.patch
-+vt-rework-the-console-spawning-variables.patch
-+vt-make-vt_pid-a-struct-pid-making-it-pid-wrap-around-safe.patch
+ PCI fixes
 
- Updated.
+-fix-panic-when-reinserting-adaptec-pcmcia-scsi-card.patch
 
-+update-mq_notify-to-use-a-struct-pid.patch
-+file-add-locking-to-f_getown.patch
-+usb-fixup-usb-so-it-uses-struct-pid.patch
+ Dropped
 
- More pid management updates.
++bodge-scsi-misc-module-reference-count-checks-with-no-module_unload.patch
++scsi-remove-seagateh.patch
++scsi-seagate-scsi_cmnd-conversion.patch
++aha152x-fix.patch
 
-+proc-convert-task_sig-to-use-lock_task_sighand.patch
-+proc-convert-do_task_stat-to-use-lock_task_sighand.patch
-+proc-drop-tasklist-lock-in-task_state.patch
-+proc-properly-compute-tgid_offset.patch
-+proc-remove-trailing-blank-entry-from-pid_entry-arrays.patch
-+proc-remove-the-useless-smp-safe-comments-from-proc.patch
-+proc-comment-what-proc_fill_cache-does.patch
-+introduce-get_task_pid-to-fix-unsafe-get_pid.patch
+ SCSI stuff.
 
- More /porc core updates.
++revert-gregkh-usb-usbcore-remove-usb_suspend_root_hub.patch
 
-+allow-ide_generic_all-to-be-used-modular-and-built-in.patch
+ Revert broken USB patch
 
- IDE fix.
++gregkh-usb-usbcore-add-autosuspend-autoresume-infrastructure-2.patch
++microtek-usb-scanner-scsi_cmnd-conversion.patch
 
-+savagefb-use-generic-ddc-reading-fix.patch
+ USB stuff
 
- Fix savagefb-use-generic-ddc-reading.patch
++x86-remaining-pda-patches.patch
 
-+rcu-simplify-improve-batch-tuning.patch
+ Fix PDA patches in x86_64 tree.
 
- RCU tuneup.
++cleanup-radix_tree_derefreplace_slot-calling-conventions-warning-fixes.patch
 
-+pr_debug-aio-use-size_t-length-modifier-in-pr_debug-format-arguments.patch
-+pr_debug-configfs-use-size_t-length-modifier-in-pr_debug-format-argument.patch
-+pr_debug-sysfs-use-size_t-length-modifier-in-pr_debug-format-arguments.patch
-+pr_debug-umem-repair-nonexistant-bh-pr_debug-reference.patch
-+pr_debug-tipar-repair-nonexistant-pr_debug-argument-use.patch
-+pr_debug-dell_rbu-fix-pr_debug-argument-warnings.patch
-+pr_debug-ifb-replace-missing-comma-to-separate-pr_debug-arguments.patch
-+pr_debug-trident-use-size_t-length-modifier-in-pr_debug-format-arguments.patch
+ Fix cleanup-radix_tree_derefreplace_slot-calling-conventions.patch
+
+-page-migration-replace-radix_tree_lookup_slot-with-radix_tree_lockup.patch
+
+ Dropped.
+
++have-power-use-add_active_range-and-free_area_init_nodes-ppc-fix.patch
+
+ Fix have-power-use-add_active_range-and-free_area_init_nodes.patch
+
++page-invalidation-cleanup.patch
++slab-fix-kmalloc_node-applying-memory-policies-if-nodeid-==-numa_node_id.patch
++slab-fix-kmalloc_node-applying-memory-policies-if-nodeid-==-numa_node_id-fix.patch
++condense-output-of-show_free_areas.patch
++add-numa_build-definition-in-kernelh-to-avoid-ifdef.patch
++disable-gfp_thisnode-in-the-non-numa-case.patch
++gfp_thisnode-for-the-slab-allocator-v2.patch
++gfp_thisnode-for-the-slab-allocator-v2-fix.patch
++add-node-to-zone-for-the-numa-case.patch
++add-node-to-zone-for-the-numa-case-fix.patch
++get-rid-of-zone_table.patch
++get-rid-of-zone_table-fix.patch
++do-not-allocate-pagesets-for-unpopulated-zones.patch
++zone_statistics-use-hot-node-instead-of-cold-zone_pgdat.patch
++deal-with-cases-of-zone_dma-meaning-the-first-zone.patch
++introduce-config_zone_dma.patch
++optional-zone_dma-in-the-vm.patch
++optional-zone_dma-for-i386.patch
++optional-zone_dma-for-x86_64.patch
++optional-zone_dma-for-ia64.patch
++remove-zone_dma-remains-from-parisc.patch
++remove-zone_dma-remains-from-sh-sh64.patch
+
+ MM updates
+
++frv-fix-fls-to-handle-bit-31-being-set-correctly.patch
++frv-implement-fls64.patch
++frv-optimise-ffs.patch
+
+ FRV updates
+
++alchemy-delete-unused-pt_regs-argument-from-au1xxx_dbdma_chan_alloc.patch
+
+ MIPS fix
+
++avr32-dont-leave-dbe-set-when-resetting-cpu.patch
++avr32-make-prot_write-prot_exec-imply-prot_read.patch
++avr32-remove-set_wmb.patch
++avr32-use-parse_early_param.patch
++avr32-fix-exported-headers.patch
++avr32-fix-__const_udelay-overflow-bug.patch
++avr32-mtd-static-memory-controller-driver-try-2.patch
++avr32-mtd-at49bv6416-platform-device-for-atstk1000.patch
++avr32-mtd-unlock-flash-if-necessary.patch
+
+ AVR32 udpates
+
+-i386-print-stack-size-in-oops-messages.patch
+
+ Dropped due to rejects against x86_64 tree
+
++x86-restore-i8259a-eoi-status-on-resume.patch
+
+ x86 fix
+
++split-i386-and-x86_64-ptraceh.patch
++split-i386-and-x86_64-ptraceh-fix.patch
++make-uml-use-ptrace-abih.patch
+
+ UML work
+
++inode-diet-eliminate-i_blksize-and-use-a-per-superblock-default-vs-gfs2.patch
+
+ Fix gfs2 for inode-diet-eliminate-i_blksize-and-use-a-per-superblock-default.patch
+
+-sanitize-3c589_cs.patch
+
+ Dropped.
+
++blockdevc-check-errors-fix.patch
+
+ Fix blockdevc-check-errors.patch
+
++serial-fix-up-offenders-peering-at-baud-bits-directly.patch
++remove-the-old-bd_mutex-lockdep-annotation.patch
++new-bd_mutex-lockdep-annotation.patch
++codingstyle-cleanup-for-kernel-sysc.patch
++allow-proc-configgz-to-be-built-as-a-module.patch
++add-config_headers_check-option-to-automatically-run-make-headers_check.patch
++add-config_headers_check-option-to-automatically-run-make-headers_check-nobble.patch
++pci-via82cxxx_audio-use-pci_get_device.patch
++pci-cs46xx-oss-switch-to-pci_get_device.patch
++#pci-mxser-pci-refcounts.patch
++pci-piix-use-refcounted-interface-when-searching-for-a-450nx.patch
++pci-serverworks-switch-to-pci-refcounted-interfaces.patch
++pci-sis5513-switch-to-pci-refcounting.patch
++pci-mtd-switch-to-pci_get_device-and-do-ref-counting.patch
++pci-via-switch-to-pci_get_device-refcounted-pci-api.patch
++mbcs-use-seek_set-cur.patch
++eicon-isdn-removed-unused-definitions-for-os_seek_.patch
++vfs-use-seek_set-cur.patch
++proper-flags-type-of-spin_lock_irqsave.patch
+
+ Misc
+
++add-missing-page_copy-export-for-ppc-and-powerpc.patch
+
+ Fix nfs-use-local-caching-12.patch
+
+-r-o-bind-mount-clean-up-ocfs2-nlink-handling.patch
++r-o-bind-mount-clean-up-ocfs2-nlink-handling-2.patch
+
+ Updated due to changes in git-ocfs2.patch
+
+-thinkpad_ec-new-driver-for-thinkpad-embedded-controller-access.patch
+-hdaps-use-thinkpad_ec-instead-of-direct-port-access.patch
+-hdaps-unify-and-cache-hdaps-readouts.patch
+-hdaps-unify-and-cache-hdaps-readouts-fix.patch
+-hdaps-correct-readout-and-remove-nonsensical-attributes.patch
+-hdaps-remember-keyboard-and-mouse-activity.patch
+-hdaps-limit-hardware-query-rate.patch
+-hdaps-delay-calibration-to-first-hardware-query.patch
+-hdaps-add-explicit-hardware-configuration-functions.patch
+-hdaps-add-explicit-hardware-configuration-functions-fix.patch
+-hdaps-add-explicit-hardware-configuration-functions-fix-fix.patch
+-hdaps-add-new-sysfs-attributes.patch
+-hdaps-power-off-accelerometer-on-suspend-and-unload.patch
+-hdaps-stop-polling-timer-when-suspended.patch
+-hdaps-simplify-whitelist.patch
+
+ Dropped.
+
++s390-update-fs3270-to-use-a-struct-pid.patch
+
+ Fix s390 for pid patches in -mm.
+
++knfsd-replace-two-page-lists-in-struct-svc_rqst-with-one-fix.patch
+
+ Fix knfsd-replace-two-page-lists-in-struct-svc_rqst-with-one.patch
+
++scheduler-numa-aware-placement-of-sched_group_allnodes.patch
+
+ sched tweak.
+
++ecryptfs-versioning-fixes.patch
++ecryptfs-versioning-fixes-tidy.patch
+
+ ecryptfs fixes
+
++namespaces-utsname-implement-clone_newuts-flag-fix.patch
+
+ Fix namespaces-utsname-implement-clone_newuts-flag.patch
+
++rename-the-provided-execve-functions-to-kernel_execve-headers-fix.patch
+
+ Fix rename-the-provided-execve-functions-to-kernel_execve.patch some more
+
++ide-fix-crash-on-repeated-reset-tidy.patch
+
+ Clean up ide-fix-crash-on-repeated-reset.patch
+
++dm-support-ioctls-on-mapped-devices-fix-with-fake-file.patch
++dm-fix-alloc_dev-error-path.patch
++dm-snapshot-fix-invalidation-enomem.patch
++dm-snapshot-allow-zero-chunk_size.patch
++dm-snapshot-fix-metadata-error-handling.patch
++dm-snapshot-make-read-and-write-exception-functions-void.patch
++dm-snapshot-fix-metadata-writing-when-suspending.patch
++dm-snapshot-tidy-snapshot_map.patch
++dm-snapshot-tidy-pending_complete.patch
++dm-snapshot-add-workqueue.patch
++dm-snapshot-tidy-pe-ref-counting.patch
++dm-snapshot-fix-freeing-pending-exception.patch
++dm-mirror-remove-trailing-space-from-table.patch
++dm-mpath-tidy-ctr.patch
++dm-mpath-use-kzalloc.patch
++dm-add-uevent-change-event-on-resume.patch
++dm-add-debug-macro.patch
++dm-table-add-target-preresume.patch
++dm-crypt-add-key-msg.patch
++dm-crypt-restructure-for-workqueue-change.patch
++dm-crypt-restructure-write-processing.patch
++dm-crypt-move-io-to-workqueue.patch
++dm-crypt-use-private-biosets.patch
++dm-use-private-biosets.patch
++dm-extract-device-limit-setting.patch
++dm-table-add-target-flush.patch
+
+ Device mapper updates
+
++statistics-infrastructure-exploitation-zfcp-sched_clock-fix.patch
+
+ Fix statistics-infrastructure-exploitation-zfcp.patch
+
++genirq-msi-restore-__do_irq-compat-logic-temporarily.patch
+
+ Kludge around genirq MSI bugs.
+
++rcu-credits-and-maintainers.patch
+
+ RCU update
+
+-nozomi-pci_module_init-conversion.patch
+
+ Collaterally damaged by driver tree fun.
+
++pr_debug-check-pr_debug-arguments-arm-fix.patch
 +pr_debug-check-pr_debug-arguments.patch
-+isdn-debug-build-fix.patch
-+isdn-more-pr_debug-fixes.patch
 
- Make pr_debug() check its arguments even if !defined(DEBUG).  Plus fixes
- arising from this.
+ Fix pr_debug patches in -mm.
+
++mprotect-patch-for-use-by-slim.patch
++integrity-service-api-and-dummy-provider.patch
++integrity-service-api-and-dummy-provider-compilation-warning-fix.patch
++slim-main-patch.patch
++slim-main-patch-socket_post_create-hook-return-code.patch
++slim-secfs-patch.patch
++slim-make-and-config-stuff.patch
++slim-debug-output.patch
++slim-fix-security-issue-with-the-task_post_setuid-hook.patch
++slim-secfs-inode-i_private-build-fix.patch
++slim-documentation.patch
+
+ New security feature.
+
+-input_register_device-debug.patch
+
+ Dropped due to rejects.
 
 
 
+All 1979 patches:
 
-All 1915 patches:
-
-ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.18-rc6/2.6.18-rc6-mm2/patch-list
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.18-rc7/2.6.18-rc7-mm1/patch-list
 
 
