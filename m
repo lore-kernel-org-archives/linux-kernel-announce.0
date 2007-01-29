@@ -1,57 +1,299 @@
 From: Andrew Morton <akpm@osdl.org>
-Subject: Re: 2.6.20-rc6: known unfixed regressions (v2) (part 2)
-Date: Sun, 28 Jan 2007 15:21:31 -0800
-Message-ID: <20070128152131.a4354c91.akpm@osdl.org>
-References: <Pine.LNX.4.64.0701241847360.25027@woody.linux-foundation.org>
-	<20070127174230.GN6017@stusta.de>
-	<20070128133344.214070@gmx.net>
+Subject: 2.6.20-rc6-mm2
+Date: Mon, 29 Jan 2007 00:12:07 -0800
+Message-ID: <20070129001207.71ea3470.akpm@osdl.org>
 Mime-Version: 1.0
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-Return-path: <linux-ide-owner@vger.kernel.org>
-In-Reply-To: <20070128133344.214070@gmx.net>
-Sender: linux-ide-owner@vger.kernel.org
+Content-Transfer-Encoding: 7bit
+Return-path: <linux-kernel-announce-owner@vger.kernel.org>
+Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-Content-Type: text/plain; charset="utf-8"
-To: Uwe Bugla <uwe.bugla@gmx.de>
-Cc: linux-ide@vger.kernel.org, linux-kernel-announce@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, Adrian Bunk <bunk@stusta.de>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+To: linux-kernel@vger.kernel.org
 
-On Sun, 28 Jan 2007 14:33:44 +0100
-"Uwe Bugla" <uwe.bugla@gmx.de> wrote:
 
-> > Subject    : problems with CD burning
-> > References : http://www.spinics.net/lists/linux-ide/msg06545.html
-> > Submitter  : Uwe Bugla <uwe.bugla@gmx.de>
-> > Status     : unknown
-> >=20
-> >=20
->=20
-> ...
->
-> Hi everybody,
-> the problem I already reported for earlier release candidates of kern=
-el 2.6.20
-> (rc1 =E2=80=93 5) unfortunately stills persists.
->=20
-> The regression has become more extreme: While in earlier release cand=
-idates nerolinux recognized my burning devices at least after the first=
- start and then never again after all following starts the situation in=
- rc6 is different from that:
->=20
-> The CD and DVD burning devices aren=C2=B4t recognized even once and t=
-he drive seek errors I already reported are still there.
->=20
-> nerolinux runs excellently with kernel 2.6.19.2, but only shows an =E2=
-=80=9Cimage recorder=E2=80=9D (i. e. no burning device at all) in kerne=
-l 2.6.20-rc6.
->=20
-> Still hope that this terrible bug will not be part of the final versi=
-on of 2.6.20!
->=20
+Temporarily at
 
-Not sure what to do about this.  It looks like a failure in the IDE dri=
-ver.
-Perhaps you could start by telling us about the IDE hardware, which dri=
-ver
-is in use, etc.
+	http://userweb.kernel.org/~akpm/2.6.20-rc6-mm2/
 
-Is the floppy-disk bug still there?
+Will appear later at
+
+	ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.20-rc6/2.6.20-rc6-mm2/
+
+
+
+- Dropped git-block due to CFQ breakage
+
+- Dropped the fsaio patches due to their dependence on git-block.
+
+- Added the new hrtimers/dynticks patches.  This is an update of the
+  2.6.20-rc4-mm1 patches, now apparently fixed.
+
+
+
+Boilerplate:
+
+- See the `hot-fixes' directory for any important updates to this patchset.
+
+- To fetch an -mm tree using git, use (for example)
+
+  git-fetch git://git.kernel.org/pub/scm/linux/kernel/git/smurf/linux-trees.git tag v2.6.16-rc2-mm1
+  git-checkout -b local-v2.6.16-rc2-mm1 v2.6.16-rc2-mm1
+
+- -mm kernel commit activity can be reviewed by subscribing to the
+  mm-commits mailing list.
+
+        echo "subscribe mm-commits" | mail majordomo@vger.kernel.org
+
+- If you hit a bug in -mm and it is not obvious which patch caused it, it is
+  most valuable if you can perform a bisection search to identify which patch
+  introduced the bug.  Instructions for this process are at
+
+        http://www.zip.com.au/~akpm/linux/patches/stuff/bisecting-mm-trees.txt
+
+  But beware that this process takes some time (around ten rebuilds and
+  reboots), so consider reporting the bug first and if we cannot immediately
+  identify the faulty patch, then perform the bisection search.
+
+- When reporting bugs, please try to Cc: the relevant maintainer and mailing
+  list on any email.
+
+- When reporting bugs in this kernel via email, please also rewrite the
+  email Subject: in some manner to reflect the nature of the bug.  Some
+  developers filter by Subject: when looking for messages to read.
+
+- Semi-daily snapshots of the -mm lineup are uploaded to
+  ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/mm/ and are announced on
+  the mm-commits list.
+
+
+
+
+Changes since 2.6.20-rc6-mm1:
+
+
+ origin.patch
+ git-acpi.patch
+ git-ibm-acpi.patch
+ git-alsa.patch
+ git-agpgart.patch
+ git-arm.patch
+ git-avr32.patch
+ git-cpufreq.patch
+ git-powerpc.patch
+ git-drm.patch
+ git-dvb.patch
+ git-gfs2-nmw.patch
+ git-hid.patch
+ git-ieee1394.patch
+ git-infiniband.patch
+ git-input.patch
+ git-jfs.patch
+ git-libata-all.patch
+ git-lxdialog.patch
+ git-mips.patch
+ git-mmc.patch
+ git-mtd.patch
+ git-ubi.patch
+ git-netdev-all.patch
+ git-ioat.patch
+ git-ocfs2.patch
+ git-pciseg.patch
+ git-s390.patch
+ git-sh.patch
+ git-scsi-misc.patch
+ git-scsi-rc-fixes.patch
+ git-qla3xxx.patch
+ git-unionfs.patch
+ git-watchdog.patch
+ git-ipwireless_cs.patch
+ git-cryptodev.patch
+ git-gccbug.patch
+
+ git trees
+
++use-__u8-__u32-in-userspace-ioctl-defines-for-i2o.patch
++netfilter-is-subscribers-only.patch
++fix-config_x86_64_-typo-in-drivers-kvm-svmc.patch
++m68k-uaccessh-needs-schedh.patch
++fs-lockd-clntlockc-add-missing-newlines-to-dprintks.patch
++knfsd-ratelimit-some-nfsd-messages-that-are-triggered-by-external-events.patch
++use-__u8-rather-than-u8-in-userspace-size-defines-in-hdregh.patch
+
+ 2.6.20 queue.
+
++x86-fix-vdso-mapping-for-aout-executables-x86_64-fixpatch.patch
+
+ Fix x86-fix-vdso-mapping-for-aout-executables.patch some more.
+
++sound-isa-gus-gus_mainc-use-abs-instead-of-x-0-x-x.patch
+
+ ALSA fix
+
++drivers-media-video-convert-to-generic-boolean-values.patch
+
+ DVB fix
+
++fix-gfs2-circular-dependency.patch
+
+ GFS2 Kconfig fix
+
+-ehca-avoid-crash-on-kthread_create-failure.patch
+
+ Dropped
+
++sata_nv-use-adma-for-nodata-commands.patch
++fix-config_sata_sis=y-compile-error.patch
+
+ SATA fixes
+
++hp100-convert-pci_module_init-to-pci_register_driver.patch
+
+ netdev cleanup
+
++netfilter-warning-fix.patch
++nf_conntrack_h323-must-depend-on-ipv6-ipv6=n.patch
+
+ net fixes
+
++use-__u64-rather-than-u64-in-parisc-statfs-structs.patch
+
+ Fix userspace api
+
+-git-block.patch
+-git-block-fixup.patch
+-git-block-borkage.patch
+-git-block-atomicity-fix.patch
+
+ Droped.
+
++fix-gregkh-usb-usb-linux-usb_ch9h-becomes-linux-usb-ch9h.patch
+
+ USB fix
+
++pl2303-willcom-ws002in-support.patch
++use-__u32-rather-than-u32-in-userspace-ioctls-in-usbdevice_fsh.patch
+
+ USB fixes
+
++remove-final-vestiges-of-config_unwind_info.patch
+
+ x86 cleanup
+
++m68k-work-around-binutils-tokenizer-change.patch
+
+ m68k fix
+
++ext-jbd-layer-function-called-instead-of-fs-specific-one.patch
+
+ ext3/4-vs-JBD cleanup
+
++add-irq-flag-to-disable-balancing-for-an-interrupt.patch
++add-a-functions-to-handle-interrupt-affinity-setting.patch
++add-a-functions-to-handle-interrupt-affinity-setting-alpha-fix.patch
++hz-free-ntp.patch
++fix-multiple-conversion-bugs-in-msecs_to_jiffies.patch
++fix-timeout-overflow-with-jiffies.patch
++gtod-persistent-clock-support.patch
++i386-use-gtod-persistent-clock-support.patch
++i386-remove-useless-code-in-tscc.patch
++simplify-the-registration-of-clocksources.patch
++x86-rewrite-smp-tsc-sync-code.patch
++clocksource-replace-is_continuous-by-a-flag-field.patch
++clocksource-replace-is_continuous-by-a-flag-field-fix.patch
++clocksource-fixup-is_continous-changes-on-arm.patch
++clocksource-fixup-is_continous-changes-on-avr32.patch
++clocksource-fixup-is_continous-changes-on-s390.patch
++clocksource-fixup-is_continous-changes-on-mips.patch
++clocksource-remove-the-update-callback.patch
++clocksource-add-verification-watchdog-helper.patch
++mark-tsc-on-geodelx-reliable.patch
++uninline-irq_enter.patch
++fix-cascade-lookup-of-next_timer_interrupt.patch
++extend-next_timer_interrupt-to-use-a-reference-jiffie.patch
++hrtimers-namespace-and-enum-cleanup.patch
++hrtimers-namespace-and-enum-cleanup-vs-git-input.patch
++hrtimers-cleanup-locking.patch
++hrtimers-add-state-tracking.patch
++hrtimers-clean-up-callback-tracking.patch
++hrtimers-move-and-add-documentation.patch
++acpi-fix-missing-include-for-up.patch
++acpi-keep-track-of-timer-broadcasting.patch
++allow-early-access-to-the-power-management-timer.patch
++i386-apic-clean-up-the-apic-code.patch
++clockevents-add-core-functionality.patch
++tick-management-core-functionality.patch
++tick-management-broadcast-functionality.patch
++tick-management-dyntick--highres-functionality.patch
++clockevents-i383-drivers.patch
++i386-rework-local-apic-timer-calibration.patch
++i386-prepare-for-dyntick.patch
++i386-prepare-nmi-watchdog-for-dynticks.patch
++i386-enable-dynticks-in-kconfig.patch
++hrtimers-add-high-resolution-timer-support.patch
++hrtimers-prevent-possible-itimer-dos.patch
++add-debugging-feature-proc-timer_stat.patch
++add-debugging-feature-proc-timer_list.patch
++add-sysrq-q-to-print-timer_list-debug-info.patch
+
+ New hrtimers/dynticks patches
+
++generic-vsyscall-gtod-support-for-generic_time.patch
++generic-vsyscall-gtod-support-for-generic_time-tidy.patch
++time-x86_64-hpet_address-cleanup.patch
++revert-x86_64-mm-ignore-long-smi-interrupts-in-clock-calibration.patch
++time-x86_64-split-x86_64-kernel-timec-up.patch
++time-x86_64-split-x86_64-kernel-timec-up-tidy.patch
++time-x86_64-split-x86_64-kernel-timec-up-fix.patch
++reapply-x86_64-mm-ignore-long-smi-interrupts-in-clock-calibration.patch
++time-x86_64-convert-x86_64-to-use-generic_time.patch
++time-x86_64-convert-x86_64-to-use-generic_time-fix.patch
++time-x86_64-convert-x86_64-to-use-generic_time-tidy.patch
++time-x86_64-hpet-fixup-clocksource-changes.patch
++time-x86_64-tsc-fixup-clocksource-changes.patch
++time-x86_64-re-enable-vsyscall-support-for-x86_64.patch
++time-x86_64-re-enable-vsyscall-support-for-x86_64-tidy.patch
+
+ Bring these back.
+
+-kblockd-use-flush_work.patch
+
+ temporarily dropped due to git-block droppage.
+
++isdn-rename-some-debugging-macros-to-not-resemble-config.patch
++isdn-rename-debug-option-config_serial_nopause_io.patch
++isdn-remove-defunct-test-emulator.patch
++isdn-rename-special-macro-config_hisax_hfc4s8s_pcimem.patch
++drivers-isdn-hardware-eicon-convert-to-generic-boolean-values.patch
++drivers-isdn-hisax-convert-to-generic-boolean-values.patch
+
+ ISDN cleanups
+
+-fsaio-add-a-wait-queue-arg-to-the-wait_bit-action-routine.patch
+-fsaio-add-a-wait-queue-arg-to-the-wait_bit-action-routine-gfs2-fix.patch
+-fsaio-rename-__lock_page-to-lock_page_blocking.patch
+-fsaio-interfaces-to-initialize-and-to-test-a-wait-bit-key.patch
+-fsaio-add-a-default-io-wait-bit-field-in-task-struct.patch
+-fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio.patch
+-fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio-fix.patch
+-fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio-fix-sparse-fix.patch
+-fsaio-enable-asynchronous-wait-page-and-lock-page.patch
+-fsaio-filesystem-aio-read.patch
+-fsaio-aio-o_sync-filesystem-write.patch
+
+ temporarily dropped due to git-block droppage.
+
+-sysctl-remove-the-proc_dir_entry-member-for-the-sysctl-tables-hack.patch
+
+ Dropped
+
++sysctl-remove-the-proc_dir_entry-member-for-the-sysctl-tables-fix.patch
+
+ Fix sysctl-remove-the-proc_dir_entry-member-for-the-sysctl-tables.patch
+
+
+
+All 1449 patches:
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.20-rc6/2.6.20-rc6-mm2/patch-list
+
+
