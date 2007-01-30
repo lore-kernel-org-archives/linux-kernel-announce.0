@@ -1,7 +1,7 @@
 From: Andrew Morton <akpm@osdl.org>
-Subject: 2.6.20-rc6-mm2
-Date: Mon, 29 Jan 2007 00:12:07 -0800
-Message-ID: <20070129001207.71ea3470.akpm@osdl.org>
+Subject: 2.6.20-rc6-mm3
+Date: Mon, 29 Jan 2007 20:45:28 -0800
+Message-ID: <20070129204528.eb8d695e.akpm@osdl.org>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
@@ -13,20 +13,25 @@ To: linux-kernel@vger.kernel.org
 
 Temporarily at
 
-	http://userweb.kernel.org/~akpm/2.6.20-rc6-mm2/
+	http://userweb.kernel.org/~akpm/2.6.20-rc6-mm3/
 
 Will appear later at
 
-	ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.20-rc6/2.6.20-rc6-mm2/
+	ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.20-rc6/2.6.20-rc6-mm3/
 
 
+- Restored git-block.patch: mainly the block unplugging rework.  The
+  problematic CFQ updates have been taken out.
 
-- Dropped git-block due to CFQ breakage
+- Restored the fsaio patches as a consequence.
 
-- Dropped the fsaio patches due to their dependence on git-block.
+- A huge ACPI update.
 
-- Added the new hrtimers/dynticks patches.  This is an update of the
-  2.6.20-rc4-mm1 patches, now apparently fixed.
+- A decent number of x86 patches have been temporarily dropped due to their
+  clash against the ACPI update.
+
+- A few problems reported against 2.6.20-rc6-mm2 have been fixed.
+
 
 
 
@@ -66,10 +71,7 @@ Boilerplate:
   the mm-commits list.
 
 
-
-
-Changes since 2.6.20-rc6-mm1:
-
+Changes since 2.6.20-rc6-mm2:
 
  origin.patch
  git-acpi.patch
@@ -95,6 +97,7 @@ Changes since 2.6.20-rc6-mm1:
  git-mtd.patch
  git-ubi.patch
  git-netdev-all.patch
+ git-net.patch
  git-ioat.patch
  git-ocfs2.patch
  git-pciseg.patch
@@ -102,6 +105,7 @@ Changes since 2.6.20-rc6-mm1:
  git-sh.patch
  git-scsi-misc.patch
  git-scsi-rc-fixes.patch
+ git-block.patch
  git-qla3xxx.patch
  git-unionfs.patch
  git-watchdog.patch
@@ -111,189 +115,220 @@ Changes since 2.6.20-rc6-mm1:
 
  git trees
 
-+use-__u8-__u32-in-userspace-ioctl-defines-for-i2o.patch
-+netfilter-is-subscribers-only.patch
-+fix-config_x86_64_-typo-in-drivers-kvm-svmc.patch
-+m68k-uaccessh-needs-schedh.patch
-+fs-lockd-clntlockc-add-missing-newlines-to-dprintks.patch
-+knfsd-ratelimit-some-nfsd-messages-that-are-triggered-by-external-events.patch
-+use-__u8-rather-than-u8-in-userspace-size-defines-in-hdregh.patch
+-bonding-arp-monitoring-broken-on-x86_64.patch
+-powerpc-fix-sys_pciconfig_iobase-bus-matching.patch
+-netfilter-is-subscribers-only.patch
+-remove-useless-reference-to-obsolete-kerneld.patch
+-sound-isa-gus-gus_mainc-use-abs-instead-of-x-0-x-x.patch
+-fix-gfs2-circular-dependency.patch
+-git-ieee1494-build-fix.patch
+-git-netdev-all-fixup.patch
+-pnpacpi-remove-experimental-dependency.patch
+-cdevh-forward-declarations.patch
+
+ Merged into mainline or a subsystem tree.
+
++fuse-fix-bug-in-control-filesystem-mount.patch
++cdevh-forward-declarations.patch
++fix-via-irq-quirk-breakage.patch
++i386-in-assign_irq_vector-look-at-all-vectors-before-giving-up.patch
++translate-dashes-in-filenames-for-headers-install.patch
++remove-warning-vfs-is-out-of-sync-with-lock-manager.patch
++scsi_ioctl-sg_io-timeout-conversion-fix.patch
++fix-for-patch-ecdfc9787fe527491baefc22dce8b2dbd5b2908d.patch
 
  2.6.20 queue.
 
-+x86-fix-vdso-mapping-for-aout-executables-x86_64-fixpatch.patch
++enable-mouse-button-23-emulation-for-x86-macs.patch
 
- Fix x86-fix-vdso-mapping-for-aout-executables.patch some more.
+ Might be 2.6.20.
 
-+sound-isa-gus-gus_mainc-use-abs-instead-of-x-0-x-x.patch
+-x86-fix-vdso-mapping-for-aout-executables-fixes.patch
+-x86-fix-vdso-mapping-for-aout-executables-fixes-2.patch
+-x86-fix-vdso-mapping-for-aout-executables-cleanups.patch
+-x86-fix-vdso-mapping-for-aout-executables-doh.patch
+-x86-fix-vdso-mapping-for-aout-executables-sh-fix.patch
+-x86-fix-vdso-mapping-for-aout-executables-x86_64-fixpatch.patch
 
- ALSA fix
+ Folded into x86-fix-vdso-mapping-for-aout-executables.patch
 
-+drivers-media-video-convert-to-generic-boolean-values.patch
++acpi-updates-rtc-cmos-device-platform_data-vs-git-acpi.patch
 
- DVB fix
+ Update acpi-updates-rtc-cmos-device-platform_data.patch for git-acpi.
 
-+fix-gfs2-circular-dependency.patch
++drivers-acpi-hotkeyc-make-2-structs-static.patch
 
- GFS2 Kconfig fix
+ ACPI cleanup
 
--ehca-avoid-crash-on-kthread_create-failure.patch
++powerpc-rtas-msi-support.patch
 
- Dropped
+ powerpc MSI support
 
-+sata_nv-use-adma-for-nodata-commands.patch
-+fix-config_sata_sis=y-compile-error.patch
++spider-fix-gregkh-driver-network-device.patch
 
- SATA fixes
+ Fix gregkh patch
 
-+hp100-convert-pci_module_init-to-pci_register_driver.patch
++drivers-media-video-cafe_ccicc-fix-warning.patch
++cx88-videoc-remove-struct-radionorms.patch
++if-0-v4l_printk_ioctl_arg.patch
 
- netdev cleanup
+ DVB things
 
-+netfilter-warning-fix.patch
-+nf_conntrack_h323-must-depend-on-ipv6-ipv6=n.patch
++tsl2550-support-i2c-device-driver.patch
 
- net fixes
+ I2C driver
 
-+use-__u64-rather-than-u64-in-parisc-statfs-structs.patch
++config_input_debug-improvements.patch
 
- Fix userspace api
+ input Kconfig tweaks
 
--git-block.patch
--git-block-fixup.patch
--git-block-borkage.patch
--git-block-atomicity-fix.patch
++make-help-in-build-tree-doesnt-show-headers_-targets.patch
++kbuild-remove-references-to-deprecated-prepare-all-target.patch
++new-toplevel-target-headers_check_all.patch
 
- Droped.
+ kbuild things
 
-+fix-gregkh-usb-usb-linux-usb_ch9h-becomes-linux-usb-ch9h.patch
++libata-fix-translation-for-start-stop-unit.patch
 
- USB fix
+ libata fix
 
-+pl2303-willcom-ws002in-support.patch
-+use-__u32-rather-than-u32-in-userspace-ioctls-in-usbdevice_fsh.patch
++ehea-fixed-wrong-jumbo-frames-status-query.patch
++ehea-fixed-missing-tasklet_kill-call.patch
++sky2-fix-msi-related-resume-breakage.patch
 
- USB fixes
+ netdev fixes
 
-+remove-final-vestiges-of-config_unwind_info.patch
++bonding-arp-monitoring-broken-on-x86_64.patch
 
- x86 cleanup
+ net fix
 
-+m68k-work-around-binutils-tokenizer-change.patch
++fix-i-oat-for-kexec.patch
 
- m68k fix
+ Fix IOAT driver.
 
-+ext-jbd-layer-function-called-instead-of-fs-specific-one.patch
++git-block-fixup.patch
++git-block-borkage.patch
++git-block-atomicity-fix.patch
 
- ext3/4-vs-JBD cleanup
+ Restore git-block fixes
 
-+add-irq-flag-to-disable-balancing-for-an-interrupt.patch
-+add-a-functions-to-handle-interrupt-affinity-setting.patch
-+add-a-functions-to-handle-interrupt-affinity-setting-alpha-fix.patch
-+hz-free-ntp.patch
-+fix-multiple-conversion-bugs-in-msecs_to_jiffies.patch
-+fix-timeout-overflow-with-jiffies.patch
-+gtod-persistent-clock-support.patch
-+i386-use-gtod-persistent-clock-support.patch
-+i386-remove-useless-code-in-tscc.patch
-+simplify-the-registration-of-clocksources.patch
-+x86-rewrite-smp-tsc-sync-code.patch
-+clocksource-replace-is_continuous-by-a-flag-field.patch
-+clocksource-replace-is_continuous-by-a-flag-field-fix.patch
-+clocksource-fixup-is_continous-changes-on-arm.patch
-+clocksource-fixup-is_continous-changes-on-avr32.patch
-+clocksource-fixup-is_continous-changes-on-s390.patch
-+clocksource-fixup-is_continous-changes-on-mips.patch
-+clocksource-remove-the-update-callback.patch
-+clocksource-add-verification-watchdog-helper.patch
-+mark-tsc-on-geodelx-reliable.patch
-+uninline-irq_enter.patch
-+fix-cascade-lookup-of-next_timer_interrupt.patch
-+extend-next_timer_interrupt-to-use-a-reference-jiffie.patch
-+hrtimers-namespace-and-enum-cleanup.patch
-+hrtimers-namespace-and-enum-cleanup-vs-git-input.patch
-+hrtimers-cleanup-locking.patch
-+hrtimers-add-state-tracking.patch
-+hrtimers-clean-up-callback-tracking.patch
-+hrtimers-move-and-add-documentation.patch
-+acpi-fix-missing-include-for-up.patch
-+acpi-keep-track-of-timer-broadcasting.patch
-+allow-early-access-to-the-power-management-timer.patch
-+i386-apic-clean-up-the-apic-code.patch
-+clockevents-add-core-functionality.patch
-+tick-management-core-functionality.patch
-+tick-management-broadcast-functionality.patch
-+tick-management-dyntick--highres-functionality.patch
-+clockevents-i383-drivers.patch
-+i386-rework-local-apic-timer-calibration.patch
-+i386-prepare-for-dyntick.patch
-+i386-prepare-nmi-watchdog-for-dynticks.patch
-+i386-enable-dynticks-in-kconfig.patch
-+hrtimers-add-high-resolution-timer-support.patch
-+hrtimers-prevent-possible-itimer-dos.patch
-+add-debugging-feature-proc-timer_stat.patch
-+add-debugging-feature-proc-timer_list.patch
-+add-sysrq-q-to-print-timer_list-debug-info.patch
++drivers-char-pcmcia-ipwireless_cs_-possible-cleanups.patch
 
- New hrtimers/dynticks patches
+ Fix git-ipwireless_cs.patch
 
-+generic-vsyscall-gtod-support-for-generic_time.patch
-+generic-vsyscall-gtod-support-for-generic_time-tidy.patch
-+time-x86_64-hpet_address-cleanup.patch
-+revert-x86_64-mm-ignore-long-smi-interrupts-in-clock-calibration.patch
-+time-x86_64-split-x86_64-kernel-timec-up.patch
-+time-x86_64-split-x86_64-kernel-timec-up-tidy.patch
-+time-x86_64-split-x86_64-kernel-timec-up-fix.patch
-+reapply-x86_64-mm-ignore-long-smi-interrupts-in-clock-calibration.patch
-+time-x86_64-convert-x86_64-to-use-generic_time.patch
-+time-x86_64-convert-x86_64-to-use-generic_time-fix.patch
-+time-x86_64-convert-x86_64-to-use-generic_time-tidy.patch
-+time-x86_64-hpet-fixup-clocksource-changes.patch
-+time-x86_64-tsc-fixup-clocksource-changes.patch
-+time-x86_64-re-enable-vsyscall-support-for-x86_64.patch
-+time-x86_64-re-enable-vsyscall-support-for-x86_64-tidy.patch
+-x86_64-mm-amd-tsc-sync.patch
+-x86_64-mm-always-use-physical-delivery-mode-on-8-cpus.patch
+-x86_64-mm-remove-es7000-workaround.patch
+-x86_64-mm-remove-clustered-apic-mode.patch
+-x86_64-mm-default-to-physical-mode-on-hotplug-cpu-kernels.patch
+-x86_64-mm-share-whats-shareable.patch
+-x86_64-mm-only-call-unreachable_devices-when-type-1-is-available.patch
+-x86_64-mm-only-map-whats-necessary.patch
+-x86_64-mm-detect-and-support-the-e7520-and-the-945g-gz-p-pl.patch
+-x86_64-mm-reserve-resources-but-only-when-were-sure-about-them.patch
+-x86_64-mm-fix-x86_64-ioremap-base_address.patch
+-x86_64-mm-reject-a-broken-mcfg-tables-on-asus-etc.patch
+-x86_64-mm-readd-fadt-physflat.patch
 
- Bring these back.
+ Temporarily dropped due to clashes with new git-acpi tree.
 
--kblockd-use-flush_work.patch
+-mmconfig-cleanup.patch
+-mmconfig-fix-unreachable_devices.patch
+-i386-modpost-apic-related-warning-fixes.patch
 
- temporarily dropped due to git-block droppage.
+ Ditto.
 
-+isdn-rename-some-debugging-macros-to-not-resemble-config.patch
-+isdn-rename-debug-option-config_serial_nopause_io.patch
-+isdn-remove-defunct-test-emulator.patch
-+isdn-rename-special-macro-config_hisax_hfc4s8s_pcimem.patch
-+drivers-isdn-hardware-eicon-convert-to-generic-boolean-values.patch
-+drivers-isdn-hisax-convert-to-generic-boolean-values.patch
-
- ISDN cleanups
-
--fsaio-add-a-wait-queue-arg-to-the-wait_bit-action-routine.patch
--fsaio-add-a-wait-queue-arg-to-the-wait_bit-action-routine-gfs2-fix.patch
--fsaio-rename-__lock_page-to-lock_page_blocking.patch
--fsaio-interfaces-to-initialize-and-to-test-a-wait-bit-key.patch
--fsaio-add-a-default-io-wait-bit-field-in-task-struct.patch
--fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio.patch
--fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio-fix.patch
--fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio-fix-sparse-fix.patch
--fsaio-enable-asynchronous-wait-page-and-lock-page.patch
--fsaio-filesystem-aio-read.patch
--fsaio-aio-o_sync-filesystem-write.patch
-
- temporarily dropped due to git-block droppage.
-
--sysctl-remove-the-proc_dir_entry-member-for-the-sysctl-tables-hack.patch
+-remove-final-vestiges-of-config_unwind_info.patch
 
  Dropped
 
-+sysctl-remove-the-proc_dir_entry-member-for-the-sysctl-tables-fix.patch
++i386-probe_roms-cleanup.patch
++x86_64-sync-up-probe_roms-with-i386.patch
++i386-add-option-to-show-more-code-in-oops-reports.patch
++use-__u32-in-asm-x86_64-msrh.patch
++cleanup-x86_64-mm-vmi-timer.patch
 
- Fix sysctl-remove-the-proc_dir_entry-member-for-the-sysctl-tables.patch
+ x86 updates.
+
++page_mkwrite-race-fix.patch
+
+ VM fix
+
++sn2-use-static-proc_fops.patch
+
+ ia64 cleanup
+
++replace-highest_possible_node_id-with-nr_node_ids-fix.patch
++convert-highest_possible_processor_id-to-nr_cpu_ids.patch
+
+ Fix patches in -mm.
+
+-mm-search_binary_handler-mem-limit-fix.patch
+
+ Dropped.
+
++highmem-catch-illegal-nesting.patch
++change-constant-zero-to-notify_done-in-ratelimit_handler.patch
+
+ Misc updates.
+
++tick-management-dyntick--highres-functionality-fix.patch
++tick-management-dyntick--highres-functionality-fix-2.patch
+
+ Fix tick-management-dyntick--highres-functionality.patch
+
++kblockd-use-flush_work.patch
+
+ Restore this due to git-block restoration.
+
++ecryptfs-generalize-metadata-read-write-fs-ecryptfs-make-code-static.patch
+
+ Fix ecryptfs-generalize-metadata-read-write.patch
+
++fsaio-add-a-wait-queue-arg-to-the-wait_bit-action-routine.patch
++fsaio-add-a-wait-queue-arg-to-the-wait_bit-action-routine-gfs2-fix.patch
++fsaio-rename-__lock_page-to-lock_page_blocking.patch
++fsaio-interfaces-to-initialize-and-to-test-a-wait-bit-key.patch
++fsaio-add-a-default-io-wait-bit-field-in-task-struct.patch
++fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio.patch
++fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio-fix.patch
++fsaio-enable-wait-bit-based-filtered-wakeups-to-work-for-aio-fix-sparse-fix.patch
++fsaio-enable-asynchronous-wait-page-and-lock-page.patch
++fsaio-filesystem-aio-read.patch
++fsaio-aio-o_sync-filesystem-write.patch
+
+ Restore these due to git-block restoration.
+
++rcu-debug-trace-for-rcu-fix.patch
++rcu-debug-trace-for-rcu-fix-2.patch
+
+ Fix rcu-debug-trace-for-rcu.patch
+
++ufs2-write-mount-as-rw.patch
++ufs2-write-inodes-write.patch
++ufs2-write-block-allocation-update.patch
+
+ UFS2 write support.
+
++readahead-min-max-sizes-increase-vm_min_readahead-to-32kb.patch
++readahead-state-based-method-prevent-tiny-size.patch
++readahead-state-based-method-move-readahead_ratio-out-of-compute_thrashing_threshold.patch
++readahead-initial-method-user-recommended-size-rename-to-read_ahead_initial_kb.patch
++readahead-thrashing-recovery-method-fix.patch
++readahead-call-scheme-fix-thrashed-unaligned-read.patch
++readahead-laptop-mode-fix.patch
+
+ Update readahead patches in -mm.
+
++sysctl-move-utsname-sysctls-to-their-own-file-fix.patch
+
+ Fix sysctl-move-utsname-sysctls-to-their-own-file.patch
 
 
 
-All 1449 patches:
+All 1487 patches:
 
-ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.20-rc6/2.6.20-rc6-mm2/patch-list
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.20-rc6/2.6.20-rc6-mm3/patch-list
 
 
