@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.20.5 released
-Date: Fri, 6 Apr 2007 11:03:16 GMT
-Message-ID: <200704061103.l36B3Gn5019210@hera.kernel.org>
+Subject: Linux kernel 2.6.20.6 released
+Date: Fri, 6 Apr 2007 20:26:45 GMT
+Message-ID: <200704062026.l36KQjcs013670@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.20.5 has been released.  It is available from:
+Linux kernel version 2.6.20.6 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.20.5.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.20.5.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.20.6.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.20.6.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                69365            279666
-Full source                       43375934         250357760
+Patch                                69390            279674
+Full source                       43388391         250357760
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
