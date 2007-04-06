@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.20.4 released
-Date: Fri, 23 Mar 2007 20:20:13 GMT
-Message-ID: <200703232020.l2NKKD3k031706@hera.kernel.org>
+Subject: Linux kernel 2.6.20.5 released
+Date: Fri, 6 Apr 2007 11:03:16 GMT
+Message-ID: <200704061103.l36B3Gn5019210@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.20.4 has been released.  It is available from:
+Linux kernel version 2.6.20.5 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.20.4.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.20.4.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.20.5.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.20.5.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                54842            220289
-Full source                       43373415         250347520
+Patch                                69365            279666
+Full source                       43375934         250357760
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -56,19 +56,30 @@ The following files were changed in this release:
  arch/sparc64/mm/hugetlbpage.c                    |    3 
  arch/sparc64/mm/init.c                           |   30 +++-
  arch/um/include/os.h                             |    2 
+ arch/um/include/sysdep-x86_64/ptrace.h           |    4 
+ arch/um/os-Linux/elf_aux.c                       |    3 
  arch/um/os-Linux/sigio.c                         |   38 ++---
+ arch/um/os-Linux/skas/mem.c                      |   10 -
+ arch/um/os-Linux/skas/process.c                  |    6 
+ arch/um/os-Linux/sys-i386/registers.c            |    5 
  arch/um/os-Linux/sys-x86_64/Makefile             |    2 
  arch/um/os-Linux/sys-x86_64/prctl.c              |   12 +
+ arch/um/os-Linux/sys-x86_64/registers.c          |    4 
+ arch/um/sys-i386/delay.c                         |   11 -
+ arch/um/sys-x86_64/delay.c                       |   11 -
  arch/um/sys-x86_64/syscalls.c                    |   76 +++++++---
  arch/um/sys-x86_64/tls.c                         |   11 -
  arch/x86_64/ia32/ia32_signal.c                   |    7 
  arch/x86_64/ia32/ptrace32.c                      |    1 
  arch/x86_64/kernel/irq.c                         |   12 +
  block/ll_rw_blk.c                                |    2 
+ crypto/scatterwalk.c                             |    4 
  drivers/Makefile                                 |    2 
  drivers/ata/ahci.c                               |   14 +
  drivers/ata/ata_generic.c                        |    4 
  drivers/ata/ata_piix.c                           |    4 
+ drivers/ata/libata-core.c                        |   11 +
+ drivers/ata/libata-scsi.c                        |    1 
  drivers/ata/pata_ali.c                           |    6 
  drivers/ata/pata_amd.c                           |   10 +
  drivers/ata/pata_atiixp.c                        |    4 
@@ -98,16 +109,25 @@ The following files were changed in this release:
  drivers/ata/pata_sis.c                           |    4 
  drivers/ata/pata_triflex.c                       |    4 
  drivers/ata/pata_via.c                           |    6 
+ drivers/ata/sata_mv.c                            |   31 ++--
+ drivers/ata/sata_nv.c                            |   10 +
  drivers/ata/sata_sil.c                           |   10 +
  drivers/ata/sata_sil24.c                         |    2 
  drivers/block/pktcdvd.c                          |    2 
  drivers/char/agp/intel-agp.c                     |   14 +
+ drivers/char/generic_serial.c                    |    7 
  drivers/char/pcmcia/cm4040_cs.c                  |    3 
  drivers/char/specialix.c                         |    2 
  drivers/char/tty_io.c                            |   14 +
  drivers/connector/connector.c                    |   22 +-
  drivers/hid/hid-core.c                           |    5 
- drivers/ide/ide-iops.c                           |    2 
+ drivers/ide/ide-cd.c                             |   15 +-
+ drivers/ide/ide-io.c                             |   11 +
+ drivers/ide/ide-iops.c                           |   11 +
+ drivers/ide/ide.c                                |    1 
+ drivers/ide/pci/jmicron.c                        |   29 +++
+ drivers/ide/pci/piix.c                           |   67 ++++++---
+ drivers/ieee1394/dv1394.c                        |   12 -
  drivers/ieee1394/nodemgr.c                       |   24 ++-
  drivers/ieee1394/video1394.c                     |    8 +
  drivers/input/mouse/psmouse-base.c               |   28 +++
@@ -120,18 +140,27 @@ The following files were changed in this release:
  drivers/md/linear.c                              |    2 
  drivers/md/raid10.c                              |   38 ++---
  drivers/md/raid5.c                               |   42 +++++
- drivers/media/dvb/dvb-core/dvbdev.c              |   13 +
+ drivers/media/dvb/dvb-core/dmxdev.c              |   12 -
+ drivers/media/dvb/dvb-core/dvb_demux.c           |   21 --
+ drivers/media/dvb/dvb-core/dvbdev.c              |   22 ++
  drivers/media/dvb/dvb-usb/cxusb.c                |    4 
  drivers/media/dvb/dvb-usb/digitv.c               |    2 
+ drivers/media/dvb/frontends/isl6421.c            |    1 
+ drivers/media/dvb/frontends/nxt200x.c            |    4 
+ drivers/media/radio/Kconfig                      |    2 
  drivers/media/video/cx25840/cx25840-core.c       |    4 
  drivers/media/video/cx25840/cx25840-firmware.c   |    2 
  drivers/media/video/cx88/cx88-blackbird.c        |   14 +
  drivers/media/video/cx88/cx88.h                  |    1 
+ drivers/media/video/msp3400-driver.c             |    4 
  drivers/media/video/pvrusb2/pvrusb2-encoder.c    |   40 +++++
  drivers/media/video/pvrusb2/pvrusb2-hdw.c        |   33 ++--
+ drivers/media/video/saa7115.c                    |    2 
+ drivers/message/i2o/i2o_block.c                  |   12 -
  drivers/mmc/sdhci.c                              |   22 ++
  drivers/mtd/redboot.c                            |   19 ++
  drivers/net/forcedeth.c                          |    2 
+ drivers/net/ppp_generic.c                        |    3 
  drivers/net/r8169.c                              |   10 -
  drivers/net/sky2.c                               |    6 
  drivers/net/sky2.h                               |    2 
@@ -158,9 +187,12 @@ The following files were changed in this release:
  drivers/usb/net/usbnet.c                         |    7 
  drivers/usb/serial/keyspan.c                     |   49 ++++++
  drivers/video/aty/mach64_ct.c                    |    3 
+ drivers/video/ffb.c                              |   84 ++++++++---
  fs/9p/vfs_inode.c                                |    7 
  fs/binfmt_elf.c                                  |    3 
  fs/buffer.c                                      |    1 
+ fs/cifs/inode.c                                  |   21 ++
+ fs/cifs/readdir.c                                |    4 
  fs/ext2/super.c                                  |    4 
  fs/ext3/super.c                                  |    4 
  fs/ext4/super.c                                  |    4 
@@ -175,12 +207,18 @@ The following files were changed in this release:
  fs/ufs/super.c                                   |    5 
  include/asm-generic/page.h                       |   38 -----
  include/asm-ia64/libata-portmap.h                |   12 +
+ include/asm-sparc/mostek.h                       |    2 
+ include/asm-sparc64/mostek.h                     |    2 
  include/asm-sparc64/tsb.h                        |    2 
+ include/asm-um/common.lds.S                      |    1 
+ include/asm-um/delay.h                           |   17 +-
  include/asm-um/processor-x86_64.h                |    6 
  include/asm-um/ptrace-x86_64.h                   |    6 
  include/asm-x86_64/bitops.h                      |    2 
  include/linux/atmarp.h                           |    2 
  include/linux/binfmts.h                          |    1 
+ include/linux/eventpoll.h                        |    7 
+ include/linux/ide.h                              |    2 
  include/linux/ktime.h                            |    6 
  include/linux/lockdep.h                          |    2 
  include/linux/netfilter_ipv4/ip_conntrack_core.h |    2 
@@ -189,7 +227,10 @@ The following files were changed in this release:
  include/linux/sunrpc/svcsock.h                   |    2 
  include/linux/ufs_fs.h                           |    1 
  include/linux/writeback.h                        |    2 
+ include/media/saa7146_vv.h                       |    3 
+ include/net/fib_rules.h                          |    1 
  include/net/inet_timewait_sock.h                 |    2 
+ include/net/ip6_fib.h                            |    1 
  include/net/netfilter/nf_conntrack_core.h        |    2 
  kernel/auditsc.c                                 |   24 +--
  kernel/fork.c                                    |    2 
@@ -207,11 +248,17 @@ The following files were changed in this release:
  mm/oom_kill.c                                    |    2 
  mm/page-writeback.c                              |   13 +
  mm/vmscan.c                                      |    2 
+ net/appletalk/ddp.c                              |    7 
  net/atm/common.c                                 |    3 
+ net/core/dev.c                                   |    4 
+ net/core/fib_rules.c                             |   30 ++++
  net/core/skbuff.c                                |    1 
  net/core/sock.c                                  |    2 
+ net/dccp/proto.c                                 |    4 
+ net/decnet/dn_rules.c                            |   21 +-
  net/ipv4/cipso_ipv4.c                            |    7 
  net/ipv4/devinet.c                               |    4 
+ net/ipv4/fib_rules.c                             |   14 -
  net/ipv4/fib_trie.c                              |    2 
  net/ipv4/igmp.c                                  |    2 
  net/ipv4/netfilter/ip_conntrack_core.c           |    2 
@@ -229,11 +276,14 @@ The following files were changed in this release:
  net/ipv4/xfrm4_mode_tunnel.c                     |    1 
  net/ipv6/addrconf.c                              |    2 
  net/ipv6/anycast.c                               |    1 
+ net/ipv6/fib6_rules.c                            |   14 -
  net/ipv6/inet6_hashtables.c                      |    2 
+ net/ipv6/ip6_fib.c                               |    8 +
  net/ipv6/ipv6_sockglue.c                         |   12 +
  net/ipv6/mcast.c                                 |    2 
  net/ipv6/netfilter.c                             |    1 
  net/ipv6/netfilter/nf_conntrack_l3proto_ipv6.c   |    1 
+ net/ipv6/route.c                                 |   97 +++++++------
  net/ipv6/tcp_ipv6.c                              |    1 
  net/ipx/af_ipx.c                                 |   24 ++-
  net/irda/irttp.c                                 |    1 
@@ -242,6 +292,8 @@ The following files were changed in this release:
  net/netfilter/nf_conntrack_proto_gre.c           |    3 
  net/netfilter/nf_conntrack_proto_tcp.c           |    4 
  net/netfilter/nfnetlink_log.c                    |   29 ++-
+ net/sched/cls_basic.c                            |   16 --
+ net/socket.c                                     |    7 
  net/sunrpc/pmap_clnt.c                           |    8 -
  net/sunrpc/svc.c                                 |   29 ++-
  net/sunrpc/svcsock.c                             |   66 ++++++--
@@ -251,5 +303,5 @@ The following files were changed in this release:
  security/keys/key.c                              |   33 +---
  sound/pci/hda/hda_intel.c                        |   13 +
  sound/usb/usbaudio.c                             |   51 ++++--
- 218 files changed, 1562 insertions(+), 623 deletions(-)
+ 270 files changed, 2007 insertions(+), 877 deletions(-)
 
