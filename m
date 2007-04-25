@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.20.7 released
-Date: Sat, 14 Apr 2007 03:53:18 GMT
-Message-ID: <200704140353.l3E3rIns001370@hera.kernel.org>
+Subject: Linux kernel 2.6.20.8 released
+Date: Wed, 25 Apr 2007 21:40:49 GMT
+Message-ID: <200704252140.l3PLenSA006247@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.20.7 has been released.  It is available from:
+Linux kernel version 2.6.20.8 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.20.7.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.20.7.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.20.8.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.20.8.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                78480            315974
-Full source                       43373410         250357760
+Patch                                78748            317353
+Full source                       43377437         250357760
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -273,6 +273,7 @@ The following files were changed in this release:
  net/ieee80211/softmac/ieee80211softmac_wx.c      |    6 
  net/ipv4/cipso_ipv4.c                            |    7 
  net/ipv4/devinet.c                               |    4 
+ net/ipv4/fib_frontend.c                          |    8 -
  net/ipv4/fib_rules.c                             |   14 -
  net/ipv4/fib_trie.c                              |    2 
  net/ipv4/igmp.c                                  |    2 
@@ -324,5 +325,5 @@ The following files were changed in this release:
  security/keys/key.c                              |   33 +---
  sound/pci/hda/hda_intel.c                        |   13 +
  sound/usb/usbaudio.c                             |   51 ++++--
- 291 files changed, 2265 insertions(+), 1167 deletions(-)
+ 292 files changed, 2272 insertions(+), 1168 deletions(-)
 
