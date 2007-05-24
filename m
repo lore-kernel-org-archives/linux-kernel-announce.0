@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.21.2 released
-Date: Wed, 23 May 2007 22:11:09 GMT
-Message-ID: <200705232211.l4NMB99l032506@hera.kernel.org>
+Subject: Linux kernel 2.6.21.3 released
+Date: Thu, 24 May 2007 22:11:19 GMT
+Message-ID: <200705242211.l4OMBJqg029648@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.21.2 has been released.  It is available from:
+Linux kernel version 2.6.21.3 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.21.2.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.21.2.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.21.3.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.21.3.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                23521             84569
-Full source                       44022197         254412800
+Patch                                23930             86055
+Full source                       44024356         254412800
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -50,6 +50,8 @@ The following files were changed in this release:
  drivers/ata/sata_via.c                                |    8 
  drivers/base/core.c                                   |    7 
  drivers/char/ipmi/ipmi_si_intf.c                      |    4 
+ drivers/crypto/geode-aes.c                            |   12 -
+ drivers/crypto/geode-aes.h                            |    3 
  drivers/md/raid1.c                                    |   33 +-
  drivers/message/fusion/mptspi.c                       |    8 
  drivers/net/Kconfig                                   |    5 
@@ -101,5 +103,5 @@ The following files were changed in this release:
  net/xfrm/xfrm_policy.c                                |    4 
  scripts/basic/fixdep.c                                |    2 
  sound/pci/hda/patch_sigmatel.c                        |    1 
- 68 files changed, 666 insertions(+), 396 deletions(-)
+ 70 files changed, 676 insertions(+), 401 deletions(-)
 
