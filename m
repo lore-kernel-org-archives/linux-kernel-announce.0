@@ -1,39 +1,63 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.22.1 released
-Date: Tue, 10 Jul 2007 20:12:20 GMT
-Message-ID: <200707102012.l6AKCKDu028843@hera.kernel.org>
-Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-Sender: linux-kernel-announce-owner@vger.kernel.org
-List-Id: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kmap_atomic() oopses in current mainline
+Date: Thu, 19 Jul 2007 01:33:04 -0700
+Message-ID: <20070719013304.3c060c99.akpm@linux-foundation.org>
+Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+Return-path: <netdev-owner@vger.kernel.org>
+Sender: netdev-owner@vger.kernel.org
+List-Id: <linux-kernel-announce.vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+To: netdev@vger.kernel.org, linux-kernel-announce@vger.kernel.org
+Cc: Dan Williams <dan.j.williams@intel.com>
 
-Linux kernel version 2.6.22.1 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.22.1.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.22.1.tar.bz2
+I've had a handful of random mystery oopses associated with no particular
+activity.  A typical trace is at:
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                  538               849
-Full source                       45106835         262922240
+	http://userweb.kernel.org/~akpm/dsc03659.jpg
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
+the trace is messy and it doesn't seem to want to happen now I've turned on
+frame pointers, but it looks networky to me.
 
-   unsubscribe linux-kernel-announce <your_email_address>
+So if anyone has made kmap_atomic() changes in networking recently, please
+check your work.  The machine does have highmem.
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
 
-The following files were changed in this release:
 
- Makefile                                |    2 +-
- net/netfilter/nf_conntrack_proto_sctp.c |    3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+The crash appears to be happening here:
+
+        BUG_ON(!pte_none(*(kmap_pte-idx)));
+
+which would indicate a wild value is being passing km kmap_atomic()'s
+km_type arg.
+
+
+
+
+I don't think the 2-year-old Vaio has offload engine support ;) Dan, this:
+
++		if (flags & ASYNC_TX_KMAP_DST)
++			dest_buf = kmap_atomic(dest, KM_USER0) + dest_offset;
++		else
++			dest_buf = page_address(dest) + dest_offset;
++
++		if (flags & ASYNC_TX_KMAP_SRC)
++			src_buf = kmap_atomic(src, KM_USER0) + src_offset;
++		else
++			src_buf = page_address(src) + src_offset;
++
++		memcpy(dest_buf, src_buf, len);
++
++		if (flags & ASYNC_TX_KMAP_DST)
++			kunmap_atomic(dest_buf, KM_USER0);
++
++		if (flags & ASYNC_TX_KMAP_SRC)
++			kunmap_atomic(src_buf, KM_USER0);
++
+
+is very wrong if both ASYNC_TX_KMAP_DST and ASYNC_TX_KMAP_SRC can ever be
+set.  We'll end up using the same kmap slot for both src add dest and we
+get either corrupted data or a BUG.
+
 
