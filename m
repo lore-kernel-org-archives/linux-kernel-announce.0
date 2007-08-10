@@ -1,138 +1,349 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.22.2 released
-Date: Thu, 9 Aug 2007 21:52:23 GMT
-Message-ID: <200708092152.l79LqNC4014538@hera.kernel.org>
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: 2.6.23-rc2-mm2
+Date: Thu, 9 Aug 2007 22:42:54 -0700
+Message-ID: <20070809224254.11f42716.akpm__42699.6757546023$1186724618$gmane$org@linux-foundation.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+To: linux-kernel@vger.kernel.org
 
-Linux kernel version 2.6.22.2 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.22.2.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.22.2.tar.bz2
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.23-rc2/2.6.23-rc2-mm2/
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                26505             97152
-Full source                       45106479         262932480
+- Various problems from 2.6.23-rc2-mm1 were fixed
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
 
-   unsubscribe linux-kernel-announce <your_email_address>
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
+Boilerplate:
 
-The following files were changed in this release:
+- See the `hot-fixes' directory for any important updates to this patchset.
 
- Makefile                                       |    2 
- arch/i386/kernel/cpu/cpufreq/acpi-cpufreq.c    |   13 --
- arch/i386/kernel/hpet.c                        |   24 +++
- arch/sparc/kernel/entry.S                      |   14 +-
- arch/sparc/lib/memset.S                        |    2 
- arch/sparc64/kernel/head.S                     |    1 
- arch/um/drivers/ubd_kern.c                     |    2 
- arch/um/os-Linux/user_syms.c                   |   20 +--
- block/cfq-iosched.c                            |   39 +++++-
- drivers/acpi/dock.c                            |    7 +
- drivers/ata/ata_piix.c                         |    2 
- drivers/ata/libata-core.c                      |    1 
- drivers/ata/libata-sff.c                       |    2 
- drivers/ata/pata_scc.c                         |    2 
- drivers/base/cpu.c                             |    2 
- drivers/char/drm/i915_dma.c                    |   14 +-
- drivers/char/drm/i915_drv.h                    |    1 
- drivers/char/sx.c                              |    4 
- drivers/firewire/fw-ohci.c                     |    2 
- drivers/firewire/fw-sbp2.c                     |    5 
- drivers/firewire/fw-transaction.c              |    4 
- drivers/firewire/fw-transaction.h              |    6 
- drivers/ieee1394/sbp2.c                        |    5 
- drivers/input/mouse/lifebook.c                 |    2 
- drivers/kvm/svm.c                              |    6 
- drivers/kvm/svm.h                              |    3 
- drivers/md/dm-crypt.c                          |    5 
- drivers/md/dm-exception-store.c                |   11 -
- drivers/md/dm-io.c                             |    5 
- drivers/md/dm-mpath.c                          |    3 
- drivers/md/dm-raid1.c                          |    4 
- drivers/md/dm-snap.c                           |   11 -
- drivers/md/dm.c                                |    9 +
- drivers/md/raid10.c                            |   10 +
- drivers/media/video/ivtv/ivtv-driver.c         |    1 
- drivers/media/video/ivtv/ivtv-driver.h         |    2 
- drivers/media/video/ivtv/ivtv-irq.c            |    7 -
- drivers/media/video/ivtv/ivtv-streams.c        |   30 ++--
- drivers/media/video/ivtv/ivtv-vbi.c            |   31 +---
- drivers/media/video/v4l2-common.c              |   19 ++
- drivers/media/video/wm8739.c                   |    2 
- drivers/media/video/wm8775.c                   |    2 
- drivers/misc/sony-laptop.c                     |   30 +++-
- drivers/net/forcedeth.c                        |  162 +++++++++++++++++++++++--
- drivers/pcmcia/cs.c                            |    3 
- drivers/scsi/aacraid/linit.c                   |    4 
- drivers/serial/sunhv.c                         |   30 ++++
- drivers/serial/sunsab.c                        |   19 ++
- drivers/serial/sunsu.c                         |   14 ++
- drivers/serial/sunzilog.c                      |   17 ++
- drivers/usb/class/cdc-acm.c                    |   12 +
- drivers/usb/core/hub.c                         |   10 -
- drivers/usb/serial/ftdi_sio.c                  |  104 ++++++----------
- drivers/usb/serial/io_edgeport.c               |   19 +-
- drivers/video/backlight/cr_bllcd.c             |    2 
- drivers/video/macmodes.c                       |    5 
- drivers/video/macmodes.h                       |    8 -
- fs/9p/conv.c                                   |    1 
- fs/ecryptfs/inode.c                            |    5 
- fs/ext4/extents.c                              |    2 
- fs/jbd/commit.c                                |    3 
- fs/jbd2/commit.c                               |    3 
- fs/nfsd/vfs.c                                  |    2 
- fs/splice.c                                    |    5 
- fs/sysfs/file.c                                |    1 
- fs/timerfd.c                                   |    6 
- include/linux/Kbuild                           |    1 
- include/linux/ioprio.h                         |    6 
- include/linux/netfilter_ipv4/ipt_iprange.h     |    2 
- include/net/bluetooth/rfcomm.h                 |    1 
- include/net/xfrm.h                             |    1 
- ipc/shm.c                                      |    2 
- kernel/futex.c                                 |    4 
- kernel/lockdep_proc.c                          |    2 
- kernel/time/timer_list.c                       |    2 
- kernel/time/timer_stats.c                      |    2 
- kernel/workqueue.c                             |   11 -
- mm/hugetlb.c                                   |   15 +-
- mm/mlock.c                                     |    5 
- mm/readahead.c                                 |   12 +
- net/bluetooth/rfcomm/tty.c                     |   34 ++++-
- net/bridge/netfilter/ebt_log.c                 |    6 
- net/bridge/netfilter/ebt_ulog.c                |    8 -
- net/core/gen_estimator.c                       |   82 +++++++-----
- net/core/netpoll.c                             |    2 
- net/ieee80211/softmac/ieee80211softmac_assoc.c |    5 
- net/ipv4/netfilter/ipt_LOG.c                   |    6 
- net/ipv4/netfilter/nf_conntrack_proto_icmp.c   |   22 ---
- net/ipv4/tcp_input.c                           |    4 
- net/ipv6/addrconf.c                            |    1 
- net/ipv6/anycast.c                             |    1 
- net/ipv6/icmp.c                                |    2 
- net/ipv6/ip6_tunnel.c                          |    4 
- net/ipv6/netfilter/ip6t_LOG.c                  |    6 
- net/ipv6/tcp_ipv6.c                            |    1 
- net/netfilter/nf_conntrack_proto_sctp.c        |    3 
- net/rfkill/rfkill-input.c                      |    2 
- net/sched/sch_api.c                            |    6 
- net/sctp/ipv6.c                                |    4 
- net/sunrpc/auth_gss/svcauth_gss.c              |    9 -
- net/xfrm/xfrm_policy.c                         |    2 
- 101 files changed, 731 insertions(+), 349 deletions(-)
+- To fetch an -mm tree using git, use (for example)
+
+  git-fetch git://git.kernel.org/pub/scm/linux/kernel/git/smurf/linux-trees.git tag v2.6.16-rc2-mm1
+  git-checkout -b local-v2.6.16-rc2-mm1 v2.6.16-rc2-mm1
+
+- -mm kernel commit activity can be reviewed by subscribing to the
+  mm-commits mailing list.
+
+        echo "subscribe mm-commits" | mail majordomo@vger.kernel.org
+
+- If you hit a bug in -mm and it is not obvious which patch caused it, it is
+  most valuable if you can perform a bisection search to identify which patch
+  introduced the bug.  Instructions for this process are at
+
+        http://www.zip.com.au/~akpm/linux/patches/stuff/bisecting-mm-trees.txt
+
+  But beware that this process takes some time (around ten rebuilds and
+  reboots), so consider reporting the bug first and if we cannot immediately
+  identify the faulty patch, then perform the bisection search.
+
+- When reporting bugs, please try to Cc: the relevant maintainer and mailing
+  list on any email.
+
+- When reporting bugs in this kernel via email, please also rewrite the
+  email Subject: in some manner to reflect the nature of the bug.  Some
+  developers filter by Subject: when looking for messages to read.
+
+- Occasional snapshots of the -mm lineup are uploaded to
+  ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/mm/ and are announced on
+  the mm-commits list.
+
+
+
+Changes since 2.6.23-rc1-mm2:
+
+ origin.patch
+ git-acpi.patch
+ git-alsa.patch
+ git-agpgart.patch
+ git-audit-master.patch
+ git-cifs.patch
+ git-cpufreq.patch
+ git-dma.patch
+ git-drm.patch
+ git-dvb.patch
+ git-hwmon.patch
+ git-gfs2-nmw.patch
+ git-hid.patch
+ git-ieee1394.patch
+ git-infiniband.patch
+ git-input.patch
+ git-jfs.patch
+ git-jg-misc.patch
+ git-kvm.patch
+ git-libata-all.patch
+ git-m32r.patch
+ git-md-accel.patch
+ git-mips.patch
+ git-mmc.patch
+ git-mtd.patch
+ git-ubi.patch
+ git-netdev-all.patch
+ git-ixgbe.patch
+ git-nfsd.patch
+ git-ocfs2.patch
+ git-r8169.patch
+ git-s390.patch
+ git-sh.patch
+ git-sh64.patch
+ git-scsi-misc.patch
+ git-unionfs.patch
+ git-v9fs.patch
+ git-watchdog.patch
+ git-wireless.patch
+ git-ipwireless_cs.patch
+ git-newsetup.patch
+ git-xfs.patch
+ git-cryptodev.patch
+ git-kgdb.patch
+
+ git trees
+
+-genirq-temporary-fix-for-level-triggered-irq-resend-fix.patch
+-allow-rcutorture-to-handle-synchronize_sched.patch
+-alpha-o_cloexec-definition.patch
+-sound-pci-ioremap-iounmap-balancing.patch
+-fix-ide-ide-add-platform-ide-driver.patch
+-mmc-make-it-build.patch
+-mmc-fix-section-mismatch-warnings-for-drivers-mmc-host.patch
+-git-nfsd-build-fixes.patch
+-nfsd-warning-fix.patch
+-dvb-remove-bogus-bug_on-in-videobuf_dvb_thread.patch
+
+ Merged into mainline or a subsystem tree
+
++hex_dump-add-missing-const-qualifiers.patch
++rcu-remove-prototype-for-nonexistent-function.patch
++cris-drivers-cdrom-kconfig-no-longer.patch
++spidev-warning-fix.patch
++timerremove-clockevents_unregister_notifier.patch
++fix-compilation-with-gcc-42.patch
++fix-compilation-with-gcc-42-fix.patch
++lguest-files-should-explicitly-include-asm-paravirth.patch
++alpha-werror-fixes-for-sys_titanc.patch
++readahead-docbook-fix.patch
+
+ More 2.6.23 queue
+
++pm-fix-dependencies-of-config_suspend-and-config_hibernation-updated-3x.patch
+
+ Might be 2.6.23
+
++acpi-ec-remove-potential-deadlock-from-ec.patch
+
+ ACPI fix
+
++sound-pci-ioremap-iounmap-balancing.patch
+
+ ALSA fix
+
++make-power-supply-class-available-for-arm-architecture.patch
+
+ ARM fix
+
++git-dma-up-fix.patch
+
+ Fix git-dma
+
++jdelvare-i2c-i2c-mpc-dont-disable-i2c-module-on-stop-condition.patch
++jdelvare-i2c-i2c-core-make-some-code-static.patch
+
+ I2C tree updates
+
+-drivers-i2c-i2c-corec-make-code-static.patch
+
+ Dropped
+
++alpm-increase-number-of-allowable-device-flags.patch
+
+ ALPM pathces were updated again
+
++st340823a-hpa-and-libata.patch
++pata_cmd64x-set-up-mwdma-modes-properly.patch
++ata_piix-disallow-udma-133-on-ich5-ich7.patch
+
+ ata/pata things
+
++ide-hpt366-fix-pci-clock-detection-for-hpt374.patch
++ide-hpt366-ultradma-filtering-for-sata-cards.patch
++ide-atiixp-dma-setup-fixes.patch
++ide-it8213-piix-slc90e66-remove-dma-2-pio.patch
++ide-au1xxx-use-ide-tune-dma.patch
++ide-hpt34x-fix-config-hpt34x-autodma-n-handling.patch
++ide-ide-remove-drive-init-speed-zeroing.patch
++ide-ide-remove-ide-use-fast-pio.patch
++ide-cs5530-sc1200-add-pio-autotune-fallback-to-ide-dma-check.patch
++ide-sl82c105-add-pio-autotune-fallback-to-ide-dma-check.patch
++ide-ide-cris-add-pio-autotune-fallback-to-ide-dma-check.patch
++ide-ide-pmac-add-pio-autotune-fallback-to-ide-dma-check.patch
++ide-ide-remove-ide-dma-check.patch
+
+ IDE tree updates
+
++mips-detect-bcm947xx-cpus.patch
++mips-bcm947xx-support.patch
++rfc-add-bcm947xx-to-kconfig.patch
++mips-add-bcm947xx-to-makefile.patch
+
+ MIPS things
+
+-8139too-force-media-setting-fix.patch
+
+ Dropped - it broke
+
++revert-8139too-clean-up-i-o-remapping.patch
+
+ Revert dud patch from git-netdev-all
+
++drivers-net-remove-superfluous-memset.patch
++net-tulip-xircom_cbc-remove-superfulous-priv-assignment.patch
++3c59x-fix-duplex-configuration.patch
++wol-bugfix-for-3c59xc.patch
+
+ netdev fixes
+
+-cpqphp_ctrlc-remove-dead-code.patch
+
+ Dropped
+
++drivers-scsi-ipsc-fix-scsi_add_host-warning.patch
++drivers-scsi-ipsc-fix-scsi_add_host-warning-fix.patch
++scsi-ipsc-warning-fix.patch
++message-fusion-remove-redundant-memset.patch
+
+ SCSI fixes
+
++x86_64-vdso-install-unstripped-copies-on-disk.patch
+
+ VDSO update
+
++consolidate-show_regs-and-show_registers-for-i386.patch
++i386-clean-up-oops-bug-reports.patch
++x86_64-remove-x86_cpu_to_log_apicid.patch
+
+ x86 things
+
++belkin_sa-avoid-divide-by-zero-error.patch
+
+ USB fix
+
++mm-clarify-__add_to_swap_cache-locking-fix.patch
+
+ Fix mm-clarify-__add_to_swap_cache-locking.patch
+
++move-mm_struct-and-vm_area_struct.patch
+
+ MM refactoring
+
++flush-cache-before-installing-new-page-at-migraton.patch
++flush-icache-before-set_pte-on-ia64-flush-icache-at-set_pte.patch
+
+ MM fixes
+
++file-capabilities-clear-fcaps-on-inode-change.patch
+
+ file caps update
+
++freezer-introduce-freezer-firendly-waiting-macros-fix.patch
+
+ PM fix
+
++uml-add-vde-networking-support.patch
++uml-remove-unnecessary-hostfs_getattr.patch
+
+ UML updates
+
++aoe-remove-unecessary-wrapper-function.patch
++unicode-diacritics-support.patch
++mxser-remove-use-of-dead-tty_flipbuf_size-definition.patch
++jsm-remove-further-unneeded-crud.patch
++remove-consolemaph-from-header-exports.patch
++lib-sortc-optimization.patch
++x86_64-efi-boot-support-efi-frame-buffer-driver.patch
++x86_64-efi-boot-support-efi-boot-document.patch
++vfs-check-nanoseconds-in-utimensat.patch
++fix-execute-checking-in-permission.patch
++exec-remove-unnecessary-check-for-mnt_noexec.patch
++clean-out-unused-code-in-dentry-pruning.patch
++include-linux-typesh-in-if_fddih.patch
+
+ misc
+
+-nfs-remove-congestion_end.patch
+-lib-percpu_counter_add.patch
+-lib-percpu_counter-variable-batch.patch
+-lib-make-percpu_counter_add-take-s64.patch
+-lib-percpu_counter_set.patch
+-lib-percpu_counter_sum_positive.patch
+-lib-percpu_count_sum.patch
+-lib-percpu_counter_init-error-handling.patch
+-lib-percpu_counter_init_irq.patch
+-mm-bdi-init-hooks.patch
+-mm-bdi-init-hooks-fix.patch
+-mtd-bdi-init-hooks.patch
+-mtd-clean-up-the-backing_dev_info-usage.patch
+-mtd-give-mtdconcat-devices-their-own-backing_dev_info.patch
+-mm-scalable-bdi-statistics-counters.patch
+-mm-count-reclaimable-pages-per-bdi.patch
+-mm-count-writeback-pages-per-bdi.patch
+-mm-expose-bdi-statistics-in-sysfs.patch
+-lib-floating-proportions.patch
+-lib-floating-proportions-_single.patch
+-mm-per-device-dirty-threshold.patch
+-mm-dirty-balancing-for-tasks.patch
+-debug-sysfs-files-for-the-current-ratio-size-total.patch
+-task-containersv11-add-procfs-interface-containers-bdi-init-hooks.patch
+
+ Dropped due to crashiness
+
++unprivileged-mounts-allow-unprivileged-mounts-fix-subtype-handling.patch
+
+ Fix unprivileged-mounts-allow-unprivileged-mounts.patch
+
++tdfxfb-mtrr-support-fix-2.patch
+
+ Fix tdfxfb-mtrr-support.patch
+
++fuse-fix-permission-checking-on-sticky-directories-fix-setting-i_mode-bits.patch
+
+ Fix fuse-fix-permission-checking-on-sticky-directories-fix.patch
+
++fuse-clean-up-execute-permission-checking.patch
+
+ FUES update
+
++fs-introduce-write_begin-write_end-and-perform_write-aops-revoke-fix.patch
+
+ Fix fs-introduce-write_begin-write_end-and-perform_write-aops-revoke.patch
+
++sysctl-core-stop-using-the-unnecessary-ctl_table-typedef.patch
++sysctl-factor-out-sysctl_data.patch
++sysctl-error-on-bad-sysctl-tables.patch
++sysctl-update-sysctl_check_table.patch
++sysct-mqueue-remove-the-binary-sysctl-numbers.patch
++sysctl-remove-binary-sysctl-support-where-it-clearly-doesnt-work.patch
++sysctl-fix-neighbour-table-sysctls.patch
++sysctl-ipv6-route-flushing-kill-binary-path.patch
++sysctl-remove-broken-sunrpc-debug-binary-sysctls.patch
++sysctl-x86_64-remove-unnecessary-binary-paths.patch
++sysctl-remove-broken-cdrom-binary-sysctls.patch
++sysctl-ipv4-remove-binary-sysctl-paths-where-they-are-broken.patch
++sysctl-remove-the-binary-interface-for-aio-nr-aio-max-nr-acpi_video_flags.patch
+
+ sysctl cleanups
+
++make-access-to-tasks-nsproxy-lighter.patch
+
+ nsproxy speedup
+
+
+
+All 1215 patches:
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.23-rc2/2.6.23-rc2-mm2/patch-list
+
 
