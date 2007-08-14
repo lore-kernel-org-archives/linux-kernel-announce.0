@@ -1,349 +1,69 @@
 From: Andrew Morton <akpm@linux-foundation.org>
-Subject: 2.6.23-rc2-mm2
-Date: Thu, 9 Aug 2007 22:42:54 -0700
-Message-ID: <20070809224254.11f42716.akpm__42699.6757546023$1186724618$gmane$org@linux-foundation.org>
+Subject: Re: [Bugme-new] [Bug 8885] New: Unable to access memory card reader
+ anymore
+Date: Mon, 13 Aug 2007 20:13:54 -0700
+Message-ID: <20070813201354.baffcaba.akpm@linux-foundation.org>
+References: <bug-8885-10286@http.bugzilla.kernel.org/>
 Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-Sender: linux-kernel-announce-owner@vger.kernel.org
+Return-path: <linux-scsi-owner@vger.kernel.org>
+In-Reply-To: <bug-8885-10286@http.bugzilla.kernel.org/>
+Sender: linux-scsi-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
-To: linux-kernel@vger.kernel.org
-
-
-ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.23-rc2/2.6.23-rc2-mm2/
-
-- Various problems from 2.6.23-rc2-mm1 were fixed
-
-
-
-Boilerplate:
-
-- See the `hot-fixes' directory for any important updates to this patchset.
-
-- To fetch an -mm tree using git, use (for example)
-
-  git-fetch git://git.kernel.org/pub/scm/linux/kernel/git/smurf/linux-trees.git tag v2.6.16-rc2-mm1
-  git-checkout -b local-v2.6.16-rc2-mm1 v2.6.16-rc2-mm1
-
-- -mm kernel commit activity can be reviewed by subscribing to the
-  mm-commits mailing list.
-
-        echo "subscribe mm-commits" | mail majordomo@vger.kernel.org
-
-- If you hit a bug in -mm and it is not obvious which patch caused it, it is
-  most valuable if you can perform a bisection search to identify which patch
-  introduced the bug.  Instructions for this process are at
-
-        http://www.zip.com.au/~akpm/linux/patches/stuff/bisecting-mm-trees.txt
-
-  But beware that this process takes some time (around ten rebuilds and
-  reboots), so consider reporting the bug first and if we cannot immediately
-  identify the faulty patch, then perform the bisection search.
-
-- When reporting bugs, please try to Cc: the relevant maintainer and mailing
-  list on any email.
-
-- When reporting bugs in this kernel via email, please also rewrite the
-  email Subject: in some manner to reflect the nature of the bug.  Some
-  developers filter by Subject: when looking for messages to read.
-
-- Occasional snapshots of the -mm lineup are uploaded to
-  ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/mm/ and are announced on
-  the mm-commits list.
-
-
-
-Changes since 2.6.23-rc1-mm2:
-
- origin.patch
- git-acpi.patch
- git-alsa.patch
- git-agpgart.patch
- git-audit-master.patch
- git-cifs.patch
- git-cpufreq.patch
- git-dma.patch
- git-drm.patch
- git-dvb.patch
- git-hwmon.patch
- git-gfs2-nmw.patch
- git-hid.patch
- git-ieee1394.patch
- git-infiniband.patch
- git-input.patch
- git-jfs.patch
- git-jg-misc.patch
- git-kvm.patch
- git-libata-all.patch
- git-m32r.patch
- git-md-accel.patch
- git-mips.patch
- git-mmc.patch
- git-mtd.patch
- git-ubi.patch
- git-netdev-all.patch
- git-ixgbe.patch
- git-nfsd.patch
- git-ocfs2.patch
- git-r8169.patch
- git-s390.patch
- git-sh.patch
- git-sh64.patch
- git-scsi-misc.patch
- git-unionfs.patch
- git-v9fs.patch
- git-watchdog.patch
- git-wireless.patch
- git-ipwireless_cs.patch
- git-newsetup.patch
- git-xfs.patch
- git-cryptodev.patch
- git-kgdb.patch
-
- git trees
-
--genirq-temporary-fix-for-level-triggered-irq-resend-fix.patch
--allow-rcutorture-to-handle-synchronize_sched.patch
--alpha-o_cloexec-definition.patch
--sound-pci-ioremap-iounmap-balancing.patch
--fix-ide-ide-add-platform-ide-driver.patch
--mmc-make-it-build.patch
--mmc-fix-section-mismatch-warnings-for-drivers-mmc-host.patch
--git-nfsd-build-fixes.patch
--nfsd-warning-fix.patch
--dvb-remove-bogus-bug_on-in-videobuf_dvb_thread.patch
-
- Merged into mainline or a subsystem tree
-
-+hex_dump-add-missing-const-qualifiers.patch
-+rcu-remove-prototype-for-nonexistent-function.patch
-+cris-drivers-cdrom-kconfig-no-longer.patch
-+spidev-warning-fix.patch
-+timerremove-clockevents_unregister_notifier.patch
-+fix-compilation-with-gcc-42.patch
-+fix-compilation-with-gcc-42-fix.patch
-+lguest-files-should-explicitly-include-asm-paravirth.patch
-+alpha-werror-fixes-for-sys_titanc.patch
-+readahead-docbook-fix.patch
-
- More 2.6.23 queue
-
-+pm-fix-dependencies-of-config_suspend-and-config_hibernation-updated-3x.patch
-
- Might be 2.6.23
-
-+acpi-ec-remove-potential-deadlock-from-ec.patch
-
- ACPI fix
-
-+sound-pci-ioremap-iounmap-balancing.patch
-
- ALSA fix
-
-+make-power-supply-class-available-for-arm-architecture.patch
-
- ARM fix
-
-+git-dma-up-fix.patch
-
- Fix git-dma
-
-+jdelvare-i2c-i2c-mpc-dont-disable-i2c-module-on-stop-condition.patch
-+jdelvare-i2c-i2c-core-make-some-code-static.patch
-
- I2C tree updates
-
--drivers-i2c-i2c-corec-make-code-static.patch
-
- Dropped
-
-+alpm-increase-number-of-allowable-device-flags.patch
-
- ALPM pathces were updated again
-
-+st340823a-hpa-and-libata.patch
-+pata_cmd64x-set-up-mwdma-modes-properly.patch
-+ata_piix-disallow-udma-133-on-ich5-ich7.patch
-
- ata/pata things
-
-+ide-hpt366-fix-pci-clock-detection-for-hpt374.patch
-+ide-hpt366-ultradma-filtering-for-sata-cards.patch
-+ide-atiixp-dma-setup-fixes.patch
-+ide-it8213-piix-slc90e66-remove-dma-2-pio.patch
-+ide-au1xxx-use-ide-tune-dma.patch
-+ide-hpt34x-fix-config-hpt34x-autodma-n-handling.patch
-+ide-ide-remove-drive-init-speed-zeroing.patch
-+ide-ide-remove-ide-use-fast-pio.patch
-+ide-cs5530-sc1200-add-pio-autotune-fallback-to-ide-dma-check.patch
-+ide-sl82c105-add-pio-autotune-fallback-to-ide-dma-check.patch
-+ide-ide-cris-add-pio-autotune-fallback-to-ide-dma-check.patch
-+ide-ide-pmac-add-pio-autotune-fallback-to-ide-dma-check.patch
-+ide-ide-remove-ide-dma-check.patch
-
- IDE tree updates
-
-+mips-detect-bcm947xx-cpus.patch
-+mips-bcm947xx-support.patch
-+rfc-add-bcm947xx-to-kconfig.patch
-+mips-add-bcm947xx-to-makefile.patch
-
- MIPS things
-
--8139too-force-media-setting-fix.patch
-
- Dropped - it broke
-
-+revert-8139too-clean-up-i-o-remapping.patch
-
- Revert dud patch from git-netdev-all
-
-+drivers-net-remove-superfluous-memset.patch
-+net-tulip-xircom_cbc-remove-superfulous-priv-assignment.patch
-+3c59x-fix-duplex-configuration.patch
-+wol-bugfix-for-3c59xc.patch
-
- netdev fixes
-
--cpqphp_ctrlc-remove-dead-code.patch
-
- Dropped
-
-+drivers-scsi-ipsc-fix-scsi_add_host-warning.patch
-+drivers-scsi-ipsc-fix-scsi_add_host-warning-fix.patch
-+scsi-ipsc-warning-fix.patch
-+message-fusion-remove-redundant-memset.patch
-
- SCSI fixes
-
-+x86_64-vdso-install-unstripped-copies-on-disk.patch
-
- VDSO update
-
-+consolidate-show_regs-and-show_registers-for-i386.patch
-+i386-clean-up-oops-bug-reports.patch
-+x86_64-remove-x86_cpu_to_log_apicid.patch
-
- x86 things
-
-+belkin_sa-avoid-divide-by-zero-error.patch
-
- USB fix
-
-+mm-clarify-__add_to_swap_cache-locking-fix.patch
-
- Fix mm-clarify-__add_to_swap_cache-locking.patch
-
-+move-mm_struct-and-vm_area_struct.patch
-
- MM refactoring
-
-+flush-cache-before-installing-new-page-at-migraton.patch
-+flush-icache-before-set_pte-on-ia64-flush-icache-at-set_pte.patch
-
- MM fixes
-
-+file-capabilities-clear-fcaps-on-inode-change.patch
-
- file caps update
-
-+freezer-introduce-freezer-firendly-waiting-macros-fix.patch
-
- PM fix
-
-+uml-add-vde-networking-support.patch
-+uml-remove-unnecessary-hostfs_getattr.patch
-
- UML updates
-
-+aoe-remove-unecessary-wrapper-function.patch
-+unicode-diacritics-support.patch
-+mxser-remove-use-of-dead-tty_flipbuf_size-definition.patch
-+jsm-remove-further-unneeded-crud.patch
-+remove-consolemaph-from-header-exports.patch
-+lib-sortc-optimization.patch
-+x86_64-efi-boot-support-efi-frame-buffer-driver.patch
-+x86_64-efi-boot-support-efi-boot-document.patch
-+vfs-check-nanoseconds-in-utimensat.patch
-+fix-execute-checking-in-permission.patch
-+exec-remove-unnecessary-check-for-mnt_noexec.patch
-+clean-out-unused-code-in-dentry-pruning.patch
-+include-linux-typesh-in-if_fddih.patch
-
- misc
-
--nfs-remove-congestion_end.patch
--lib-percpu_counter_add.patch
--lib-percpu_counter-variable-batch.patch
--lib-make-percpu_counter_add-take-s64.patch
--lib-percpu_counter_set.patch
--lib-percpu_counter_sum_positive.patch
--lib-percpu_count_sum.patch
--lib-percpu_counter_init-error-handling.patch
--lib-percpu_counter_init_irq.patch
--mm-bdi-init-hooks.patch
--mm-bdi-init-hooks-fix.patch
--mtd-bdi-init-hooks.patch
--mtd-clean-up-the-backing_dev_info-usage.patch
--mtd-give-mtdconcat-devices-their-own-backing_dev_info.patch
--mm-scalable-bdi-statistics-counters.patch
--mm-count-reclaimable-pages-per-bdi.patch
--mm-count-writeback-pages-per-bdi.patch
--mm-expose-bdi-statistics-in-sysfs.patch
--lib-floating-proportions.patch
--lib-floating-proportions-_single.patch
--mm-per-device-dirty-threshold.patch
--mm-dirty-balancing-for-tasks.patch
--debug-sysfs-files-for-the-current-ratio-size-total.patch
--task-containersv11-add-procfs-interface-containers-bdi-init-hooks.patch
-
- Dropped due to crashiness
-
-+unprivileged-mounts-allow-unprivileged-mounts-fix-subtype-handling.patch
-
- Fix unprivileged-mounts-allow-unprivileged-mounts.patch
-
-+tdfxfb-mtrr-support-fix-2.patch
-
- Fix tdfxfb-mtrr-support.patch
-
-+fuse-fix-permission-checking-on-sticky-directories-fix-setting-i_mode-bits.patch
-
- Fix fuse-fix-permission-checking-on-sticky-directories-fix.patch
-
-+fuse-clean-up-execute-permission-checking.patch
-
- FUES update
-
-+fs-introduce-write_begin-write_end-and-perform_write-aops-revoke-fix.patch
-
- Fix fs-introduce-write_begin-write_end-and-perform_write-aops-revoke.patch
-
-+sysctl-core-stop-using-the-unnecessary-ctl_table-typedef.patch
-+sysctl-factor-out-sysctl_data.patch
-+sysctl-error-on-bad-sysctl-tables.patch
-+sysctl-update-sysctl_check_table.patch
-+sysct-mqueue-remove-the-binary-sysctl-numbers.patch
-+sysctl-remove-binary-sysctl-support-where-it-clearly-doesnt-work.patch
-+sysctl-fix-neighbour-table-sysctls.patch
-+sysctl-ipv6-route-flushing-kill-binary-path.patch
-+sysctl-remove-broken-sunrpc-debug-binary-sysctls.patch
-+sysctl-x86_64-remove-unnecessary-binary-paths.patch
-+sysctl-remove-broken-cdrom-binary-sysctls.patch
-+sysctl-ipv4-remove-binary-sysctl-paths-where-they-are-broken.patch
-+sysctl-remove-the-binary-interface-for-aio-nr-aio-max-nr-acpi_video_flags.patch
-
- sysctl cleanups
-
-+make-access-to-tasks-nsproxy-lighter.patch
-
- nsproxy speedup
-
-
-
-All 1215 patches:
-
-ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.23-rc2/2.6.23-rc2-mm2/patch-list
-
-
+To: linux-kernel-announce@vger.kernel.org, linux-scsi@vger.kernel.org, linux-usb-devel@lists.sourceforge.net, Pierre Ossman <drzeus@drzeus.cx>, Michal Piotrowski <michal.k.k.piotrowski@gmail.com>
+Cc: bugme-daemon@bugzilla.kernel.org, casteyde.christian@free.fr
+
+On Mon, 13 Aug 2007 09:07:36 -0700 (PDT) bugme-daemon@bugzilla.kernel.org wrote:
+
+> http://bugzilla.kernel.org/show_bug.cgi?id=8885
+> 
+>            Summary: Unable to access memory card reader anymore
+>            Product: IO/Storage
+>            Version: 2.5
+>      KernelVersion: 2.6.23-rc3
+>           Platform: All
+>         OS/Version: Linux
+>               Tree: Mainline
+>             Status: NEW
+>           Severity: normal
+>           Priority: P1
+>          Component: SCSI
+>         AssignedTo: io_scsi@kernel-bugs.osdl.org
+>         ReportedBy: casteyde.christian@free.fr
+> 
+> 
+> Most recent kernel where this bug did not occur: 2.6.22.1, maybe 2.6.23-rc2
+> Distribution: Slackware 12.0
+> Hardware Environment: Athlon64 3000, laptop Aspire 1511LMi, nForce3 150
+> Software Environment: Kernel 2.6.23-rc3, blockdev, udev, KDE 3.5.7
+> Problem Description:
+> With kernel 2.6.22.1, when I plug a memory card in the integrated card reader
+> of my laptop, the card is detected and KDE(via udev) asks me for mounting the
+> device.
+> With kernel 2.6.23-rc3, this does not happens anymore:
+> - first, at boot, there are some new lines in dmesg saying /dev/sda is seen but
+> size cannot be get (normal: there is no memory card in the reader);
+> - second, plugging the card does nothing;
+> - third, issuing "blockdev --rereadpt /dev/sda" does not work;
+> - finally, fdisk /dev/sda fails (unable to open /dev/sda).
+> So the device seems to be completly unusable now (this is a Thomson card reader
+> if I remember well).
+> 
+> dmesg output for 2.6.22.1-cfs19 and 2.6.23-rc3 appended to show the
+> differences.
+> 
+> Steps to reproduce:
+> Maybe the problem is specific to my hardware. I presume: boot with an empty
+> card reader connected, the plug the card and see it is inaccessible?
+> 
+
+I'm struggling a bit to work out if this is a scsi bug, a USB bug, an MMC bug
+or whatever.  But it's a bug.
+
+Michal, can you please track this as a post-2.6.22 regression?
+
+Others: can you please take a look at the dmesg output, see if we can work
+out which subsystem is (newly) failing?
+
+Thanks.
