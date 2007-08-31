@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.22.5 released
-Date: Thu, 23 Aug 2007 00:12:26 GMT
-Message-ID: <200708230012.l7N0CQWX008556@hera.kernel.org>
+Subject: Linux kernel 2.6.22.6 released
+Date: Fri, 31 Aug 2007 06:35:24 GMT
+Message-ID: <200708310635.l7V6ZOZv019174@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.22.5 has been released.  It is available from:
+Linux kernel version 2.6.22.6 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.22.5.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.22.5.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.22.6.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.22.6.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                37144            135810
-Full source                       45110050         262942720
+Patch                                46194            171394
+Full source                       45109498         262942720
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -43,6 +43,7 @@ The following files were changed in this release:
  b/arch/i386/kernel/doublefault.c                 |   13 -
  b/arch/i386/kernel/hpet.c                        |   24 +++
  b/arch/i386/kernel/sysenter.c                    |    4 
+ b/arch/i386/mm/fault.c                           |    5 
  b/arch/powerpc/kernel/prom_parse.c               |    2 
  b/arch/powerpc/mm/slice.c                        |    2 
  b/arch/powerpc/platforms/83xx/mpc832x_mds.c      |    1 
@@ -52,6 +53,10 @@ The following files were changed in this release:
  b/arch/sparc/kernel/entry.S                      |   14 +
  b/arch/sparc/lib/memset.S                        |    2 
  b/arch/sparc64/kernel/head.S                     |    1 
+ b/arch/sparc64/kernel/pci.c                      |   15 +-
+ b/arch/sparc64/kernel/pci_common.c               |  123 +++++++++++++++-
+ b/arch/sparc64/kernel/traps.c                    |   18 +-
+ b/arch/sparc64/mm/fault.c                        |    5 
  b/arch/um/drivers/ubd_kern.c                     |    2 
  b/arch/um/os-Linux/user_syms.c                   |   20 +-
  b/arch/x86_64/Makefile                           |    4 
@@ -96,13 +101,19 @@ The following files were changed in this release:
  b/drivers/media/video/ivtv/ivtv-irq.c            |    7 
  b/drivers/media/video/ivtv/ivtv-streams.c        |   30 ++--
  b/drivers/media/video/ivtv/ivtv-vbi.c            |   31 +---
+ b/drivers/media/video/pwc/pwc-if.c               |   52 ++++--
+ b/drivers/media/video/pwc/pwc.h                  |    1 
  b/drivers/media/video/v4l2-common.c              |   19 +-
  b/drivers/media/video/wm8739.c                   |    2 
  b/drivers/media/video/wm8775.c                   |    2 
  b/drivers/misc/sony-laptop.c                     |   30 ++--
+ b/drivers/net/bonding/bond_main.c                |   30 +---
  b/drivers/net/forcedeth.c                        |  172 ++++++++++++++++++++---
+ b/drivers/net/ppp_generic.c                      |    2 
  b/drivers/net/r8169.c                            |   18 +-
- b/drivers/net/sky2.c                             |   49 ++++--
+ b/drivers/net/sky2.c                             |   53 ++++---
+ b/drivers/pci/probe.c                            |   18 +-
+ b/drivers/pci/quirks.c                           |    3 
  b/drivers/pcmcia/cs.c                            |    3 
  b/drivers/scsi/aacraid/linit.c                   |    4 
  b/drivers/serial/Kconfig                         |   14 -
@@ -112,6 +123,7 @@ The following files were changed in this release:
  b/drivers/serial/sunzilog.c                      |   17 +-
  b/drivers/usb/class/cdc-acm.c                    |   12 +
  b/drivers/usb/core/hub.c                         |   10 -
+ b/drivers/usb/core/message.c                     |   28 +++
  b/drivers/usb/serial/ftdi_sio.c                  |  104 +++++--------
  b/drivers/usb/serial/io_edgeport.c               |   19 +-
  b/drivers/video/backlight/cr_bllcd.c             |    2 
@@ -121,55 +133,78 @@ The following files were changed in this release:
  b/fs/9p/conv.c                                   |    1 
  b/fs/direct-io.c                                 |    1 
  b/fs/ecryptfs/inode.c                            |    5 
- b/fs/exec.c                                      |   13 +
+ b/fs/exec.c                                      |   22 +-
  b/fs/ext4/extents.c                              |    2 
  b/fs/jbd/commit.c                                |    3 
  b/fs/jbd2/commit.c                               |    3 
  b/fs/jffs2/write.c                               |    3 
  b/fs/nfsd/vfs.c                                  |    2 
+ b/fs/ocfs2/file.c                                |    2 
+ b/fs/signalfd.c                                  |   14 +
  b/fs/splice.c                                    |    5 
  b/fs/sysfs/file.c                                |    1 
  b/fs/timerfd.c                                   |    6 
  b/include/asm-avr32/atomic.h                     |    4 
  b/include/asm-i386/serial.h                      |   16 ++
+ b/include/asm-sparc/sfp-machine.h                |    6 
+ b/include/asm-sparc64/sfp-machine.h              |    2 
  b/include/asm-x86_64/serial.h                    |   16 ++
  b/include/linux/Kbuild                           |    1 
  b/include/linux/ioprio.h                         |    6 
+ b/include/linux/netdevice.h                      |    2 
+ b/include/linux/netfilter/Kbuild                 |    1 
  b/include/linux/netfilter_ipv4/ipt_iprange.h     |    2 
+ b/include/linux/pci_ids.h                        |    3 
+ b/include/math-emu/op-common.h                   |    5 
+ b/include/math-emu/soft-fp.h                     |    7 
  b/include/net/bluetooth/rfcomm.h                 |    1 
+ b/include/net/tcp.h                              |    2 
  b/include/net/xfrm.h                             |    1 
  b/ipc/shm.c                                      |    2 
  b/kernel/auditsc.c                               |   22 +-
  b/kernel/futex.c                                 |    4 
  b/kernel/lockdep_proc.c                          |    2 
  b/kernel/power/snapshot.c                        |    3 
+ b/kernel/signal.c                                |    4 
  b/kernel/time/timer_list.c                       |    2 
  b/kernel/time/timer_stats.c                      |    2 
  b/kernel/workqueue.c                             |   11 -
  b/mm/hugetlb.c                                   |   15 +-
  b/mm/mlock.c                                     |    5 
  b/mm/readahead.c                                 |   12 +
+ b/net/802/psnap.c                                |   17 +-
  b/net/bluetooth/rfcomm/tty.c                     |   34 +++-
+ b/net/bridge/br_device.c                         |    3 
+ b/net/bridge/br_if.c                             |   28 ---
  b/net/bridge/netfilter/ebt_log.c                 |    6 
  b/net/bridge/netfilter/ebt_ulog.c                |    8 -
+ b/net/core/dev.c                                 |   38 +++++
  b/net/core/gen_estimator.c                       |   82 ++++++----
  b/net/core/netpoll.c                             |    2 
+ b/net/dccp/ccids/ccid2.c                         |    2 
  b/net/ieee80211/softmac/ieee80211softmac_assoc.c |    5 
  b/net/ieee80211/softmac/ieee80211softmac_wx.c    |   11 +
+ b/net/ipv4/af_inet.c                             |    2 
  b/net/ipv4/netfilter/ipt_LOG.c                   |    6 
  b/net/ipv4/netfilter/nf_conntrack_proto_icmp.c   |   22 --
- b/net/ipv4/tcp_input.c                           |    4 
+ b/net/ipv4/tcp.c                                 |    3 
+ b/net/ipv4/tcp_input.c                           |   30 ++--
+ b/net/ipv4/tcp_ipv4.c                            |    1 
  b/net/ipv6/addrconf.c                            |    1 
+ b/net/ipv6/af_inet6.c                            |    2 
  b/net/ipv6/anycast.c                             |    1 
  b/net/ipv6/icmp.c                                |    2 
+ b/net/ipv6/ip6_output.c                          |    2 
  b/net/ipv6/ip6_tunnel.c                          |    4 
+ b/net/ipv6/ipv6_sockglue.c                       |    2 
  b/net/ipv6/netfilter/ip6t_LOG.c                  |    6 
- b/net/ipv6/tcp_ipv6.c                            |    1 
+ b/net/ipv6/tcp_ipv6.c                            |    2 
  b/net/netfilter/nf_conntrack_proto_sctp.c        |    3 
  b/net/rfkill/rfkill-input.c                      |    2 
  b/net/sched/sch_api.c                            |    6 
  b/net/sctp/ipv6.c                                |    4 
+ b/net/socket.c                                   |    2 
  b/net/sunrpc/auth_gss/svcauth_gss.c              |    9 -
  b/net/xfrm/xfrm_policy.c                         |    2 
- 138 files changed, 950 insertions(+), 545 deletions(-)
+ 173 files changed, 1298 insertions(+), 687 deletions(-)
 
