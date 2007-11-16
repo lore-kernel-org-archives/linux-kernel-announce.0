@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.23.4 released
-Date: Fri, 16 Nov 2007 17:38:04 GMT
-Message-ID: <200711161738.lAGHc4Xj008575@hera.kernel.org>
+Subject: Linux kernel 2.6.23.6 released
+Date: Fri, 16 Nov 2007 17:47:32 GMT
+Message-ID: <200711161747.lAGHlW7V011958@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.23.4 has been released.  It is available from:
+Linux kernel version 2.6.23.6 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.4.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.4.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.6.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.6.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                28195             94870
-Full source                       45476064         264714240
+Patch                                50700            182957
+Full source                       45477413         264714240
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -33,17 +33,17 @@ Full source                       45476064         264714240
 
 The following files were changed in this release:
 
- Documentation/ja_JP/HOWTO                   |   84 +++++++++---------
+ Documentation/ja_JP/HOWTO                   |   84 ++++++++--------
  Makefile                                    |    2 
  arch/i386/boot/boot.h                       |    8 -
- arch/i386/boot/header.S                     |   62 +++++++++----
+ arch/i386/boot/header.S                     |   62 ++++++++----
  arch/i386/boot/video-bios.c                 |    2 
  arch/i386/boot/video-vesa.c                 |    2 
  arch/i386/boot/video.c                      |    2 
- arch/i386/kernel/tsc.c                      |    5 -
- arch/i386/xen/enlighten.c                   |   57 ++++++++----
- arch/i386/xen/mmu.c                         |   29 +++++-
- arch/i386/xen/multicalls.c                  |   29 +++++-
+ arch/i386/kernel/tsc.c                      |    5 
+ arch/i386/xen/enlighten.c                   |   57 +++++++----
+ arch/i386/xen/mmu.c                         |   29 +++++
+ arch/i386/xen/multicalls.c                  |   29 +++++
  arch/i386/xen/multicalls.h                  |    3 
  arch/i386/xen/xen-ops.h                     |    1 
  arch/mips/mm/c-r4k.c                        |   21 +++-
@@ -60,50 +60,108 @@ The following files were changed in this release:
  arch/um/os-Linux/skas/process.c             |    2 
  arch/um/os-Linux/start_up.c                 |    1 
  arch/um/os-Linux/tt.c                       |    1 
- arch/um/os-Linux/util.c                     |   38 ++++++++
+ arch/um/os-Linux/util.c                     |   38 +++++++
  arch/um/sys-i386/user-offsets.c             |    6 -
  arch/um/sys-x86_64/user-offsets.c           |    9 -
  arch/x86_64/mm/init.c                       |    6 -
  arch/x86_64/mm/pageattr.c                   |    9 +
  block/ll_rw_blk.c                           |    8 -
+ drivers/acpi/sleep/main.c                   |    5 
+ drivers/ata/ahci.c                          |  143 ++++++++++++++++++++++++++++
+ drivers/ata/libata-core.c                   |    9 +
+ drivers/ata/libata-eh.c                     |   32 ++++--
  drivers/ata/sata_mv.c                       |   27 +++--
+ drivers/char/drm/i915_irq.c                 |    2 
+ drivers/char/drm/radeon_cp.c                |    5 
+ drivers/char/drm/radeon_drv.h               |    1 
+ drivers/char/moxa.c                         |    4 
+ drivers/char/rocket.c                       |   14 +-
+ drivers/hwmon/lm87.c                        |    4 
+ drivers/hwmon/w83627hf.c                    |   78 ++++++++-------
+ drivers/ide/pci/cs5535.c                    |    2 
+ drivers/ide/pci/serverworks.c               |    1 
+ drivers/ide/pci/siimage.c                   |    2 
+ drivers/infiniband/core/uverbs_cmd.c        |    8 +
+ drivers/infiniband/hw/mthca/mthca_cmd.c     |    6 +
+ drivers/isdn/hardware/avm/b1.c              |   28 ++---
+ drivers/isdn/hardware/avm/c4.c              |   14 ++
+ drivers/md/bitmap.c                         |    2 
+ drivers/md/dm-delay.c                       |    2 
+ drivers/md/dm.c                             |    4 
+ drivers/md/raid5.c                          |   17 ++-
+ drivers/net/ehea/ehea_qmr.c                 |   20 +--
+ drivers/net/ehea/ehea_qmr.h                 |    2 
+ drivers/net/forcedeth.c                     |   35 +++++-
+ drivers/net/pppol2tp.c                      |   25 +++-
+ drivers/net/skge.c                          |   90 +++++++++--------
+ drivers/net/skge.h                          |    6 -
+ drivers/net/sky2.c                          |   87 +++++++++++++----
+ drivers/net/tg3.c                           |   10 +
+ drivers/net/wireless/ipw2100.c              |   39 +++++++
+ drivers/net/wireless/ipw2100.h              |    4 
+ drivers/net/wireless/libertas/11d.c         |    2 
+ drivers/net/wireless/libertas/cmd.c         |    6 -
+ drivers/net/wireless/libertas/wext.c        |    8 -
+ drivers/net/wireless/rtl8187_dev.c          |   31 +++---
+ drivers/net/wireless/zd1201.c               |    4 
+ drivers/net/wireless/zd1211rw/zd_usb.c      |    7 -
+ drivers/pci/msi.c                           |    2 
+ drivers/scsi/hptiop.c                       |    5 
+ drivers/usb/core/hcd.h                      |    8 +
+ drivers/usb/core/hub.c                      |   15 ++
+ drivers/usb/core/quirks.c                   |   81 ---------------
+ drivers/usb/core/urb.c                      |    2 
+ drivers/usb/gadget/ether.c                  |   12 ++
+ drivers/usb/host/ehci-hcd.c                 |    8 +
+ drivers/usb/serial/generic.c                |    7 -
+ drivers/video/platinumfb.c                  |   48 +++++----
  fs/locks.c                                  |   11 ++
  fs/proc/array.c                             |    6 -
  fs/splice.c                                 |    2 
  fs/xfs/linux-2.6/xfs_buf.c                  |   13 ++
- include/asm-mips/hazards.h                  |   54 +++++++++++
+ include/asm-mips/hazards.h                  |   54 ++++++++++
  include/linux/blkdev.h                      |    2 
  include/linux/bootmem.h                     |    1 
+ include/linux/ide.h                         |    7 +
+ include/linux/libata.h                      |    2 
  include/linux/netlink.h                     |    2 
+ include/linux/pci_ids.h                     |    4 
  include/linux/sched.h                       |    1 
  include/linux/skbuff.h                      |    3 
+ include/linux/usb/quirks.h                  |    7 -
  include/net/9p/9p.h                         |   12 ++
- include/net/sock.h                          |   10 +-
- include/xen/interface/vcpu.h                |    5 -
+ include/net/sock.h                          |   10 +
+ include/xen/interface/vcpu.h                |    5 
  ipc/mqueue.c                                |    6 -
  kernel/fork.c                               |    2 
- kernel/futex_compat.c                       |   27 ++++-
- kernel/lockdep.c                            |   10 +-
+ kernel/futex_compat.c                       |   27 +++--
+ kernel/lockdep.c                            |   10 -
  kernel/params.c                             |    9 +
  kernel/softlockup.c                         |    7 -
  mm/filemap.c                                |   13 --
  mm/page-writeback.c                         |    4 
- mm/shmem.c                                  |   15 +++
+ mm/shmem.c                                  |   15 ++
  mm/slub.c                                   |   22 ----
  mm/sparse.c                                 |   11 --
- net/8021q/vlan.c                            |    5 +
+ net/8021q/vlan.c                            |    5 
  net/ieee80211/ieee80211_crypt_tkip.c        |    2 
  net/ieee80211/softmac/ieee80211softmac_wx.c |    2 
  net/ipv4/ipcomp.c                           |    3 
  net/ipv6/ipcomp6.c                          |    3 
- net/mac80211/ieee80211.c                    |   55 +++++++-----
- net/mac80211/ieee80211_ioctl.c              |   11 ++
- net/mac80211/ieee80211_sta.c                |  128 +++++++++++-----------------
- net/netfilter/nf_conntrack_proto_tcp.c      |   38 +++-----
- net/netlink/af_netlink.c                    |   10 +-
+ net/mac80211/ieee80211.c                    |   55 ++++++----
+ net/mac80211/ieee80211_ioctl.c              |   11 +-
+ net/mac80211/ieee80211_sta.c                |  128 ++++++++++---------------
+ net/netfilter/nf_conntrack_proto_tcp.c      |   38 +++----
+ net/netlink/af_netlink.c                    |   10 -
  net/sched/cls_u32.c                         |    4 
- net/sched/sch_api.c                         |    5 -
+ net/sched/sch_api.c                         |    5 
  net/sched/sch_teql.c                        |    3 
- net/socket.c                                |    6 +
- 72 files changed, 617 insertions(+), 361 deletions(-)
+ net/socket.c                                |    6 -
+ sound/core/Makefile                         |    3 
+ sound/core/memalloc.c                       |    6 +
+ sound/pci/emu10k1/emumixer.c                |    4 
+ sound/pci/hda/patch_sigmatel.c              |   29 +++--
+ sound/pci/rme9652/hdsp.c                    |    3 
+ sound/usb/usbmixer.c                        |    2 
+ 130 files changed, 1294 insertions(+), 698 deletions(-)
 
