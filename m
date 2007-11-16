@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.23.6 released
-Date: Fri, 16 Nov 2007 17:47:32 GMT
-Message-ID: <200711161747.lAGHlW7V011958@hera.kernel.org>
+Subject: Linux kernel 2.6.23.7 released
+Date: Fri, 16 Nov 2007 17:56:38 GMT
+Message-ID: <200711161756.lAGHucHF014311@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.23.6 has been released.  It is available from:
+Linux kernel version 2.6.23.7 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.6.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.6.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.7.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.7.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                50700            182957
-Full source                       45477413         264714240
+Patch                                51889            187496
+Full source                       45477172         264724480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -116,6 +116,10 @@ The following files were changed in this release:
  drivers/usb/serial/generic.c                |    7 -
  drivers/video/platinumfb.c                  |   48 +++++----
  fs/locks.c                                  |   11 ++
+ fs/minix/itree_v1.c                         |    9 +
+ fs/minix/itree_v2.c                         |    9 +
+ fs/nfs/write.c                              |   17 ++-
+ fs/ocfs2/aops.c                             |   22 ++++
  fs/proc/array.c                             |    6 -
  fs/splice.c                                 |    2 
  fs/xfs/linux-2.6/xfs_buf.c                  |   13 ++
@@ -163,5 +167,5 @@ The following files were changed in this release:
  sound/pci/hda/patch_sigmatel.c              |   29 +++--
  sound/pci/rme9652/hdsp.c                    |    3 
  sound/usb/usbmixer.c                        |    2 
- 130 files changed, 1294 insertions(+), 698 deletions(-)
+ 134 files changed, 1343 insertions(+), 706 deletions(-)
 
