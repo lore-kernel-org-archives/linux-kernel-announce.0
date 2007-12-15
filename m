@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.23.10 released
-Date: Fri, 14 Dec 2007 18:30:07 GMT
-Message-ID: <200712141830.lBEIU7RC023182@hera.kernel.org>
+Subject: Linux kernel 2.6.23.11 released
+Date: Sat, 15 Dec 2007 04:06:12 GMT
+Message-ID: <200712150406.lBF46Cf3013219@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.23.10 has been released.  It is available from:
+Linux kernel version 2.6.23.11 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.10.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.10.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.11.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.11.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                76359            284301
-Full source                       45481589         264724480
+Patch                                76097            283078
+Full source                       45475574         264724480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -87,7 +87,6 @@ The following files were changed in this release:
  drivers/base/power/main.c                   |    8 -
  drivers/base/power/power.h                  |   25 ++-
  drivers/block/rd.c                          |   13 +
- drivers/char/apm-emulation.c                |   15 +-
  drivers/char/drm/i915_irq.c                 |    2 
  drivers/char/drm/radeon_cp.c                |    5 
  drivers/char/drm/radeon_drv.h               |    1 
@@ -213,6 +212,7 @@ The following files were changed in this release:
  net/8021q/vlan.c                            |    5 
  net/8021q/vlan_dev.c                        |    3 
  net/bridge/br.c                             |    4 
+ net/bridge/br_fdb.c                         |    2 
  net/bridge/br_input.c                       |    7 
  net/bridge/netfilter/ebtable_broute.c       |    4 
  net/decnet/dn_dev.c                         |    4 
@@ -252,5 +252,5 @@ The following files were changed in this release:
  sound/pci/hda/patch_sigmatel.c              |   29 ++-
  sound/pci/rme9652/hdsp.c                    |    3 
  sound/usb/usbmixer.c                        |    2 
- 219 files changed, 1973 insertions(+), 1135 deletions(-)
+ 219 files changed, 1966 insertions(+), 1129 deletions(-)
 
