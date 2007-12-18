@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.23.11 released
-Date: Sat, 15 Dec 2007 04:06:12 GMT
-Message-ID: <200712150406.lBF46Cf3013219@hera.kernel.org>
+Subject: Linux kernel 2.6.23.12 released
+Date: Tue, 18 Dec 2007 22:50:20 GMT
+Message-ID: <200712182250.lBIMoKu0032495@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.23.11 has been released.  It is available from:
+Linux kernel version 2.6.23.12 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.11.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.11.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.12.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.12.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                76097            283078
-Full source                       45475574         264724480
+Patch                                75656            281040
+Full source                       45474970         264724480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -140,7 +140,6 @@ The following files were changed in this release:
  drivers/oprofile/cpu_buffer.h               |    1 
  drivers/oprofile/oprofile_stats.c           |    4 
  drivers/pci/msi.c                           |    2 
- drivers/pnp/pnpacpi/rsparser.c              |   15 +-
  drivers/scsi/dpt_i2o.c                      |  132 ++++++++---------
  drivers/scsi/dpti.h                         |    9 -
  drivers/scsi/esp_scsi.c                     |    4 
@@ -179,7 +178,6 @@ The following files were changed in this release:
  include/linux/libata.h                      |    2 
  include/linux/netlink.h                     |    2 
  include/linux/pci_ids.h                     |    8 +
- include/linux/pnp.h                         |    4 
  include/linux/sched.h                       |    1 
  include/linux/skbuff.h                      |    3 
  include/linux/thread_info.h                 |   17 ++
@@ -252,5 +250,5 @@ The following files were changed in this release:
  sound/pci/hda/patch_sigmatel.c              |   29 ++-
  sound/pci/rme9652/hdsp.c                    |    3 
  sound/usb/usbmixer.c                        |    2 
- 219 files changed, 1966 insertions(+), 1129 deletions(-)
+ 217 files changed, 1951 insertions(+), 1125 deletions(-)
 
