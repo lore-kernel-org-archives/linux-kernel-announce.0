@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.23.13 released
-Date: Wed, 9 Jan 2008 17:32:06 GMT
-Message-ID: <200801091732.m09HW6xf016173@hera.kernel.org>
+Subject: Linux kernel 2.6.23.14 released
+Date: Mon, 14 Jan 2008 22:16:39 GMT
+Message-ID: <200801142216.m0EMGdcN031524@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.23.13 has been released.  It is available from:
+Linux kernel version 2.6.23.14 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.13.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.13.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.23.14.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.14.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                76097            283099
-Full source                       45473072         264724480
+Patch                                76340            283830
+Full source                       45468456         264724480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -161,6 +161,7 @@ The following files were changed in this release:
  fs/locks.c                                  |   11 +
  fs/minix/itree_v1.c                         |    9 -
  fs/minix/itree_v2.c                         |    9 -
+ fs/namei.c                                  |    4 
  fs/nfs/write.c                              |   17 +-
  fs/nfsd/nfs2acl.c                           |    2 
  fs/nfsd/nfs3acl.c                           |    2 
@@ -251,5 +252,5 @@ The following files were changed in this release:
  sound/pci/hda/patch_sigmatel.c              |   29 ++-
  sound/pci/rme9652/hdsp.c                    |    3 
  sound/usb/usbmixer.c                        |    2 
- 218 files changed, 1973 insertions(+), 1139 deletions(-)
+ 219 files changed, 1975 insertions(+), 1141 deletions(-)
 
