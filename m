@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.24.1 released
-Date: Fri, 8 Feb 2008 20:45:45 GMT
-Message-ID: <200802082045.m18KjjEl025729@hera.kernel.org>
+Subject: Linux kernel 2.6.24.2 released
+Date: Mon, 11 Feb 2008 06:26:07 GMT
+Message-ID: <200802110626.m1B6Q74P020825@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.24.1 has been released.  It is available from:
+Linux kernel version 2.6.24.2 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.24.1.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.24.1.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.24.2.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.24.2.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                16612             62811
-Full source                       46736754         272844800
+Patch                                16648             63037
+Full source                       46735221         272844800
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -72,7 +72,7 @@ The following files were changed in this release:
  drivers/usb/storage/unusual_devs.h          |    8 ++++
  fs/eventpoll.c                              |    2 -
  fs/ncpfs/mmap.c                             |    4 --
- fs/splice.c                                 |    8 ++++
+ fs/splice.c                                 |   10 +++++-
  include/linux/dmi.h                         |    2 -
  include/linux/wait.h                        |   16 +++++++++
  kernel/relay.c                              |    1 
@@ -86,5 +86,5 @@ The following files were changed in this release:
  sound/oss/via82cxxx_audio.c                 |   14 +++-----
  sound/usb/usx2y/usX2Yhwdep.c                |    2 -
  sound/usb/usx2y/usx2yhwdeppcm.c             |    2 -
- 53 files changed, 360 insertions(+), 151 deletions(-)
+ 53 files changed, 361 insertions(+), 152 deletions(-)
 
