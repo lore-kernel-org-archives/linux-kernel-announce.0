@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.25.4 released
-Date: Thu, 15 May 2008 15:21:21 GMT
-Message-ID: <200805151521.m4FFLLT2006744@hera.kernel.org>
+Subject: Linux kernel 2.6.25.5 released
+Date: Fri, 6 Jun 2008 23:44:51 GMT
+Message-ID: <200806062344.m56Nip7p000902@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.25.4 has been released.  It is available from:
+Linux kernel version 2.6.25.5 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.4.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.4.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.5.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.5.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                39718            151753
-Full source                       48589922         284672000
+Patch                                40180            153837
+Full source                       48589640         284672000
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -115,6 +115,7 @@ The following files were changed in this release:
  drivers/usb/serial/airprime.c                  |    2 
  drivers/usb/serial/sierra.c                    |    1 
  fs/aio.c                                       |   12 +
+ fs/cifs/asn1.c                                 |   14 +
  fs/dnotify.c                                   |   11 +
  fs/jffs2/erase.c                               |   18 -
  fs/locks.c                                     |   17 +
@@ -157,6 +158,7 @@ The following files were changed in this release:
  net/ipv4/ipvs/ip_vs_sync.c                     |   80 +++++--
  net/ipv4/netfilter/ip_queue.c                  |    5 
  net/ipv4/netfilter/nf_conntrack_l3proto_ipv4.c |    2 
+ net/ipv4/netfilter/nf_nat_snmp_basic.c         |   14 +
  net/ipv4/tcp_probe.c                           |    9 
  net/ipv6/netfilter/ip6_queue.c                 |    5 
  net/ipv6/sit.c                                 |    2 
@@ -170,5 +172,5 @@ The following files were changed in this release:
  net/xfrm/xfrm_state.c                          |    2 
  net/xfrm/xfrm_user.c                           |    2 
  security/selinux/hooks.c                       |   15 +
- 137 files changed, 1311 insertions(+), 697 deletions(-)
+ 139 files changed, 1339 insertions(+), 697 deletions(-)
 
