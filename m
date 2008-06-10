@@ -1,226 +1,203 @@
-From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.25.6 released
-Date: Mon, 9 Jun 2008 19:57:30 GMT
-Message-ID: <200806091957.m59JvUoG028379@hera.kernel.org>
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: 2.6.26-rc5-mm2
+Date: Mon, 9 Jun 2008 22:31:45 -0700
+Message-ID: <20080609223145.5c9a2878.akpm__1414.08868735216$1213076030$gmane$org@linux-foundation.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-To: linux-kernel-announce@hera.kernel.org
+To: linux-kernel@vger.kernel.org
+Cc: kernel-testers@vger.kernel.org, linux-mm@kvack.org
 
-Linux kernel version 2.6.25.6 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.6.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.6.tar.bz2
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.26-rc5/2.6.26-rc5-mm2/
 
-Sizes in bytes			Compressed	Uncompressed
-------------------------------------------------------------
-Patch                                55577            216552
-Full source                       48597290         284682240
+- This is a bugfixed version of 2.6.26-rc5-mm1 - mainly to repair a
+  vmscan.c bug which would have prevented testing of the other vmscan.c
+  bugs^Wchanges.
 
------------------------------------------------------------------------------
- This is an automatically generated message.  To unsubscribe from this list,
- please send a message to majordomo@vger.kernel.org containing
- the line:
 
-   unsubscribe linux-kernel-announce <your_email_address>
+Boilerplate:
 
- ... where <your_email_address> is the email address you are receiving
-     this message at.
------------------------------------------------------------------------------
+- See the `hot-fixes' directory for any important updates to this patchset.
 
-The following files were changed in this release:
+- To fetch an -mm tree using git, use (for example)
 
- Makefile                                       |    2 
- arch/alpha/kernel/osf_sys.c                    |    1 
- arch/arm/kernel/kprobes-decode.c               |    2 
- arch/arm/kernel/kprobes.c                      |    2 
- arch/powerpc/kernel/smp.c                      |    2 
- arch/powerpc/mm/slb.c                          |   21 +-
- arch/sparc/kernel/entry.S                      |    2 
- arch/sparc/kernel/process.c                    |   25 +-
- arch/sparc/kernel/ptrace.c                     |    6 
- arch/sparc/kernel/rtrap.S                      |   11 -
- arch/sparc/kernel/signal.c                     |   84 ++++----
- arch/sparc/kernel/sys_sparc.c                  |   51 ----
- arch/sparc64/kernel/etrap.S                    |    7 
- arch/sparc64/kernel/irq.c                      |    3 
- arch/sparc64/kernel/pci.c                      |  130 +++---------
- arch/sparc64/kernel/pci_common.c               |    6 
- arch/sparc64/kernel/pci_impl.h                 |    9 
- arch/sparc64/kernel/process.c                  |   18 +
- arch/sparc64/kernel/ptrace.c                   |   16 +
- arch/sparc64/kernel/rtrap.S                    |    1 
- arch/sparc64/kernel/signal.c                   |   88 ++++----
- arch/sparc64/kernel/signal32.c                 |   48 +++-
- arch/sparc64/kernel/sys_sparc.c                |   44 ----
- arch/sparc64/kernel/sys_sparc32.c              |   33 ---
- arch/x86/Kconfig                               |   12 +
- arch/x86/kernel/apic_64.c                      |    2 
- arch/x86/kernel/cpu/cpufreq/acpi-cpufreq.c     |   10 
- arch/x86/kernel/io_apic_32.c                   |    1 
- arch/x86/kernel/irq_32.c                       |    2 
- arch/x86/kernel/process_32.c                   |    5 
- arch/x86/kernel/process_64.c                   |    5 
- arch/x86/kernel/ptrace.c                       |    7 
- arch/x86/kernel/tsc_32.c                       |   38 +--
- arch/x86/kernel/tsc_64.c                       |    5 
- arch/x86/mm/init_64.c                          |    2 
- arch/x86/pci/common.c                          |   24 --
- arch/x86/pci/init.c                            |    2 
- arch/x86/pci/irq.c                             |   12 -
- arch/x86/pci/pci.h                             |    2 
- crypto/authenc.c                               |    5 
- crypto/cryptd.c                                |    4 
- crypto/eseqiv.c                                |    3 
- drivers/acpi/processor_idle.c                  |    4 
- drivers/ata/ata_piix.c                         |   25 ++
- drivers/ata/libata-core.c                      |   12 +
- drivers/char/vt.c                              |    6 
- drivers/cpufreq/cpufreq.c                      |    4 
- drivers/hid/hid-input.c                        |    5 
- drivers/hid/usbhid/hid-quirks.c                |   38 +--
- drivers/i2c/busses/i2c-nforce2.c               |   28 ++
- drivers/i2c/busses/i2c-piix4.c                 |   32 ++-
- drivers/i2c/chips/max6875.c                    |    3 
- drivers/infiniband/hw/nes/nes.c                |    4 
- drivers/infiniband/hw/nes/nes_cm.c             |    6 
- drivers/infiniband/hw/nes/nes_hw.c             |   20 -
- drivers/infiniband/ulp/ipoib/ipoib_multicast.c |    6 
- drivers/md/dm-exception-store.c                |    2 
- drivers/md/md.c                                |    4 
- drivers/md/raid5.c                             |   35 ++-
- drivers/media/dvb/dvb-usb/dib0700_devices.c    |  259 ++++++++++++++++++++++---
- drivers/media/dvb/dvb-usb/dvb-usb-ids.h        |    9 
- drivers/media/video/cx88/cx88-cards.c          |    4 
- drivers/media/video/ivtv/ivtv-ioctl.c          |    3 
- drivers/media/video/tea5761.c                  |   15 -
- drivers/media/video/tuner-core.c               |    6 
- drivers/net/atl1/atl1_main.c                   |    1 
- drivers/net/macvlan.c                          |    2 
- drivers/net/ps3_gelic_wireless.c               |    2 
- drivers/net/r8169.c                            |    8 
- drivers/net/s2io.c                             |    4 
- drivers/net/tehuti.c                           |   15 +
- drivers/net/tg3.c                              |   52 ++++-
- drivers/net/tg3.h                              |    1 
- drivers/net/wireless/b43/b43.h                 |    4 
- drivers/net/wireless/b43/dma.c                 |   73 +++++--
- drivers/net/wireless/b43/main.c                |   68 +++++-
- drivers/rtc/rtc-lib.c                          |    2 
- drivers/rtc/rtc-pcf8583.c                      |    2 
- drivers/scsi/aha152x.c                         |    8 
- drivers/scsi/libiscsi.c                        |   29 +-
- drivers/scsi/qla1280.c                         |    4 
- drivers/scsi/qla2xxx/qla_os.c                  |    2 
- drivers/serial/dz.c                            |    2 
- drivers/serial/mpc52xx_uart.c                  |    2 
- drivers/serial/serial_core.c                   |    3 
- drivers/serial/sunhv.c                         |    2 
- drivers/serial/sunsab.c                        |    2 
- drivers/serial/sunsu.c                         |    2 
- drivers/serial/sunzilog.c                      |   32 +--
- drivers/ssb/pci.c                              |    5 
- drivers/usb/class/cdc-acm.c                    |    3 
- drivers/usb/core/hub.c                         |    1 
- drivers/usb/host/ohci-at91.c                   |    1 
- drivers/usb/host/ohci-ep93xx.c                 |    2 
- drivers/usb/host/ohci-hub.c                    |   43 ++++
- drivers/usb/host/ohci-omap.c                   |    5 
- drivers/usb/host/ohci-pci.c                    |   41 ---
- drivers/usb/host/ohci-pxa27x.c                 |    3 
- drivers/usb/host/ohci-sm501.c                  |    5 
- drivers/usb/host/ohci-ssb.c                    |    1 
- drivers/usb/misc/ldusb.c                       |    4 
- drivers/usb/serial/airprime.c                  |    2 
- drivers/usb/serial/ftdi_sio.c                  |    1 
- drivers/usb/serial/ftdi_sio.h                  |    6 
- drivers/usb/serial/option.c                    |    9 
- drivers/usb/serial/pl2303.c                    |    1 
- drivers/usb/serial/pl2303.h                    |    1 
- drivers/usb/serial/sierra.c                    |    1 
- drivers/usb/storage/unusual_devs.h             |   10 
- fs/aio.c                                       |   12 +
- fs/cifs/asn1.c                                 |   14 +
- fs/cifs/inode.c                                |   15 +
- fs/dnotify.c                                   |   11 +
- fs/ecryptfs/ecryptfs_kernel.h                  |    2 
- fs/ecryptfs/read_write.c                       |   22 --
- fs/ext3/xattr.c                                |    5 
- fs/ext4/xattr.c                                |    5 
- fs/jffs2/erase.c                               |   18 -
- fs/locks.c                                     |   17 +
- fs/proc/array.c                                |    2 
- fs/proc/base.c                                 |   33 ++-
- fs/proc/task_mmu.c                             |   28 --
- fs/reiserfs/ioctl.c                            |    4 
- fs/reiserfs/super.c                            |   17 +
- fs/utimes.c                                    |   17 +
- fs/xfs/linux-2.6/xfs_buf.c                     |   24 +-
- fs/xfs/linux-2.6/xfs_buf.h                     |   19 +
- include/asm-sparc/mman.h                       |    5 
- include/asm-sparc/psr.h                        |    1 
- include/asm-sparc/ptrace.h                     |   13 +
- include/asm-sparc/signal.h                     |    8 
- include/asm-sparc64/mman.h                     |    5 
- include/asm-sparc64/psrcompat.h                |    2 
- include/asm-sparc64/pstate.h                   |    1 
- include/asm-sparc64/ptrace.h                   |   13 +
- include/asm-sparc64/signal.h                   |    8 
- include/asm-sparc64/ttable.h                   |    7 
- include/asm-x86/tlbflush.h                     |   13 +
- include/asm-x86/topology.h                     |   18 -
- include/crypto/scatterwalk.h                   |    4 
- include/linux/capability.h                     |   29 ++
- include/linux/hid.h                            |    1 
- include/linux/reiserfs_fs.h                    |    1 
- include/linux/rtnetlink.h                      |    4 
- include/linux/types.h                          |    4 
- include/net/ip_vs.h                            |    3 
- include/net/netfilter/nf_conntrack_tuple.h     |   10 
- include/net/tcp.h                              |    7 
- include/net/xfrm.h                             |    3 
- kernel/capability.c                            |  111 +++++++---
- kernel/cgroup.c                                |    9 
- kernel/hrtimer.c                               |   34 ++-
- kernel/sched.c                                 |   66 ++++++
- mm/memory_hotplug.c                            |   78 +++----
- mm/mmap.c                                      |    8 
- mm/page_alloc.c                                |   17 +
- mm/pagewalk.c                                  |    8 
- net/can/af_can.c                               |   16 +
- net/can/raw.c                                  |    3 
- net/core/rtnetlink.c                           |    6 
- net/dccp/feat.c                                |    2 
- net/dccp/probe.c                               |    2 
- net/ipv4/ipvs/ip_vs_proto.c                    |    2 
- net/ipv4/ipvs/ip_vs_proto_ah.c                 |    1 
- net/ipv4/ipvs/ip_vs_proto_esp.c                |    1 
- net/ipv4/ipvs/ip_vs_proto_tcp.c                |    1 
- net/ipv4/ipvs/ip_vs_proto_udp.c                |    1 
- net/ipv4/ipvs/ip_vs_sync.c                     |   80 +++++--
- net/ipv4/netfilter/ip_queue.c                  |    5 
- net/ipv4/netfilter/nf_conntrack_l3proto_ipv4.c |    2 
- net/ipv4/netfilter/nf_nat_snmp_basic.c         |   14 +
- net/ipv4/tcp_probe.c                           |    9 
- net/ipv6/netfilter/ip6_queue.c                 |    5 
- net/ipv6/netfilter/nf_conntrack_reasm.c        |    8 
- net/ipv6/sit.c                                 |    2 
- net/key/af_key.c                               |    2 
- net/netfilter/nf_conntrack_core.c              |    4 
- net/netfilter/nf_conntrack_expect.c            |    4 
- net/netfilter/nfnetlink_queue.c                |    5 
- net/netfilter/xt_connlimit.c                   |    3 
- net/netfilter/xt_iprange.c                     |    2 
- net/rose/af_rose.c                             |    6 
- net/sched/sch_htb.c                            |    8 
- net/tipc/socket.c                              |    4 
- net/xfrm/xfrm_policy.c                         |    2 
- net/xfrm/xfrm_state.c                          |    2 
- net/xfrm/xfrm_user.c                           |    2 
- security/selinux/hooks.c                       |   15 +
- security/smack/smack_lsm.c                     |   12 +
- 189 files changed, 1787 insertions(+), 950 deletions(-)
+  git-fetch git://git.kernel.org/pub/scm/linux/kernel/git/smurf/linux-trees.git tag v2.6.16-rc2-mm1
+  git-checkout -b local-v2.6.16-rc2-mm1 v2.6.16-rc2-mm1
+
+- -mm kernel commit activity can be reviewed by subscribing to the
+  mm-commits mailing list.
+
+        echo "subscribe mm-commits" | mail majordomo@vger.kernel.org
+
+- If you hit a bug in -mm and it is not obvious which patch caused it, it is
+  most valuable if you can perform a bisection search to identify which patch
+  introduced the bug.  Instructions for this process are at
+
+        http://www.zip.com.au/~akpm/linux/patches/stuff/bisecting-mm-trees.txt
+
+  But beware that this process takes some time (around ten rebuilds and
+  reboots), so consider reporting the bug first and if we cannot immediately
+  identify the faulty patch, then perform the bisection search.
+
+- When reporting bugs, please try to Cc: the relevant maintainer and mailing
+  list on any email.
+
+- When reporting bugs in this kernel via email, please also rewrite the
+  email Subject: in some manner to reflect the nature of the bug.  Some
+  developers filter by Subject: when looking for messages to read.
+
+- Occasional snapshots of the -mm lineup are uploaded to
+  ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/mm/ and are announced on
+  the mm-commits list.  These probably are at least compilable.
+
+- More-than-daily -mm snapshots may be found at
+  http://userweb.kernel.org/~akpm/mmotm/.  These are almost certainly not
+  compileable.
+
+
+
+Changes since 2.6.26-rc5-mm1:
+
+ origin.patch
+ linux-next.patch
+ git-jg-misc.patch
+ git-leds.patch
+ git-libata-all.patch
+ git-battery.patch
+ git-parisc.patch
+ git-regulator.patch
+ git-scsi-misc-fix-scsi_dh-build-errors.patch
+ git-unionfs.patch
+ git-logfs.patch
+ git-unprivileged-mounts.patch
+ git-xtensa.patch
+ git-orion.patch
+ git-pekka.patch
+
+ git trees
+
++cpusets-provide-another-web-page-url-in-maintainers-file.patch
++maintainers-update-pppoe-maintainer-address.patch
++proc_fsh-move-struct-mm_struct-forward-declaration.patch
+
+ 2.6.26 queue
+
+-drivers-net-wireless-iwlwifi-iwl-4965-rsc-config_iwl4965_ht=n-hack.patch
+
+ Unneeded
+
++drivers-mtd-nand-nandsimc-needs-div64h.patch
+
+ mtd fix
+
+-intel-agp-rewrite-gtt-on-resume-update.patch
+-intel-agp-rewrite-gtt-on-resume-update-checkpatch-fixes.patch
+
+ Folded into intel-agp-rewrite-gtt-on-resume.patch
+
++intel-agp-rewrite-gtt-on-resume-fix.patch
++intel-agp-rewrite-gtt-on-resume-fix-fix.patch
+
+ Fix it some more.
+
+-powerpc-fix-for-oprofile-callgraph-for-power-64-bit-user-apps.patch
+
+ Dropped
+
+-arch-powerpc-platforms-pseries-eeh_driverc-fix-warning-checkpatch-fixes.patch
+
+ Folded into arch-powerpc-platforms-pseries-eeh_driverc-fix-warning.patch
+
+-bluetooth-hci_bcspc-small-cleanups-api-users-fix.patch
+
+ Folded into bluetooth-hci_bcspc-small-cleanups-api-users.patch
+
+-net-sh_eth-add-support-for-renesas-superh-ethernet-checkpatch-fixes.patch
+
+ Folded into net-sh_eth-add-support-for-renesas-superh-ethernet.patch
+
++selinux-change-handling-of-invalid-classes.patch
+
+ selinux fix
+
+-usb-host-use-get-put_unaligned_-helpers-to-fix-more-potential-unaligned-issues-fix.patch
+-usb-host-use-get-put_unaligned_-helpers-to-fix-more-potential-unaligned-issues-fix-2.patch
+
+ Folded into
+ usb-host-use-get-put_unaligned_-helpers-to-fix-more-potential-unaligned-issues.patch
+
+-at91sam9-cap9-watchdog-driver.patch
+
+ Dropped
+
+-watchdog-pcwd-clean-up-unlocked_ioctl-usage-fix.patch
+
+ Folded into watchdog-pcwd-clean-up-unlocked_ioctl-usage.patch
+
+-watchdog-wdt501-pci-clean-up-coding-style-and-switch-to-unlocked_ioctl-fix.patch
+
+ Folded into
+ watchdog-wdt501-pci-clean-up-coding-style-and-switch-to-unlocked_ioctl.patch
+
++iwlwifi-remove-iwl4965_ht-config.patch
+
+ wireless fix
+
++drivers-isdn-sc-ioctlc-add-missing-kfree.patch
+
+ ISDM fix
+
+-mtd-m25p80-fix-bug-atmel-spi-flash-fails-to-be-copied-to-fix-up.patch
+
+ Folded into mtd-m25p80-fix-bug-atmel-spi-flash-fails-to-be-copied-to.patch
+
+-pnpacpi-fix-irq-flag-decoding-comment-fix.patch
+
+ Folded into pnpacpi-fix-irq-flag-decoding.patch
+
+-vfs-utimensat-fix-error-checking-for-utime_nowutime_omit-case-cleanup.patch
+
+ Folded into
+ vfs-utimensat-fix-error-checking-for-utime_nowutime_omit-case.patch
+
+-jbd-strictly-check-for-write-errors-on-data-buffers.patch
+-jbd-ordered-data-integrity-fix.patch
+-jbd-abort-when-failed-to-log-metadata-buffers.patch
+-jbd-fix-error-handling-for-checkpoint-io.patch
+-ext3-abort-ext3-if-the-journal-has-aborted.patch
+-ext3-abort-ext3-if-the-journal-has-aborted-warning-fix.patch
+
+ Dropped
+
++memrlimit-add-memrlimit-controller-accounting-and-control-fix.patch
+
+ Fix memrlimit-add-memrlimit-controller-accounting-and-control.patch
+
++memstick-use-fully-asynchronous-request-processing-fix.patch
+
+ Folded into memstick-use-fully-asynchronous-request-processing.patch
+
+-x86-lockless-get_user_pages_fast-fix-2-fix.patch
+
+ Folded into other patches
+
++mm-speculative-page-references-fix-fix.patch
+
+ Fix mm-speculative-page-references-fix.patch
+
++reiser4-tree_lock-fixes-fix.patch
+
+ More reiser4 repairs
+
+
+1354 commits in 931 patch files
+
+All patches:
+
+ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.26-rc5/2.6.26-rc5-mm2/patch-list
+
 
