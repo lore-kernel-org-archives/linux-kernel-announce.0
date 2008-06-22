@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.25.7 released
-Date: Mon, 16 Jun 2008 20:55:42 GMT
-Message-ID: <200806162055.m5GKtgj9009539@hera.kernel.org>
+Subject: Linux kernel 2.6.25.8 released
+Date: Sun, 22 Jun 2008 05:38:10 GMT
+Message-ID: <200806220538.m5M5cAMX010585@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.25.7 has been released.  It is available from:
+Linux kernel version 2.6.25.8 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.7.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.7.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.8.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.8.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                68227            265988
-Full source                       48606801         284682240
+Patch                                72083            281364
+Full source                       48605719         284682240
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -63,11 +63,13 @@ The following files were changed in this release:
  arch/x86/kernel/cpu/cpufreq/acpi-cpufreq.c     |   10 
  arch/x86/kernel/io_apic_32.c                   |    1 
  arch/x86/kernel/irq_32.c                       |    2 
- arch/x86/kernel/process_32.c                   |    5 
- arch/x86/kernel/process_64.c                   |    5 
+ arch/x86/kernel/process_32.c                   |   28 ++
+ arch/x86/kernel/process_64.c                   |   29 ++
  arch/x86/kernel/ptrace.c                       |    7 
  arch/x86/kernel/tsc_32.c                       |   38 +--
  arch/x86/kernel/tsc_64.c                       |    5 
+ arch/x86/lib/copy_user_64.S                    |   25 +-
+ arch/x86/lib/copy_user_nocache_64.S            |   25 +-
  arch/x86/mm/init_64.c                          |    2 
  arch/x86/pci/common.c                          |   24 --
  arch/x86/pci/init.c                            |    2 
@@ -77,6 +79,7 @@ The following files were changed in this release:
  crypto/cryptd.c                                |    4 
  crypto/eseqiv.c                                |    3 
  drivers/acpi/processor_idle.c                  |    4 
+ drivers/acpi/tables/tbinstal.c                 |   18 -
  drivers/ata/ata_piix.c                         |   25 ++
  drivers/ata/libata-core.c                      |   12 +
  drivers/block/brd.c                            |    1 
@@ -89,6 +92,7 @@ The following files were changed in this release:
  drivers/i2c/busses/i2c-nforce2.c               |   28 ++
  drivers/i2c/busses/i2c-piix4.c                 |   32 ++-
  drivers/i2c/chips/max6875.c                    |    3 
+ drivers/ide/pci/opti621.c                      |   23 --
  drivers/infiniband/core/umem.c                 |    2 
  drivers/infiniband/hw/nes/nes.c                |    4 
  drivers/infiniband/hw/nes/nes_cm.c             |    6 
@@ -117,15 +121,19 @@ The following files were changed in this release:
  drivers/net/tehuti.c                           |   15 +
  drivers/net/tg3.c                              |   52 ++++-
  drivers/net/tg3.h                              |    1 
- drivers/net/wireless/b43/b43.h                 |    4 
- drivers/net/wireless/b43/dma.c                 |   73 +++++--
- drivers/net/wireless/b43/main.c                |   80 ++++++-
+ drivers/net/virtio_net.c                       |    8 
+ drivers/net/wireless/b43/b43.h                 |    5 
+ drivers/net/wireless/b43/dma.c                 |   75 +++++--
+ drivers/net/wireless/b43/main.c                |   96 +++++++--
  drivers/rtc/rtc-lib.c                          |    2 
  drivers/rtc/rtc-pcf8583.c                      |    2 
  drivers/scsi/aha152x.c                         |    8 
+ drivers/scsi/hosts.c                           |    5 
  drivers/scsi/libiscsi.c                        |   29 +-
  drivers/scsi/qla1280.c                         |    4 
  drivers/scsi/qla2xxx/qla_os.c                  |    2 
+ drivers/scsi/sr.c                              |    3 
+ drivers/serial/8250.c                          |    4 
  drivers/serial/dz.c                            |    2 
  drivers/serial/mpc52xx_uart.c                  |    2 
  drivers/serial/serial_core.c                   |    8 
@@ -244,8 +252,9 @@ The following files were changed in this release:
  net/ipv6/sit.c                                 |    2 
  net/key/af_key.c                               |    4 
  net/mac80211/ieee80211_sta.c                   |    5 
- net/netfilter/nf_conntrack_core.c              |    4 
+ net/netfilter/nf_conntrack_core.c              |    7 
  net/netfilter/nf_conntrack_expect.c            |    4 
+ net/netfilter/nf_conntrack_h323_main.c         |   22 +-
  net/netfilter/nfnetlink_queue.c                |    5 
  net/netfilter/xt_connlimit.c                   |    3 
  net/netfilter/xt_iprange.c                     |    2 
@@ -260,5 +269,5 @@ The following files were changed in this release:
  security/smack/smack_lsm.c                     |   12 +
  sound/pci/emu10k1/emu10k1_main.c               |   15 -
  sound/pci/hda/patch_realtek.c                  |    1 
- 227 files changed, 2163 insertions(+), 1132 deletions(-)
+ 236 files changed, 2279 insertions(+), 1218 deletions(-)
 
