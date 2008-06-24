@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.25.8 released
-Date: Sun, 22 Jun 2008 05:38:10 GMT
-Message-ID: <200806220538.m5M5cAMX010585@hera.kernel.org>
+Subject: Linux kernel 2.6.25.9 released
+Date: Tue, 24 Jun 2008 21:44:56 GMT
+Message-ID: <200806242144.m5OLiukE015168@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.25.8 has been released.  It is available from:
+Linux kernel version 2.6.25.9 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.8.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.8.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.9.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.9.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                72083            281364
-Full source                       48605719         284682240
+Patch                                74972            295971
+Full source                       48609371         284682240
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -39,6 +39,7 @@ The following files were changed in this release:
  arch/arm/kernel/kprobes-decode.c               |    2 
  arch/arm/kernel/kprobes.c                      |    2 
  arch/powerpc/kernel/smp.c                      |    2 
+ arch/powerpc/kernel/vdso.c                     |    2 
  arch/powerpc/mm/slb.c                          |   21 +-
  arch/sparc/kernel/entry.S                      |    2 
  arch/sparc/kernel/process.c                    |   25 +-
@@ -66,6 +67,7 @@ The following files were changed in this release:
  arch/x86/kernel/process_32.c                   |   28 ++
  arch/x86/kernel/process_64.c                   |   29 ++
  arch/x86/kernel/ptrace.c                       |    7 
+ arch/x86/kernel/setup_32.c                     |   10 
  arch/x86/kernel/tsc_32.c                       |   38 +--
  arch/x86/kernel/tsc_64.c                       |    5 
  arch/x86/lib/copy_user_64.S                    |   25 +-
@@ -89,6 +91,8 @@ The following files were changed in this release:
  drivers/cpufreq/cpufreq.c                      |    6 
  drivers/hid/hid-input.c                        |    5 
  drivers/hid/usbhid/hid-quirks.c                |   38 +--
+ drivers/hwmon/adt7473.c                        |    3 
+ drivers/hwmon/lm85.c                           |    2 
  drivers/i2c/busses/i2c-nforce2.c               |   28 ++
  drivers/i2c/busses/i2c-piix4.c                 |   32 ++-
  drivers/i2c/chips/max6875.c                    |    3 
@@ -110,6 +114,7 @@ The following files were changed in this release:
  drivers/media/video/tuner-core.c               |    6 
  drivers/media/video/videobuf-core.c            |    3 
  drivers/mmc/host/wbsd.c                        |   21 --
+ drivers/net/atl1/atl1_hw.c                     |    1 
  drivers/net/atl1/atl1_main.c                   |    1 
  drivers/net/cassini.c                          |   11 -
  drivers/net/forcedeth.c                        |   20 +
@@ -164,6 +169,7 @@ The following files were changed in this release:
  drivers/usb/storage/unusual_devs.h             |   10 
  drivers/video/hgafb.c                          |   26 +-
  drivers/video/modedb.c                         |    1 
+ drivers/watchdog/hpwdt.c                       |  154 +++++++-------
  fs/aio.c                                       |   12 +
  fs/cifs/asn1.c                                 |   14 +
  fs/cifs/cifsfs.c                               |   21 --
@@ -198,9 +204,11 @@ The following files were changed in this release:
  include/asm-sparc64/ptrace.h                   |   13 +
  include/asm-sparc64/signal.h                   |    8 
  include/asm-sparc64/ttable.h                   |    7 
+ include/asm-x86/page_32.h                      |    3 
  include/asm-x86/tlbflush.h                     |   13 +
  include/asm-x86/topology.h                     |   18 -
  include/crypto/scatterwalk.h                   |    4 
+ include/linux/bootmem.h                        |    2 
  include/linux/capability.h                     |   29 ++
  include/linux/hid.h                            |    1 
  include/linux/pci_ids.h                        |    1 
@@ -218,7 +226,10 @@ The following files were changed in this release:
  kernel/cgroup.c                                |    9 
  kernel/hrtimer.c                               |   34 ++-
  kernel/sched.c                                 |   66 ++++++
+ mm/bootmem.c                                   |    4 
+ mm/memory.c                                    |   41 +++
  mm/memory_hotplug.c                            |   78 +++----
+ mm/migrate.c                                   |   10 
  mm/mmap.c                                      |    8 
  mm/page_alloc.c                                |   17 +
  mm/pagewalk.c                                  |    8 
@@ -261,6 +272,7 @@ The following files were changed in this release:
  net/rose/af_rose.c                             |    6 
  net/sched/cls_api.c                            |    2 
  net/sched/sch_htb.c                            |    8 
+ net/sctp/socket.c                              |    4 
  net/tipc/socket.c                              |    4 
  net/xfrm/xfrm_policy.c                         |    2 
  net/xfrm/xfrm_state.c                          |    2 
@@ -269,5 +281,5 @@ The following files were changed in this release:
  security/smack/smack_lsm.c                     |   12 +
  sound/pci/emu10k1/emu10k1_main.c               |   15 -
  sound/pci/hda/patch_realtek.c                  |    1 
- 236 files changed, 2279 insertions(+), 1218 deletions(-)
+ 248 files changed, 2423 insertions(+), 1310 deletions(-)
 
