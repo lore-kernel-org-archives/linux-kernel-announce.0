@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.25.9 released
-Date: Tue, 24 Jun 2008 21:44:56 GMT
-Message-ID: <200806242144.m5OLiukE015168@hera.kernel.org>
+Subject: Linux kernel 2.6.25.10 released
+Date: Thu, 3 Jul 2008 04:12:50 GMT
+Message-ID: <200807030412.m634Co00000659@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.25.9 has been released.  It is available from:
+Linux kernel version 2.6.25.10 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.9.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.9.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.25.10.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.10.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                74972            295971
-Full source                       48609371         284682240
+Patch                                78390            311228
+Full source                       48614990         284692480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -62,12 +62,14 @@ The following files were changed in this release:
  arch/x86/Kconfig                               |   15 -
  arch/x86/kernel/apic_64.c                      |    2 
  arch/x86/kernel/cpu/cpufreq/acpi-cpufreq.c     |   10 
+ arch/x86/kernel/i387.c                         |    4 
  arch/x86/kernel/io_apic_32.c                   |    1 
  arch/x86/kernel/irq_32.c                       |    2 
  arch/x86/kernel/process_32.c                   |   28 ++
  arch/x86/kernel/process_64.c                   |   29 ++
- arch/x86/kernel/ptrace.c                       |    7 
+ arch/x86/kernel/ptrace.c                       |   52 ++---
  arch/x86/kernel/setup_32.c                     |   10 
+ arch/x86/kernel/smpboot_64.c                   |    1 
  arch/x86/kernel/tsc_32.c                       |   38 +--
  arch/x86/kernel/tsc_64.c                       |    5 
  arch/x86/lib/copy_user_64.S                    |   25 +-
@@ -86,6 +88,7 @@ The following files were changed in this release:
  drivers/ata/libata-core.c                      |   12 +
  drivers/block/brd.c                            |    1 
  drivers/block/cciss.c                          |   21 +-
+ drivers/char/drm/i915_drv.c                    |    1 
  drivers/char/pcmcia/ipwireless/hardware.c      |   20 +
  drivers/char/vt.c                              |    6 
  drivers/cpufreq/cpufreq.c                      |    6 
@@ -98,6 +101,7 @@ The following files were changed in this release:
  drivers/i2c/chips/max6875.c                    |    3 
  drivers/ide/pci/opti621.c                      |   23 --
  drivers/infiniband/core/umem.c                 |    2 
+ drivers/infiniband/hw/mthca/mthca_memfree.c    |    6 
  drivers/infiniband/hw/nes/nes.c                |    4 
  drivers/infiniband/hw/nes/nes_cm.c             |    6 
  drivers/infiniband/hw/nes/nes_hw.c             |   20 -
@@ -118,18 +122,26 @@ The following files were changed in this release:
  drivers/net/atl1/atl1_main.c                   |    1 
  drivers/net/cassini.c                          |   11 -
  drivers/net/forcedeth.c                        |   20 +
+ drivers/net/hamradio/6pack.c                   |    2 
+ drivers/net/hamradio/mkiss.c                   |    8 
+ drivers/net/irda/irtty-sir.c                   |    4 
  drivers/net/macvlan.c                          |    2 
+ drivers/net/ppp_async.c                        |    3 
+ drivers/net/ppp_synctty.c                      |    3 
  drivers/net/pppol2tp.c                         |  124 +++++++++--
  drivers/net/ps3_gelic_wireless.c               |    2 
  drivers/net/r8169.c                            |    8 
  drivers/net/s2io.c                             |    4 
+ drivers/net/slip.c                             |   14 -
  drivers/net/tehuti.c                           |   15 +
  drivers/net/tg3.c                              |   52 ++++-
  drivers/net/tg3.h                              |    1 
  drivers/net/virtio_net.c                       |    8 
+ drivers/net/wan/x25_asy.c                      |   10 
  drivers/net/wireless/b43/b43.h                 |    5 
  drivers/net/wireless/b43/dma.c                 |   75 +++++--
  drivers/net/wireless/b43/main.c                |   96 +++++++--
+ drivers/net/wireless/strip.c                   |    3 
  drivers/rtc/rtc-lib.c                          |    2 
  drivers/rtc/rtc-pcf8583.c                      |    2 
  drivers/scsi/aha152x.c                         |    8 
@@ -204,6 +216,7 @@ The following files were changed in this release:
  include/asm-sparc64/ptrace.h                   |   13 +
  include/asm-sparc64/signal.h                   |    8 
  include/asm-sparc64/ttable.h                   |    7 
+ include/asm-x86/msr.h                          |    2 
  include/asm-x86/page_32.h                      |    3 
  include/asm-x86/tlbflush.h                     |   13 +
  include/asm-x86/topology.h                     |   18 -
@@ -224,8 +237,9 @@ The following files were changed in this release:
  init/Kconfig                                   |    1 
  kernel/capability.c                            |  111 +++++++---
  kernel/cgroup.c                                |    9 
+ kernel/futex.c                                 |   93 +++++++-
  kernel/hrtimer.c                               |   34 ++-
- kernel/sched.c                                 |   66 ++++++
+ kernel/sched.c                                 |   67 ++++++
  mm/bootmem.c                                   |    4 
  mm/memory.c                                    |   41 +++
  mm/memory_hotplug.c                            |   78 +++----
@@ -281,5 +295,5 @@ The following files were changed in this release:
  security/smack/smack_lsm.c                     |   12 +
  sound/pci/emu10k1/emu10k1_main.c               |   15 -
  sound/pci/hda/patch_realtek.c                  |    1 
- 248 files changed, 2423 insertions(+), 1310 deletions(-)
+ 262 files changed, 2569 insertions(+), 1364 deletions(-)
 
