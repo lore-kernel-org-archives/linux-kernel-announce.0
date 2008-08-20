@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.26.2 released
-Date: Wed, 6 Aug 2008 17:36:05 GMT
-Message-ID: <200808061736.m76Ha5sB028112@hera.kernel.org>
+Subject: Linux kernel 2.6.26.3 released
+Date: Wed, 20 Aug 2008 18:30:03 GMT
+Message-ID: <200808201830.m7KIU2pF016950@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.26.2 has been released.  It is available from:
+Linux kernel version 2.6.26.3 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.26.2.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.26.2.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.26.3.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.26.3.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                42077            159037
-Full source                       49442109         289536000
+Patch                                67002            262509
+Full source                       49452289         289556480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -37,35 +37,57 @@ The following files were changed in this release:
  Documentation/networking/udplite.txt          |    2 
  Documentation/video4linux/cx18.txt            |   12 
  Makefile                                      |    5 
- arch/ia64/kvm/kvm-ia64.c                      |    3 
+ arch/ia64/kvm/kvm-ia64.c                      |    8 
  arch/powerpc/kernel/ppc32.h                   |    2 
  arch/powerpc/kernel/ptrace32.c                |   27 
  arch/powerpc/kvm/powerpc.c                    |    4 
  arch/powerpc/platforms/cell/cbe_cpufreq_pmi.c |    6 
  arch/s390/kvm/kvm-s390.c                      |    4 
- arch/sparc64/kernel/irq.c                     |   10 
+ arch/sparc64/kernel/irq.c                     |   62 +
+ arch/sparc64/kernel/kstack.h                  |   60 +
  arch/sparc64/kernel/ldc.c                     |   38 
+ arch/sparc64/kernel/process.c                 |   32 
+ arch/sparc64/kernel/signal.c                  |    6 
+ arch/sparc64/kernel/stacktrace.c              |   11 
  arch/sparc64/kernel/time.c                    |   15 
+ arch/sparc64/kernel/traps.c                   |    7 
+ arch/sparc64/lib/mcount.S                     |   39 
+ arch/sparc64/mm/init.c                        |   11 
+ arch/sparc64/mm/ultra.S                       |    7 
  arch/um/include/init.h                        |    8 
  arch/x86/Kconfig.cpu                          |    2 
+ arch/x86/boot/boot.h                          |    8 
+ arch/x86/boot/cpucheck.c                      |    8 
+ arch/x86/boot/main.c                          |    4 
  arch/x86/kernel/acpi/sleep.c                  |   17 
+ arch/x86/kernel/cpu/mtrr/generic.c            |    2 
  arch/x86/kernel/i387.c                        |    4 
  arch/x86/kernel/io_delay.c                    |    3 
  arch/x86/kernel/kprobes.c                     |    1 
  arch/x86/kernel/process.c                     |    3 
  arch/x86/kernel/ptrace.c                      |    4 
  arch/x86/kernel/reboot.c                      |    8 
- arch/x86/kvm/mmu.c                            |   10 
- arch/x86/kvm/svm.c                            |   34 
- arch/x86/kvm/vmx.c                            |    7 
- arch/x86/kvm/x86.c                            |    5 
+ arch/x86/kvm/mmu.c                            |   11 
+ arch/x86/kvm/svm.c                            |   41 
+ arch/x86/kvm/vmx.c                            |    9 
+ arch/x86/kvm/x86.c                            |  114 --
  arch/x86/kvm/x86_emulate.c                    |    2 
  arch/x86/mm/init_64.c                         |    2 
+ arch/x86/pci/k8-bus_64.c                      |    4 
  block/bsg.c                                   |    9 
+ block/scsi_ioctl.c                            |    2 
  drivers/acpi/processor_perflib.c              |   15 
+ drivers/char/hw_random/via-rng.c              |    8 
  drivers/cpufreq/cpufreq.c                     |    3 
+ drivers/crypto/padlock-aes.c                  |   28 
+ drivers/crypto/padlock-sha.c                  |    9 
  drivers/dma/iop-adma.c                        |    2 
- drivers/ide/ide-cd.c                          |   27 
+ drivers/i2c/Kconfig                           |   14 
+ drivers/i2c/algos/Kconfig                     |   11 
+ drivers/i2c/i2c-core.c                        |    4 
+ drivers/ide/ide-cd.c                          |   29 
+ drivers/ide/pci/cs5520.c                      |    1 
+ drivers/ide/pci/it821x.c                      |    6 
  drivers/input/serio/i8042-x86ia64io.h         |   43 
  drivers/md/linear.c                           |    2 
  drivers/md/md.c                               |    2 
@@ -81,17 +103,47 @@ The following files were changed in this release:
  drivers/media/video/uvc/uvc_status.c          |   19 
  drivers/media/video/uvc/uvc_video.c           |  116 +-
  drivers/media/video/uvc/uvcvideo.h            |    2 
+ drivers/misc/acer-wmi.c                       |   19 
  drivers/mmc/host/pxamci.c                     |    2 
  drivers/net/hamradio/hdlcdrv.c                |    1 
  drivers/net/ixgbe/ixgbe_main.c                |    2 
  drivers/net/myri10ge/myri10ge.c               |   30 
+ drivers/net/r8169.c                           |    6 
  drivers/net/wireless/ath5k/base.c             |   40 
  drivers/net/wireless/ath5k/base.h             |    2 
  drivers/net/wireless/b43legacy/main.c         |    2 
+ drivers/net/wireless/rtl8187.h                |    4 
+ drivers/net/wireless/rtl8187_dev.c            |    3 
+ drivers/pci/quirks.c                          |    7 
  drivers/rtc/rtc-at91rm9200.c                  |   16 
  drivers/scsi/ch.c                             |    1 
+ drivers/scsi/hptiop.c                         |    7 
+ drivers/scsi/qla2xxx/qla_attr.c               |   43 
+ drivers/scsi/qla2xxx/qla_def.h                |    1 
+ drivers/scsi/qla2xxx/qla_gbl.h                |    2 
+ drivers/scsi/qla2xxx/qla_init.c               |   16 
+ drivers/scsi/qla2xxx/qla_os.c                 |   55 -
+ drivers/scsi/scsi_transport_spi.c             |    8 
+ drivers/scsi/ses.c                            |   18 
  drivers/spi/mpc52xx_psc_spi.c                 |   22 
- drivers/usb/serial/usb-serial.c               |    5 
+ drivers/usb/core/message.c                    |    2 
+ drivers/usb/serial/ftdi_sio.c                 |    5 
+ drivers/usb/serial/ftdi_sio.h                 |    6 
+ drivers/usb/serial/pl2303.c                   |    1 
+ drivers/usb/serial/pl2303.h                   |    4 
+ drivers/usb/serial/usb-serial.c               |   12 
+ drivers/usb/storage/scsiglue.c                |   25 
+ drivers/usb/storage/transport.c               |   17 
+ drivers/usb/storage/unusual_devs.h            |   18 
+ drivers/video/arkfb.c                         |   18 
+ drivers/video/aty/radeon_accel.c              |   12 
+ drivers/video/matrox/matroxfb_maven.c         |    2 
+ drivers/video/s3fb.c                          |   18 
+ drivers/video/vt8623fb.c                      |   20 
+ fs/cifs/asn1.c                                |    2 
+ fs/cifs/cifs_spnego.c                         |   18 
+ fs/cifs/cifsfs.c                              |    2 
+ fs/cifs/inode.c                               |    1 
  fs/dquot.c                                    |   16 
  fs/ecryptfs/crypto.c                          |   30 
  fs/isofs/rock.c                               |   22 
@@ -106,24 +158,42 @@ The following files were changed in this release:
  fs/romfs/inode.c                              |   37 
  include/asm-arm/bitops.h                      |    9 
  include/asm-generic/vmlinux.lds.h             |    4 
+ include/asm-sparc64/futex.h                   |    2 
  include/asm-sparc64/io.h                      |    1 
+ include/asm-sparc64/irq.h                     |    4 
+ include/asm-sparc64/ptrace.h                  |    8 
+ include/asm-x86/i387.h                        |   32 
  include/asm-x86/signal.h                      |    4 
+ include/asm-x86/spinlock.h                    |    4 
  include/linux/cpufreq.h                       |    1 
  include/linux/ipv6.h                          |    2 
  include/linux/kvm_host.h                      |    1 
+ include/linux/usb/serial.h                    |    3 
  include/sound/emu10k1.h                       |    1 
+ include/video/radeon.h                        |    9 
  kernel/cpuset.c                               |    4 
  kernel/marker.c                               |   12 
+ kernel/posix-timers.c                         |   19 
  kernel/rcupreempt.c                           |    2 
+ kernel/relay.c                                |   12 
+ kernel/signal.c                               |    1 
  kernel/sys_ni.c                               |    1 
+ lib/random32.c                                |   48 
  mm/filemap.c                                  |    5 
+ mm/memory.c                                   |   16 
+ mm/mlock.c                                    |    2 
  mm/shmem.c                                    |    3 
  net/bluetooth/bnep/core.c                     |    5 
  net/bluetooth/hidp/core.c                     |   10 
+ net/dccp/proto.c                              |    5 
+ net/ipv4/ipvs/ip_vs_est.c                     |    7 
  net/ipv4/netfilter/nf_nat_sip.c               |   38 
+ net/ipv4/syncookies.c                         |    1 
  net/ipv4/tcp_input.c                          |    3 
  net/ipv4/udp.c                                |    4 
  net/ipv6/ip6_fib.c                            |    4 
+ net/ipv6/ip6_output.c                         |    4 
+ net/ipv6/syncookies.c                         |    1 
  net/netfilter/xt_time.c                       |    2 
  scripts/Makefile.modpost                      |    1 
  scripts/mod/modpost.c                         |    3 
@@ -133,6 +203,8 @@ The following files were changed in this release:
  sound/pci/hda/hda_intel.c                     |  124 ++
  sound/pci/hda/patch_analog.c                  |   33 
  sound/pci/trident/trident_main.c              |    5 
+ sound/soc/fsl/fsl_dma.c                       |  242 ++--
+ sound/soc/fsl/fsl_ssi.c                       |   74 +
  virt/kvm/kvm_main.c                           |    3 
- 101 files changed, 986 insertions(+), 1673 deletions(-)
+ 173 files changed, 1917 insertions(+), 2063 deletions(-)
 
