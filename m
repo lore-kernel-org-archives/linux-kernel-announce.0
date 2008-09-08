@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.26.4 released
-Date: Mon, 8 Sep 2008 11:52:48 GMT
-Message-ID: <200809081152.m88BqmZg001314@hera.kernel.org>
+Subject: Linux kernel 2.6.26.5 released
+Date: Mon, 8 Sep 2008 17:51:33 GMT
+Message-ID: <200809081751.m88HpXqr006443@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.26.4 has been released.  It is available from:
+Linux kernel version 2.6.26.5 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.26.4.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.26.4.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.26.5.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.26.5.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                81196            320417
-Full source                       49454467         289556480
+Patch                                80987            320063
+Full source                       49450713         289556480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -193,8 +193,9 @@ The following files were changed in this release:
  include/linux/fb.h                            |    3 
  include/linux/ipv6.h                          |    2 
  include/linux/kvm_host.h                      |    1 
- include/linux/mroute.h                        |   25 
- include/linux/pim.h                           |   45 
+ include/linux/mroute.h                        |    2 
+ include/linux/mroute6.h                       |    1 
+ include/linux/pim.h                           |   18 
  include/linux/usb/serial.h                    |    3 
  include/net/addrconf.h                        |    3 
  include/net/ip6_route.h                       |    1 
@@ -254,5 +255,5 @@ The following files were changed in this release:
  sound/soc/fsl/fsl_dma.c                       |  242 ++--
  sound/soc/fsl/fsl_ssi.c                       |   74 +
  virt/kvm/kvm_main.c                           |    3 
- 221 files changed, 2354 insertions(+), 2373 deletions(-)
+ 222 files changed, 2335 insertions(+), 2343 deletions(-)
 
