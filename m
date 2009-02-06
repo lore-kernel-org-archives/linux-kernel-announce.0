@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.28.3 released
-Date: Mon, 2 Feb 2009 18:27:24 GMT
-Message-ID: <200902021827.n12IROk0021239@hera.kernel.org>
+Subject: Linux kernel 2.6.28.4 released
+Date: Fri, 6 Feb 2009 23:42:41 GMT
+Message-ID: <200902062342.n16Ngf3b006720@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.28.3 has been released.  It is available from:
+Linux kernel version 2.6.28.4 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.28.3.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.28.3.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.28.4.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.28.4.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                76216            341343
-Full source                       52703558         310292480
+Patch                                87197            384209
+Full source                       52702231         310292480
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -49,6 +49,7 @@ The following files were changed in this release:
  arch/ia64/kernel/entry.S                        |    2 
  arch/ia64/kernel/sys_ia64.c                     |    2 
  arch/m68k/kernel/entry.S                        |    2 
+ arch/m68knommu/Kconfig                          |    4 
  arch/m68knommu/kernel/syscalltable.S            |    2 
  arch/mips/kernel/scall32-o32.S                  |    2 
  arch/mn10300/kernel/entry.S                     |    2 
@@ -73,19 +74,31 @@ The following files were changed in this release:
  arch/sparc64/kernel/systbls.S                   |    4 
  arch/x86/Kconfig                                |    2 
  arch/x86/include/asm/pgalloc.h                  |    1 
+ arch/x86/kernel/acpi/cstate.c                   |    4 
  arch/x86/kernel/cpu/addon_cpuid_features.c      |    8 
  arch/x86/kernel/cpu/intel.c                     |    8 
  arch/x86/kernel/head64.c                        |    2 
  arch/x86/kernel/head_64.S                       |    2 
  arch/x86/kernel/syscall_table_32.S              |    2 
  arch/x86/kernel/tlb_uv.c                        |    9 -
+ arch/x86/lib/usercopy_32.c                      |    4 
+ arch/x86/lib/usercopy_64.c                      |    4 
  arch/x86/mm/fault.c                             |    2 
  arch/x86/mm/pageattr.c                          |   49 ++++--
  arch/x86/mm/pat.c                               |   43 +++--
+ arch/x86/pci/irq.c                              |    1 
  crypto/async_tx/async_tx.c                      |    2 
  crypto/authenc.c                                |   24 +-
  crypto/ccm.c                                    |    2 
+ drivers/acpi/battery.c                          |    5 
+ drivers/acpi/namespace/nsutils.c                |    8 
+ drivers/acpi/pci_link.c                         |    4 
+ drivers/acpi/video.c                            |    5 
  drivers/ata/pata_via.c                          |   22 ++
+ drivers/ata/sata_mv.c                           |    6 
+ drivers/ata/sata_nv.c                           |   77 ++++++---
+ drivers/char/selection.c                        |    2 
+ drivers/cpuidle/governors/menu.c                |   10 +
  drivers/dma/ioat_dma.c                          |   13 -
  drivers/firmware/dell_rbu.c                     |    4 
  drivers/gpio/gpiolib.c                          |    1 
@@ -95,6 +108,7 @@ The following files were changed in this release:
  drivers/ide/it821x.c                            |   12 +
  drivers/ide/tx4938ide.c                         |    4 
  drivers/ide/tx4939ide.c                         |   10 -
+ drivers/input/keyboard/atkbd.c                  |   25 +++
  drivers/md/bitmap.c                             |    8 
  drivers/md/dm-log.c                             |    5 
  drivers/md/dm-raid1.c                           |    6 
@@ -107,13 +121,19 @@ The following files were changed in this release:
  drivers/net/wireless/ath5k/phy.c                |    4 
  drivers/net/wireless/ath5k/reset.c              |    4 
  drivers/net/wireless/ath9k/recv.c               |    5 
+ drivers/net/wireless/iwlwifi/iwl-3945-rs.c      |   12 +
+ drivers/net/wireless/iwlwifi/iwl-agn-rs.c       |   12 +
  drivers/net/wireless/iwlwifi/iwl-agn.c          |   12 -
  drivers/net/wireless/iwlwifi/iwl-rx.c           |   29 ++-
- drivers/net/wireless/p54/p54usb.c               |    6 
+ drivers/net/wireless/orinoco.c                  |   30 +--
+ drivers/net/wireless/p54/p54common.c            |   12 -
+ drivers/net/wireless/p54/p54usb.c               |  147 +++++++++++-------
+ drivers/net/wireless/p54/p54usb.h               |    1 
  drivers/net/wireless/rt2x00/rt73usb.c           |    1 
  drivers/net/wireless/rtl8187_dev.c              |    1 
  drivers/net/wireless/rtl8187_rtl8225.c          |   10 -
  drivers/pci/hotplug/pciehp_core.c               |    4 
+ drivers/pci/msi.c                               |   16 -
  drivers/pci/pcie/aspm.c                         |  125 +++++++++++++--
  drivers/pci/syscall.c                           |   12 -
  drivers/scsi/eata.c                             |   15 +
@@ -122,6 +142,7 @@ The following files were changed in this release:
  drivers/scsi/mvsas.c                            |    2 
  drivers/scsi/pcmcia/aha152x_stub.c              |    2 
  drivers/serial/8250_pci.c                       |    3 
+ drivers/serial/jsm/jsm_tty.c                    |    6 
  drivers/usb/core/devio.c                        |   20 +-
  drivers/usb/core/driver.c                       |   11 -
  drivers/usb/core/hub.c                          |    6 
@@ -138,15 +159,19 @@ The following files were changed in this release:
  drivers/usb/storage/unusual_devs.h              |  193 ++++--------------------
  drivers/usb/storage/usb.c                       |    6 
  drivers/usb/storage/usb.h                       |    4 
+ drivers/video/aty/mach64_ct.c                   |   11 +
+ drivers/xen/balloon.c                           |   33 +++-
  fs/affs/file.c                                  |    2 
  fs/afs/write.c                                  |    2 
  fs/aio.c                                        |   22 +-
  fs/buffer.c                                     |    6 
  fs/cifs/cifs_dfs_ref.c                          |   48 ++++-
+ fs/cifs/connect.c                               |   18 +-
  fs/cifs/file.c                                  |    2 
  fs/compat.c                                     |    6 
  fs/dcache.c                                     |    7 
  fs/dcookies.c                                   |   10 -
+ fs/dlm/plock.c                                  |    2 
  fs/ecryptfs/inode.c                             |    3 
  fs/ecryptfs/mmap.c                              |    2 
  fs/eventfd.c                                    |    5 
@@ -176,6 +201,7 @@ The following files were changed in this release:
  fs/nfs/file.c                                   |    2 
  fs/nfs/read.c                                   |    6 
  fs/nfsctl.c                                     |    4 
+ fs/nfsd/nfs4state.c                             |   31 ++-
  fs/open.c                                       |   82 ++++++----
  fs/pipe.c                                       |    4 
  fs/quota.c                                      |    3 
@@ -203,9 +229,10 @@ The following files were changed in this release:
  include/linux/klist.h                           |    2 
  include/linux/mm.h                              |    1 
  include/linux/pagemap.h                         |    3 
- include/linux/pci_ids.h                         |    6 
+ include/linux/pci_ids.h                         |    7 
  include/linux/radix-tree.h                      |    2 
  include/linux/sched.h                           |    1 
+ include/linux/slab_def.h                        |   10 -
  include/linux/syscalls.h                        |  171 ++++++++++++++-------
  include/linux/time.h                            |    1 
  include/linux/usb_usual.h                       |    5 
@@ -250,7 +277,7 @@ The following files were changed in this release:
  mm/mempolicy.c                                  |   24 +-
  mm/migrate.c                                    |    8 
  mm/mincore.c                                    |    4 
- mm/mlock.c                                      |    8 
+ mm/mlock.c                                      |   55 ------
  mm/mmap.c                                       |   13 +
  mm/mprotect.c                                   |    4 
  mm/mremap.c                                     |    6 
@@ -265,7 +292,9 @@ The following files were changed in this release:
  net/ipv4/tcp.c                                  |    8 
  net/ipv6/ip6_fib.c                              |   15 -
  net/ipv6/netfilter/nf_conntrack_proto_icmpv6.c  |    2 
+ net/mac80211/rc80211_minstrel.c                 |   10 -
  net/mac80211/tx.c                               |    6 
+ net/netfilter/nf_conntrack_netlink.c            |    3 
  net/netfilter/x_tables.c                        |    8 
  net/sched/cls_u32.c                             |    3 
  net/sched/sch_htb.c                             |    1 
@@ -280,5 +309,5 @@ The following files were changed in this release:
  sound/pci/oxygen/virtuoso.c                     |   18 +-
  sound/usb/caiaq/caiaq-device.h                  |    1 
  sound/usb/caiaq/caiaq-midi.c                    |   32 ++-
- 247 files changed, 2185 insertions(+), 1432 deletions(-)
+ 276 files changed, 2527 insertions(+), 1645 deletions(-)
 
