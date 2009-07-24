@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.30.2 released
-Date: Mon, 20 Jul 2009 04:19:40 GMT
-Message-ID: <200907200419.n6K4JepB005213@hera.kernel.org>
+Subject: Linux kernel 2.6.30.3 released
+Date: Fri, 24 Jul 2009 22:24:29 GMT
+Message-ID: <200907242224.n6OMOTGf022498@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.30.2 has been released.  It is available from:
+Linux kernel version 2.6.30.3 has been released.  It is available from:
 
-Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.30.2.bz2
-Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.30.2.tar.bz2
+Patch:		ftp://ftp.kernel.org/pub/linux/kernel/v2.6/patch-2.6.30.3.bz2
+Full source:	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.30.3.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                50497            203357
-Full source                       59414632         353167360
+Patch                                50592            203826
+Full source                       59415093         353167360
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -152,6 +152,7 @@ The following files were changed in this release:
  drivers/usb/serial/usb-serial.c           |   29 +++----
  drivers/usb/serial/visor.c                |   13 +--
  drivers/usb/serial/whiteheat.c            |    6 -
+ drivers/video/fbmon.c                     |    4 -
  fs/Kconfig                                |   14 +--
  fs/cifs/file.c                            |   10 +-
  fs/eventpoll.c                            |   21 +++--
@@ -205,5 +206,5 @@ The following files were changed in this release:
  sound/pci/intel8x0.c                      |   24 +++---
  sound/soc/codecs/wm8903.c                 |    4 -
  virt/kvm/kvm_main.c                       |   18 +++-
- 172 files changed, 1365 insertions(+), 796 deletions(-)
+ 173 files changed, 1367 insertions(+), 798 deletions(-)
 
