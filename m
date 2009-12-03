@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
 Subject: Linux kernel 2.6.32 released
-Date: Thu, 3 Dec 2009 07:01:58 GMT
-Message-ID: <200912030701.nB371wEF020395@hera.kernel.org>
+Date: Thu, 3 Dec 2009 07:02:04 GMT
+Message-ID: <200912030702.nB3724ee021861@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
