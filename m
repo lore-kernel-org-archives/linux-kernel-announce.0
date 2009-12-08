@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.27.40 released
-Date: Tue, 8 Dec 2009 19:52:30 GMT
-Message-ID: <200912081952.nB8JqUes012762@hera.kernel.org>
+Subject: Linux kernel 2.6.27.41 released
+Date: Tue, 8 Dec 2009 23:29:23 GMT
+Message-ID: <200912082329.nB8NTNmq023619@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.27.40 has been released.  It is available from:
+Linux kernel version 2.6.27.41 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.27.40.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.27.40.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.27.41.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.27.41.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               429441           1909732
-Full source                       50368922         294062080
+Patch                               431435           1909184
+Full source                       50369872         294062080
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -411,7 +411,6 @@ The following files were changed in this release:
  drivers/media/video/cx23885/cx23885-417.c        |    3 
  drivers/media/video/cx23885/cx23885-video.c      |    5 
  drivers/media/video/cx88/cx88-input.c            |   25 
- drivers/media/video/em28xx/em28xx-audio.c        |    5 
  drivers/media/video/ivtv/ivtv-ioctl.c            |   24 
  drivers/media/video/pvrusb2/pvrusb2-encoder.c    |    4 
  drivers/media/video/pvrusb2/pvrusb2-hdw.c        |    6 
@@ -1149,5 +1148,5 @@ The following files were changed in this release:
  sound/usb/usbmidi.c                              |   13 
  sound/usb/usbquirks.h                            |    2 
  virt/kvm/kvm_main.c                              |   57 -
- 1116 files changed, 15511 insertions(+), 7917 deletions(-)
+ 1115 files changed, 15506 insertions(+), 7917 deletions(-)
 
