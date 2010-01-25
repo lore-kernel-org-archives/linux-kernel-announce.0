@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.32.5 released
-Date: Fri, 22 Jan 2010 23:41:32 GMT
-Message-ID: <201001222341.o0MNfWRB008702@hera.kernel.org>
+Subject: Linux kernel 2.6.32.6 released
+Date: Mon, 25 Jan 2010 19:18:47 GMT
+Message-ID: <201001251918.o0PJIlOu024220@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.32.5 has been released.  It is available from:
+Linux kernel version 2.6.32.6 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.32.5.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.32.5.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.32.6.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.32.6.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               130610            563733
-Full source                       64371907         382423040
+Patch                               140412            605210
+Full source                       64376246         382433280
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -122,6 +122,8 @@ The following files were changed in this release:
  arch/x86/kernel/cpu/mcheck/mce.c               |    9 
  arch/x86/kernel/cpu/mcheck/therm_throt.c       |   34 ++-
  arch/x86/kernel/cpu/perfctr-watchdog.c         |    2 
+ arch/x86/kernel/cpuid.c                        |    5 
+ arch/x86/kernel/msr.c                          |    4 
  arch/x86/kernel/pci-calgary_64.c               |   12 -
  arch/x86/kernel/pci-dma.c                      |    2 
  arch/x86/kernel/pci-gart_64.c                  |    2 
@@ -139,6 +141,7 @@ The following files were changed in this release:
  arch/x86/lib/Makefile                          |    4 
  arch/x86/lib/msr-smp.c                         |  204 ++++++++++++++++++
  arch/x86/lib/msr.c                             |  227 +-------------------
+ arch/x86/pci/i386.c                            |    9 
  arch/x86/xen/enlighten.c                       |   27 +-
  arch/x86/xen/mmu.c                             |    2 
  arch/x86/xen/smp.c                             |    1 
@@ -149,8 +152,9 @@ The following files were changed in this release:
  arch/xtensa/include/asm/syscall.h              |    2 
  arch/xtensa/include/asm/unistd.h               |    2 
  arch/xtensa/kernel/syscall.c                   |   25 --
+ block/blk-settings.c                           |   22 +
  drivers/acpi/button.c                          |    7 
- drivers/acpi/ec.c                              |   10 
+ drivers/acpi/ec.c                              |  135 +++++++-----
  drivers/ata/pata_cmd64x.c                      |    2 
  drivers/ata/pata_hpt37x.c                      |   32 +-
  drivers/ata/pata_hpt3x2n.c                     |   79 +++----
@@ -158,6 +162,8 @@ The following files were changed in this release:
  drivers/base/power/runtime.c                   |    2 
  drivers/bluetooth/btusb.c                      |    1 
  drivers/char/agp/intel-agp.c                   |    7 
+ drivers/char/nozomi.c                          |    2 
+ drivers/char/tty_io.c                          |    2 
  drivers/cpuidle/governors/menu.c               |   12 -
  drivers/dma/at_hdmac.c                         |    4 
  drivers/dma/ioat/dma.c                         |    2 
@@ -183,6 +189,7 @@ The following files were changed in this release:
  drivers/gpu/drm/i915/intel_display.c           |  245 ++++++++--------------
  drivers/gpu/drm/i915/intel_dp.c                |    6 
  drivers/gpu/drm/i915/intel_lvds.c              |    9 
+ drivers/gpu/drm/i915/intel_sdvo.c              |   83 +++++++
  drivers/gpu/drm/i915/intel_tv.c                |   11 
  drivers/gpu/drm/radeon/atombios_crtc.c         |   10 
  drivers/gpu/drm/radeon/radeon_atombios.c       |    8 
@@ -211,14 +218,17 @@ The following files were changed in this release:
  drivers/md/dm-exception-store.c                |    3 
  drivers/md/dm-ioctl.c                          |   17 +
  drivers/md/dm-snap.c                           |   12 -
+ drivers/md/dm-table.c                          |   20 -
  drivers/md/dm-uevent.c                         |    9 
  drivers/md/md.c                                |   11 
  drivers/md/md.h                                |    1 
  drivers/media/common/tuners/mxl5007t.c         |    2 
  drivers/media/video/gspca/ov519.c              |    1 
  drivers/media/video/gspca/sn9c20x.c            |    2 
+ drivers/media/video/gspca/sunplus.c            |   26 +-
  drivers/media/video/ov511.c                    |    2 
  drivers/mfd/wm8350-core.c                      |    3 
+ drivers/misc/enclosure.c                       |    1 
  drivers/mmc/card/block.c                       |    8 
  drivers/mmc/card/queue.c                       |   18 -
  drivers/mtd/ubi/upd.c                          |   20 -
@@ -277,19 +287,31 @@ The following files were changed in this release:
  drivers/scsi/st.c                              |   23 +-
  drivers/scsi/st.h                              |    1 
  drivers/serial/8250.c                          |    8 
- drivers/serial/8250_pnp.c                      |    2 
+ drivers/serial/8250_pnp.c                      |   12 -
  drivers/ssb/sprom.c                            |   20 +
+ drivers/staging/asus_oled/asus_oled.c          |   12 -
+ drivers/staging/hv/Hv.c                        |   50 ++--
+ drivers/staging/hv/Hv.h                        |    6 
+ drivers/staging/hv/Vmbus.c                     |   12 -
  drivers/usb/class/usbtmc.c                     |   14 -
- drivers/usb/core/hub.c                         |   58 ++---
- drivers/usb/core/sysfs.c                       |    6 
+ drivers/usb/core/devices.c                     |    2 
+ drivers/usb/core/hub.c                         |   61 +++--
+ drivers/usb/core/message.c                     |    8 
+ drivers/usb/core/sysfs.c                       |   12 -
  drivers/usb/core/usb.c                         |   31 +-
+ drivers/usb/host/ehci-hcd.c                    |    5 
+ drivers/usb/host/ehci-hub.c                    |   20 +
+ drivers/usb/host/ehci-q.c                      |   11 
+ drivers/usb/host/uhci-hcd.c                    |   15 +
+ drivers/usb/host/uhci-hub.c                    |    2 
  drivers/usb/misc/appledisplay.c                |    4 
  drivers/usb/misc/emi62.c                       |    2 
  drivers/usb/musb/musb_gadget_ep0.c             |   15 -
+ drivers/usb/serial/generic.c                   |    2 
  drivers/usb/serial/option.c                    |   42 +++
  drivers/usb/storage/transport.c                |   17 +
- drivers/usb/storage/unusual_devs.h             |    7 
- drivers/usb/storage/usb.c                      |   18 -
+ drivers/usb/storage/unusual_devs.h             |   14 -
+ drivers/usb/storage/usb.c                      |   21 +
  drivers/video/matrox/g450_pll.c                |    3 
  drivers/video/s3c-fb.c                         |   14 -
  drivers/xen/balloon.c                          |   38 ---
@@ -299,6 +321,8 @@ The following files were changed in this release:
  fs/cifs/connect.c                              |   13 -
  fs/debugfs/inode.c                             |   55 ++--
  fs/devpts/inode.c                              |   16 +
+ fs/ecryptfs/crypto.c                           |    4 
+ fs/ecryptfs/file.c                             |   14 -
  fs/exofs/inode.c                               |   17 +
  fs/ext3/inode.c                                |   18 +
  fs/ext4/balloc.c                               |    8 
@@ -334,8 +358,9 @@ The following files were changed in this release:
  fs/udf/super.c                                 |   32 ++
  include/drm/drmP.h                             |    3 
  include/drm/ttm/ttm_memory.h                   |    1 
- include/linux/blkdev.h                         |   11 
+ include/linux/blkdev.h                         |   13 -
  include/linux/cpumask.h                        |    2 
+ include/linux/enclosure.h                      |    2 
  include/linux/fs.h                             |    1 
  include/linux/hrtimer.h                        |    4 
  include/linux/kvm.h                            |    8 
@@ -363,7 +388,7 @@ The following files were changed in this release:
  kernel/cpuset.c                                |   16 -
  kernel/futex.c                                 |   37 +--
  kernel/module.c                                |   45 ++--
- kernel/perf_event.c                            |    6 
+ kernel/perf_event.c                            |   36 ++-
  kernel/rcutree.c                               |  227 ++++++++++++--------
  kernel/rcutree.h                               |   13 -
  kernel/rcutree_plugin.h                        |    4 
@@ -390,7 +415,7 @@ The following files were changed in this release:
  mm/pagewalk.c                                  |   16 +
  mm/truncate.c                                  |   30 +-
  mm/util.c                                      |   44 +++
- mm/vmalloc.c                                   |    2 
+ mm/vmalloc.c                                   |    6 
  mm/vmscan.c                                    |   18 +
  net/bridge/netfilter/ebtables.c                |    6 
  net/core/dev.c                                 |   11 
@@ -437,6 +462,7 @@ The following files were changed in this release:
  sound/soc/codecs/wm8974.c                      |   16 -
  sound/soc/codecs/wm9712.c                      |    3 
  sound/usb/usbaudio.c                           |    2 
+ tools/perf/builtin-timechart.c                 |    2 
  virt/kvm/irq_comm.c                            |    7 
- 405 files changed, 4203 insertions(+), 3347 deletions(-)
+ 431 files changed, 4567 insertions(+), 3514 deletions(-)
 
