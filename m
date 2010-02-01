@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.4.37.8 released
-Date: Sun, 31 Jan 2010 10:56:28 GMT
-Message-ID: <201001311056.o0VAuSm1026635@hera.kernel.org>
+Subject: Linux kernel 2.4.37.9 released
+Date: Mon, 1 Feb 2010 22:10:29 GMT
+Message-ID: <201002012210.o11MAT5I013611@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.4.37.8 has been released.  It is available from:
+Linux kernel version 2.4.37.9 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v2.4/patch-2.4.37.8.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v2.4/linux-2.4.37.8.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v2.4/patch-2.4.37.9.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v2.4/linux-2.4.37.9.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                                39037            138115
-Full source                       31114694         175400960
+Patch                                39112            138467
+Full source                       31112532         175400960
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -48,7 +48,7 @@ The following files were changed in this release:
  drivers/net/8139cp.c               |    2 
  drivers/net/bonding/bond_main.c    |    2 
  drivers/net/e1000/e1000.h          |    1 
- drivers/net/e1000/e1000_main.c     |    7 
+ drivers/net/e1000/e1000_main.c     |   14 
  drivers/net/r8169.c                |  102 +
  drivers/net/tulip/interrupt.c      |   42 
  drivers/net/tulip/tulip.h          |   31 
@@ -100,5 +100,5 @@ The following files were changed in this release:
  scripts/Configure                  |    4 
  scripts/checkpatch.pl              | 2615 +++++++++++++++++++++++++++++++++++++
  scripts/mkspec                     |    1 
- 67 files changed, 3096 insertions(+), 156 deletions(-)
+ 67 files changed, 3104 insertions(+), 155 deletions(-)
 
