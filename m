@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.32.30 released
-Date: Wed, 2 Mar 2011 15:31:15 GMT
-Message-ID: <201103021531.p22FVFxR004508@hera.kernel.org>
+Subject: Linux kernel 2.6.32.31 released
+Date: Thu, 3 Mar 2011 17:47:09 GMT
+Message-ID: <201103031747.p23Hl9Y5010743@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.32.30 has been released.  It is available from:
+Linux kernel version 2.6.32.31 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.30.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.30.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.31.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.31.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               745770           3266856
-Full source                       64443614         382699520
+Patch                               745059           3266315
+Full source                       64438721         382699520
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -1510,7 +1510,6 @@ The following files were changed in this release:
  lib/lcm.c                                               |   15 
  lib/percpu_counter.c                                    |    1 
  lib/rational.c                                          |    1 
- lib/swiotlb.c                                           |    6 
  mm/Kconfig                                              |    1 
  mm/bounce.c                                             |    2 
  mm/fadvise.c                                            |   10 
@@ -1756,5 +1755,5 @@ The following files were changed in this release:
  virt/kvm/eventfd.c                                      |   15 
  virt/kvm/irq_comm.c                                     |   19 
  virt/kvm/kvm_main.c                                     |   13 
- 1723 files changed, 28190 insertions(+), 18083 deletions(-)
+ 1722 files changed, 28186 insertions(+), 18081 deletions(-)
 
