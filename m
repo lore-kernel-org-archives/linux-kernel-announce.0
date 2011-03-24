@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 2.6.32.34 released
-Date: Wed, 23 Mar 2011 21:38:45 GMT
-Message-ID: <201103232138.p2NLcjL5026994@hera.kernel.org>
+Subject: Linux kernel 2.6.32.35 released
+Date: Thu, 24 Mar 2011 15:53:11 GMT
+Message-ID: <201103241553.p2OFrBhq020452@hera.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@hera.kernel.org
 
-Linux kernel version 2.6.32.34 has been released.  It is available from:
+Linux kernel version 2.6.32.35 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.34.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.34.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.35.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.35.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               756860           3344748
-Full source                       64444499         382720000
+Patch                               755691           3344446
+Full source                       64446454         382720000
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -1504,7 +1504,7 @@ The following files were changed in this release:
  kernel/latencytop.c                                     |   17 
  kernel/module.c                                         |   49 
  kernel/mutex.c                                          |    7 
- kernel/perf_event.c                                     |   91 -
+ kernel/perf_event.c                                     |   89 -
  kernel/posix-timers.c                                   |   11 
  kernel/power/process.c                                  |    2 
  kernel/power/snapshot.c                                 |    9 
@@ -1806,5 +1806,5 @@ The following files were changed in this release:
  virt/kvm/eventfd.c                                      |   15 
  virt/kvm/irq_comm.c                                     |   19 
  virt/kvm/kvm_main.c                                     |   13 
- 1773 files changed, 28915 insertions(+), 18354 deletions(-)
+ 1773 files changed, 28913 insertions(+), 18354 deletions(-)
 
