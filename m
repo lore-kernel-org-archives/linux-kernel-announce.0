@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 3.6.8 released
-Date: Mon, 26 Nov 2012 20:26:33 +0000 (UTC)
-Message-ID: <20121126202634.05A983D7@oxcart-to.int.kernel.org>
+Subject: Linux kernel 3.6.9 released
+Date: Mon,  3 Dec 2012 19:50:22 +0000 (UTC)
+Message-ID: <20121203195022.916E1E89@oxcart-to.int.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@oxcart-to.int.kernel.org
 
-Linux kernel version 3.6.8 has been released.  It is available from:
+Linux kernel version 3.6.9 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v3.0/patch-3.6.8.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.6.8.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v3.0/patch-3.6.9.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.6.9.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               193928            853996
-Full source                       82314033         489287680
+Patch                               207593            909721
+Full source                       82318549         489297920
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -37,6 +37,7 @@ The following files were changed in this release:
  Documentation/devicetree/bindings/arm/atmel-at91.txt                |    2 
  Documentation/devicetree/bindings/pinctrl/nvidia,tegra20-pinmux.txt |    2 
  Documentation/devicetree/bindings/pinctrl/nvidia,tegra30-pinmux.txt |    2 
+ Documentation/dvb/get_dvb_firmware                                  |    2 
  Documentation/hwmon/coretemp                                        |    1 
  Makefile                                                            |    2 
  arch/alpha/kernel/process.c                                         |    3 
@@ -83,10 +84,13 @@ The following files were changed in this release:
  arch/mn10300/Makefile                                               |    2 
  arch/mn10300/kernel/process.c                                       |    3 
  arch/parisc/kernel/process.c                                        |    3 
+ arch/parisc/kernel/signal32.c                                       |    6 
+ arch/parisc/kernel/sys_parisc.c                                     |    2 
  arch/powerpc/include/asm/pci-bridge.h                               |    8 
  arch/powerpc/kernel/iommu.c                                         |    5 
  arch/powerpc/lib/memcpy_power7.S                                    |    4 
  arch/powerpc/platforms/pseries/eeh.c                                |    2 
+ arch/powerpc/platforms/pseries/eeh_driver.c                         |   95 ++-
  arch/powerpc/sysdev/dart_iommu.c                                    |   12 
  arch/s390/boot/compressed/vmlinux.lds.S                             |    2 
  arch/s390/include/asm/compat.h                                      |    2 
@@ -97,18 +101,25 @@ The following files were changed in this release:
  arch/s390/mm/gup.c                                                  |    2 
  arch/score/kernel/process.c                                         |    4 
  arch/sparc/kernel/perf_event.c                                      |   15 
+ arch/sparc/kernel/signal_64.c                                       |    4 
  arch/sparc/kernel/syscalls.S                                        |   32 -
  arch/tile/Makefile                                                  |    4 
  arch/x86/Makefile                                                   |    2 
  arch/x86/boot/compressed/Makefile                                   |    3 
+ arch/x86/boot/compressed/eboot.c                                    |    2 
  arch/x86/include/asm/efi.h                                          |    1 
  arch/x86/include/asm/pgtable.h                                      |   11 
+ arch/x86/include/asm/ptrace.h                                       |   15 
  arch/x86/kernel/cpu/mcheck/mce_amd.c                                |   10 
  arch/x86/kernel/e820.c                                              |    3 
  arch/x86/kernel/entry_32.S                                          |    8 
  arch/x86/kernel/entry_64.S                                          |    2 
+ arch/x86/kernel/microcode_amd.c                                     |    4 
+ arch/x86/kernel/ptrace.c                                            |   30 +
  arch/x86/kernel/setup.c                                             |   30 -
+ arch/x86/kvm/cpuid.h                                                |    3 
  arch/x86/kvm/vmx.c                                                  |   11 
+ arch/x86/kvm/x86.c                                                  |    3 
  arch/x86/mm/init.c                                                  |   58 +
  arch/x86/mm/init_64.c                                               |    7 
  arch/x86/oprofile/nmi_int.c                                         |    2 
@@ -119,12 +130,15 @@ The following files were changed in this release:
  arch/xtensa/kernel/process.c                                        |    3 
  block/blk-cgroup.c                                                  |    7 
  block/blk-core.c                                                    |    2 
+ block/blk-exec.c                                                    |    8 
  crypto/cryptd.c                                                     |   11 
  drivers/acpi/bus.c                                                  |    8 
  drivers/acpi/ec.c                                                   |   30 -
  drivers/acpi/video.c                                                |   11 
  drivers/ata/libata-acpi.c                                           |   11 
+ drivers/ata/sata_svw.c                                              |   35 +
  drivers/base/power/main.c                                           |    2 
+ drivers/base/power/qos.c                                            |    2 
  drivers/bcma/main.c                                                 |    5 
  drivers/block/floppy.c                                              |   27 
  drivers/char/tpm/tpm.c                                              |   21 
@@ -162,6 +176,7 @@ The following files were changed in this release:
  drivers/gpu/drm/radeon/evergreen_cs.c                               |   63 +-
  drivers/gpu/drm/radeon/evergreend.h                                 |    4 
  drivers/gpu/drm/radeon/r600_cs.c                                    |    3 
+ drivers/gpu/drm/radeon/radeon_agp.c                                 |    5 
  drivers/gpu/drm/radeon/radeon_drv.c                                 |    4 
  drivers/gpu/drm/radeon/radeon_irq_kms.c                             |   10 
  drivers/gpu/drm/radeon/radeon_legacy_encoders.c                     |    7 
@@ -176,9 +191,11 @@ The following files were changed in this release:
  drivers/gpu/drm/vmwgfx/vmwgfx_dmabuf.c                              |    2 
  drivers/gpu/drm/vmwgfx/vmwgfx_drv.c                                 |    5 
  drivers/hid/hid-core.c                                              |   16 
+ drivers/hid/hid-ids.h                                               |    3 
  drivers/hid/hid-microsoft.c                                         |   18 
  drivers/hid/hidraw.c                                                |   69 --
  drivers/hid/usbhid/hid-core.c                                       |    6 
+ drivers/hid/usbhid/hid-quirks.c                                     |    1 
  drivers/hv/channel.c                                                |   24 
  drivers/hwmon/coretemp.c                                            |    7 
  drivers/hwmon/w83627ehf.c                                           |    1 
@@ -194,8 +211,11 @@ The following files were changed in this release:
  drivers/input/touchscreen/tsc40.c                                   |    1 
  drivers/iommu/intel-iommu.c                                         |    8 
  drivers/iommu/tegra-smmu.c                                          |    2 
+ drivers/isdn/gigaset/bas-gigaset.c                                  |   19 
+ drivers/md/dm.c                                                     |    8 
+ drivers/md/md.c                                                     |   11 
  drivers/md/raid1.c                                                  |    2 
- drivers/md/raid10.c                                                 |    2 
+ drivers/md/raid10.c                                                 |  114 +--
  drivers/media/dvb/frontends/drxk.h                                  |    2 
  drivers/media/dvb/frontends/drxk_hard.c                             |   20 
  drivers/media/rc/ite-cir.c                                          |    2 
@@ -207,17 +227,22 @@ The following files were changed in this release:
  drivers/mfd/max8925-core.c                                          |   10 
  drivers/mmc/core/slot-gpio.c                                        |    8 
  drivers/mmc/host/omap_hsmmc.c                                       |    3 
+ drivers/mmc/host/sdhci-s3c.c                                        |    2 
  drivers/mmc/host/sdhci.c                                            |   23 
  drivers/mmc/host/sh_mmcif.c                                         |    6 
+ drivers/mtd/devices/slram.c                                         |    2 
  drivers/mtd/maps/autcpu12-nvram.c                                   |   19 
  drivers/mtd/mtdpart.c                                               |    5 
  drivers/mtd/nand/nand_base.c                                        |    8 
  drivers/mtd/nand/nand_bbt.c                                         |    2 
  drivers/mtd/nand/nandsim.c                                          |    1 
  drivers/mtd/nand/omap2.c                                            |    3 
+ drivers/mtd/ofpart.c                                                |    2 
  drivers/mtd/ubi/attach.c                                            |    2 
  drivers/mtd/ubi/build.c                                             |    5 
  drivers/net/can/mscan/mpc5xxx_can.c                                 |    4 
+ drivers/net/can/usb/peak_usb/pcan_usb.c                             |    8 
+ drivers/net/can/usb/peak_usb/pcan_usb_pro.c                         |    8 
  drivers/net/ethernet/broadcom/Kconfig                               |    1 
  drivers/net/ethernet/broadcom/tg3.c                                 |    9 
  drivers/net/ethernet/calxeda/xgmac.c                                |   19 
@@ -227,7 +252,10 @@ The following files were changed in this release:
  drivers/net/ethernet/freescale/ucc_geth.h                           |    2 
  drivers/net/ethernet/intel/e1000e/e1000.h                           |    6 
  drivers/net/ethernet/intel/e1000e/netdev.c                          |    2 
+ drivers/net/ethernet/intel/ixgbe/ixgbe_common.c                     |    1 
  drivers/net/ethernet/intel/ixgbe/ixgbe_ethtool.c                    |    8 
+ drivers/net/ethernet/intel/ixgbe/ixgbe_main.c                       |    2 
+ drivers/net/ethernet/intel/ixgbe/ixgbe_type.h                       |    1 
  drivers/net/ethernet/marvell/mv643xx_eth.c                          |   18 
  drivers/net/ethernet/marvell/skge.c                                 |    7 
  drivers/net/ethernet/nxp/lpc_eth.c                                  |    1 
@@ -251,8 +279,14 @@ The following files were changed in this release:
  drivers/net/wireless/b43legacy/main.c                               |    2 
  drivers/net/wireless/ipw2x00/ipw2200.c                              |    2 
  drivers/net/wireless/iwlwifi/dvm/devices.c                          |   39 -
+ drivers/net/wireless/iwlwifi/dvm/mac80211.c                         |   14 
  drivers/net/wireless/iwlwifi/pcie/rx.c                              |   23 
+ drivers/net/wireless/iwlwifi/pcie/tx.c                              |    8 
+ drivers/net/wireless/mwifiex/cmdevt.c                               |   11 
+ drivers/net/wireless/mwifiex/sdio.c                                 |   11 
  drivers/net/wireless/rt2x00/rt2800lib.c                             |    2 
+ drivers/net/wireless/rtlwifi/rtl8192cu/sw.c                         |    1 
+ drivers/nfc/pn533.c                                                 |   22 
  drivers/pci/pci-driver.c                                            |   12 
  drivers/pci/pci-sysfs.c                                             |   34 -
  drivers/pci/pci.c                                                   |   32 +
@@ -286,6 +320,7 @@ The following files were changed in this release:
  drivers/scsi/isci/host.c                                            |   10 
  drivers/scsi/isci/init.c                                            |    1 
  drivers/scsi/isci/probe_roms.c                                      |    1 
+ drivers/scsi/isci/request.c                                         |    2 
  drivers/scsi/qla2xxx/qla_target.c                                   |   27 
  drivers/scsi/qla2xxx/qla_target.h                                   |    1 
  drivers/scsi/qla2xxx/tcm_qla2xxx.c                                  |   73 ++
@@ -420,16 +455,19 @@ The following files were changed in this release:
  fs/ext4/namei.c                                                     |    2 
  fs/ext4/resize.c                                                    |   31 -
  fs/ext4/super.c                                                     |    9 
- fs/fs-writeback.c                                                   |    1 
+ fs/fs-writeback.c                                                   |    3 
  fs/gfs2/export.c                                                    |    4 
  fs/gfs2/file.c                                                      |   12 
  fs/gfs2/lops.c                                                      |   14 
  fs/gfs2/super.c                                                     |    3 
  fs/gfs2/trans.c                                                     |    8 
+ fs/inode.c                                                          |   16 
+ fs/internal.h                                                       |    1 
  fs/isofs/export.c                                                   |    2 
  fs/jbd/commit.c                                                     |   45 +
- fs/jbd/transaction.c                                                |   64 +-
+ fs/jbd/transaction.c                                                |   66 +-
  fs/jbd2/journal.c                                                   |    5 
+ fs/jffs2/file.c                                                     |   39 -
  fs/jffs2/super.c                                                    |    4 
  fs/jffs2/wbuf.c                                                     |    8 
  fs/lockd/clntxdr.c                                                  |    2 
@@ -455,6 +493,7 @@ The following files were changed in this release:
  fs/proc/page.c                                                      |    8 
  fs/proc/stat.c                                                      |   14 
  fs/pstore/platform.c                                                |    3 
+ fs/pstore/ram.c                                                     |    2 
  fs/reiserfs/inode.c                                                 |   16 
  fs/reiserfs/stree.c                                                 |    4 
  fs/reiserfs/super.c                                                 |   60 +-
@@ -466,7 +505,7 @@ The following files were changed in this release:
  fs/xfs/xfs_buf_item.c                                               |   18 
  fs/xfs/xfs_export.c                                                 |    3 
  fs/xfs/xfs_log_recover.c                                            |    2 
- include/drm/drm_pciids.h                                            |    3 
+ include/drm/drm_pciids.h                                            |    4 
  include/linux/ceph/osd_client.h                                     |    2 
  include/linux/ceph/osdmap.h                                         |    6 
  include/linux/efi.h                                                 |    5 
@@ -490,7 +529,7 @@ The following files were changed in this release:
  kernel/audit.c                                                      |    2 
  kernel/cgroup.c                                                     |   41 -
  kernel/debug/kdb/kdb_io.c                                           |   33 -
- kernel/futex.c                                                      |   41 -
+ kernel/futex.c                                                      |   59 +
  kernel/module.c                                                     |   31 -
  kernel/rcutree.c                                                    |    4 
  kernel/sched/core.c                                                 |    2 
@@ -499,9 +538,11 @@ The following files were changed in this release:
  kernel/time/timekeeping.c                                           |    2 
  kernel/timer.c                                                      |   10 
  kernel/trace/ring_buffer.c                                          |    4 
+ kernel/watchdog.c                                                   |    4 
  kernel/workqueue.c                                                  |   27 
  lib/gcd.c                                                           |    3 
  lib/genalloc.c                                                      |    2 
+ lib/mpi/longlong.h                                                  |   19 
  mm/hugetlb.c                                                        |    3 
  mm/memblock.c                                                       |   24 
  mm/memcontrol.c                                                     |   67 +-
@@ -512,18 +553,20 @@ The following files were changed in this release:
  mm/shmem.c                                                          |   24 
  mm/slab.c                                                           |    6 
  mm/truncate.c                                                       |    3 
- mm/vmscan.c                                                         |    2 
+ mm/vmscan.c                                                         |   39 -
  net/8021q/vlan_core.c                                               |   13 
  net/batman-adv/bridge_loop_avoidance.c                              |    8 
  net/batman-adv/routing.c                                            |    8 
  net/bluetooth/mgmt.c                                                |   11 
  net/bluetooth/smp.c                                                 |    6 
+ net/can/bcm.c                                                       |    3 
  net/ceph/messenger.c                                                |    6 
  net/ceph/osd_client.c                                               |   32 -
  net/ceph/osdmap.c                                                   |   18 
  net/core/dev.c                                                      |   13 
  net/core/dev_addr_lists.c                                           |    3 
  net/core/neighbour.c                                                |    6 
+ net/core/net-sysfs.c                                                |   20 
  net/core/pktgen.c                                                   |    2 
  net/core/skbuff.c                                                   |   53 -
  net/ipv4/fib_frontend.c                                             |    3 
@@ -550,7 +593,7 @@ The following files were changed in this release:
  net/ipv6/route.c                                                    |   15 
  net/ipv6/tcp_ipv6.c                                                 |    3 
  net/l2tp/l2tp_eth.c                                                 |    1 
- net/mac80211/ibss.c                                                 |    2 
+ net/mac80211/ibss.c                                                 |   10 
  net/mac80211/ieee80211_i.h                                          |    2 
  net/mac80211/iface.c                                                |    2 
  net/mac80211/mesh_sync.c                                            |    3 
@@ -565,7 +608,7 @@ The following files were changed in this release:
  net/netfilter/nf_conntrack_h323_main.c                              |    3 
  net/netfilter/xt_TEE.c                                              |    1 
  net/netlink/af_netlink.c                                            |   48 +
- net/nfc/llcp/llcp.c                                                 |    4 
+ net/nfc/llcp/llcp.c                                                 |    6 
  net/rds/send.c                                                      |    2 
  net/sctp/sm_sideeffect.c                                            |    3 
  net/sunrpc/cache.c                                                  |    4 
@@ -601,9 +644,9 @@ The following files were changed in this release:
  sound/pci/hda/hda_codec.c                                           |   10 
  sound/pci/hda/hda_intel.c                                           |   71 +-
  sound/pci/hda/patch_analog.c                                        |    1 
- sound/pci/hda/patch_cirrus.c                                        |   22 
+ sound/pci/hda/patch_cirrus.c                                        |   23 
  sound/pci/hda/patch_conexant.c                                      |    1 
- sound/pci/hda/patch_realtek.c                                       |   65 +-
+ sound/pci/hda/patch_realtek.c                                       |   69 +-
  sound/pci/hda/patch_via.c                                           |   61 +-
  sound/soc/codecs/cs42l52.c                                          |    3 
  sound/soc/codecs/wm2200.c                                           |    3 
@@ -620,6 +663,7 @@ The following files were changed in this release:
  sound/usb/endpoint.c                                                |   21 
  sound/usb/endpoint.h                                                |    1 
  sound/usb/helper.c                                                  |    5 
+ sound/usb/midi.c                                                    |    8 
  sound/usb/mixer.c                                                   |   72 +-
  sound/usb/mixer_quirks.c                                            |   58 +
  sound/usb/pcm.c                                                     |   52 +
@@ -634,5 +678,5 @@ The following files were changed in this release:
  tools/perf/Makefile                                                 |    2 
  tools/power/cpupower/Makefile                                       |    2 
  usr/gen_init_cpio.c                                                 |   43 -
- 601 files changed, 6745 insertions(+), 3732 deletions(-)
+ 645 files changed, 7215 insertions(+), 3914 deletions(-)
 
