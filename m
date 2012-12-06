@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 3.0.54 released
-Date: Mon,  3 Dec 2012 21:57:29 +0000 (UTC)
-Message-ID: <20121203215729.96AE43D6@oxcart-to.int.kernel.org>
+Subject: Linux kernel 3.0.55 released
+Date: Thu,  6 Dec 2012 02:51:26 +0000 (UTC)
+Message-ID: <20121206025126.8B0D9971@oxcart-to.int.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@oxcart-to.int.kernel.org
 
-Linux kernel version 3.0.54 has been released.  It is available from:
+Linux kernel version 3.0.55 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v3.0/patch-3.0.54.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.0.54.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v3.0/patch-3.0.55.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.0.55.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               778719           3409078
-Full source                       76888124         451409920
+Patch                               778873           3409311
+Full source                       76888626         451409920
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -341,7 +341,7 @@ The following files were changed in this release:
  arch/x86/kernel/process.c                                   |   24 
  arch/x86/kernel/process_32.c                                |   25 
  arch/x86/kernel/process_64.c                                |   29 
- arch/x86/kernel/ptrace.c                                    |   28 
+ arch/x86/kernel/ptrace.c                                    |   30 
  arch/x86/kernel/reboot.c                                    |   21 
  arch/x86/kernel/relocate_kernel_32.S                        |    2 
  arch/x86/kernel/relocate_kernel_64.S                        |    2 
@@ -2069,5 +2069,5 @@ The following files were changed in this release:
  usr/gen_init_cpio.c                                         |   43 
  virt/kvm/iommu.c                                            |   12 
  virt/kvm/kvm_main.c                                         |    5 
- 2036 files changed, 28838 insertions(+), 14480 deletions(-)
+ 2036 files changed, 28840 insertions(+), 14480 deletions(-)
 
