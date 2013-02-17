@@ -1,7 +1,7 @@
 From: kdist@linux.kernel.org (Linux Kernel Distribution System)
-Subject: Linux kernel 3.0.64 released
-Date: Thu, 14 Feb 2013 19:18:20 +0000 (UTC)
-Message-ID: <20130214191820.B9FA7F3C@oxcart-to.int.kernel.org>
+Subject: Linux kernel 3.0.65 released
+Date: Sun, 17 Feb 2013 19:01:25 +0000 (UTC)
+Message-ID: <20130217190125.5C3C4F3D@oxcart-to.int.kernel.org>
 Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
@@ -10,15 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: linux-kernel-announce@oxcart-to.int.kernel.org
 
-Linux kernel version 3.0.64 has been released.  It is available from:
+Linux kernel version 3.0.65 has been released.  It is available from:
 
-Patch:		http://www.kernel.org/pub/linux/kernel/v3.0/patch-3.0.64.bz2
-Full source:	http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.0.64.tar.bz2
+Patch:		http://www.kernel.org/pub/linux/kernel/v3.0/patch-3.0.65.bz2
+Full source:	http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.0.65.tar.bz2
 
 Sizes in bytes			Compressed	Uncompressed
 ------------------------------------------------------------
-Patch                               839977           3694534
-Full source                       76912686         451440640
+Patch                               840499           3696751
+Full source                       76907037         451440640
 
 -----------------------------------------------------------------------------
  This is an automatically generated message.  To unsubscribe from this list,
@@ -314,7 +314,7 @@ The following files were changed in this release:
  arch/x86/include/asm/kvm_emulate.h                          |   16 
  arch/x86/include/asm/msr-index.h                            |    3 
  arch/x86/include/asm/pgtable-3level.h                       |   50 
- arch/x86/include/asm/pgtable.h                              |   11 
+ arch/x86/include/asm/pgtable.h                              |   16 
  arch/x86/include/asm/processor.h                            |    3 
  arch/x86/include/asm/ptrace.h                               |   15 
  arch/x86/include/asm/system.h                               |    7 
@@ -381,6 +381,7 @@ The following files were changed in this release:
  arch/x86/mm/highmem_32.c                                    |    2 
  arch/x86/mm/hugetlbpage.c                                   |   21 
  arch/x86/mm/init.c                                          |   72 -
+ arch/x86/mm/init_64.c                                       |    3 
  arch/x86/mm/mmap.c                                          |    4 
  arch/x86/mm/srat.c                                          |    4 
  arch/x86/net/bpf_jit_comp.c                                 |   50 
@@ -405,7 +406,7 @@ The following files were changed in this release:
  arch/x86/xen/smp.c                                          |   29 
  arch/x86/xen/vga.c                                          |   67 
  arch/x86/xen/xen-asm.S                                      |    2 
- arch/x86/xen/xen-asm_32.S                                   |    8 
+ arch/x86/xen/xen-asm_32.S                                   |   20 
  arch/x86/xen/xen-ops.h                                      |   11 
  arch/xtensa/kernel/ptrace.c                                 |    3 
  block/blk-cgroup.c                                          |   37 
@@ -835,7 +836,7 @@ The following files were changed in this release:
  drivers/net/ibmveth.c                                       |   31 
  drivers/net/ifb.c                                           |    2 
  drivers/net/igb/e1000_82575.c                               |    1 
- drivers/net/igb/igb_main.c                                  |    2 
+ drivers/net/igb/igb_main.c                                  |   10 
  drivers/net/irda/sir_dev.c                                  |    2 
  drivers/net/irda/smsc-ircc2.c                               |    2 
  drivers/net/ixgbe/ixgbe_82599.c                             |    2 
@@ -1019,6 +1020,7 @@ The following files were changed in this release:
  drivers/pci/pcie/aspm.c                                     |   71 -
  drivers/pci/probe.c                                         |   11 
  drivers/pci/quirks.c                                        |   60 
+ drivers/pci/remove.c                                        |    2 
  drivers/pci/setup-bus.c                                     |   57 
  drivers/pci/setup-res.c                                     |  155 +-
  drivers/pci/xen-pcifront.c                                  |    5 
@@ -2204,5 +2206,5 @@ The following files were changed in this release:
  usr/gen_init_cpio.c                                         |   43 
  virt/kvm/iommu.c                                            |   12 
  virt/kvm/kvm_main.c                                         |    5 
- 2171 files changed, 31179 insertions(+), 15795 deletions(-)
+ 2173 files changed, 31200 insertions(+), 15804 deletions(-)
 
