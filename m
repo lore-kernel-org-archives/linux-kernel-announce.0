@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.9-rc1 released
-Date: Mon, 04 Mar 2013 00:06:20 +0000
-Message-ID: <20130304000620.1451.81539.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.2.40 released
+Date: Wed, 06 Mar 2013 04:48:29 +0000
+Message-ID: <20130306044829.22149.36732.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.9-rc1 has been released. It is available from:
+Linux kernel version 3.2.40 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.9-rc1.bz2
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.9-rc1.tar.bz2
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.9-rc1.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.40.bz2
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.40.tar.bz2
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.40.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.9-rc1.bz2
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.40.bz2
