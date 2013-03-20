@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.41 released
-Date: Wed, 20 Mar 2013 19:53:20 +0000
-Message-ID: <20130320195320.28938.86795.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.0.70 released
+Date: Wed, 20 Mar 2013 20:03:18 +0000
+Message-ID: <20130320200318.31086.60281.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.41 has been released. It is available from:
+Linux kernel version 3.0.70 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.41.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.41.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.41.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.0.70.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.0.70.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.0.70.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.41.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.0.70.xz
