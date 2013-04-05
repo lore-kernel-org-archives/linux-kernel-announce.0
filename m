@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.4.39 released
-Date: Fri, 05 Apr 2013 17:25:29 +0000
-Message-ID: <20130405172529.16679.96473.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.8.6 released
+Date: Fri, 05 Apr 2013 17:24:19 +0000
+Message-ID: <20130405172419.16468.27031.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.4.39 has been released. It is available from:
+Linux kernel version 3.8.6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.39.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.39.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.39.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.8.6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.4.39.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.8.6.xz
