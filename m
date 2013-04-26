@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.44 released
-Date: Fri, 26 Apr 2013 04:35:17 +0000
-Message-ID: <20130426043517.18256.48759.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.8.10 released
+Date: Fri, 26 Apr 2013 19:34:24 +0000
+Message-ID: <20130426193424.25245.36837.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.44 has been released. It is available from:
+Linux kernel version 3.8.10 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.44.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.44.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.44.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.8.10.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.10.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.10.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.44.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.8.10.xz
