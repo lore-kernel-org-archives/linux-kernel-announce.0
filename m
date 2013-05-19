@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.45 released
-Date: Tue, 14 May 2013 10:57:26 +0000
-Message-ID: <20130514105726.24424.62282.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.0.79 released
+Date: Sun, 19 May 2013 17:52:26 +0000
+Message-ID: <20130519175226.12320.49792.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.45 has been released. It is available from:
+Linux kernel version 3.0.79 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.45.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.45.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.45.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.0.79.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.0.79.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.0.79.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.45.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.0.79.xz
