@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.9.11 released
-Date: Sun, 21 Jul 2013 00:26:24 +0000
-Message-ID: <20130721002624.29192.97194.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.11-rc2 released
+Date: Sun, 21 Jul 2013 19:22:33 +0000
+Message-ID: <20130721192233.2983.59662.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.9.11 has been released. It is available from:
+Linux kernel version 3.11-rc2 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.9.11.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.9.11.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.9.11.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.11-rc2.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.11-rc2.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.11-rc2.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.9.11.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.11-rc2.xz
