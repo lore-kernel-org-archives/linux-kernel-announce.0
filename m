@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.6 released
-Date: Mon, 12 Aug 2013 02:03:12 +0000
-Message-ID: <20130812020312.4572.38663.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.4.57 released
+Date: Mon, 12 Aug 2013 02:03:13 +0000
+Message-ID: <20130812020313.4572.4325.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.6 has been released. It is available from:
+Linux kernel version 3.4.57 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.6.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.6.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.6.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.57.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.57.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.57.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.6.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.4.57.xz
