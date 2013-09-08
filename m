@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.11 released
-Date: Sun, 08 Sep 2013 05:37:16 +0000
-Message-ID: <20130908053716.4361.64656.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.0.95 released
+Date: Sun, 08 Sep 2013 05:37:17 +0000
+Message-ID: <20130908053717.4361.83807.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.11 has been released. It is available from:
+Linux kernel version 3.0.95 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.11.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.11.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.11.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.0.95.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.0.95.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.0.95.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.11.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.0.95.xz
