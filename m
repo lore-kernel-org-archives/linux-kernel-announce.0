@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.12 released
-Date: Sat, 14 Sep 2013 14:02:13 +0000
-Message-ID: <20130914140213.13964.92252.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.11.1 released
+Date: Sat, 14 Sep 2013 14:12:16 +0000
+Message-ID: <20130914141216.16290.54754.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.12 has been released. It is available from:
+Linux kernel version 3.11.1 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.12.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.12.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.12.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.11.1.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.11.1.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.11.1.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.12.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.11.1.xz
