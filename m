@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12-rc1 released
-Date: Mon, 16 Sep 2013 21:48:14 +0000
-Message-ID: <20130916214814.27275.22169.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.12-rc2 released
+Date: Mon, 23 Sep 2013 22:54:15 +0000
+Message-ID: <20130923225415.4648.32847.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12-rc1 has been released. It is available from:
+Linux kernel version 3.12-rc2 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.12-rc1.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.12-rc1.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.12-rc1.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.12-rc2.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.12-rc2.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.12-rc2.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.12-rc1.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.12-rc2.xz
