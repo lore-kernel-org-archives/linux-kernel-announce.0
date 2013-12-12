@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.24 released
-Date: Thu, 12 Dec 2013 06:48:20 +0000
-Message-ID: <20131212064820.30118.22795.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.4.74 released
+Date: Thu, 12 Dec 2013 06:48:21 +0000
+Message-ID: <20131212064821.30118.20902.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.24 has been released. It is available from:
+Linux kernel version 3.4.74 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.24.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.24.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.24.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.74.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.74.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.74.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.24.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.4.74.xz
