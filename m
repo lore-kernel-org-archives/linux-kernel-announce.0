@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.54 released
-Date: Fri, 03 Jan 2014 05:19:28 +0000
-Message-ID: <20140103051928.23770.28953.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.13-rc7 released
+Date: Sat, 04 Jan 2014 23:24:32 +0000
+Message-ID: <20140104232432.18866.1054.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.54 has been released. It is available from:
+Linux kernel version 3.13-rc7 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.54.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.54.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.54.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.13-rc7.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.13-rc7.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.13-rc7.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.54.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.13-rc7.xz
