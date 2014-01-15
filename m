@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.13-rc8 released
-Date: Sun, 12 Jan 2014 13:42:22 +0000
-Message-ID: <20140112134222.31672.21754.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.4.77 released
+Date: Wed, 15 Jan 2014 23:40:23 +0000
+Message-ID: <20140115234023.27418.71789.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.13-rc8 has been released. It is available from:
+Linux kernel version 3.4.77 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.13-rc8.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.13-rc8.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.13-rc8.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.77.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.77.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.77.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.13-rc8.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.4.77.xz
