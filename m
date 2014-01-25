@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.13 released
-Date: Mon, 20 Jan 2014 03:00:17 +0000
-Message-ID: <20140120030017.27289.66093.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.12.9 released
+Date: Sat, 25 Jan 2014 17:30:22 +0000
+Message-ID: <20140125173022.29021.10441.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.13 has been released. It is available from:
+Linux kernel version 3.12.9 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.13.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.13.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.13.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.9.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.9.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.9.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.13.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.12.9.xz
