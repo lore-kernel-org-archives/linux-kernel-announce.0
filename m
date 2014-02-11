@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.14-rc2 released
-Date: Mon, 10 Feb 2014 03:30:26 +0000
-Message-ID: <20140210033026.11621.87533.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 2.6.34.15 released
+Date: Tue, 11 Feb 2014 16:37:18 +0000
+Message-ID: <20140211163718.19172.76271.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.14-rc2 has been released. It is available from:
+Linux kernel version 2.6.34.15 (EOL) has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.14-rc2.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.14-rc2.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.14-rc2.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.34/patch-2.6.34.15.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.34/linux-2.6.34.15.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.34/linux-2.6.34.15.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.14-rc2.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v2.6/longterm/v2.6.34/patch-2.6.34.15.xz
