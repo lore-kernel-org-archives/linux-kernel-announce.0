@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.11 released
-Date: Thu, 13 Feb 2014 22:24:19 +0000
-Message-ID: <20140213222419.25068.64439.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.2.55 released
+Date: Sat, 15 Feb 2014 19:53:22 +0000
+Message-ID: <20140215195322.28588.5922.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.11 has been released. It is available from:
+Linux kernel version 3.2.55 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.11.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.11.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.11.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.55.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.55.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.55.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.12.11.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.55.xz
