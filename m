@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.55 released
-Date: Sat, 15 Feb 2014 19:53:22 +0000
-Message-ID: <20140215195322.28588.5922.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.14-rc3 released
+Date: Sun, 16 Feb 2014 21:50:19 +0000
+Message-ID: <20140216215019.4869.62818.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.55 has been released. It is available from:
+Linux kernel version 3.14-rc3 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.55.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.55.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.55.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.14-rc3.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.14-rc3.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.14-rc3.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.55.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.14-rc3.xz
