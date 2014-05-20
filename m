@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.59 released
-Date: Sun, 18 May 2014 14:38:14 +0000
-Message-ID: <20140518143814.9088.19034.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 2.6.32.62 released
+Date: Tue, 20 May 2014 11:46:15 +0000
+Message-ID: <20140520114615.1650.3280.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.59 has been released. It is available from:
+Linux kernel version 2.6.32.62 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.59.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.59.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.59.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.62.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.62.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.62.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.59.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.62.xz
