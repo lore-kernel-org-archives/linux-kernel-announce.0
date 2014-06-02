@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.15-rc8 released
-Date: Mon, 02 Jun 2014 02:19:29 +0000
-Message-ID: <20140602021929.456.19760.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.12.21 released
+Date: Mon, 02 Jun 2014 21:39:22 +0000
+Message-ID: <20140602213922.28530.13317.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.15-rc8 has been released. It is available from:
+Linux kernel version 3.12.21 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.15-rc8.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.15-rc8.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.15-rc8.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.21.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.21.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.21.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.15-rc8.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.12.21.xz
