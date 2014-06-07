@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.42 released
-Date: Sat, 07 Jun 2014 20:53:21 +0000
-Message-ID: <20140607205321.16704.68247.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.4.92 released
+Date: Sat, 07 Jun 2014 23:11:21 +0000
+Message-ID: <20140607231121.15288.77441.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.42 has been released. It is available from:
+Linux kernel version 3.4.92 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.42.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.42.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.42.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.92.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.92.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.92.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.42.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.4.92.xz
