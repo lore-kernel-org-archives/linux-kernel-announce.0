@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.21 released
-Date: Mon, 02 Jun 2014 21:39:22 +0000
-Message-ID: <20140602213922.28530.13317.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.14.6 released
+Date: Sat, 07 Jun 2014 20:38:23 +0000
+Message-ID: <20140607203823.13274.41049.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.21 has been released. It is available from:
+Linux kernel version 3.14.6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.21.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.21.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.21.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.14.6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.12.21.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.14.6.xz
