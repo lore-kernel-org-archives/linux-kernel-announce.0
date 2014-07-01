@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.16-rc3 released
-Date: Sun, 29 Jun 2014 21:46:34 +0000
-Message-ID: <20140629214634.18784.46691.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.10.46 released
+Date: Tue, 01 Jul 2014 03:14:23 +0000
+Message-ID: <20140701031423.14831.22008.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.16-rc3 has been released. It is available from:
+Linux kernel version 3.10.46 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.16-rc3.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.16-rc3.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.16-rc3.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.46.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.46.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.46.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.16-rc3.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.46.xz
