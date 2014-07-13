@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.61 released
-Date: Sat, 12 Jul 2014 00:26:26 +0000
-Message-ID: <20140712002626.12681.9894.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.16-rc5 released
+Date: Sun, 13 Jul 2014 21:23:31 +0000
+Message-ID: <20140713212331.1371.93270.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.61 has been released. It is available from:
+Linux kernel version 3.16-rc5 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.61.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.61.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.61.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.16-rc5.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.16-rc5.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.16-rc5.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.2.61.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/testing/patch-3.16-rc5.xz
