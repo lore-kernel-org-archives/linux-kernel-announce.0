@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.15.9 released
-Date: Thu, 07 Aug 2014 23:58:19 +0000
-Message-ID: <20140807235819.24330.84740.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.14.16 released
+Date: Thu, 07 Aug 2014 23:58:20 +0000
+Message-ID: <20140807235820.24330.38825.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.15.9 has been released. It is available from:
+Linux kernel version 3.14.16 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.15.9.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.15.9.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.15.9.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.14.16.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.16.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.16.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.15.9.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.14.16.xz
