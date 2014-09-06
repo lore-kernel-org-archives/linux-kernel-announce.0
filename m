@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.54 released
-Date: Fri, 05 Sep 2014 23:46:22 +0000
-Message-ID: <20140905234622.17530.23846.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.16.2 released
+Date: Sat, 06 Sep 2014 00:14:17 +0000
+Message-ID: <20140906001417.23640.94757.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.54 has been released. It is available from:
+Linux kernel version 3.16.2 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.54.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.54.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.54.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.2.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.2.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.2.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.10.54.xz
+https://www.kernel.org/diff/diffview.cgi?file=/pub/linux/kernel/v3.x/patch-3.16.2.xz
