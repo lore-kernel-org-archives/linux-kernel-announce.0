@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.30 released
-Date: Wed, 08 Oct 2014 13:46:29 +0000
-Message-ID: <20141008134629.21207.22857.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.16.5 released
+Date: Thu, 09 Oct 2014 19:36:25 +0000
+Message-ID: <20141009193625.9909.32808.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.30 has been released. It is available from:
+Linux kernel version 3.16.5 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.30.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.30.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.30.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.5.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.5.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.5.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.30&id2=v3.12.29
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.5&id2=v3.16.4
