@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.17.1 released
-Date: Wed, 15 Oct 2014 10:39:16 +0000
-Message-ID: <20141015103916.11101.15690.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.16.6 released
+Date: Wed, 15 Oct 2014 10:39:17 +0000
+Message-ID: <20141015103917.11101.99861.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.17.1 has been released. It is available from:
+Linux kernel version 3.16.6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.17.1.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.17.1.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.17.1.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.17.1&id2=v3.17
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.6&id2=v3.16.5
