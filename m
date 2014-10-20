@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.16.6 released
-Date: Wed, 15 Oct 2014 10:39:17 +0000
-Message-ID: <20141015103917.11101.99861.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.18-rc1 released
+Date: Mon, 20 Oct 2014 15:32:29 +0000
+Message-ID: <20141020153229.19712.51643.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.16.6 has been released. It is available from:
+Linux kernel version 3.18-rc1 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.6.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.6.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.6.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.18-rc1.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc1.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc1.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.6&id2=v3.16.5
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v3.18-rc1&id2=v3.17
