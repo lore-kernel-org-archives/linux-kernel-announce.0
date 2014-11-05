@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18-rc3 released
-Date: Sun, 02 Nov 2014 23:19:36 +0000
-Message-ID: <20141102231936.15582.12903.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.12.32 released
+Date: Wed, 05 Nov 2014 19:12:21 +0000
+Message-ID: <20141105191221.24053.47178.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18-rc3 has been released. It is available from:
+Linux kernel version 3.12.32 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.18-rc3.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc3.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc3.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.32.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.32.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.32.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v3.18-rc3&id2=v3.18-rc2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.32&id2=v3.12.31
