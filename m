@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18-rc5 released
-Date: Mon, 17 Nov 2014 01:00:43 +0000
-Message-ID: <20141117010043.9744.45013.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.10.61 released
+Date: Fri, 21 Nov 2014 19:08:28 +0000
+Message-ID: <20141121190828.2044.33455.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18-rc5 has been released. It is available from:
+Linux kernel version 3.10.61 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.18-rc5.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc5.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc5.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.61.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.61.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.61.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v3.18-rc5&id2=v3.18-rc4
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.10.61&id2=v3.10.60
