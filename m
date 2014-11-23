@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 2.6.32.64 released
-Date: Sun, 23 Nov 2014 18:54:19 +0000
-Message-ID: <20141123185419.11373.90756.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.18-rc6 released
+Date: Sun, 23 Nov 2014 23:37:22 +0000
+Message-ID: <20141123233722.6080.83368.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 2.6.32.64 has been released. It is available from:
+Linux kernel version 3.18-rc6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.64.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.64.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.64.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/testing/patch-3.18-rc6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/testing/linux-3.18-rc6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v2.6.32.64&id2=v2.6.32.63
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v3.18-rc6&id2=v3.18-rc5
