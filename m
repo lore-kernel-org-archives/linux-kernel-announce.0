@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.14.34 released
-Date: Fri, 27 Feb 2015 02:01:25 +0000
-Message-ID: <20150227020125.12698.81716.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.10.70 released
+Date: Fri, 27 Feb 2015 02:01:26 +0000
+Message-ID: <20150227020126.12698.11244.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.14.34 has been released. It is available from:
+Linux kernel version 3.10.70 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.14.34.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.34.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.34.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.70.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.70.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.70.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.14.34&id2=v3.14.33&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.10.70&id2=v3.10.69&dt=2
