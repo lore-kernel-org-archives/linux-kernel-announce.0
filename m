@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.0-rc2 released
-Date: Tue, 03 Mar 2015 19:58:11 +0000
-Message-ID: <20150303195811.1959.19375.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.2.68 released
+Date: Fri, 06 Mar 2015 18:33:22 +0000
+Message-ID: <20150306183322.11200.13844.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.0-rc2 has been released. It is available from:
+Linux kernel version 3.2.68 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.0-rc2.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.0-rc2.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.0-rc2.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.68.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.68.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.68.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.0-rc2&id2=v4.0-rc1&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.68&id2=v3.2.67&dt=2
