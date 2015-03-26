@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.19.3 released
-Date: Thu, 26 Mar 2015 13:09:28 +0000
-Message-ID: <20150326130928.2983.54718.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.10.73 released
+Date: Thu, 26 Mar 2015 14:39:24 +0000
+Message-ID: <20150326143924.22846.51740.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.19.3 has been released. It is available from:
+Linux kernel version 3.10.73 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.19.3.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.19.3.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.19.3.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.73.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.73.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.73.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.19.3&id2=v3.19.2&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.10.73&id2=v3.10.72&dt=2
