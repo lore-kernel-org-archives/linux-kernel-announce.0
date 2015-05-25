@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 2.6.32.66 released
-Date: Sun, 24 May 2015 18:56:31 +0000
-Message-ID: <20150524185631.28019.154.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.1-rc5 released
+Date: Mon, 25 May 2015 01:35:29 +0000
+Message-ID: <20150525013529.17168.25703.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 2.6.32.66 has been released. It is available from:
+Linux kernel version 4.1-rc5 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/patch-2.6.32.66.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.66.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.32/linux-2.6.32.66.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.1-rc5.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc5.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc5.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v2.6.32.66&id2=v2.6.32.65&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.1-rc5&id2=v4.1-rc4&dt=2
