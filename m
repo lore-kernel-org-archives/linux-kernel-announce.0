@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.1-rc5 released
-Date: Mon, 25 May 2015 01:35:29 +0000
-Message-ID: <20150525013529.17168.25703.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.1-rc6 released
+Date: Mon, 01 Jun 2015 02:14:34 +0000
+Message-ID: <20150601021434.32536.30643.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.1-rc5 has been released. It is available from:
+Linux kernel version 4.1-rc6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.1-rc5.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc5.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc5.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.1-rc6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.1-rc5&id2=v4.1-rc4&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.1-rc6&id2=v4.1-rc5&dt=2
