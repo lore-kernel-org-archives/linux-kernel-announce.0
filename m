@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.16 released
-Date: Sun, 14 Jun 2015 16:52:27 +0000
-Message-ID: <20150614165227.22383.62502.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.1-rc8 released
+Date: Mon, 15 Jun 2015 02:19:33 +0000
+Message-ID: <20150615021933.5228.91171.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.16 has been released. It is available from:
+Linux kernel version 4.1-rc8 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.16.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.16.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.16.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.1-rc8.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc8.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.1-rc8.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.16&id2=v3.18.15&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.1-rc8&id2=v4.1-rc7&dt=2
