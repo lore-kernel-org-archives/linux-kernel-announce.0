@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.10.84 released
-Date: Fri, 10 Jul 2015 17:51:27 +0000
-Message-ID: <20150710175127.10372.97273.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.18.18 released
+Date: Fri, 10 Jul 2015 17:51:26 +0000
+Message-ID: <20150710175126.10372.57473.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.10.84 has been released. It is available from:
+Linux kernel version 3.18.18 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.84.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.84.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.84.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.18.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.18.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.18.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.10.84&id2=v3.10.83&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.18&id2=v3.18.17&dt=2
