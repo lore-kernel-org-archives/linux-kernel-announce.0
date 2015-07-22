@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.2-rc3 released
-Date: Sun, 19 Jul 2015 22:02:28 +0000
-Message-ID: <20150719220228.3940.2715.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.1.3 released
+Date: Wed, 22 Jul 2015 00:38:23 +0000
+Message-ID: <20150722003823.29888.77232.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.2-rc3 has been released. It is available from:
+Linux kernel version 4.1.3 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.2-rc3.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.2-rc3.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.2-rc3.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.1.3.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.3.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.3.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.2-rc3&id2=v4.2-rc2&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.1.3&id2=v4.1.2&dt=2
