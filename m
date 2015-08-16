@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.71 released
-Date: Fri, 14 Aug 2015 18:29:27 +0000
-Message-ID: <20150814182927.30072.99819.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.2-rc7 released
+Date: Sun, 16 Aug 2015 23:48:27 +0000
+Message-ID: <20150816234827.11050.1610.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.71 has been released. It is available from:
+Linux kernel version 4.2-rc7 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.71.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.71.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.71.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.2-rc7.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.2-rc7.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.2-rc7.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.71&id2=v3.2.70&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.2-rc7&id2=v4.2-rc6&dt=2
