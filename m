@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.1.6 released
-Date: Mon, 17 Aug 2015 06:01:28 +0000
-Message-ID: <20150817060128.1708.82208.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.14.51 released
+Date: Mon, 17 Aug 2015 06:01:29 +0000
+Message-ID: <20150817060129.1708.20434.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.1.6 has been released. It is available from:
+Linux kernel version 3.14.51 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.1.6.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.6.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.6.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.14.51.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.51.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.51.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.1.6&id2=v4.1.5&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.14.51&id2=v3.14.50&dt=2
