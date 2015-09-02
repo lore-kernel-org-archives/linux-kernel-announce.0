@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.2 released
-Date: Sun, 30 Aug 2015 18:45:18 +0000
-Message-ID: <20150830184518.27060.30160.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.18.21 released
+Date: Wed, 02 Sep 2015 04:21:21 +0000
+Message-ID: <20150902042121.29417.20024.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.2 has been released. It is available from:
+Linux kernel version 3.18.21 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.2.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.21.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.21.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.21.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.2&id2=v4.1&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.21&id2=v3.18.20&dt=2
