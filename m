@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.3-rc1 released
-Date: Sat, 12 Sep 2015 23:44:20 +0000
-Message-ID: <20150912234420.3662.15258.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.10.88 released
+Date: Sun, 13 Sep 2015 16:29:17 +0000
+Message-ID: <20150913162917.9262.24441.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.3-rc1 has been released. It is available from:
+Linux kernel version 3.10.88 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.3-rc1.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc1.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc1.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.10.88.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.88.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.10.88.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.3-rc1&id2=v4.2&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.10.88&id2=v3.10.87&dt=2
