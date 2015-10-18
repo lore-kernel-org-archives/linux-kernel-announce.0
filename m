@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.72 released
-Date: Tue, 13 Oct 2015 15:57:18 +0000
-Message-ID: <20151013155718.12229.28937.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.3-rc6 released
+Date: Sun, 18 Oct 2015 23:24:11 +0000
+Message-ID: <20151018232411.29614.729.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.72 has been released. It is available from:
+Linux kernel version 4.3-rc6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.72.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.72.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.72.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.3-rc6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.72&id2=v3.2.71&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.3-rc6&id2=v4.3-rc5&dt=2
