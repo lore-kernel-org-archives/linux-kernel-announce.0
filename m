@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.23 released
-Date: Fri, 30 Oct 2015 02:35:17 +0000
-Message-ID: <20151030023517.19060.40344.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.3 released
+Date: Mon, 02 Nov 2015 00:25:18 +0000
+Message-ID: <20151102002518.9564.14068.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.23 has been released. It is available from:
+Linux kernel version 4.3 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.23.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.23.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.23.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.3.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.23&id2=v3.18.22&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.3&id2=v4.2&dt=2
