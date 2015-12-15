@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.2.8 released
-Date: Tue, 15 Dec 2015 06:13:15 +0000
-Message-ID: <20151215061315.2174.29659.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.3.3 released
+Date: Tue, 15 Dec 2015 06:40:20 +0000
+Message-ID: <20151215064020.8659.19392.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.2.8 has been released. It is available from:
+Linux kernel version 4.3.3 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.2.8.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.8.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.8.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.3.3.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.3.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.3.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.2.8&id2=v4.2.7&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.3.3&id2=v4.3.2&dt=2
