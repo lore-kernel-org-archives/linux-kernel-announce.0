@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.5-rc2 released
-Date: Mon, 01 Feb 2016 02:19:14 +0000
-Message-ID: <20160201021914.17806.11032.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.5-rc3 released
+Date: Sun, 07 Feb 2016 23:59:13 +0000
+Message-ID: <20160207235913.32550.23804.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.5-rc2 has been released. It is available from:
+Linux kernel version 4.5-rc3 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.5-rc2.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.5-rc2.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.5-rc2.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.5-rc3.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.5-rc3.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.5-rc3.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.5-rc2&id2=v4.5-rc1&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.5-rc3&id2=v4.5-rc2&dt=2
