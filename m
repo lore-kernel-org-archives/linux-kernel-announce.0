@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.29 released
-Date: Thu, 17 Mar 2016 20:52:17 +0000
-Message-ID: <20160317205217.29251.79655.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.1.20 released
+Date: Thu, 17 Mar 2016 20:52:16 +0000
+Message-ID: <20160317205216.29251.23187.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.29 has been released. It is available from:
+Linux kernel version 4.1.20 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.29.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.29.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.29.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.1.20.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.20.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.20.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.29&id2=v3.18.28&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.1.20&id2=v4.1.19&dt=2
