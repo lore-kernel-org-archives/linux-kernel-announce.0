@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.57 released
-Date: Fri, 18 Mar 2016 17:44:17 +0000
-Message-ID: <20160318174417.18696.95920.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.4.111 released
+Date: Mon, 21 Mar 2016 14:04:15 +0000
+Message-ID: <20160321140415.5849.38064.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.57 has been released. It is available from:
+Linux kernel version 3.4.111 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.57.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.57.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.57.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.111.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.111.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.111.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.57&id2=v3.12.56&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.4.111&id2=v3.4.110&dt=2
