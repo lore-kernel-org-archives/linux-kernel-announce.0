@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.79 released
-Date: Fri, 01 Apr 2016 03:15:43 +0000
-Message-ID: <20160401031543.21409.38954.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.6-rc2 released
+Date: Sun, 03 Apr 2016 14:19:32 +0000
+Message-ID: <20160403141932.25531.96073.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.79 has been released. It is available from:
+Linux kernel version 4.6-rc2 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.79.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.79.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.79.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.6-rc2.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.6-rc2.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.6-rc2.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.79&id2=v3.2.78&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.6-rc2&id2=v4.6-rc1&dt=2
