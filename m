@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.1.21 released
-Date: Wed, 06 Apr 2016 10:30:38 +0000
-Message-ID: <20160406103038.4678.88176.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.6-rc3 released
+Date: Mon, 11 Apr 2016 01:08:38 +0000
+Message-ID: <20160411010838.25167.11527.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.1.21 has been released. It is available from:
+Linux kernel version 4.6-rc3 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.1.21.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.21.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.21.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.6-rc3.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.6-rc3.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.6-rc3.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.1.21&id2=v4.1.20&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.6-rc3&id2=v4.6-rc2&dt=2
