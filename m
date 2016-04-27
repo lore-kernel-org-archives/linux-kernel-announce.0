@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.4.112 released
-Date: Wed, 27 Apr 2016 16:04:35 +0000
-Message-ID: <20160427160435.17078.72976.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.18.32 released
+Date: Wed, 27 Apr 2016 16:11:37 +0000
+Message-ID: <20160427161137.18885.57423.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.4.112 has been released. It is available from:
+Linux kernel version 3.18.32 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.4.112.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.112.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.4.112.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.32.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.32.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.32.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.4.112&id2=v3.4.111&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.32&id2=v3.18.31&dt=2
