@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.1.23 released
-Date: Thu, 28 Apr 2016 16:34:30 +0000
-Message-ID: <20160428163430.3021.4772.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.16.35 released
+Date: Sun, 01 May 2016 20:33:42 +0000
+Message-ID: <20160501203342.7332.58510.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.1.23 has been released. It is available from:
+Linux kernel version 3.16.35 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.1.23.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.23.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.23.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.35.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.35.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.35.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.1.23&id2=v4.1.22&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.35&id2=v3.16.34&dt=2
