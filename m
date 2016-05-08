@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.5.3 released
-Date: Wed, 04 May 2016 22:12:43 +0000
-Message-ID: <20160504221243.3218.26413.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.6-rc7 released
+Date: Sun, 08 May 2016 21:49:42 +0000
+Message-ID: <20160508214942.24830.19453.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.5.3 has been released. It is available from:
+Linux kernel version 4.6-rc7 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.5.3.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.5.3.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.5.3.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.6-rc7.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.6-rc7.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.6-rc7.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.5.3&id2=v4.5.2&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.6-rc7&id2=v4.6-rc6&dt=2
