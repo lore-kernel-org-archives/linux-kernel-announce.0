@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.7-rc1 released
-Date: Sun, 29 May 2016 16:40:44 +0000
-Message-ID: <20160529164044.2544.24184.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.4.12 released
+Date: Wed, 01 Jun 2016 19:44:41 +0000
+Message-ID: <20160601194441.22738.78374.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.7-rc1 has been released. It is available from:
+Linux kernel version 4.4.12 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.7-rc1.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.7-rc1.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.7-rc1.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.12.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.12.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.12.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.7-rc1&id2=v4.6&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.12&id2=v4.4.11&dt=2
