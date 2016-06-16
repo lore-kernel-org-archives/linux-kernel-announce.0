@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.16.36 released
+Subject: Linux kernel 3.2.81 released
 Date: Thu, 16 Jun 2016 02:31:30 +0000
-Message-ID: <20160616023130.7803.87367.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Message-ID: <20160616023130.7803.985.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.16.36 has been released. It is available from:
+Linux kernel version 3.2.81 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.36.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.36.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.36.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.81.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.81.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.81.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.36&id2=v3.16.35&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.81&id2=v3.2.80&dt=2
