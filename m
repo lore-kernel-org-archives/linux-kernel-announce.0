@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.15 released
-Date: Mon, 11 Jul 2016 16:39:43 +0000
-Message-ID: <20160711163943.8818.18680.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.18.37 released
+Date: Wed, 13 Jul 2016 23:06:41 +0000
+Message-ID: <20160713230641.23614.23455.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.15 has been released. It is available from:
+Linux kernel version 3.18.37 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.15.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.15.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.15.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.37.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.37.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.37.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.15&id2=v4.4.14&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.37&id2=v3.18.36&dt=2
