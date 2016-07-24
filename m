@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.62 released
-Date: Thu, 21 Jul 2016 19:46:44 +0000
-Message-ID: <20160721194644.22144.90850.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.7 released
+Date: Sun, 24 Jul 2016 20:02:28 +0000
+Message-ID: <20160724200228.28907.68450.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.62 has been released. It is available from:
+Linux kernel version 4.7 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.62.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.62.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.62.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.7.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.62&id2=v3.12.61&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.7&id2=v4.6&dt=2
