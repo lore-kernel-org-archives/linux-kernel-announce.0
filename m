@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.38 released
-Date: Sat, 30 Jul 2016 16:07:28 +0000
-Message-ID: <20160730160728.32645.49013.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.8-rc1 released
+Date: Mon, 08 Aug 2016 01:38:29 +0000
+Message-ID: <20160808013829.22996.35988.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.38 has been released. It is available from:
+Linux kernel version 4.8-rc1 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.38.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.38.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.38.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.8-rc1.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.8-rc1.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.8-rc1.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.38&id2=v3.18.37&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.8-rc1&id2=v4.7&dt=2
