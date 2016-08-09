@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.39 released
-Date: Tue, 09 Aug 2016 19:03:48 +0000
-Message-ID: <20160809190348.8517.1698.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.1.30 released
+Date: Tue, 09 Aug 2016 19:03:47 +0000
+Message-ID: <20160809190347.8517.59291.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.39 has been released. It is available from:
+Linux kernel version 4.1.30 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.39.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.39.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.39.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.1.30.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.30.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.30.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.39&id2=v3.18.38&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.1.30&id2=v4.1.29&dt=2
