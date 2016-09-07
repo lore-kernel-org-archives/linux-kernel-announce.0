@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.14.78 released
-Date: Wed, 07 Sep 2016 06:39:43 +0000
-Message-ID: <20160907063943.21467.26737.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.4.20 released
+Date: Wed, 07 Sep 2016 06:51:46 +0000
+Message-ID: <20160907065146.24471.80512.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.14.78 has been released. It is available from:
+Linux kernel version 4.4.20 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.14.78.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.78.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.78.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.20.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.20.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.20.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.14.78&id2=v3.14.77&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.20&id2=v4.4.19&dt=2
