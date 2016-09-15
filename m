@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.7.4 released
-Date: Thu, 15 Sep 2016 06:39:46 +0000
-Message-ID: <20160915063946.7846.41832.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.4.21 released
+Date: Thu, 15 Sep 2016 06:47:44 +0000
+Message-ID: <20160915064744.9902.75213.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.7.4 has been released. It is available from:
+Linux kernel version 4.4.21 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.7.4.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.4.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.4.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.21.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.21.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.21.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.7.4&id2=v4.7.3&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.21&id2=v4.4.20&dt=2
