@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.42 released
-Date: Sun, 18 Sep 2016 07:31:45 +0000
-Message-ID: <20160918073145.21123.16098.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.8-rc7 released
+Date: Mon, 19 Sep 2016 00:36:45 +0000
+Message-ID: <20160919003645.28381.24372.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.42 has been released. It is available from:
+Linux kernel version 4.8-rc7 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.42.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.42.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.42.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.8-rc7.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.8-rc7.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.8-rc7.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.42&id2=v3.18.41&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.8-rc7&id2=v4.8-rc6&dt=2
