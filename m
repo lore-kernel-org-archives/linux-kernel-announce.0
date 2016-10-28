@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.28 released
-Date: Fri, 28 Oct 2016 08:00:44 +0000
-Message-ID: <20161028080044.7039.82646.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.8.5 released
+Date: Fri, 28 Oct 2016 08:12:46 +0000
+Message-ID: <20161028081246.10036.20363.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.28 has been released. It is available from:
+Linux kernel version 4.8.5 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.28.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.28.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.28.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.8.5.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.5.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.5.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.28&id2=v4.4.27&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.8.5&id2=v4.8.4&dt=2
