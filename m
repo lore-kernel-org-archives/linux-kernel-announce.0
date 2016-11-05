@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.30 released
-Date: Tue, 01 Nov 2016 02:02:49 +0000
-Message-ID: <20161101020249.29641.19060.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.9-rc4 released
+Date: Sat, 05 Nov 2016 23:33:41 +0000
+Message-ID: <20161105233341.5221.46570.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.30 has been released. It is available from:
+Linux kernel version 4.9-rc4 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.30.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.30.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.30.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.9-rc4.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.9-rc4.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.9-rc4.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.30&id2=v4.4.29&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.9-rc4&id2=v4.9-rc3&dt=2
