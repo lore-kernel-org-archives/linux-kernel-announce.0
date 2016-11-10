@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.67 released
-Date: Thu, 10 Nov 2016 07:03:48 +0000
-Message-ID: <20161110070348.24619.50304.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.4.31 released
+Date: Thu, 10 Nov 2016 15:43:51 +0000
+Message-ID: <20161110154351.27555.549.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.67 has been released. It is available from:
+Linux kernel version 4.4.31 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.67.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.67.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.67.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.31.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.31.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.31.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.67&id2=v3.12.66&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.31&id2=v4.4.30&dt=2
