@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.36 released
-Date: Fri, 02 Dec 2016 10:47:50 +0000
-Message-ID: <20161202104750.6064.93642.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.8.12 released
+Date: Fri, 02 Dec 2016 10:59:46 +0000
+Message-ID: <20161202105946.9192.95307.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.36 has been released. It is available from:
+Linux kernel version 4.8.12 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.36.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.36.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.36.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.8.12.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.12.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.12.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.36&id2=v4.4.35&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.8.12&id2=v4.8.11&dt=2
