@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.8.17 released
-Date: Mon, 09 Jan 2017 07:44:51 +0000
-Message-ID: <20170109074451.14313.68611.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.9.2 released
+Date: Mon, 09 Jan 2017 07:52:50 +0000
+Message-ID: <20170109075250.16347.53465.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.8.17 has been released. It is available from:
+Linux kernel version 4.9.2 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.8.17.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.17.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.17.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.9.2.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.2.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.2.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.8.17&id2=v4.8.16&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.9.2&id2=v4.9.1&dt=2
