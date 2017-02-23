@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.16.40 released
-Date: Thu, 23 Feb 2017 07:24:54 +0000
-Message-ID: <20170223072454.14427.83978.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.9.12 released
+Date: Thu, 23 Feb 2017 16:58:52 +0000
+Message-ID: <20170223165852.6256.712.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.16.40 has been released. It is available from:
+Linux kernel version 4.9.12 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.40.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.40.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.40.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.9.12.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.12.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.12.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.40&id2=v3.16.39&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.9.12&id2=v4.9.11&dt=2
