@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.10.1 released
-Date: Sun, 26 Feb 2017 14:55:54 +0000
-Message-ID: <20170226145554.15625.73788.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.16.41 released
+Date: Mon, 27 Feb 2017 07:10:53 +0000
+Message-ID: <20170227071053.29628.45405.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.10.1 has been released. It is available from:
+Linux kernel version 3.16.41 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.10.1.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.16.41.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.41.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.41.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.10.1&id2=v4.10&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.16.41&id2=v3.16.40&dt=2
