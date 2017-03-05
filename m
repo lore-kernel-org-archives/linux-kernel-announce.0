@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.86 released
-Date: Mon, 27 Feb 2017 07:10:54 +0000
-Message-ID: <20170227071054.29628.10738.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.11-rc1 released
+Date: Sun, 05 Mar 2017 21:10:54 +0000
+Message-ID: <20170305211054.16282.55877.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.86 has been released. It is available from:
+Linux kernel version 4.11-rc1 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.86.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.86.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.86.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.11-rc1.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc1.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc1.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.86&id2=v3.2.85&dt=2
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/diff/?id=v4.11-rc1&id2=v4.10&dt=2
