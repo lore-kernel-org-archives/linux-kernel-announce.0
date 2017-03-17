@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.87 released
-Date: Thu, 16 Mar 2017 07:03:51 +0000
-Message-ID: <20170316070351.26769.96549.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 3.12.72 released
+Date: Fri, 17 Mar 2017 01:47:50 +0000
+Message-ID: <20170317014750.14410.49553.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.87 has been released. It is available from:
+Linux kernel version 3.12.72 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.2.87.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.87.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.87.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.72.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.72.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.72.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.2.87&id2=v3.2.86&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.72&id2=v3.12.71&dt=2
