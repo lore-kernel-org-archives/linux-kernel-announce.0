@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.56 released
-Date: Wed, 22 Mar 2017 11:26:47 +0000
-Message-ID: <20170322112647.21711.5635.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.9.17 released
+Date: Wed, 22 Mar 2017 11:50:36 +0000
+Message-ID: <20170322115036.27088.65580.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.56 has been released. It is available from:
+Linux kernel version 4.9.17 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.56.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.56.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.56.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.9.17.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.17.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.17.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.56&id2=v4.4.55&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.9.17&id2=v4.9.16&dt=2
