@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.21 released
-Date: Sat, 08 Apr 2017 07:50:55 +0000
-Message-ID: <20170408075055.21571.35280.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.10.9 released
+Date: Sat, 08 Apr 2017 07:57:53 +0000
+Message-ID: <20170408075753.23220.38038.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.21 has been released. It is available from:
+Linux kernel version 4.10.9 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.9.21.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.21.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.21.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.10.9.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.9.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.9.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.9.21&id2=v4.9.20&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.10.9&id2=v4.10.8&dt=2
