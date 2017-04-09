@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.60 released
-Date: Sat, 08 Apr 2017 08:04:53 +0000
-Message-ID: <20170408080453.24813.46063.kdist.linux.kernel.org@fe-sync.int.kernel.org>
+Subject: Linux kernel 4.11-rc6 released
+Date: Sun, 09 Apr 2017 16:56:56 +0000
+Message-ID: <20170409165656.2480.92035.kdist.linux.kernel.org@fe-sync.int.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.60 has been released. It is available from:
+Linux kernel version 4.11-rc6 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.60.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.60.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.60.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.11-rc6.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc6.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc6.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.60&id2=v4.4.59&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/diff/?id=v4.11-rc6&id2=v4.11-rc5&dt=2
