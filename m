@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.11-rc7 released
-Date: Sun, 16 Apr 2017 20:21:28 +0000
-Message-ID: <20170416202128.release-4.11-rc7@kdist.linux.kernel.org>
+Subject: Linux kernel 4.10.11 released
+Date: Tue, 18 Apr 2017 05:30:24 +0000
+Message-ID: <20170418053024.release-4.10.11@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.11-rc7 has been released. It is available from:
+Linux kernel version 4.10.11 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.11-rc7.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc7.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc7.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.10.11.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.11.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.11.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/diff/?id=v4.11-rc7&id2=v4.11-rc6&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.10.11&id2=v4.10.10&dt=2
