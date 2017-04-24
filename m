@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.50 released
-Date: Sat, 22 Apr 2017 05:22:30 +0000
-Message-ID: <20170422052230.release-3.18.50@kdist.linux.kernel.org>
+Subject: Linux kernel 4.11-rc8 released
+Date: Mon, 24 Apr 2017 00:13:31 +0000
+Message-ID: <20170424001331.release-4.11-rc8@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.50 (EOL) has been released. It is available from:
+Linux kernel version 4.11-rc8 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.50.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.50.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.50.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-4.11-rc8.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc8.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.11-rc8.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.50&id2=v3.18.49&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/diff/?id=v4.11-rc8&id2=v4.11-rc7&dt=2
