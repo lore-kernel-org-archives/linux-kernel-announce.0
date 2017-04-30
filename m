@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.65 released
-Date: Sun, 30 Apr 2017 04:03:28 +0000
-Message-ID: <20170430040328.release-4.4.65@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.51 released
+Date: Sun, 30 Apr 2017 04:03:29 +0000
+Message-ID: <20170430040329.release-3.18.51@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.65 has been released. It is available from:
+Linux kernel version 3.18.51 (EOL) has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.65.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.65.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.65.tar.sign
+Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.18.51.xz
+Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.51.tar.xz
+PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.51.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v4.4.65&id2=v4.4.64&dt=2
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.18.51&id2=v3.18.50&dt=2
