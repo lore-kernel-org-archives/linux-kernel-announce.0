@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.12.74 released
-Date: Tue, 09 May 2017 14:20:29 +0000
-Message-ID: <20170509142029.release-3.12.74@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.68 released
+Date: Sun, 14 May 2017 11:45:10 +0000
+Message-ID: <20170514114510.release-4.4.68@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.12.74 has been released. It is available from:
+Linux kernel version 4.4.68 has been released. It is available from:
 
-Patch:          https://www.kernel.org/pub/linux/kernel/v3.x/patch-3.12.74.xz
-Full source:    https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.74.tar.xz
-PGP Signature:  https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.12.74.tar.sign
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.68.xz
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.68.tar.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.68.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/diff/?id=v3.12.74&id2=v3.12.73&dt=2
+https://git.kernel.org/stable/linux-stable/ds/v4.4.68/v4.4.67
