@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 Subject: Linux kernel 3.18.53 released
-Date: Tue, 16 May 2017 01:20:20 +0000
-Message-ID: <20170516012020.release-3.18.53@kdist.linux.kernel.org>
+Date: Tue, 16 May 2017 11:30:15 +0000
+Message-ID: <20170516113015.release-3.18.53@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
