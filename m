@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.10.17 released
-Date: Sat, 20 May 2017 12:55:12 +0000
-Message-ID: <20170520125512.release-4.10.17@kdist.linux.kernel.org>
+Subject: Linux kernel 4.11.2 released
+Date: Sat, 20 May 2017 13:05:12 +0000
+Message-ID: <20170520130512.release-4.11.2@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.10.17 has been released. It is available from:
+Linux kernel version 4.11.2 has been released. It is available from:
 
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.10.17.xz
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.17.tar.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.17.tar.sign
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.11.2.xz
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.11.2.tar.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.11.2.tar.sign
 
 -----------------------------------------------------------------------------
 This is an automatically generated message. To unsubscribe from this list,
@@ -27,4 +27,4 @@ to this list.
 -----------------------------------------------------------------------------
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.10.17/v4.10.16
+https://git.kernel.org/stable/linux-stable/ds/v4.11.2/v4.11.1
