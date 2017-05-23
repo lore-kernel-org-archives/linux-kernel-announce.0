@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.11.2 released
-Date: Sat, 20 May 2017 13:05:12 +0000
-Message-ID: <20170520130512.release-4.11.2@kdist.linux.kernel.org>
+Subject: Linux kernel 4.12-rc2 released
+Date: Tue, 23 May 2017 15:15:12 +0000
+Message-ID: <20170523151512.release-4.12-rc2@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,21 +10,10 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.11.2 has been released. It is available from:
+Linux kernel version 4.12-rc2 has been released. It is available from:
 
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.11.2.xz
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.11.2.tar.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.11.2.tar.sign
-
------------------------------------------------------------------------------
-This is an automatically generated message. To unsubscribe from this list,
-please send a message to majordomo@vger.kernel.org containing the line:
-
-	unsubscribe linux-kernel-announce <your_email_address>
-
-... where <your_email_address> is the email address you used to subscribe
-to this list.
------------------------------------------------------------------------------
+Full source:    https://git.kernel.org/torvalds/t/linux-4.12-rc2.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.12-rc2/v4.11
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.11.2/v4.11.1
+https://git.kernel.org/torvalds/ds/v4.12-rc2/v4.12-rc1
