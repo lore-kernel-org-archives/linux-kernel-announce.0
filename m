@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.31 released
-Date: Wed, 07 Jun 2017 10:35:14 +0000
-Message-ID: <20170607103514.release-4.9.31@kdist.linux.kernel.org>
+Subject: Linux kernel 4.12-rc5 released
+Date: Sun, 11 Jun 2017 23:51:04 +0000
+Message-ID: <20170611235104.release-4.12-rc5@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,10 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.31 has been released. It is available from:
+Linux kernel version 4.12-rc5 has been released. It is available from:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.31.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.31.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.31.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.12-rc5.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.12-rc5/v4.11
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.9.31/v4.9.30
+https://git.kernel.org/torvalds/ds/v4.12-rc5/v4.12-rc4
