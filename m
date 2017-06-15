@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.11.5 released
-Date: Wed, 14 Jun 2017 13:30:14 +0000
-Message-ID: <20170614133014.release-4.11.5@kdist.linux.kernel.org>
+Subject: Linux kernel 3.10.106 released
+Date: Thu, 15 Jun 2017 19:00:15 +0000
+Message-ID: <20170615190015.release-3.10.106@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.11.5 has been released. It is available from:
+Linux kernel version 3.10.106 has been released. It is available from:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.11.5.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.11.5.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.11.5.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.10.106.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.10.106.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.10.106.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.11.5/v4.11.4
+https://git.kernel.org/stable/linux-stable/ds/v3.10.106/v3.10.105
