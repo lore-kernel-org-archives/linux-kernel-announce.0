@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.12-rc7 released
-Date: Mon, 26 Jun 2017 01:32:59 +0000
-Message-ID: <20170626013259.release-4.12-rc7@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.58 released
+Date: Mon, 26 Jun 2017 05:20:27 +0000
+Message-ID: <20170626052027.release-3.18.58@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,10 +10,10 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.12-rc7 has been released. It is available from:
+Linux kernel version 3.18.58 (EOL) has been released. It is available from:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.12-rc7.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.12-rc7/v4.11
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.58.tar.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.58.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.12-rc7/v4.12-rc6
+https://git.kernel.org/stable/linux-stable/ds/v3.18.58/v3.18.57
