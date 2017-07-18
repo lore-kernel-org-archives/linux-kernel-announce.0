@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.13-rc1 released
-Date: Sat, 15 Jul 2017 22:27:59 +0000
-Message-ID: <20170715222759.release-4.13-rc1@kdist.linux.kernel.org>
+Subject: Linux kernel 3.2.91 released
+Date: Tue, 18 Jul 2017 18:10:25 +0000
+Message-ID: <20170718181025.release-3.2.91@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,10 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.13-rc1 has been released. It is available from:
+Linux kernel version 3.2.91 has been released. It is available from:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.13-rc1.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.13-rc1/v4.12
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.2.91.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.2.91.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.2.91.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.13-rc1/v4.12
+https://git.kernel.org/stable/linux-stable/ds/v3.2.91/v3.2.90
