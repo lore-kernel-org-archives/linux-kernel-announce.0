@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.78 released
-Date: Fri, 21 Jul 2017 06:20:35 +0000
-Message-ID: <20170721062035.release-4.4.78@kdist.linux.kernel.org>
+Subject: Linux kernel 4.13-rc2 released
+Date: Mon, 24 Jul 2017 01:45:00 +0000
+Message-ID: <20170724014500.release-4.13-rc2@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.78 has been released. It is available from:
+Linux kernel version 4.13-rc2 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.78.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.78.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.78.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.13-rc2.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.13-rc2/v4.12
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.4.78/v4.4.77
+https://git.kernel.org/torvalds/ds/v4.13-rc2/v4.13-rc1
+
