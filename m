@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.40 released
-Date: Thu, 27 Jul 2017 22:25:15 +0000
-Message-ID: <20170727222515.release-4.9.40@kdist.linux.kernel.org>
+Subject: Linux kernel 4.13-rc3 released
+Date: Sun, 30 Jul 2017 19:43:29 +0000
+Message-ID: <20170730194329.release-4.13-rc3@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.40 is now available:
+Linux kernel version 4.13-rc3 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.40.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.40.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.40.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.13-rc3.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.13-rc3/v4.12
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.9.40/v4.9.39
+https://git.kernel.org/torvalds/ds/v4.13-rc3/v4.13-rc2
 
