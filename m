@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.49 released
-Date: Sun, 10 Sep 2017 06:05:14 +0000
-Message-ID: <20170910060514.release-4.9.49@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.71 released
+Date: Wed, 13 Sep 2017 21:15:34 +0000
+Message-ID: <20170913211534.release-3.18.71@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.49 is now available:
+Linux kernel version 3.18.71 (EOL) is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.49.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.49.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.49.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.71.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.71.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.71.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.9.49/v4.9.48
+https://git.kernel.org/stable/linux-stable/ds/v3.18.71/v3.18.70
 
