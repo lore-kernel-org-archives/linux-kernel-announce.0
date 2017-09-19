@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.14-rc1 released
-Date: Sat, 16 Sep 2017 23:15:30 +0000
-Message-ID: <20170916231530.release-4.14-rc1@kdist.linux.kernel.org>
+Subject: Linux kernel 4.1.44 released
+Date: Tue, 19 Sep 2017 12:50:22 +0000
+Message-ID: <20170919125022.release-4.1.44@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.14-rc1 is now available:
+Linux kernel version 4.1.44 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.14-rc1.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.14-rc1/v4.13
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.1.44.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.1.44.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.1.44.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.14-rc1/v4.13
+https://git.kernel.org/stable/linux-stable/ds/v4.1.44/v4.1.43
 
