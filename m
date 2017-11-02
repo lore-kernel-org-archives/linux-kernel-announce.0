@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.14-rc7 released
-Date: Sun, 29 Oct 2017 21:04:59 +0000
-Message-ID: <20171029210459.release-4.14-rc7@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.79 released
+Date: Thu, 02 Nov 2017 08:45:19 +0000
+Message-ID: <20171102084519.release-3.18.79@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.14-rc7 is now available:
+Linux kernel version 3.18.79 (EOL) is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.14-rc7.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.14-rc7/v4.13
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.79.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.79.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.79.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.14-rc7/v4.14-rc6
+https://git.kernel.org/stable/linux-stable/ds/v3.18.79/v3.18.78
 
