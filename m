@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.14-rc8 released
-Date: Sun, 05 Nov 2017 21:21:35 +0000
-Message-ID: <20171105212135.release-4.14-rc8@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.80 released
+Date: Wed, 08 Nov 2017 09:10:28 +0000
+Message-ID: <20171108091028.release-3.18.80@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.14-rc8 is now available:
+Linux kernel version 3.18.80 (EOL) is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.14-rc8.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.14-rc8/v4.13
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.80.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.80.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.80.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.14-rc8/v4.14-rc7
+https://git.kernel.org/stable/linux-stable/ds/v3.18.80/v3.18.79
 
