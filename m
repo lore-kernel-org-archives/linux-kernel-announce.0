@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.14.7 released
-Date: Sun, 17 Dec 2017 14:20:22 +0000
-Message-ID: <20171217142022.release-4.14.7@kdist.linux.kernel.org>
+Subject: Linux kernel 4.15-rc4 released
+Date: Mon, 18 Dec 2017 03:05:21 +0000
+Message-ID: <20171218030521.release-4.15-rc4@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.14.7 is now available:
+Linux kernel version 4.15-rc4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.7.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.14.7.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.7.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.15-rc4.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.15-rc4/v4.14
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.14.7/v4.14.6
+https://git.kernel.org/torvalds/ds/v4.15-rc4/v4.15-rc3
 
