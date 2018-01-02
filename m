@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.15-rc6 released
-Date: Sun, 31 Dec 2017 22:49:22 +0000
-Message-ID: <20171231224922.release-4.15-rc6@kdist.linux.kernel.org>
+Subject: Linux kernel 3.2.97 released
+Date: Tue, 02 Jan 2018 09:40:15 +0000
+Message-ID: <20180102094015.release-3.2.97@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.15-rc6 is now available:
+Linux kernel version 3.2.97 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.15-rc6.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.15-rc6/v4.14
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.2.97.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.2.97.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.2.97.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.15-rc6/v4.15-rc5
+https://git.kernel.org/stable/linux-stable/ds/v3.2.97/v3.2.96
 
