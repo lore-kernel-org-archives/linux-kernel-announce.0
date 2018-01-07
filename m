@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.2.98 released
-Date: Sun, 07 Jan 2018 20:30:51 +0000
-Message-ID: <20180107203051.release-3.2.98@kdist.linux.kernel.org>
+Subject: Linux kernel 4.15-rc7 released
+Date: Sun, 07 Jan 2018 22:30:18 +0000
+Message-ID: <20180107223018.release-4.15-rc7@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.2.98 is now available:
+Linux kernel version 4.15-rc7 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.2.98.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.2.98.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.2.98.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.15-rc7.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.15-rc7/v4.14
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v3.2.98/v3.2.97
+https://git.kernel.org/torvalds/ds/v4.15-rc7/v4.15-rc6
 
