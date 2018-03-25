@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.15.13 released
-Date: Sun, 25 Mar 2018 08:10:17 +0000
-Message-ID: <20180325081017.release-4.15.13@kdist.linux.kernel.org>
+Subject: Linux kernel 4.16-rc7 released
+Date: Sun, 25 Mar 2018 23:39:34 +0000
+Message-ID: <20180325233934.release-4.16-rc7@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.15.13 is now available:
+Linux kernel version 4.16-rc7 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.15.13.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.15.13.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.15.13.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.16-rc7.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.16-rc7/v4.15
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.15.13/v4.15.12
+https://git.kernel.org/torvalds/ds/v4.16-rc7/v4.16-rc6
 
