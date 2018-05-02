@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.17-rc3 released
-Date: Sun, 29 Apr 2018 21:19:20 +0000
-Message-ID: <20180429211920.release-4.17-rc3@kdist.linux.kernel.org>
+Subject: Linux kernel 4.16.7 released
+Date: Wed, 02 May 2018 15:10:25 +0000
+Message-ID: <20180502151025.release-4.16.7@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.17-rc3 is now available:
+Linux kernel version 4.16.7 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.17-rc3.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.17-rc3/v4.16
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.7.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.16.7.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.7.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.17-rc3/v4.17-rc2
+https://git.kernel.org/stable/linux-stable/ds/v4.16.7/v4.16.6
 
