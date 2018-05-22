@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.17-rc6 released
-Date: Sun, 20 May 2018 22:33:26 +0000
-Message-ID: <20180520223326.release-4.17-rc6@kdist.linux.kernel.org>
+Subject: Linux kernel 4.9.102 released
+Date: Tue, 22 May 2018 17:05:31 +0000
+Message-ID: <20180522170531.release-4.9.102@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.17-rc6 is now available:
+Linux kernel version 4.9.102 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.17-rc6.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.17-rc6/v4.16
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.102.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.102.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.102.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.17-rc6/v4.17-rc5
+https://git.kernel.org/stable/linux-stable/ds/v4.9.102/v4.9.101
 
