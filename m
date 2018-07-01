@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.110 released
-Date: Tue, 26 Jun 2018 00:30:17 +0000
-Message-ID: <20180626003017.release-4.9.110@kdist.linux.kernel.org>
+Subject: Linux kernel 4.18-rc3 released
+Date: Sun, 01 Jul 2018 23:13:17 +0000
+Message-ID: <20180701231317.release-4.18-rc3@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.110 is now available:
+Linux kernel version 4.18-rc3 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.110.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.110.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.110.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.18-rc3.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.18-rc3/v4.17
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v4.9.110/v4.9.109
+https://git.kernel.org/torvalds/ds/v4.18-rc3/v4.18-rc2
 
