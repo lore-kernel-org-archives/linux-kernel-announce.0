@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.115 released
-Date: Wed, 11 Jul 2018 15:15:19 +0000
-Message-ID: <20180711151519.release-3.18.115@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.140 released
+Date: Wed, 11 Jul 2018 15:20:16 +0000
+Message-ID: <20180711152016.release-4.4.140@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.115 (EOL) is now available:
+Linux kernel version 4.4.140 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.115.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.115.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.115.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.140.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.140.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.140.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/linux-stable/ds/v3.18.115/v3.18.114
+https://git.kernel.org/stable/linux-stable/ds/v4.4.140/v4.4.139
 
