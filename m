@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.18-rc5 released
-Date: Sun, 15 Jul 2018 20:01:22 +0000
-Message-ID: <20180715200122.release-4.18-rc5@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.141 released
+Date: Tue, 17 Jul 2018 09:45:18 +0000
+Message-ID: <20180717094518.release-4.4.141@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.18-rc5 is now available:
+Linux kernel version 4.4.141 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.18-rc5.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.18-rc5/v4.17
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.141.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.141.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.141.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.18-rc5/v4.18-rc4
+https://git.kernel.org/stable/linux-stable/ds/v4.4.141/v4.4.140
 
