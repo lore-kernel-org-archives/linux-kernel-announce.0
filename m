@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.152 released
-Date: Fri, 24 Aug 2018 11:35:20 +0000
-Message-ID: <20180824113520.release-4.4.152@kdist.linux.kernel.org>
+Subject: Linux kernel 4.19-rc1 released
+Date: Sun, 26 Aug 2018 21:23:25 +0000
+Message-ID: <20180826212325.release-4.19-rc1@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.152 is now available:
+Linux kernel version 4.19-rc1 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.152.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.152.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.152.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-4.19-rc1.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v4.19-rc1/v4.18
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.4.152/v4.4.151
+https://git.kernel.org/torvalds/ds/v4.19-rc1/v4.18
 
