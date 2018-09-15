@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.19-rc3 released
-Date: Mon, 10 Sep 2018 00:28:23 +0000
-Message-ID: <20180910002823.release-4.19-rc3@kdist.linux.kernel.org>
+Subject: Linux kernel 4.9.127 released
+Date: Sat, 15 Sep 2018 07:50:21 +0000
+Message-ID: <20180915075021.release-4.9.127@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.19-rc3 is now available:
+Linux kernel version 4.9.127 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.19-rc3.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.19-rc3/v4.18
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.127.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.127.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.127.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.19-rc3/v4.19-rc2
+https://git.kernel.org/stable/ds/v4.9.127/v4.9.126
 
