@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.18.128 released
-Date: Sat, 01 Dec 2018 09:05:18 +0000
-Message-ID: <20181201090518.release-3.18.128@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.166 released
+Date: Sat, 01 Dec 2018 09:05:17 +0000
+Message-ID: <20181201090517.release-4.4.166@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.18.128 (EOL) is now available:
+Linux kernel version 4.4.166 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.128.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.128.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.128.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.166.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.166.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.166.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v3.18.128/v3.18.127
+https://git.kernel.org/stable/ds/v4.4.166/v4.4.165
 
