@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.20-rc6 released
-Date: Sun, 09 Dec 2018 23:45:26 +0000
-Message-ID: <20181209234526.release-4.20-rc6@kdist.linux.kernel.org>
+Subject: Linux kernel 4.19.9 released
+Date: Thu, 13 Dec 2018 08:25:27 +0000
+Message-ID: <20181213082527.release-4.19.9@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.20-rc6 is now available:
+Linux kernel version 4.19.9 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-4.20-rc6.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v4.20-rc6/v4.19
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.9.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.9.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.9.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v4.20-rc6/v4.20-rc5
+https://git.kernel.org/stable/ds/v4.19.9/v4.19.8
 
