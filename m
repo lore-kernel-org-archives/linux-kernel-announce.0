@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.19.11 released
-Date: Wed, 19 Dec 2018 18:30:25 +0000
-Message-ID: <20181219183025.release-4.19.11@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.131 released
+Date: Fri, 21 Dec 2018 13:20:23 +0000
+Message-ID: <20181221132023.release-3.18.131@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.19.11 is now available:
+Linux kernel version 3.18.131 (EOL) is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.11.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.11.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.11.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.131.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.131.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.131.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.19.11/v4.19.10
+https://git.kernel.org/stable/ds/v3.18.131/v3.18.130
 
