@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.0-rc7 released
-Date: Mon, 18 Feb 2019 02:59:36 +0000
-Message-ID: <20190218025936.release-5.0-rc7@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.135 released
+Date: Wed, 20 Feb 2019 09:20:25 +0000
+Message-ID: <20190220092025.release-3.18.135@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.0-rc7 is now available:
+Linux kernel version 3.18.135 (EOL) is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.0-rc7.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.0-rc7/v4.20
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.135.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.135.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.135.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.0-rc7/v5.0-rc6
+https://git.kernel.org/stable/ds/v3.18.135/v3.18.134
 
