@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.1-rc3 released
-Date: Sun, 31 Mar 2019 21:41:29 +0000
-Message-ID: <20190331214129.release-5.1-rc3@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.178 released
+Date: Wed, 03 Apr 2019 04:35:24 +0000
+Message-ID: <20190403043524.release-4.4.178@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.1-rc3 is now available:
+Linux kernel version 4.4.178 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.1-rc3.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.1-rc3/v5.0
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.178.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.178.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.178.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.1-rc3/v5.1-rc2
+https://git.kernel.org/stable/ds/v4.4.178/v4.4.177
 
