@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.0.7 released
-Date: Fri, 05 Apr 2019 20:55:21 +0000
-Message-ID: <20190405205521.release-5.0.7@kdist.linux.kernel.org>
+Subject: Linux kernel 5.1-rc4 released
+Date: Mon, 08 Apr 2019 00:12:26 +0000
+Message-ID: <20190408001226.release-5.1-rc4@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.0.7 is now available:
+Linux kernel version 5.1-rc4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.7.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.0.7.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.7.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.1-rc4.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.1-rc4/v5.0
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.0.7/v5.0.6
+https://git.kernel.org/torvalds/ds/v5.1-rc4/v5.1-rc3
 
