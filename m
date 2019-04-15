@@ -1,20 +1,21 @@
-From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.1-rc5 released
-Date: Sun, 14 Apr 2019 22:24:33 +0000
-Message-ID: <20190414222433.release-5.1-rc5@kdist.linux.kernel.org>
+From: Paul Eggert <eggert@cs.ucla.edu>
+Subject: Re: bug#35275: spelling mistake manual pages
+Date: Sun, 14 Apr 2019 22:34:37 -0700
+Message-ID: <8970d433-8c7e-23d8-7d04-b9344adbf3ad@cs.ucla.edu>
+References: <CABCHxwFMp+vFpv8V-c0=CeXnNmymEuvm_7adGnOnUfCUH7C5+w@mail.gmail.com>
 Mime-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Return-path: <linux-kernel-announce-owner@vger.kernel.org>
-Sender: linux-kernel-announce-owner@vger.kernel.org
+Return-path: <linux-kernel-owner@vger.kernel.org>
+In-Reply-To: <CABCHxwFMp+vFpv8V-c0=CeXnNmymEuvm_7adGnOnUfCUH7C5+w@mail.gmail.com>
+Content-Language: en-US
+Sender: linux-kernel-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
-To: linux-kernel-announce@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"; format="flowed"
+To: Vikas Talan <vikas.chaudhary2608@gmail.com>, 35275-done@debbugs.gnu.org, mtk.manpages@gmail.com, majordomo@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kernel-announce@vger.kernel.org, linux-api@vger.kernel.org, netdev@vger.kernel.org, libc-alpha-subscribe@sourceware.org, libc-help-subscribe@sourceware.org, manpages@packages.debian.org, listar@nl.linux.org, linux-man@vger.kernel.org
 
-Linux kernel version 5.1-rc5 is now available:
+That report appears to be about the glibc manual. Please report glibc bugs as 
+described here:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.1-rc5.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.1-rc5/v5.0
+https://sourceware.org/glibc/wiki/FilingBugs
 
-You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.1-rc5/v5.1-rc4
-
+Also, please use plain text rather than images to describe bugs in a text file.
