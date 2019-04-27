@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.1-rc6 released
-Date: Sun, 21 Apr 2019 17:53:29 +0000
-Message-ID: <20190421175329.release-5.1-rc6@kdist.linux.kernel.org>
+Subject: Linux kernel 3.18.139 released
+Date: Sat, 27 Apr 2019 07:40:35 +0000
+Message-ID: <20190427074035.release-3.18.139@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.1-rc6 is now available:
+Linux kernel version 3.18.139 (EOL) is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.1-rc6.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.1-rc6/v5.0
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.139.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.18.139.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.139.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.1-rc6/v5.1-rc5
+https://git.kernel.org/stable/ds/v3.18.139/v3.18.138
 
