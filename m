@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.173 released
-Date: Sat, 04 May 2019 07:00:27 +0000
-Message-ID: <20190504070027.release-4.9.173@kdist.linux.kernel.org>
+Subject: Linux kernel 4.19.39 released
+Date: Sat, 04 May 2019 07:30:25 +0000
+Message-ID: <20190504073025.release-4.19.39@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.173 is now available:
+Linux kernel version 4.19.39 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.173.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.173.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.173.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.39.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.39.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.39.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.9.173/v4.9.172
+https://git.kernel.org/stable/ds/v4.19.39/v4.19.38
 
