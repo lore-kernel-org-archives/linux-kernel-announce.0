@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.179 released
-Date: Sat, 25 May 2019 16:50:24 +0000
-Message-ID: <20190525165024.release-4.9.179@kdist.linux.kernel.org>
+Subject: Linux kernel 5.2-rc2 released
+Date: Mon, 27 May 2019 00:00:35 +0000
+Message-ID: <20190527000035.release-5.2-rc2@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.179 is now available:
+Linux kernel version 5.2-rc2 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.179.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.179.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.179.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.2-rc2.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.2-rc2/v5.1
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.9.179/v4.9.178
+https://git.kernel.org/torvalds/ds/v5.2-rc2/v5.2-rc1
 
