@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.186 released
-Date: Sun, 21 Jul 2019 07:25:18 +0000
-Message-ID: <20190721072518.release-4.4.186@kdist.linux.kernel.org>
+Subject: Linux kernel 5.3-rc1 released
+Date: Sun, 21 Jul 2019 21:10:23 +0000
+Message-ID: <20190721211023.release-5.3-rc1@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.186 is now available:
+Linux kernel version 5.3-rc1 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.186.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.186.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.186.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.3-rc1.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.3-rc1/v5.2
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.4.186/v4.4.185
+https://git.kernel.org/torvalds/ds/v5.3-rc1/v5.2
 
