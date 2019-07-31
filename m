@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.19.63 released
+Subject: Linux kernel 4.14.135 released
 Date: Wed, 31 Jul 2019 05:50:20 +0000
-Message-ID: <20190731055020.release-4.19.63@kdist.linux.kernel.org>
+Message-ID: <20190731055020.release-4.14.135@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.19.63 is now available:
+Linux kernel version 4.14.135 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.63.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.63.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.63.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.135.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.14.135.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.135.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.19.63/v4.19.62
+https://git.kernel.org/stable/ds/v4.14.135/v4.14.134
 
