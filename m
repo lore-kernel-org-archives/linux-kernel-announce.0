@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.2.8 released
-Date: Fri, 09 Aug 2019 16:10:21 +0000
-Message-ID: <20190809161021.release-5.2.8@kdist.linux.kernel.org>
+Subject: Linux kernel 4.14.138 released
+Date: Fri, 09 Aug 2019 16:25:20 +0000
+Message-ID: <20190809162520.release-4.14.138@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.2.8 is now available:
+Linux kernel version 4.14.138 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.8.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.2.8.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.8.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.138.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.14.138.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.138.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.2.8/v5.2.7
+https://git.kernel.org/stable/ds/v4.14.138/v4.14.137
 
