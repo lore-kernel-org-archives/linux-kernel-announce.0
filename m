@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 3.16.77 released
-Date: Fri, 15 Nov 2019 02:20:27 +0000
-Message-ID: <20191115022027.release-3.16.77@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.202 released
+Date: Sat, 16 Nov 2019 09:35:24 +0000
+Message-ID: <20191116093524.release-4.4.202@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 3.16.77 is now available:
+Linux kernel version 4.4.202 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.16.77.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.16.77.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.16.77.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.202.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.202.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.202.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v3.16.77/v3.16.76
+https://git.kernel.org/stable/ds/v4.4.202/v4.4.201
 
