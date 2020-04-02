@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.4.29 released
-Date: Wed, 01 Apr 2020 09:15:25 +0000
-Message-ID: <20200401091525.release-5.4.29@kdist.linux.kernel.org>
+Subject: Linux kernel 5.6.2 released
+Date: Thu, 02 Apr 2020 06:10:24 +0000
+Message-ID: <20200402061024.release-5.6.2@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.4.29 is now available:
+Linux kernel version 5.6.2 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.29.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.29.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.29.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.2.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.6.2.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.2.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.4.29/v5.4.28
+https://git.kernel.org/stable/ds/v5.6.2/v5.6.1
 
