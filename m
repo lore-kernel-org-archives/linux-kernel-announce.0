@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.7-rc3 released
-Date: Sun, 26 Apr 2020 20:57:30 +0000
-Message-ID: <20200426205730.release-5.7-rc3@kdist.linux.kernel.org>
+Subject: Linux kernel 3.16.83 released
+Date: Tue, 28 Apr 2020 18:30:27 +0000
+Message-ID: <20200428183027.release-3.16.83@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.7-rc3 is now available:
+Linux kernel version 3.16.83 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.7-rc3.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.7-rc3/v5.6
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.16.83.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v3.x/patch-3.16.83.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.16.83.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.7-rc3/v5.7-rc2
+https://git.kernel.org/stable/ds/v3.16.83/v3.16.82
 
