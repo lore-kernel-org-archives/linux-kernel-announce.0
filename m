@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.8-rc2 released
-Date: Sun, 21 Jun 2020 22:49:25 +0000
-Message-ID: <20200621224925.release-5.8-rc2@kdist.linux.kernel.org>
+Subject: Linux kernel 4.19.129 released
+Date: Mon, 22 Jun 2020 07:45:25 +0000
+Message-ID: <20200622074525.release-4.19.129@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.8-rc2 is now available:
+Linux kernel version 4.19.129 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.8-rc2.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.8-rc2/v5.7
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.129.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.129.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.129.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.8-rc2/v5.8-rc1
+https://git.kernel.org/stable/ds/v4.19.129/v4.19.128
 
