@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.19.131 released
-Date: Wed, 01 Jul 2020 09:00:25 +0000
-Message-ID: <20200701090025.release-4.19.131@kdist.linux.kernel.org>
+Subject: Linux kernel 5.8-rc4 released
+Date: Sun, 05 Jul 2020 23:52:32 +0000
+Message-ID: <20200705235232.release-5.8-rc4@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,12 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.19.131 is now available:
+Linux kernel version 5.8-rc4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.131.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.131.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.131.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.8-rc4.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.8-rc4/v5.7
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.19.131/v4.19.130
+https://git.kernel.org/torvalds/ds/v5.8-rc4/v5.8-rc3
 
