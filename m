@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.8-rc5 released
-Date: Sun, 12 Jul 2020 23:41:27 +0000
-Message-ID: <20200712234127.release-5.8-rc5@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.52 released
+Date: Thu, 16 Jul 2020 06:30:26 +0000
+Message-ID: <20200716063026.release-5.4.52@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,12 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.8-rc5 is now available:
+Linux kernel version 5.4.52 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.8-rc5.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.8-rc5/v5.7
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.52.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.52.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.52.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.8-rc5/v5.8-rc4
+https://git.kernel.org/stable/ds/v5.4.52/v5.4.51
 
