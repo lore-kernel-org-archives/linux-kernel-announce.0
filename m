@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.9-rc3 released
-Date: Sun, 30 Aug 2020 23:57:05 +0000
-Message-ID: <20200830235705.release-5.9-rc3@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.235 released
+Date: Thu, 03 Sep 2020 09:35:30 +0000
+Message-ID: <20200903093530.release-4.4.235@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,11 +10,11 @@ Sender: linux-kernel-announce-owner@vger.kernel.org
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.9-rc3 is now available:
+Linux kernel version 4.4.235 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.9-rc3.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.9-rc3/v5.8
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.235.tar.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.235.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.9-rc3/v5.9-rc2
+https://git.kernel.org/stable/ds/v4.4.235/v4.4.234
 
