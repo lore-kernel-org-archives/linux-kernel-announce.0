@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.19.151 released
-Date: Wed, 14 Oct 2020 09:00:31 +0000
-Message-ID: <20201014090031.release-4.19.151@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.71 released
+Date: Wed, 14 Oct 2020 09:05:30 +0000
+Message-ID: <20201014090530.release-5.4.71@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.19.151 is now available:
+Linux kernel version 5.4.71 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.151.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.151.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.151.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.71.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.71.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.71.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.19.151/v4.19.150
+https://git.kernel.org/stable/ds/v5.4.71/v5.4.70
 
