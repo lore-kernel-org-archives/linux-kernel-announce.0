@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.19.157 released
-Date: Wed, 11 Nov 2020 15:20:36 +0000
-Message-ID: <20201111152036.release-4.19.157@kdist.linux.kernel.org>
+Subject: Linux kernel 5.10-rc4 released
+Date: Mon, 16 Nov 2020 00:48:49 +0000
+Message-ID: <20201116004849.release-5.10-rc4@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,11 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.19.157 is now available:
+Linux kernel version 5.10-rc4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.157.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.157.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.157.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.10-rc4.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.10-rc4/v5.9
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.19.157/v4.19.156
+https://git.kernel.org/torvalds/ds/v5.10-rc4/v5.10-rc3
 
