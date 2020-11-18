@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.4.78 released
-Date: Wed, 18 Nov 2020 19:30:31 +0000
-Message-ID: <20201118193031.release-5.4.78@kdist.linux.kernel.org>
+Subject: Linux kernel 5.9.9 released
+Date: Wed, 18 Nov 2020 19:35:32 +0000
+Message-ID: <20201118193532.release-5.9.9@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.4.78 is now available:
+Linux kernel version 5.9.9 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.78.tar.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.78.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.9.9.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.9.9.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.9.9.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.4.78/v5.4.77
+https://git.kernel.org/stable/ds/v5.9.9/v5.9.8
 
