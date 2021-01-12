@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.9.251 released
-Date: Tue, 12 Jan 2021 19:10:30 +0000
-Message-ID: <20210112191030.release-4.9.251@kdist.linux.kernel.org>
+Subject: Linux kernel 4.14.215 released
+Date: Tue, 12 Jan 2021 19:20:32 +0000
+Message-ID: <20210112192032.release-4.14.215@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,11 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.9.251 is now available:
+Linux kernel version 4.14.215 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.251.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.251.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.251.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.215.tar.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.215.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.9.251/v4.9.250
+https://git.kernel.org/stable/ds/v4.14.215/v4.14.214
 
