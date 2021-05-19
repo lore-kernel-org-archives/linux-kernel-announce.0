@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.13-rc2 released
-Date: Sun, 16 May 2021 22:36:37 +0000
-Message-ID: <20210516223637.release-5.13-rc2@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.120 released
+Date: Wed, 19 May 2021 08:25:29 +0000
+Message-ID: <20210519082529.release-5.4.120@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.13-rc2 is now available:
+Linux kernel version 5.4.120 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.13-rc2.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.13-rc2/v5.12
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.120.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.120.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.120.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.13-rc2/v5.13-rc1
+https://git.kernel.org/stable/ds/v5.4.120/v5.4.119
 
