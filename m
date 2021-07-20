@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.14.240 released
-Date: Tue, 20 Jul 2021 14:35:33 +0000
-Message-ID: <20210720143533.release-4.14.240@kdist.linux.kernel.org>
+Subject: Linux kernel 4.19.198 released
+Date: Tue, 20 Jul 2021 14:35:32 +0000
+Message-ID: <20210720143532.release-4.19.198@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.14.240 is now available:
+Linux kernel version 4.19.198 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.240.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.14.240.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.240.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.198.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.198.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.198.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.14.240/v4.14.239
+https://git.kernel.org/stable/ds/v4.19.198/v4.19.197
 
