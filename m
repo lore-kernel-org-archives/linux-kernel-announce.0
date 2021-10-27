@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.15-rc7 released
-Date: Mon, 25 Oct 2021 18:37:04 +0000
-Message-ID: <20211025183704.release-5.15-rc7@kdist.linux.kernel.org>
+Subject: Linux kernel 4.4.290 released
+Date: Wed, 27 Oct 2021 07:45:35 +0000
+Message-ID: <20211027074535.release-4.4.290@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.15-rc7 is now available:
+Linux kernel version 4.4.290 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.15-rc7.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.15-rc7/v5.14
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.290.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.290.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.290.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.15-rc7/v5.15-rc6
+https://git.kernel.org/stable/ds/v4.4.290/v4.4.289
 
