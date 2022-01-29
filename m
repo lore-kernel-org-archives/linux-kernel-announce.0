@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.4.301 released
-Date: Sat, 29 Jan 2022 09:30:30 +0000
-Message-ID: <20220129093030.release-4.4.301@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.175 released
+Date: Sat, 29 Jan 2022 09:40:28 +0000
+Message-ID: <20220129094028.release-5.4.175@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.4.301 is now available:
+Linux kernel version 5.4.175 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.301.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.4.301.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.301.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.175.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.175.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.175.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.4.301/v4.4.300
+https://git.kernel.org/stable/ds/v5.4.175/v5.4.174
 
