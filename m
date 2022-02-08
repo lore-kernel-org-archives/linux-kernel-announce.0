@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 4.14.265 released
-Date: Tue, 08 Feb 2022 17:30:30 +0000
-Message-ID: <20220208173030.release-4.14.265@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.178 released
+Date: Tue, 08 Feb 2022 17:35:29 +0000
+Message-ID: <20220208173529.release-5.4.178@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 4.14.265 is now available:
+Linux kernel version 5.4.178 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.265.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.14.265.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.265.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.178.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.178.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.178.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v4.14.265/v4.14.264
+https://git.kernel.org/stable/ds/v5.4.178/v5.4.177
 
