@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.16.11 released
-Date: Wed, 23 Feb 2022 11:25:26 +0000
-Message-ID: <20220223112526.release-5.16.11@kdist.linux.kernel.org>
+Subject: Linux kernel 5.17-rc6 released
+Date: Sun, 27 Feb 2022 22:51:31 +0000
+Message-ID: <20220227225131.release-5.17-rc6@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,11 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.16.11 is now available:
+Linux kernel version 5.17-rc6 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.11.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.11.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.11.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.17-rc6.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.17-rc6/v5.16
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.16.11/v5.16.10
+https://git.kernel.org/torvalds/ds/v5.17-rc6/v5.17-rc5
 
