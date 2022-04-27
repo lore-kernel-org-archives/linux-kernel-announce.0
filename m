@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.18-rc4 released
-Date: Sun, 24 Apr 2022 22:24:26 +0000
-Message-ID: <20220424222426.release-5.18-rc4@kdist.linux.kernel.org>
+Subject: Linux kernel 4.9.312 released
+Date: Wed, 27 Apr 2022 11:20:35 +0000
+Message-ID: <20220427112035.release-4.9.312@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.18-rc4 is now available:
+Linux kernel version 4.9.312 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.18-rc4.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.18-rc4/v5.17
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.312.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.312.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.312.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.18-rc4/v5.18-rc3
+https://git.kernel.org/stable/ds/v4.9.312/v4.9.311
 
