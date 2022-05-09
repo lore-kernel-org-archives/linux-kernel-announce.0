@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.18-rc6 released
-Date: Sun, 08 May 2022 21:11:10 +0000
-Message-ID: <20220508211110.release-5.18-rc6@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.192 released
+Date: Mon, 09 May 2022 07:10:31 +0000
+Message-ID: <20220509071031.release-5.4.192@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.18-rc6 is now available:
+Linux kernel version 5.4.192 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-5.18-rc6.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v5.18-rc6/v5.17
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.192.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.192.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.192.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v5.18-rc6/v5.18-rc5
+https://git.kernel.org/stable/ds/v5.4.192/v5.4.191
 
