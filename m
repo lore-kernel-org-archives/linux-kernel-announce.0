@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.17.15 released
-Date: Tue, 14 Jun 2022 17:00:36 +0000
-Message-ID: <20220614170036.release-5.17.15@kdist.linux.kernel.org>
+Subject: Linux kernel 5.18.4 released
+Date: Tue, 14 Jun 2022 17:20:36 +0000
+Message-ID: <20220614172036.release-5.18.4@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.17.15 is now available:
+Linux kernel version 5.18.4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.17.15.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.17.15.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.17.15.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.4.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.18.4.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.4.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.17.15/v5.17.14
+https://git.kernel.org/stable/ds/v5.18.4/v5.18.3
 
