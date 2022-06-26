@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.18.7 released
-Date: Sat, 25 Jun 2022 13:50:32 +0000
-Message-ID: <20220625135032.release-5.18.7@kdist.linux.kernel.org>
+Subject: Linux kernel 5.19-rc4 released
+Date: Sun, 26 Jun 2022 21:56:45 +0000
+Message-ID: <20220626215645.release-5.19-rc4@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,11 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.18.7 is now available:
+Linux kernel version 5.19-rc4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.7.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.18.7.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.7.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-5.19-rc4.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v5.19-rc4/v5.18
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.18.7/v5.18.6
+https://git.kernel.org/torvalds/ds/v5.19-rc4/v5.19-rc3
 
