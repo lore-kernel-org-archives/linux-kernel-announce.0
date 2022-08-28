@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.19.4 released
-Date: Thu, 25 Aug 2022 10:05:32 +0000
-Message-ID: <20220825100532.release-5.19.4@kdist.linux.kernel.org>
+Subject: Linux kernel 6.0-rc3 released
+Date: Sun, 28 Aug 2022 22:43:38 +0000
+Message-ID: <20220828224338.release-6.0-rc3@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,11 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.19.4 is now available:
+Linux kernel version 6.0-rc3 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.4.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.19.4.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.4.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-6.0-rc3.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v6.0-rc3/vNone
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.19.4/v5.19.3
+https://git.kernel.org/torvalds/ds/v6.0-rc3/v6.0-rc2
 
