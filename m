@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 6.0-rc4 released
-Date: Sun, 04 Sep 2022 20:34:40 +0000
-Message-ID: <20220904203440.release-6.0-rc4@kdist.linux.kernel.org>
+Subject: Linux kernel 4.9.327 released
+Date: Mon, 05 Sep 2022 08:30:40 +0000
+Message-ID: <20220905083040.release-4.9.327@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 6.0-rc4 is now available:
+Linux kernel version 4.9.327 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-6.0-rc4.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v6.0-rc4/vNone
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.327.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.9.327.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.327.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v6.0-rc4/v6.0-rc3
+https://git.kernel.org/stable/ds/v4.9.327/v4.9.326
 
