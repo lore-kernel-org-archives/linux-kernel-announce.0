@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 6.1-rc1 released
-Date: Sun, 16 Oct 2022 23:10:17 +0000
-Message-ID: <20221016231017.release-6.1-rc1@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.219 released
+Date: Mon, 17 Oct 2022 15:40:33 +0000
+Message-ID: <20221017154033.release-5.4.219@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 6.1-rc1 is now available:
+Linux kernel version 5.4.219 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-6.1-rc1.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v6.1-rc1/v6.0
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.219.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.219.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.219.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v6.1-rc1/v6.0
+https://git.kernel.org/stable/ds/v5.4.219/v5.4.218
 
