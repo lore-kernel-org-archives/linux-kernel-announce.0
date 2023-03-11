@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 6.1.18 released
-Date: Sat, 11 Mar 2023 13:25:35 +0000
-Message-ID: <20230311132535.release-6.1.18@kdist.linux.kernel.org>
+Subject: Linux kernel 4.14.308 released
+Date: Sat, 11 Mar 2023 15:40:33 +0000
+Message-ID: <20230311154033.release-4.14.308@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 6.1.18 is now available:
+Linux kernel version 4.14.308 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.18.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.18.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.18.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.308.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.14.308.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.308.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.1.18/v6.1.17
+https://git.kernel.org/stable/ds/v4.14.308/v4.14.307
 
