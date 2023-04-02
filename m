@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 5.4.239 released
-Date: Thu, 30 Mar 2023 13:20:35 +0000
-Message-ID: <20230330132035.release-5.4.239@kdist.linux.kernel.org>
+Subject: Linux kernel 6.3-rc5 released
+Date: Sun, 02 Apr 2023 22:03:20 +0000
+Message-ID: <20230402220320.release-6.3-rc5@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,12 +9,11 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.4.239 is now available:
+Linux kernel version 6.3-rc5 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.239.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.239.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.239.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-6.3-rc5.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v6.3-rc5/v6.2
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.4.239/v5.4.238
+https://git.kernel.org/torvalds/ds/v6.3-rc5/v6.3-rc4
 
