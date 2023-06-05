@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 6.4-rc5 released
-Date: Sun, 04 Jun 2023 21:41:44 +0000
-Message-ID: <20230604214144.release-6.4-rc5@kdist.linux.kernel.org>
+Subject: Linux kernel 5.4.245 released
+Date: Mon, 05 Jun 2023 06:40:37 +0000
+Message-ID: <20230605064037.release-5.4.245@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 6.4-rc5 is now available:
+Linux kernel version 5.4.245 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-6.4-rc5.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v6.4-rc5/v6.3
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.245.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.245.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.245.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v6.4-rc5/v6.4-rc4
+https://git.kernel.org/stable/ds/v5.4.245/v5.4.244
 
