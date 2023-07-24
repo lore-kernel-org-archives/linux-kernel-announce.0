@@ -1,7 +1,7 @@
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
-Subject: Linux kernel 6.5-rc3 released
-Date: Sun, 23 Jul 2023 23:02:34 +0000
-Message-ID: <20230723230234.release-6.5-rc3@kdist.linux.kernel.org>
+Subject: Linux kernel 5.10.187 released
+Date: Mon, 24 Jul 2023 19:35:40 +0000
+Message-ID: <20230724193540.release-5.10.187@kdist.linux.kernel.org>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -9,11 +9,12 @@ Return-path: <linux-kernel-announce-owner@vger.kernel.org>
 List-ID: <linux-kernel-announce.vger.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 6.5-rc3 is now available:
+Linux kernel version 5.10.187 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-6.5-rc3.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v6.5-rc3/v6.4
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.187.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.10.187.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.187.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v6.5-rc3/v6.5-rc2
+https://git.kernel.org/stable/ds/v5.10.187/v5.10.186
 
