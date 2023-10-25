@@ -2,46 +2,46 @@ Return-Path: <linux-kernel-announce-owner@vger.kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from vger.kernel.org (vger.kernel.org [23.128.96.18])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0382C25B47
-	for <linux-kernel-announce@archiver.kernel.org>; Wed, 25 Oct 2023 10:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BE96C25B47
+	for <linux-kernel-announce@archiver.kernel.org>; Wed, 25 Oct 2023 10:15:55 +0000 (UTC)
 Received: (majordomo@vger.kernel.org) by vger.kernel.org via listexpand
-        id S232985AbjJYKAr (ORCPT
+        id S234589AbjJYKPx (ORCPT
         <rfc822;linux-kernel-announce@archiver.kernel.org>);
-        Wed, 25 Oct 2023 06:00:47 -0400
-Received: from lindbergh.monkeyblade.net ([23.128.96.19]:50342 "EHLO
+        Wed, 25 Oct 2023 06:15:53 -0400
+Received: from lindbergh.monkeyblade.net ([23.128.96.19]:45618 "EHLO
         lindbergh.monkeyblade.net" rhost-flags-OK-OK-OK-OK) by vger.kernel.org
-        with ESMTP id S234511AbjJYKAo (ORCPT
+        with ESMTP id S234612AbjJYKPo (ORCPT
         <rfc822;linux-kernel-announce@vger.kernel.org>);
-        Wed, 25 Oct 2023 06:00:44 -0400
+        Wed, 25 Oct 2023 06:15:44 -0400
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-        by lindbergh.monkeyblade.net (Postfix) with ESMTPS id 2CAAB111
-        for <linux-kernel-announce@vger.kernel.org>; Wed, 25 Oct 2023 03:00:42 -0700 (PDT)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D0112C433C7
-        for <linux-kernel-announce@vger.kernel.org>; Wed, 25 Oct 2023 10:00:41 +0000 (UTC)
+        by lindbergh.monkeyblade.net (Postfix) with ESMTPS id 805C712F
+        for <linux-kernel-announce@vger.kernel.org>; Wed, 25 Oct 2023 03:15:41 -0700 (PDT)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 32684C433C9
+        for <linux-kernel-announce@vger.kernel.org>; Wed, 25 Oct 2023 10:15:41 +0000 (UTC)
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-        by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B8D07C00446
-        for <linux-kernel-announce@vger.kernel.org>; Wed, 25 Oct 2023 10:00:41 +0000 (UTC)
+        by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 178C4E11F54
+        for <linux-kernel-announce@vger.kernel.org>; Wed, 25 Oct 2023 10:15:41 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 5.4.259 released
+Subject: Linux kernel 5.15.137 released
 From:   Linux Kernel Distribution System <kdist@linux.kernel.org>
 To:     linux-kernel-announce@vger.kernel.org
-Date:   Wed, 25 Oct 2023 10:00:41 +0000
-Message-Id: <20231025100041.release-5.4.259@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 5.4.259
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.259.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.259.xz
+Date:   Wed, 25 Oct 2023 10:15:41 +0000
+Message-Id: <20231025101541.release-5.15.137@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 5.15.137
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.137.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.137.xz
 Precedence: bulk
 List-ID: <linux-kernel-announce.vger.kernel.org>
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 5.4.259 is now available:
+Linux kernel version 5.15.137 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.259.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.259.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.259.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.137.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.137.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.137.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.4.259/v5.4.258
+https://git.kernel.org/stable/ds/v5.15.137/v5.15.136
 
