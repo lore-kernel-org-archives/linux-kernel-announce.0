@@ -2,46 +2,46 @@ Return-Path: <linux-kernel-announce-owner@vger.kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from vger.kernel.org (vger.kernel.org [23.128.96.18])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF8E3C4167B
-	for <linux-kernel-announce@archiver.kernel.org>; Tue, 28 Nov 2023 18:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CE84C4167B
+	for <linux-kernel-announce@archiver.kernel.org>; Sun,  3 Dec 2023 06:50:49 +0000 (UTC)
 Received: (majordomo@vger.kernel.org) by vger.kernel.org via listexpand
-        id S229510AbjK1SCk (ORCPT
+        id S232985AbjLCGuh (ORCPT
         <rfc822;linux-kernel-announce@archiver.kernel.org>);
-        Tue, 28 Nov 2023 13:02:40 -0500
-Received: from lindbergh.monkeyblade.net ([23.128.96.19]:44548 "EHLO
+        Sun, 3 Dec 2023 01:50:37 -0500
+Received: from lindbergh.monkeyblade.net ([23.128.96.19]:35580 "EHLO
         lindbergh.monkeyblade.net" rhost-flags-OK-OK-OK-OK) by vger.kernel.org
-        with ESMTP id S1345837AbjK1Rkh (ORCPT
+        with ESMTP id S229600AbjLCGug (ORCPT
         <rfc822;linux-kernel-announce@vger.kernel.org>);
-        Tue, 28 Nov 2023 12:40:37 -0500
+        Sun, 3 Dec 2023 01:50:36 -0500
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-        by lindbergh.monkeyblade.net (Postfix) with ESMTPS id 9EF4D19B7
-        for <linux-kernel-announce@vger.kernel.org>; Tue, 28 Nov 2023 09:40:44 -0800 (PST)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 52A6CC433C7
-        for <linux-kernel-announce@vger.kernel.org>; Tue, 28 Nov 2023 17:40:44 +0000 (UTC)
+        by lindbergh.monkeyblade.net (Postfix) with ESMTPS id 91049ED
+        for <linux-kernel-announce@vger.kernel.org>; Sat,  2 Dec 2023 22:50:42 -0800 (PST)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 368ACC433CA
+        for <linux-kernel-announce@vger.kernel.org>; Sun,  3 Dec 2023 06:50:42 +0000 (UTC)
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-        by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 3C22ADFAA8B
-        for <linux-kernel-announce@vger.kernel.org>; Tue, 28 Nov 2023 17:40:44 +0000 (UTC)
+        by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 13AA3C64459
+        for <linux-kernel-announce@vger.kernel.org>; Sun,  3 Dec 2023 06:50:42 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 6.6.3 released
+Subject: Linux kernel 6.1.65 released
 From:   Linux Kernel Distribution System <kdist@linux.kernel.org>
 To:     linux-kernel-announce@vger.kernel.org
-Date:   Tue, 28 Nov 2023 17:40:44 +0000
-Message-Id: <20231128174044.release-6.6.3@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 6.6.3
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.3.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.6.3.xz
+Date:   Sun, 03 Dec 2023 06:50:41 +0000
+Message-Id: <20231203065041.release-6.1.65@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 6.1.65
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.65.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.65.xz
 Precedence: bulk
 List-ID: <linux-kernel-announce.vger.kernel.org>
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
 
-Linux kernel version 6.6.3 is now available:
+Linux kernel version 6.1.65 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.3.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.6.3.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.3.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.65.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.65.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.65.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.6.3/v6.6.2
+https://git.kernel.org/stable/ds/v6.1.65/v6.1.64
 
