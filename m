@@ -1,28 +1,28 @@
 Received: from smtp.kernel.org (aws-us-west-2-korg-mail-1.web.codeaurora.org [10.30.226.201])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 197B81D68F
-	for <linux-kernel-announce@vger.kernel.org>; Mon, 29 Apr 2024 10:50:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B15D13E40A
+	for <linux-kernel-announce@vger.kernel.org>; Thu,  2 May 2024 14:30:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1714387844; cv=none; b=CqviYFULG3ScdYQTsaFcHNC1vQZQPJJNWcf5/DDApomh6B8iUTwXczeD8Qy5iVDYe4mToDq4dy1LhAHX8/SUJta0rmBxxqC0FRwkKD1WrSIKAWNbKtza2zLT2FZyowq5j09VnYFiGrK5XgpxwZEF3QYSaNwxN8FTE0T8XzeAXYw=
+	t=1714660254; cv=none; b=X32nmBCMIHWRUBIsRuJpJS/h99t7xhoO7W5OPMsLQRR9dBn9G3DRrS8ToQzlBc5JJbErbJhOUpVQetZv8TQ/Rj/Mi+5MSLHZSTgYZlNv1hfc9Hi8u8GnRTHOO9+ibBytunch3CevJxYUXbHKWbiO3nNjCagfo46az/mxZ7F2vok=
 ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1714387844; c=relaxed/simple;
-	bh=JYtuw5hmcjUkEHE0rPX6sE0Ct5LqkR9srFtoqaP3opg=;
-	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=F7svKazxcKK8SF2SNqbrH9NvvPTaaPZnA49Nfv56efUN8F5Fu5ieDHRyPIX44ueX6w6zvOFyyQWp5DB9fSN/WEjdSqEMusmiICDvPOs6nUNuGKg8aqWRuD5UzhPm3ILnkpaREZubzZ5CLx/Jgyg1rpczKVkN45iXNMDQ9PfYxs4=
+	s=arc-20240116; t=1714660254; c=relaxed/simple;
+	bh=EW7JCbUtvyS44XJtAEUfOaXELCzBojbh7p6Rn6FHSo8=;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=KEH6abZTSCoFg3NFft8KIvg+xD1LsJImJ5GosqqBPxgXfCzGGZ8czSNLztrFjoon8vl916QY+JyHPG7OmYQ3uDN3lBBiFvEDw4yr6A53BuIudDZV1qHcMci+QPXkbLKPE2l0q6yaDRBAIrVMVPwn1h8688sFanwQ7yq7GCsPcw8=
 ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.kernel.org;
-	s=subspace; t=1714387844;
-	bh=JYtuw5hmcjUkEHE0rPX6sE0Ct5LqkR9srFtoqaP3opg=;
+	s=subspace; t=1714660254;
+	bh=EW7JCbUtvyS44XJtAEUfOaXELCzBojbh7p6Rn6FHSo8=;
 	h=Subject:From:To:Date:From;
-	b=EDiojxsFz02/qzeBYeDAEAJ2lyW4oc9qrQ3tJS/ZzH/FwVhDB3G14gR8Lo22dGvTI
-	 qhWs2UypwxzcxRsT/feVs43BRAB33a+81TJ4bamPDyozpf21p9xrCgqrqw46FodKa1
-	 RFMogkws61EHunXr2vz4EuwLUG4HhY46TtyBIDL0=
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BF7F3C113CD
-	for <linux-kernel-announce@vger.kernel.org>; Mon, 29 Apr 2024 10:50:43 +0000 (UTC)
+	b=b6DOnW4Q3V8FFr2lYwOAY2JwbA6x0hlarLlBdQRXiPsgZ67a7uYQCfXgQqumjgPnB
+	 1EvwfLh+garQZtYW+wFX67inW2ABRrcK6OOQrY09JUPvg0Q9w9UgLOp42WgAmNfLD+
+	 kX8wjSjGHiewH9S2SE+hJBWWp8ebqu4I6Cp7+EoQ=
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 02E64C113CC
+	for <linux-kernel-announce@vger.kernel.org>; Thu,  2 May 2024 14:30:53 +0000 (UTC)
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B0A19C43617
-	for <linux-kernel-announce@vger.kernel.org>; Mon, 29 Apr 2024 10:50:43 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E16E2C43443
+	for <linux-kernel-announce@vger.kernel.org>; Thu,  2 May 2024 14:30:53 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 Precedence: bulk
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
@@ -31,21 +31,21 @@ List-Subscribe: <mailto:linux-kernel-announce+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel-announce+unsubscribe@vger.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 6.1.89 released
+Subject: Linux kernel 4.19.313 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Mon, 29 Apr 2024 10:50:43 +0000
-Message-Id: <20240429105043.release-6.1.89@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 6.1.89
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.89.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.89.xz
+Date: Thu, 02 May 2024 14:30:53 +0000
+Message-Id: <20240502143053.release-4.19.313@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 4.19.313
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.313.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.313.xz
 
-Linux kernel version 6.1.89 is now available:
+Linux kernel version 4.19.313 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.89.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.89.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.89.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.313.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-4.19.313.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.313.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.1.89/v6.1.88
+https://git.kernel.org/stable/ds/v4.19.313/v4.19.312
 
