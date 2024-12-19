@@ -1,28 +1,28 @@
 Received: from smtp.kernel.org (aws-us-west-2-korg-mail-1.web.codeaurora.org [10.30.226.201])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66B468633D
-	for <linux-kernel-announce@vger.kernel.org>; Thu, 19 Dec 2024 17:25:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3910119993B
+	for <linux-kernel-announce@vger.kernel.org>; Thu, 19 Dec 2024 17:26:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1734629131; cv=none; b=lCzY4dfjC2nqnN3Jh5FrZxOFi1vZMvM+qlWSAt0FZ8j0qcLfD4+8E+jc3baFmkl4rDFPEHRXCUrNeQ3G4mRHtD5S3bgclQitGx4AavvCCZ1ahKlnybVeCYMScAYkSkZwy9lmV1MFTOdqYrg6OX7oEEZZb8wn6cV/3bSL6h6szSk=
+	t=1734629218; cv=none; b=oW9dIZRAxnaT2AGFKwkFzFsj+5lYYzhN9BkY6Zb25DvM7huoY3XslD9NtNmbKcGsgczTK057iS94osGd3ZEXVuPT91ddohXYoqKzc+YTal/oFyT05d47cjFfI8WBG+tCRncADBmt3FP+9VK1da7IS9CnITtwxkI3LVUK9YE13SE=
 ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1734629131; c=relaxed/simple;
-	bh=4EtK+e8fgdTaXCQIn5bi9BdzKcH4itEI8SIqGEPZwoE=;
-	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=Hz4a+QvIJWk7/L/ylDeMoDhKXNArw99zM3XVI8QMBpdKhLihDCPc/EMzihmtv053jZ94djgHa+VB/x0CApIvFpQCBMY7xHv3UoSQ8itd8pc5CSDluCfCvzEO6oU325vvusfhUAm+kx71K8mX4VmCxiZjRZ0UsqSOU4VeMYI8Yl8=
+	s=arc-20240116; t=1734629218; c=relaxed/simple;
+	bh=GK7oLtffLb/REhsFHlDlNgZdcZJc0/+w+24HLI06y8I=;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=Vrry4E/9GE9LoYVgMeU3GjHLO0GnC38Wdwe73doHxdkvmv6c+fo+VVSD2NWhIF3foHieeTr8V5j9uSoIYYkrqq0mp3f9JZga/dhrqmTp5RlRfyTyWe7uEkAQMVtsqsT0CbIPgmZFn3/LK2RPoOFtqHncSHGmgNzZDLfkigEugN4=
 ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.kernel.org;
-	s=subspace; t=1734629131;
-	bh=4EtK+e8fgdTaXCQIn5bi9BdzKcH4itEI8SIqGEPZwoE=;
+	s=subspace; t=1734629218;
+	bh=GK7oLtffLb/REhsFHlDlNgZdcZJc0/+w+24HLI06y8I=;
 	h=Subject:From:To:Date:From;
-	b=jO4nBdfVC6yAXU7a6SbSD3iJX86T08dWocLicAYqDGTpf/nPrfoZvaERvvJl1wZhl
-	 KWCaAVfhVFgfuxRMpRXPj5Tq3zYcYJGd8mGYHzn8Bi8HfQhGfVjDiJ8ZH0L7D/aUhA
-	 IKDEioz/OWfuVM7mBWg5KcJJ51G7RRvam9K3CACY=
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF8F8C4CED0
-	for <linux-kernel-announce@vger.kernel.org>; Thu, 19 Dec 2024 17:25:30 +0000 (UTC)
+	b=LEibFVRXLoiCc07PTLC4F/Iymt7PR4cU/Ll2bZgReiv2M/PaIcfMGzqI2fpST294h
+	 sNGO1mqiyePib+VO0q01IdttWgmjQpBSnYf7C3CcVPzM+9JpaJhg2CdJfnLo9pENQ7
+	 Os45WfgilUQCpXZt1MyKxovZDUX83UnEmL1lkqSM=
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDAA2C4CECE
+	for <linux-kernel-announce@vger.kernel.org>; Thu, 19 Dec 2024 17:26:57 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B42323806656
-	for <linux-kernel-announce@vger.kernel.org>; Thu, 19 Dec 2024 17:25:49 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE1463806656
+	for <linux-kernel-announce@vger.kernel.org>; Thu, 19 Dec 2024 17:27:16 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 Precedence: bulk
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
@@ -31,21 +31,21 @@ List-Subscribe: <mailto:linux-kernel-announce+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel-announce+unsubscribe@vger.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 5.15.175 released
+Subject: Linux kernel 6.1.121 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Thu, 19 Dec 2024 17:25:48 +0000
-Message-Id: <20241219172548.release-5.15.175@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 5.15.175
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.175.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.175.xz
+Date: Thu, 19 Dec 2024 17:27:15 +0000
+Message-Id: <20241219172715.release-6.1.121@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 6.1.121
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.121.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.121.xz
 
-Linux kernel version 5.15.175 is now available:
+Linux kernel version 6.1.121 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.175.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.175.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.175.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.121.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.121.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.121.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v5.15.175/v5.15.174
+https://git.kernel.org/stable/ds/v6.1.121/v6.1.120
 
