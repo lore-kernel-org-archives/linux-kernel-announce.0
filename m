@@ -1,28 +1,28 @@
 Received: from smtp.kernel.org (aws-us-west-2-korg-mail-1.web.codeaurora.org [10.30.226.201])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65329299A8C
-	for <linux-kernel-announce@vger.kernel.org>; Fri, 27 Jun 2025 10:45:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 537A11C863B
+	for <linux-kernel-announce@vger.kernel.org>; Sun, 29 Jun 2025 21:24:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1751021111; cv=none; b=uaEBMoqvIxbHanhD854mi3PyzLfMeQU8zS6w2LgmQlqL+MhJGctRTym2/iKXGyTs1+R9DWoij2T8BXhP49SHvK0OIVzBZBebRr05XDTxaRbDgAWFkIkZDcPEa7EmJg3fH4kSF+JHc6cY5dx/00fn7AfLI2LVEon7r0lHLTj5+Mw=
+	t=1751232284; cv=none; b=R7lXRW7qxKX/srBcBSVk1OxMVFaiQBSigibayansV4v0XJhiQ6FcnDMN0EGo5+4p1KbZ02lrLbbSzQwQcRdMel06mu0zLBMkZAWYx2DVqL1t8RBfr/VkJKtNsQ/6ubbKbZ0f6bObN9IiUrAAyj5gDd45NMggC7YI5ZS3VcO7Lhc=
 ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1751021111; c=relaxed/simple;
-	bh=jJMJJvc4a2dkbHy5ogXN2r3IalKSVcNoxmPztI20nbk=;
-	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=alQYzJel8AI8ndqzKhCoMrNBTi5l2wJP5m34CxfF0qkL8V2S8WgetVzHG7jhMtfFZkiGYqQpdVkmOvDO6Qiaa/XBWL7R2YePJIjhFSu9scFMh5MwNbotZhh+gJhEiFrBmQPhNrwk80h1EklSeWswhRDGnZ8MyfynhMdPXW4VBus=
+	s=arc-20240116; t=1751232284; c=relaxed/simple;
+	bh=9S1YPYRQK+bYmPeOOVz6F34DPoToPMw1UY6Jgb4j6RM=;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=ofVojK3l4utgbVFgHtJ8y1W4BM0jUfcuYRI4WsaDULCxNZUp8NuQZ+rtElTM5RPhZ9CO+Pn9IgfX9bhPI6ZIrTt3zwL4v0zp7orPIPP3lbMOFZOmtGVLS+crNuT46ZKsTwZG1GaGTVCYqC2XuDhbqq1HUY22iPT3E1G4uRMG/9o=
 ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.kernel.org;
-	s=subspace; t=1751021111;
-	bh=jJMJJvc4a2dkbHy5ogXN2r3IalKSVcNoxmPztI20nbk=;
+	s=subspace; t=1751232284;
+	bh=9S1YPYRQK+bYmPeOOVz6F34DPoToPMw1UY6Jgb4j6RM=;
 	h=Subject:From:To:Date:From;
-	b=Y6jy1WPnjkyEhZEdnaBwJKdJ9nLsqaIiIcy2f6Uw4+g1JJx98TS95vUaqbmTsquKR
-	 7UhjSf1DlqPxRpDiETiKsSX9rD9RSsUuphCH6RgFL3KHasgPfUx3B5745QrlutGPX6
-	 h+Xol0O6rI8gs/4WDsifB6FoI176qqp3Cty69agg=
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3CE3C4CEE3
-	for <linux-kernel-announce@vger.kernel.org>; Fri, 27 Jun 2025 10:45:10 +0000 (UTC)
+	b=bPm2Lc8r008FFGcVvKi/ugFqbAkNVJn/tXujz9vi2FBCyjSyhbtfDewnfEDSsVxy+
+	 AScKrbkk3ctojRryJ1QMQ8GDdz6ZBZ5SSJwtt8BYNffz68wGsqFKGrXUMZQIUszOFL
+	 GVPi916+fZf0oeq6at7gdirqAjRyY1XGavzN6gyY=
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD2EC4CEEB
+	for <linux-kernel-announce@vger.kernel.org>; Sun, 29 Jun 2025 21:24:43 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 376AD380DBEE
-	for <linux-kernel-announce@vger.kernel.org>; Fri, 27 Jun 2025 10:45:38 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7478E383B26E
+	for <linux-kernel-announce@vger.kernel.org>; Sun, 29 Jun 2025 21:25:10 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 Precedence: bulk
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
@@ -31,21 +31,20 @@ List-Subscribe: <mailto:linux-kernel-announce+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel-announce+unsubscribe@vger.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 6.15.4 released
+Subject: Linux kernel 6.16-rc4 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Fri, 27 Jun 2025 10:45:36 +0000
-Message-Id: <20250627104536.release-6.15.4@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 6.15.4
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.4.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.15.4.xz
+Date: Sun, 29 Jun 2025 21:25:09 +0000
+Message-Id: <20250629212509.release-6.16-rc4@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 6.16-rc4
+X-Linux-Kernel-Full-URL: https://git.kernel.org/torvalds/t/linux-6.16-rc4.tar.gz
+X-Linux-Kernel-Patch-URL: https://git.kernel.org/torvalds/p/v6.16-rc4/v6.15
 
-Linux kernel version 6.15.4 is now available:
+Linux kernel version 6.16-rc4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.4.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.15.4.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.4.tar.sign
+Full source:    https://git.kernel.org/torvalds/t/linux-6.16-rc4.tar.gz
+Patch:          https://git.kernel.org/torvalds/p/v6.16-rc4/v6.15
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.15.4/v6.15.3
+https://git.kernel.org/torvalds/ds/v6.16-rc4/v6.16-rc3
 
