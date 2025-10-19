@@ -1,28 +1,28 @@
 Received: from smtp.kernel.org (aws-us-west-2-korg-mail-1.web.codeaurora.org [10.30.226.201])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A7531960B
-	for <linux-kernel-announce@vger.kernel.org>; Wed, 15 Oct 2025 10:35:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA562E62A8
+	for <linux-kernel-announce@vger.kernel.org>; Sun, 19 Oct 2025 14:35:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1760524552; cv=none; b=emaxHyBWxgeOO7YY8o3Xt6ab5FiC67YnoPkMXVsbDeFGpXJSMd1u3zKZkS11wDpu3TbWLGS8duDAmUDuBI3nq+M0Wm4I6uCyohtf3S2i42qiCuQ69+j+mAmV7nVDMCdyFxCrZsruOf7T+wwxszVM9y7Ow7I3rP7CMhBjAGv4Nhw=
+	t=1760884558; cv=none; b=SG7JIU2Z30CrI6A0t+poyyXO1XJ/TTTzFX1in0ArLQU5ln/Na205swr78pzVGgXUG4OwXerJ5jBFrYvR+HTCD1gTHKbOdmWJba7Y7uwncgQVetGrkAbijg50vlV8B9bqDtQAkal7iH7aMhxK74ABEiKcG1ubVaOuPjBsWRSVhaw=
 ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1760524552; c=relaxed/simple;
-	bh=wPhkvc6ORq9KMHO3IEjg1UKnUZD91bsaJh3/19KT4hg=;
-	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=P6wh8Llfv2DUVqO7yu60F7zh1+5RshGWbhNz4d5SVkXxEmd2NeF39Sp5dM9uAcucjV1FVuZelZcNjTIGWrmoGPtePUUkWIwZOGR1OwWtVRJVZSawB6xnCjFfP9N1ei3w4LjKysHjQFls7IbjCRAR6BEhOo2lPF8IqJlackWE3So=
+	s=arc-20240116; t=1760884558; c=relaxed/simple;
+	bh=GaEr+qGFGZJiddbEnco/k5X8YnP0mPmBHUV1EwpEmEs=;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=M2O2+5mPIjjr/GDU55zth1f4LF7WJKCYlo00zrk1n7w2x8N8xQJhk5gnttUzzxtWjI5hDPoUECx6qspX8XI/NJE70+MvjzoCBeh1ovCKjSBaRYcxNSX/MoA/nfJGy52Q6XfRTbwvxPT0vHu51t8q90k9jqp/vir3j8dn+SmNYe0=
 ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; arc=none smtp.client-ip=10.30.226.201
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.kernel.org;
-	s=subspace; t=1760524552;
-	bh=wPhkvc6ORq9KMHO3IEjg1UKnUZD91bsaJh3/19KT4hg=;
+	s=subspace; t=1760884558;
+	bh=GaEr+qGFGZJiddbEnco/k5X8YnP0mPmBHUV1EwpEmEs=;
 	h=Subject:From:To:Date:From;
-	b=pqRMZTxwP9nJDKmftrnHYKNvgKfElJz4q3RN86bPiebnAouphDUjnxfcO6rxOsaZT
-	 AUHRzHJolkMprOiM1Df+RjQVzQRJo+nvVsAmrzkKO/VKkxm49FO45uQLSMWxQ3//Sn
-	 gkWfBOiVegNWsEDBOV5ydL8tM3lHhmN+YgCE14y0=
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65956C4CEFE
-	for <linux-kernel-announce@vger.kernel.org>; Wed, 15 Oct 2025 10:35:52 +0000 (UTC)
+	b=m9sZAPv/6pK0GLeeFWBs1bXK049jToNZY26QVydziI0NHwjfSGReE/QvC1pL+CW7d
+	 UkR+WO7vQtIoht8DVtktOaceE5G//zxLEZJeaKbHBapFcJPuGH3Gf5+k23K8XcSOo7
+	 QpWU3I0T4d02kVt4OlIwvLvCriiIAWcoZHKPLilk=
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D15D0C4CEE7
+	for <linux-kernel-announce@vger.kernel.org>; Sun, 19 Oct 2025 14:35:57 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 749CE380CFDE
-	for <linux-kernel-announce@vger.kernel.org>; Wed, 15 Oct 2025 10:35:38 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 88DF039FEB71
+	for <linux-kernel-announce@vger.kernel.org>; Sun, 19 Oct 2025 14:35:41 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 Precedence: bulk
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
@@ -31,21 +31,21 @@ List-Subscribe: <mailto:linux-kernel-announce+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel-announce+unsubscribe@vger.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 6.17.3 released
+Subject: Linux kernel 5.15.195 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Wed, 15 Oct 2025 10:35:37 +0000
-Message-Id: <20251015103537.release-6.17.3@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 6.17.3
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.3.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.17.3.xz
+Date: Sun, 19 Oct 2025 14:35:40 +0000
+Message-Id: <20251019143540.release-5.15.195@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 5.15.195
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.195.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.195.xz
 
-Linux kernel version 6.17.3 is now available:
+Linux kernel version 5.15.195 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.3.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.17.3.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.3.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.195.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.195.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.195.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.17.3/v6.17.2
+https://git.kernel.org/stable/ds/v5.15.195/v5.15.194
 
