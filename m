@@ -1,28 +1,28 @@
 Received: from smtp.kernel.org (aws-us-west-2-korg-mail-alma10-1.taild15c8.ts.net [100.103.45.18])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C3A323394B
-	for <linux-kernel-announce@vger.kernel.org>; Mon,  8 Jun 2026 00:24:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 723193F4853
+	for <linux-kernel-announce@vger.kernel.org>; Tue,  9 Jun 2026 10:40:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=100.103.45.18
 ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1780878278; cv=none; b=Bf+vH92P9qiIZcyrY5yxkwdhzlL4Fgm9Yo+E05lYtLhMSDdIojKiAwVAIO/9newLHWPeSM3P8/S4BgRzhwTLuDlsxexWhUp37zTpHnzSZKrTRWv4Bww5b231jSG6i+vIwygu98g3Lv2hDH4ry618tnFyMTu7yDQe7tNCzshaTFI=
+	t=1781001622; cv=none; b=rhSBlEHXkU1XKINAS1jKUde5Q3uml6KRl+hQor/1pX/ORtVx1V4UvmNV4JEarFWoTSacjSaTpt1ogUtzE2JIHXRcSwKkDszrmcKscVeMI0vNaJXsq8wzKarZDVylE50Y5CnKOcISt8bPtQDEVDoXd/YIbEfH+aarzC+q+ZxZM98=
 ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1780878278; c=relaxed/simple;
-	bh=JNI6wzI7TZO5oVax5Bsr6DEIuyU9xfAzz6VsZhOslKU=;
-	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=ooeJ/27HEcjbafTb58+2LydFp32N0yKneQgNwJyJtxvsyZUQyGvV+08dxrYWGRn01t85aobgIhMWQo8T3IOmZxW3Pu4qCbYrwiDX1u7h3s/LTnZLNjLQeidMDYXEv0oJC+Y0H1ucsTCNe+kDJxVzcqT5kxtO8tpY8y+6hed6ZEg=
+	s=arc-20240116; t=1781001622; c=relaxed/simple;
+	bh=vH7SDDYyfAeiJliMR4IRMiezM9oGZULPlbwjoxKg0iM=;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-Id; b=c2Kx6e5w/Aks67oHs6Gm4fvWKGfOORlcszts1NlO4MsqPQHr4ggHgvAlaxhHpIdNz6uMc2CRdl4Ksp95UrArR01fGWjrQ9g+Upx5sDE7zANUPnWpev3FiAFeGnelFtPj+RglLrZuKRUk6N39meer9HbUjArxJ+W0zQt9Nj31i1w=
 ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; arc=none smtp.client-ip=100.103.45.18
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.kernel.org;
-	s=subspace; t=1780878278;
-	bh=JNI6wzI7TZO5oVax5Bsr6DEIuyU9xfAzz6VsZhOslKU=;
+	s=subspace; t=1781001622;
+	bh=vH7SDDYyfAeiJliMR4IRMiezM9oGZULPlbwjoxKg0iM=;
 	h=Subject:From:To:Date:From;
-	b=rlYI1EFTpX6ePM5DkbMzpwVHrIMv84ovdEcIGFNviE/bD3NeahwbLn7KJxRVt9iTn
-	 vvVXpd8e89y7g7Ficm/WiW5SG+gTi6triKZ8o+cE5k0VLiWzkuRAg8nRbnLCHIm0Kf
-	 O0TgEgv2c+XBHBrP33gHAc5c3RXZ5LiYBGCpi26I=
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E57C1F00893
-	for <linux-kernel-announce@vger.kernel.org>; Mon,  8 Jun 2026 00:24:37 +0000 (UTC)
+	b=nZ0vWtPTvpZpiCBdlNAJBfAA95cjSsRKRo5iRAqfZ+vo6O+ADqY/vcFHOg+UVWau9
+	 GR3HgRe0abkvoSZlHBIOmAI/fusJJ1itRsYZy+VXmJv53ymNHuOq2XEw9FXTEjKXz6
+	 824l/nlMMhH/QANoLZe0SxWJTZqqSnoWeih6XVcA=
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 280EC1F00893
+	for <linux-kernel-announce@vger.kernel.org>; Tue,  9 Jun 2026 10:40:21 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 965AB3930CA3
-	for <linux-kernel-announce@vger.kernel.org>; Mon,  8 Jun 2026 00:24:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0D4A3930884
+	for <linux-kernel-announce@vger.kernel.org>; Tue,  9 Jun 2026 10:40:20 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 Precedence: bulk
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
@@ -31,20 +31,21 @@ List-Subscribe: <mailto:linux-kernel-announce+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel-announce+unsubscribe@vger.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 7.1-rc7 released
+Subject: Linux kernel 6.12.93 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Mon, 08 Jun 2026 00:24:36 +0000
-Message-Id: <20260608002436.release-7.1-rc7@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 7.1-rc7
-X-Linux-Kernel-Full-URL: https://git.kernel.org/torvalds/t/linux-7.1-rc7.tar.gz
-X-Linux-Kernel-Patch-URL: https://git.kernel.org/torvalds/p/v7.1-rc7/v7.0
+Date: Tue, 09 Jun 2026 10:40:19 +0000
+Message-Id: <20260609104019.release-6.12.93@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 6.12.93
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.93.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.93.xz
 
-Linux kernel version 7.1-rc7 is now available:
+Linux kernel version 6.12.93 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-7.1-rc7.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v7.1-rc7/v7.0
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.93.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.93.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.93.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v7.1-rc7/v7.1-rc6
+https://git.kernel.org/stable/ds/v6.12.93/v6.12.92
 
