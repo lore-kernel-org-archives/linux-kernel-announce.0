@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793363423;
-	b=SOB/3lEvYl00LeYDZX6OCpwY91QrU39dmNXNPeCzBWUMIx4M4gggqw7u246TEuRnqwC3
-	 d2T+iTpSK28Z+ljAMoNdh0akiyedfxhjmNQC+5DtKI+KoWoPWaZcBoxZ8WQOmENsGL1BN
-	 U4PHlYGJK5Z3VrkTr8YCuPMt3c2bvSRZ+R8zPWTmuWFtrfAVVinxQ9cdwP9EjgvnZs65D
-	 ZOa8mgi/906FR4Wx/Y/TnZuDTti6ep0CgCNHdj9bq2JoiQhORkx5ST1CwGng3P0n44AC8
-	 IxoEfkAQTAAOavlQMUY1niyEts9blLd1GksFVba1sBE9h3W9tDt8V5XwN4Sp0UB4s+A==
+	t=1793363722;
+	b=foTI4wWvTJIbU3/R9u+/LQ+CljzMeqfqjMF+8dK/Ou/lUJjDwY2BJ7a3UB0o8hIuAJhC
+	 K5bXAtS6yUKdvTIVKkWnKcrAjzQKMT9gs7eki0x4aVqQ0ajDHemesN9D6XNudu8oDRx5b
+	 koLY18eX5CawfzRk/6QRSvkQ3e4R+VKS+fRHNA1CzXZH4q00fYfc98Tly47RREScB9ZRG
+	 RVgwkAiDhrbH0eRZ3rkm1/+kIBYLWIFP1djnUla31/OxTRZMsSR4BwfiOIRGlBE9Jib7u
+	 17ryR2+F4cd0YqkOusaZpt5+R21++9VpJOq0pk9CEMAcaAi0CGTMHfZErfu8Ga1JCUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793363423;
+	a=rsa-sha256; c=relaxed/relaxed; t=1793363722;
 	h=DKIM-Signature:Received:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:To:Date:Message-Id:
 	 X-Linux-Kernel-Version:X-Linux-Kernel-Full-URL:
 	 X-Linux-Kernel-Patch-URL;
-	bh=Tp6ieBI0lP3Aocl9kmXLGFyFlzc4bRlyJgv8J+zPnB4=;
-	b=JOnpL0cAgOZUkBpNKOLHFtfG7uhfOXbGXG4LrTB81s7rrX5n75c3IeMoAhZP1spvTkGJ
-	 Q4F1apYjoCUD5GZiJSlwPlmkHjWtbnWqjzliB1gMlHWVv7thfdB94qhw0hh/wQNa7gV7i
-	 yuOfK/m6rIxQP/4LcS1KtIXSBzL7xpZACFUq0mNHHCAfciQcJsb5RU8H+GhMyyRf0u3ZT
-	 bgngUUk+7Ti7H+RNtRKsSnm5rSrY8k0PSckwvEsPeGhSjxk5823k993IxyhfHuyrhTZmf
-	 to66bjkiE9ByQpWUzpPv1Y7tbDD1xLsX/Z9kS6Z3g7quMdW03jFWdaoI6lTlRm4CkIQ==
+	bh=/2ZbCPiC/0IUudvkkFuHQ2E1Uhdk1mHy1eveMtYb7VA=;
+	b=2RYsbp/gp0EkCycTY3SUb0Ni2PIeTJnvt9nFHlBtw8cq97ctT/ILI5HNEULv0yAbccG/
+	 cmXoTRqQ12q8hwpBYtT5aoVQ7KpZisROowgq6xvSPwVXtkR5MKK4pphUrgpnEwbg2z3N4
+	 IP6oxZk1AXyQaBP1yK4nfRvyOZsqM7NoHV0Gv8Wl5Z29llBG45CelSuN0Qu4e2tEBmOSF
+	 tjsw3Jpp4mtDAQSEbFsV6fJ1O5V+4o1pujd3r7Pg8ZhG7ZsUYTP9d4LiFN6syhMR2gakz
+	 mzQNPgd7FECFPWN3RGxAWXqAVdiTNiKfk90/d7x8R9aGazsRaFhD+tkgSj9hpAvLy0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C71A606A325
-	for <linux-kernel-announce@vger.kernel.org>; Fri, 30 Oct 2026 12:30:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 059A1606A31A
+	for <linux-kernel-announce@vger.kernel.org>; Fri, 30 Oct 2026 12:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.kernel.org;
-	s=subspace20261015; t=1793363423;
-	bh=Tp6ieBI0lP3Aocl9kmXLGFyFlzc4bRlyJgv8J+zPnB4=;
+	s=subspace20261015; t=1793363722;
+	bh=/2ZbCPiC/0IUudvkkFuHQ2E1Uhdk1mHy1eveMtYb7VA=;
 	h=Subject:From:To:Date;
-	b=p3hpn7Ij4hjwna25hDh5iym0czQ+ZDa8AG6Y0+JBsKZCU9wnvxhycGd3K32RRcB+e
-	 WKd3hodHjNqEolAihHC/uG9e0sNHzjkkYz35QmH7d8Rvzx6bXNwD4/74zmhWqy99mA
-	 V1AYjvVxi8yMdM8Px46vBP9AYyDL2Y1TzQRdSaHQPkHO0US1h+zyA9zjQt2/HNW0r0
-	 g7V9Lw23h+GJkZOshaf0T/PyWiXRugKgZLGE0S2yJYu9LM5N4+L6t+IOQkec4XDEYh
-	 Z7U/g7XkdR631R1MFFHk/sZRTBw1Jo+MdV76CXZR6OR6CA+jBYcL3LFmXUWX8nz+OW
-	 odqBbL0DSeL+A==
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DE501F0093A
-	for <linux-kernel-announce@vger.kernel.org>; Fri, 30 Oct 2026 12:30:23 +0000 (UTC)
+	b=TBG31w7W/+oM3UFZmpN05J0sZkOcINhWK2qw2YrA/orfDAxxOSpKuX/sysz8kBSIJ
+	 MuwLfjxAweuZeAMqCz+PWbh9EsmoSVe95yZd5DeIw+YUJXPVrPg3ADa2NEUNFdF6Z/
+	 xzm4ZB9CE+dfkEyI6aWdKEb1cUVN/+vc7ZqMAYXkKo5xs7tWxl2qr+UKqTc+DRNZ5V
+	 iqi4NiQUFfrprfi19OHZ3maxkkQajDLaD3aC8Y3m7fBPXAv+bSTpyOLrHdI4q3uOQk
+	 YglFj9EAqdZgxyB5oZrvzBcPH8P/UgOD5wmMPsGYpms3FVHm/9FHWOA2EEPLUcu+Q5
+	 +BM3+DTgL0caA==
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEB8C1F000C1
+	for <linux-kernel-announce@vger.kernel.org>; Fri, 30 Oct 2026 12:35:21 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02F59380045C
-	for <linux-kernel-announce@vger.kernel.org>; Fri, 30 Oct 2026 12:30:23 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7FD9C380045C
+	for <linux-kernel-announce@vger.kernel.org>; Fri, 30 Oct 2026 12:35:21 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -52,21 +52,21 @@ List-Owner: <mailto:linux-kernel-announce+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 6.12.115 released
+Subject: Linux kernel 7.2.14 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Fri, 30 Oct 2026 12:30:21 +0000
-Message-Id: <20261030123021.release-6.12.115@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 6.12.115
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.115.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.115.xz
+Date: Fri, 30 Oct 2026 12:35:20 +0000
+Message-Id: <20261030123520.release-7.2.14@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 7.2.14
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.14.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v7.x/patch-7.2.14.xz
 
-Linux kernel version 6.12.115 is now available:
+Linux kernel version 7.2.14 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.115.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.115.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.115.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.14.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v7.x/patch-7.2.14.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.14.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.12.115/v6.12.114
+https://git.kernel.org/stable/ds/v7.2.14/v7.2.13
 
