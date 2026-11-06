@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793570660;
-	b=aw/uDR1arQI8xHxC8KnylNE2kNngy2xaJ8UNYZxsWoDxK+q6rtV2s9BlHoc1pJStnycm
-	 5mWjcWJb2VUJ/734mZmSbhRSvuxgqcYjYuJPVe4UYM1W5gZ4B98cwPadTtzdh7nPMLFq/
-	 TxaAJnzJg72y2je/L5VpBzCH3f1xzHqIwU5l1k8y63ITfS+sYRWMOCIGZEUnQuGiImawG
-	 +EbvlmdqnL0pJ9ocKHSxwQQOZSlz7qOwIxZYkABBt+1DDYNOanwiVeUd0wr8B2oeHy1+2
-	 QbDNrJCOAO1JeChkaET9B0TiTMw1FcefUV69oN9nDEwYizIfelCi9eUzA0kLSTtY8uA==
+	t=1793985924;
+	b=V9T8IS7fVwdtIhT16NylGQA5BHI5LtQJu2yufReJHJ1JnX7cvWF3XQ74Llq1W+YdlPn+
+	 uGxenSty8HDHu5hk0/sSnU5tncD5RcI7wK0Yu1yUCwUMoa4JHcIZEdjN3dDGuCwgSsFW4
+	 eAHGFhDnJIo74GDSWVrjFMyASrQmxcDTn1ddTbYBXJ8IB+kq5y8Gpt0Yh2LC56xKCdY+h
+	 39FIEV7287YCH39SK/Zq74cD13/hqxgg5Xe1qBfmkXH1jJlagHARJzA/sWDs3yx8k2f21
+	 vgmSGUyc54NLX5X1Aetq2icyH9E+iaeaB2EOypTcbnjPcwVQv3Gxu+ALBCr3GGRTH4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793570660;
+	a=rsa-sha256; c=relaxed/relaxed; t=1793985924;
 	h=DKIM-Signature:Received:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:To:Date:Message-Id:
 	 X-Linux-Kernel-Version:X-Linux-Kernel-Full-URL:
 	 X-Linux-Kernel-Patch-URL;
-	bh=XP1Eb92Vm6/Q+9Y+mDhNvL+wnyehpw0n8gEyaLobmDM=;
-	b=5tWE1t294IWOMrJPSNfBiDWiMjopj6mxXb2VwCmPFPCGTYfRNekrpjYKyLcyuFJHpdr8
-	 OxZ4gV0XEcT04EbMwHFST7uMW1qFAh57SunyTl4OQ3mSW5SLTOjppb4G8Uhc/8C7Lcy+b
-	 GjKYTtXgYr7NqjKFoVg1dPtWSsk5cTxNoNUZmGBnRkRySbRXz+8mU8StPLBIj46cLM8yp
-	 AJzVrPgPZzZ6av2XPowLVy17XtoNlVG4Z7noFXFZiWlHzGCslVbaHsCUaQJCBmDDxQA8U
-	 jV30jY/0qZXpsIkGoUD0p9fXFvUz2mHCQgvoo17WiPqF9fO1PtI4BCByjI72WDOms+A==
+	bh=F26FSHc73RGVlNvcVstzDs7wBYfZS7/QiQoradttTko=;
+	b=1WwBwW3kK/vPgBQwEOrE4mQJqDSzNiSac2lJeCmRBPjhtfLIk6mNgw6sFNwa2oFuNxw3
+	 W40AWuh9PHwGJ5aLwGxSo+AbKiFXFdMbzqZWNS+h1bp+ZLiW46az5f6h0x0alXgBC824+
+	 nH/2vSIyLdKyTIrvtsahdJvlUVCRT5Dg150AWKLNMmh40ScJqV6PnvZRF9V/DFKmKSPTW
+	 drenlBHp8QQpLMAtuiJIt2rXJ4vRSfnsNyjfOVf+Y7SGWXuFopinf9wFOeQZWsx97oYpc
+	 fQqc0nFHfsPOy/pcuuebHwTqjFUsTekMVPvy+M/Tp5/6ADu3ZEJD3Z9JE5Id1wExTHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB580606A32C
-	for <linux-kernel-announce@vger.kernel.org>; Sun,  1 Nov 2026 22:04:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F2E5606A326
+	for <linux-kernel-announce@vger.kernel.org>; Fri,  6 Nov 2026 17:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.kernel.org;
-	s=subspace20261015; t=1793570660;
-	bh=XP1Eb92Vm6/Q+9Y+mDhNvL+wnyehpw0n8gEyaLobmDM=;
+	s=subspace20261015; t=1793985924;
+	bh=F26FSHc73RGVlNvcVstzDs7wBYfZS7/QiQoradttTko=;
 	h=Subject:From:To:Date;
-	b=ew9zmUMMhQihrROB/BEOn2CwvLqeTrHtePFlg2iv+U5OPJpPI1+DUGmM25RZXMw2I
-	 ux8JDTXkYY5sowkEgzq9Nr42hVPjSdFCTPLmUDYeTTl9IYiKAzjXBaFCxH7ygFHRL6
-	 KR5BQe4QO2pVdjgVKj4pb0ULFr+ENpQQbaF3EEyQ+/A3Isp9W4U06f5cgokdC6XpxF
-	 Tkt69lvkyxBqBVPLGMZPhryosKaLesrcwA4qHrnJcSfaXHdFH2uQmmOxWYEGcerafs
-	 dL0Rf0AykVxHxGSzH5GPXXK+IKkSWkBcppvBXmYvbpIN2BsFKEk6TPNE3hdgdyhzWt
-	 3D34DbLTa16Hg==
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 691601F00A18
-	for <linux-kernel-announce@vger.kernel.org>; Sun,  1 Nov 2026 22:04:19 +0000 (UTC)
+	b=KxOv/S8nOuA7zH1T/RNT8jGeDHTtJDyu3UzJEebgG0zEgvDpLL+CBrFK01ur5MF1t
+	 BnqYc7Z0ZsUEPPok4WwsiMTSLtW//+pbpceHi7s7q1hp1PPAJl2VG6k7k6v+0sIo+6
+	 fjzG6zRa9axgI3f8O7S4D7stcBKgkCMY7m3CeakVjTaUHUTP6ioOcCsSYhj4dJqPkU
+	 TFn26xmSleQHRl+5c3qsHSi7dzpdxN/oSMMWdwUBnXQokfsLmgdzhGDzJfyghWlz3C
+	 hbSZMb3m/n+L0XLZWUST3nB8JHjlGZKVjuiWTJZD9TYOZPyq8yrgqld3KIJLpM06Fj
+	 ulI53bhMxC4zw==
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E6791F0089F
+	for <linux-kernel-announce@vger.kernel.org>; Fri,  6 Nov 2026 17:25:24 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 42EDA38003FF
-	for <linux-kernel-announce@vger.kernel.org>; Sun,  1 Nov 2026 22:04:19 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id DB4CF3A41004
+	for <linux-kernel-announce@vger.kernel.org>; Fri,  6 Nov 2026 17:25:23 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -52,20 +52,21 @@ List-Owner: <mailto:linux-kernel-announce+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 7.4-rc1 released
+Subject: Linux kernel 6.18.61 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Sun, 01 Nov 2026 22:04:17 +0000
-Message-Id: <20261101220417.release-7.4-rc1@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 7.4-rc1
-X-Linux-Kernel-Full-URL: https://git.kernel.org/torvalds/t/linux-7.4-rc1.tar.gz
-X-Linux-Kernel-Patch-URL: https://git.kernel.org/torvalds/p/v7.4-rc1/v7.3
+Date: Fri, 06 Nov 2026 17:25:22 +0000
+Message-Id: <20261106172522.release-6.18.61@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 6.18.61
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.61.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.18.61.xz
 
-Linux kernel version 7.4-rc1 is now available:
+Linux kernel version 6.18.61 is now available:
 
-Full source:    https://git.kernel.org/torvalds/t/linux-7.4-rc1.tar.gz
-Patch:          https://git.kernel.org/torvalds/p/v7.4-rc1/v7.3
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.61.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.18.61.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.61.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/torvalds/ds/v7.4-rc1/v7.3
+https://git.kernel.org/stable/ds/v6.18.61/v6.18.60
 
