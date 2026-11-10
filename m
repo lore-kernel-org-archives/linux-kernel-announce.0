@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794335126;
-	b=TuuYN5gU2KWP62xvEdVEbvmePoxVeapfO/jO9IjoxT6IRWtH90M3mYrc8SkyldYM+7fi
-	 WwgIw1x1W8kIrEGdKzxggoGhPUmDFQ2mQCJNtHet3Hk3C98+aaaqaQKQRTuULHv7QOE33
-	 y2eb4LAxcxHNwqKO83ap44cfmisG7mPjcXqQg0IgCMghbyLZZGCQ1Qm52N8pJEjy0vr7U
-	 74fomUzsSZBcWxlrpGgEs4sskfalyoIVxUcDMwU4BVJZh9uz+ZmhWbcEKg4uraIPnMDcJ
-	 fNGOAXisDUIfiy47vZq+3knEo6gpvzafv8Prp2n21knHRFezve8bKf+6xkqs8M5xjHA==
+	t=1794336024;
+	b=vz/CyGnzYrjJCf4N1hXbkA73Tn5qvyarcIl1xkKHQaPXOPlsvFc2lq3F+NNhK4nJyiGm
+	 6K6v8eqfMqbsxkaksViCgNKuQeeA5yCW3tBKYIQ4qKG9o7k+tSoYNWBkfZpay2ORWgqrK
+	 8j1GbYHhYAlZAOyYGq8DqqX/cMTBeJXh+PWlJTnudNcGSiahYSrljnVn/fZ7wajp/CnhE
+	 h/JAOzfLiMFKmnTLAlLlwIFZC191RZEMJbbXWelkuHhOHN5XS+b0potvGLsVh/4Z0UQvx
+	 1JY3aWbdAPNWsJZ8se3OndtprTHyVKNqLA7EDktcuf4VdHnBLufxZDYea55c1EgTNkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794335126;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794336024;
 	h=DKIM-Signature:Received:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:To:Date:Message-Id:
 	 X-Linux-Kernel-Version:X-Linux-Kernel-Full-URL:
 	 X-Linux-Kernel-Patch-URL;
-	bh=8hLbsyaPS/XtFPwUOMwUE4XIFBd4LLejbMpAqsHyW8k=;
-	b=PTlXs7aGtxiP1vdOMEiv5TbjJsU5f+IL3SilhOOiqPUcLwGR7PTlw6/hjtKhuHq2q9QL
-	 Qf2RFfk5UuLsKVWamCgRZtYE3+zrfOAkV7KZNewyidkRdY29qKqVACsVFTCC6qVbLJtHl
-	 P48jvb539xUbmnBLcWj2O3DjKAZ5PScyIIlGj4c7386Zqo+MQWx3tJMeejKdEyRlb2Xye
-	 y6dmCmi+P0j8IxCCSKr2kx4SpOqGsPKnqBValGNjI0OCbp+PxeYl7f9W3IYu0f0iVWLuO
-	 nJAZVLvdUGaByRoZwyFAIrqy7GstcY4m5ma6GSHAOwDKxN2OueBeqFfZIKHUkAe35OQ==
+	bh=cFCAgDMT+oQ941NUsFyzZ/Zdwr67seSRP4D2fAwA5/E=;
+	b=IQhuqdtpbwpoH0BhpldRTgLrZI3KP26a/ZwSgp9O73h/ZaE0KN2uD7N7BCrPlueDZueZ
+	 ZF5xrnIluSDozfaWufDQvhXxG04cProUu8tTXUWrUEUJ03HzVKCNHh+lpan+1CFgBrixj
+	 BS64a5sn1g604P0iAc0OGumIDL8mX21GoLczaRMCx1LcCCN8QNCUkq4wXpCqywgQGuTFf
+	 sYh2wuBlU+BqYIxVkPTBZLlsCa6ISyPtDtLRrakDdUaYEJyKKzBQdEfPrVInt7GnkYq3+
+	 tlrFlqcgAv/qaTYWH1S/NyahT5o51/1TJcc7BTHxaSZjxfZbBJWlK9DT7MrBmkd0vHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14337606A33B
-	for <linux-kernel-announce@vger.kernel.org>; Tue, 10 Nov 2026 18:25:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D085606A915
+	for <linux-kernel-announce@vger.kernel.org>; Tue, 10 Nov 2026 18:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.kernel.org;
-	s=subspace20261015; t=1794335126;
-	bh=8hLbsyaPS/XtFPwUOMwUE4XIFBd4LLejbMpAqsHyW8k=;
+	s=subspace20261015; t=1794336024;
+	bh=cFCAgDMT+oQ941NUsFyzZ/Zdwr67seSRP4D2fAwA5/E=;
 	h=Subject:From:To:Date;
-	b=tnhTYBKOFBKc5WGWxMLyg7zZBcfFy/xHLACLGinLgnovZCd1WrQmuyLx14ZVEsAYv
-	 RwNLbo+AQS58C93T5kGLsadSCYaQeUhvtfDUeZu0OxkDGbTAcOQz601tXZBJBErzqf
-	 0iLW3FVU5q0Oyu/+SKWHqaHlkdU/YhEpu7E6yk72TVzkkrTd0nPrcUXqBGOvLjPNrC
-	 6WRQaLIaeRhgPP+0Y6UFvlE3kmhavo/gJw8IsxpGkMBeu+SCwCSQ7ZrEVJpAzkHIAG
-	 sSC7dsAkiLiCWni/X35i1aSdWRiyWw/po9iN6y2vD78wXVax77LqyKr5OoCvrfNq2z
-	 ShMYHHYRRxC7g==
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0C191F0089F
-	for <linux-kernel-announce@vger.kernel.org>; Tue, 10 Nov 2026 18:25:25 +0000 (UTC)
+	b=TbJa11eGLjvSGl5xTEE57+gwUyDGUL2BA+Hgez4V0VOAKKffXtu77coIRQ5wXd3C2
+	 PDemUPK7ZLPlyBDKxJCqBkhtfRNKHdI+AS+zLhTqCFf2rInNGhfBmvrguD4Dq+GAOl
+	 s408M0IQXzFGpobFGYVQdf6h4ZBVVz7PkqtsjCbowpBDPJkJMvw1aWPKaEO03sCVCN
+	 NnnZ+Tw1mDR9jLUcLfkvEuSmuwbUzitaO/h3smeh4WWAHQyqhOcwa2S53Rf3ABMNx2
+	 xt+HKU6eKQbcEGxlSSFnnkcqa9x3azyOJpomKZq3RpoSmV4AFFHJIv1YSLIivxXrZk
+	 MwY2JGH+wz5UQ==
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A907C1F008A2
+	for <linux-kernel-announce@vger.kernel.org>; Tue, 10 Nov 2026 18:40:23 +0000 (UTC)
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id E7D1239D6091
-	for <linux-kernel-announce@vger.kernel.org>; Tue, 10 Nov 2026 18:25:25 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 9EED839D6098
+	for <linux-kernel-announce@vger.kernel.org>; Tue, 10 Nov 2026 18:40:23 +0000 (UTC)
 Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel-announce@vger.kernel.org
 List-Id: <linux-kernel-announce.vger.kernel.org>
@@ -52,21 +52,21 @@ List-Owner: <mailto:linux-kernel-announce+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: Linux kernel 6.12.117 released
+Subject: Linux kernel 7.3.4 released
 From: Linux Kernel Distribution System <kdist@linux.kernel.org>
 To: linux-kernel-announce@vger.kernel.org
-Date: Tue, 10 Nov 2026 18:25:24 +0000
-Message-Id: <20261110182524.release-6.12.117@kdist.linux.kernel.org>
-X-Linux-Kernel-Version: 6.12.117
-X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.117.tar.xz
-X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.117.xz
+Date: Tue, 10 Nov 2026 18:40:22 +0000
+Message-Id: <20261110184022.release-7.3.4@kdist.linux.kernel.org>
+X-Linux-Kernel-Version: 7.3.4
+X-Linux-Kernel-Full-URL: https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.4.tar.xz
+X-Linux-Kernel-Patch-URL: https://cdn.kernel.org/pub/linux/kernel/v7.x/patch-7.3.4.xz
 
-Linux kernel version 6.12.117 is now available:
+Linux kernel version 7.3.4 is now available:
 
-Full source:    https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.117.tar.xz
-Patch:          https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.117.xz
-PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.117.tar.sign
+Full source:    https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.4.tar.xz
+Patch:          https://cdn.kernel.org/pub/linux/kernel/v7.x/patch-7.3.4.xz
+PGP Signature:  https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.4.tar.sign
 
 You can view the summary of the changes at the following URL:
-https://git.kernel.org/stable/ds/v6.12.117/v6.12.116
+https://git.kernel.org/stable/ds/v7.3.4/v7.3.3
 
